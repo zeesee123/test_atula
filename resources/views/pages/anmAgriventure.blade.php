@@ -5,7 +5,7 @@
 <div class="page-header d-print-none">
 
     <div class="container-xl">
-        <h1>Homepage</h1>
+        <h1>A&M Agriventure</h1>
 
 
 
@@ -23,15 +23,17 @@
 
     <section>
 
-        <h3>Section 1 (Forests of tomorrow,prosperity for generations)</h3>
+        <h3>Section 1(Welcome to A&M Agriventures Pvt. Ltd.)</h3>
+
+      
 
         <div class="mb-3">
-            <label for="">Upload video</label>
-            <input type="file" name="hero_video">
+            <label for="" class="form-label">text 1(white text)</label>
+            <input type="text" name="title" class="form-control">
         </div>
 
-        {{-- <div class="mb-3">
-            <label for="" class="form-label">heading</label>
+        <div class="mb-3">
+            <label for="" class="form-label">text 2(green text)</label>
             <input type="text" name="title" class="form-control">
         </div>
 
@@ -51,8 +53,13 @@
                 <input type="text" class="form-control ">
             </div>
 
-        </div> --}}
+        </div>
 
+        <div class="mb-3">
+            <label for="" class="form-label">banner image</label>
+            <input type="file" class="form-control">
+            {{-- need to add in a preview for the image as well in here --}}
+        </div>
 
 
     </section>
@@ -62,33 +69,26 @@
 
 <section>
 
-    <h3>Hindi text with quill</h3>
+    <h3>Section 2(Welcome to A&M Agriventures Pvt. Ltd.)</h3>
 
-    <label for="" class="form-label">add in gif</label>
-    <input type="file" class="form-control" name="gif_quill">
-
-</section>
-
-
-<hr>
-
-<section>
-
-    
-
-    <h3>What we do</h3>
+  
 
     <div class="mb-3">
-        
+        <label for="" class="form-label">heading</label>
+        <input type="text" name="title" class="form-control">
+    </div>
+
+    <div class="mb-3">
+        <label for="" class="form-label">sub heading</label>
+        <input type="text" name="title" class="form-control">
     </div>
 
     <div class="mb-3">
         <label for="" class="form-label">content</label>
-        <textarea name="" id="" cols="30" rows="10" class="form-control"></textarea>
+        <textarea name="" id="" cols="30" rows="5" class="form-control"></textarea>
     </div>
 
-
-    <div class="mb-3 d-flex">
+    {{-- <div class="mb-3 d-flex">
         <div class="mx-2">
             <label for="" class="form-label">button text</label>
             <input type="text" class="form-control ">
@@ -99,6 +99,258 @@
             <input type="text" class="form-control ">
         </div>
 
+    </div> --}}
+
+    <div class="mb-3">
+        <label for="" class="form-label">image(family farm)</label>
+        <input type="file" class="form-control">
+        {{-- need to add in a preview for the image as well in here --}}
+    </div>
+
+
+</section>
+
+
+<hr>
+
+<section>
+
+    
+
+    <h3>Section 3 (Who We Are)</h3>
+
+    <div class="mb-3">
+        <label for="" class="form-label">title</label>
+        <input type="text" class="form-control ">
+    </div>
+
+    {{-- now i need to give an option for multiple services along with their names and stuff in here super quick the part has to be editable in it's entirety in here  --}}
+
+    <div class="mb-3">
+        <label for="" class="form-label">content</label>
+        <textarea name="" id="" cols="30" rows="10" class="form-control"></textarea>
+    </div>
+
+    <div class="mb-3">
+        <label for="" class="form-label">heading</label>
+        <input type="text" name="title" class="form-control">
+    </div>
+
+    <div class="mb-3">
+        <label for="" class="form-label">sub heading</label>
+        <input type="text" name="title" class="form-control">
+    </div>
+
+    <div class="mb-3">
+        <label for="" class="form-label">content</label>
+        <textarea name="" id="" cols="30" rows="5" class="form-control"></textarea>
+    </div>
+
+    <div class="mb-3 d-flex">
+        <div class="mx-2">
+            <label for="" class="form-label">button text(More about us)</label>
+            <input type="text" class="form-control ">
+        </div>
+
+        <div class="mx-2">
+            <label for="" class="form-label">button url</label>
+            <input type="text" class="form-control ">
+        </div>
+
+    </div>
+
+    <div class="mb-3">
+        <label for="" class="form-label">image(family farm)</label>
+        <input type="file" class="form-control">
+        {{-- need to add in a preview for the image as well in here --}}
+    </div>
+
+
+
+    {{-- button in the last --}}
+    
+
+
+</section>
+
+<hr>
+
+<section>
+
+    <h3>Section 4(Mission & Vision)</h3>
+
+    {{-- heading --}}
+
+    <div class="row">
+        
+        <div class="col-6">
+
+            <div class="d-flex">
+
+                <div class="mb-3">
+                    <label class="form-label">heading</label>
+                    <input type="text" class="form-control">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">content</label>
+                    <textarea name="" id="" cols="30" rows="10" class="form-control"></textarea>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">image</label>
+                    <input type="file" class="form-control">
+                </div>
+
+            </div>
+            
+            
+            
+
+        </div>
+
+        {{-- content 
+    highlights --}}
+
+    <div class="col-6">
+
+        <div class="d-flex">
+
+            <div class="mb-3">
+                <label class="form-label">heading</label>
+                <input type="text" class="form-control">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">content</label>
+                <textarea name="" id="" cols="30" rows="10" class="form-control"></textarea>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">image</label>
+                <input type="file" class="form-control">
+            </div>
+
+        </div>
+        
+        
+        
+
+    </div>
+
+        
+
+        {{-- use the multiple component
+    read more add in the image , title,content --}}
+
+    {{-- <div class="col-12">
+
+        <div class="mb-3">
+
+            <p>inputs for multiple stuff image , title, content (use text editor for all point stuff remember this dude)</p>
+
+        </div>
+        
+    </div> --}}
+
+    {{-- <div class="col-6">
+
+        <div class="mb-3">
+            <label for="" class="form-label">button text(join the mission)</label>
+            <input type="text" class="form-control">
+        </div>
+    </div> --}}
+
+    {{-- <div class="col-6">
+
+        <div class="mb-3">
+            <label for="" class="form-label">button url(join the mission)</label>
+            <input type="text" class="form-control">
+        </div>
+    </div> --}}
+
+    </div>
+
+
+
+    
+    
+    
+</section>
+
+<hr>
+<section>
+
+            <h3>Section 5(Our projects)</h3>
+
+            {{-- add in the cards here --}}
+
+            {{-- leave the image part for now it could get changed for some reason --}}
+
+            <div class="col-12">
+
+                <div class="mb-3">
+                    <label class="form-label">heading</label>
+                    <input type="text" class="form-control">
+                </div>
+                
+                
+    
+            </div>
+
+            {{-- need to add in cards for this --}}
+            
+
+
+            {{-- elements and stuff multiple ones --}}
+</section>
+
+<hr>
+
+<section>
+
+    <h3>Section 6(Our Impact)</h3>
+
+            {{-- add in the cards here --}}
+
+            {{-- add in the card stuff for this  --}}
+
+            {{-- add in the image for this  --}}
+
+    {{-- our journey card part --}}
+</section>
+
+<section>
+
+    <h3>Section 7(Future Goals)</h3>
+
+    <div class="row">
+        <div class="col-12 mb-3">
+            <label for="" class="form-label">years</label>
+            <input type="text" class="form-control">
+            
+        </div>
+        <div class="col-12 mb-3">
+            <label for="" class="form-label">heading</label>
+            <input type="text" class="form-control">
+            
+        </div>
+        <div class="col-12 mb-3">
+            <label for="" class="form-label">points</label>
+            <textarea name="" id="" cols="30" rows="5" class="form-control"></textarea>
+        </div>
+
+        {{-- add in the cards for the image ,name ,content --}}
+        {{-- <div class="col-6 mb-3">
+            <label for="" class="form-label">button text(join the mission text)</label>
+            <input type="text" class="form-control">
+            
+        </div>
+        <div class="col-6 mb-3">
+            <label for="" class="form-label">button url</label>
+            <input type="text" class="form-control">
+            
+        </div> --}}
     </div>
 
 
@@ -108,139 +360,11 @@
 
 <section>
 
-    <h3>Making a difference, one tree at a time (section)</h3>
+    <h3>Section 8(Our Core Values)</h3>
 
-    {{-- heading --}}
+    {{-- add in the multiple input fields for this  --}}
 
-    <div class="row">
-        
-        <div class="col-6">
-
-            <div class="mb-3">
-                <label class="form-label">heading</label>
-                <input type="text" class="form-control">
-            </div>
-            
-            
-
-        </div>
-
-        {{-- content 
-    highlights --}}
-
-        <div class="col-6">
-
-            <div class="mb-3">
-                <label class="form-label">content</label>
-                <textarea name="" id="" class="form-control"></textarea>
-                
-            </div>
-            
-
-        </div>
-
-        {{-- use the multiple component
-    read more --}}
-
-    <div class="col-12">
-
-        <div class="mb-3">
-
-            <p>inputs for multiple stuff</p>
-
-        </div>
-        
-    </div>
-
-    <div class="col-6">
-
-        <div class="mb-3">
-            <label for="" class="form-label">button text(join the mission)</label>
-            <input type="text" class="form-control">
-        </div>
-    </div>
-
-    <div class="col-6">
-
-        <div class="mb-3">
-            <label for="" class="form-label">button url(join the mission)</label>
-            <input type="text" class="form-control">
-        </div>
-    </div>
-
-    </div>
-
-
-
-    
-    
-    
-</section>
-
-
-<section>
-
-            <h3>Section (Our Business)</h3>
-
-            {{-- add in the cards here --}}
-
-            
-
-
-            {{-- elements and stuff multiple ones --}}
-</section>
-
-<section>
-
-    {{-- our journey card part --}}
-</section>
-
-<section>
-
-    <h3>Our Purpose & Vision (section)</h3>
-
-    <div class="row">
-        <div class="col-12 mb-3">
-            <label for="" class="form-label">title</label>
-            <input type="text" class="form-control">
-            
-        </div>
-        <div class="col-12 mb-3">
-            <label for="" class="form-label">text</label>
-            <textarea name="" id="" cols="30" rows="5" class="form-control"></textarea>
-            
-        </div>
-        <div class="col-6 mb-3">
-            <label for="" class="form-label">button text(join the mission text)</label>
-            <input type="text" class="form-control">
-            
-        </div>
-        <div class="col-6 mb-3">
-            <label for="" class="form-label">button url</label>
-            <input type="text" class="form-control">
-            
-        </div>
-    </div>
-
-
-</section>
-
-<section>
-
-    <h3>What we are working on (section)</h3>
-
-    <div class="row">
-      {{-- cards part --}}
-    </div>
-
-
-</section>
-
-<section>
-
-    <h3>Technology-Driven Agriculture (section)</h3>
-
-    <div class="row">
+    {{-- <div class="row">
         <div class="col-12 mb-3">
             <label for="" class="form-label">title</label>
             <input type="text" class="form-control">
@@ -261,23 +385,63 @@
             <input type="text" class="form-control">
             
         </div>
+        <div class="col-6 mb-3">
+            <label for="" class="form-label">banner image</label>
+            <input type="file" class="form-control">
+            
+        </div>
+        
+    </div> --}}
+
+
+</section>
+
+<hr>
+
+<section>
+
+    <h3>Section 9(Explore Our Initiatives)</h3>
+
+  {{-- make a list for these  --}}
+
+  <div class="mb-3">
+    <label for="" class="form-label">title</label>
+    <input type="text" class="form-control">
+  </div>
+  
+
+    <div class="mb-3">
+        <label for="" class="form-label">image</label>
+        <input type="file" name="title" class="form-control">
     </div>
 
+    {{-- inputs for fields logo and everything else --}}
+
+    
+
+    {{-- <div class="mb-3 d-flex">
+        <div class="mx-2">
+            <label for="" class="form-label">button text</label>
+            <input type="text" class="form-control ">
+        </div>
+
+        <div class="mx-2">
+            <label for="" class="form-label">button url</label>
+            <input type="text" class="form-control ">
+        </div>
+
+    </div> --}}
+
+    
+
 
 </section>
 
-<section>
-
-    {{-- for team i will make a separate page --}}
-</section>
-
-<section>
-    {{-- our purpose and values same card part --}}
-</section>
+<hr>
 
 <section>
 
-    <h3>Empowering Communities & the Planet(section)</h3>
+    <h3>Section 10(Be a part of change)</h3>
 
     <div class="row">
         <div class="col-12 mb-3">
@@ -290,7 +454,7 @@
             <textarea name="" id="" cols="30" rows="5" class="form-control"></textarea>
             
         </div>
-        {{-- <div class="col-6 mb-3">
+        <div class="col-6 mb-3">
             <label for="" class="form-label">button text(join the mission text)</label>
             <input type="text" class="form-control">
             
@@ -299,7 +463,7 @@
             <label for="" class="form-label">button url</label>
             <input type="text" class="form-control">
             
-        </div> --}}
+        </div>
     </div>
 
 
