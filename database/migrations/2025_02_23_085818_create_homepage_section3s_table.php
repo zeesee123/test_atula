@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('homepage_section3s', function (Blueprint $table) {
             $table->id();
+            $table->string('whatwe_doimg')->nullable();
             $table->timestamps();
         });
     }

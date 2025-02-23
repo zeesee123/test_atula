@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('homepage_section13s', function (Blueprint $table) {
             $table->id();
+
+            $table->longText('sec13_scontent')->nullable();
+            $table->string('sec13_slink')->nullable();
+            
+
             $table->timestamps();
         });
     }

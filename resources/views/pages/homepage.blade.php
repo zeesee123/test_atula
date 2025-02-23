@@ -18,7 +18,7 @@ h1{color:'red'}
 
 
 
-<form action="{{url('/add_homepage')}}" method="POST">
+<form action="{{url('/add_homepage')}}" method="POST" enctype="multipart/form-data">
 
     @if(session('success'))
 
@@ -71,10 +71,15 @@ h1{color:'red'}
 
 <section>
 
-    <h3>Hindi/english text with quill</h3>
+    <h3>Section 2(Hindi/english text with quill)</h3>
 
-    <label for="" class="form-label">add in gif</label>
-    <input type="file" class="form-control" name="sec2_gif">
+    <div class="row">
+        <div class="col-6">
+            <label for="" class="form-label">add in gif</label>
+    <input type="file" class="form-control" name="sec2gif">
+        </div>
+    </div>
+    
 
 </section>
 
@@ -85,27 +90,43 @@ h1{color:'red'}
 
     
 
-    <h3>What we do</h3>
+    <h3>Section 3(What we do)</h3>
 
-    <div class="mb-3">
-        
+    <div class="row">
+        <div class="col-6">
+            <div class="mb-3">
+                <label for="" class="form-label">title</label>
+                <input type="text" class="form-control" name="sec3title">
+                
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="mb-3">
+                <label for="" class="form-label">logo over box</label>
+                <input type="file" class="form-control" name="sec3logo">
+                
+            </div>
+        </div>
     </div>
+    
+
+    
 
     <div class="mb-3">
         <label for="" class="form-label">content</label>
-        <textarea name="" id="" cols="30" rows="10" class="form-control"></textarea>
+        <textarea name="sec3content" id="" cols="30" rows="5" class="form-control"></textarea>
     </div>
 
 
     <div class="mb-3 d-flex">
         <div class="mx-2">
             <label for="" class="form-label">button text</label>
-            <input type="text" class="form-control ">
+            <input type="text" class="form-control " name="sec3btn_text">
         </div>
 
         <div class="mx-2">
             <label for="" class="form-label">button url</label>
-            <input type="text" class="form-control ">
+            <input type="text" class="form-control " name="sec3btn_url">
         </div>
 
     </div>
@@ -116,7 +137,7 @@ h1{color:'red'}
         <div class="mb-3 row">
             
             <div class="col-3">
-                <input type="file" placeholder="icon" class="form-control" name="whatwe_doimg[]">
+                <input type="file" placeholder="add image" class="form-control" name="whatwe_doimg[]">
             </div>
             
             
@@ -133,7 +154,7 @@ h1{color:'red'}
 
 <section>
 
-    <h3>Making a difference, one tree at a time (section)</h3>
+    <h3>Section 4(Making a difference, one tree at a time)</h3>
 
     {{-- heading --}}
 
@@ -143,7 +164,7 @@ h1{color:'red'}
 
             <div class="mb-3">
                 <label class="form-label">heading</label>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" name="sec4_title">
             </div>
             
             
@@ -157,7 +178,7 @@ h1{color:'red'}
 
             <div class="mb-3">
                 <label class="form-label">content</label>
-                <textarea name="" id="" class="form-control"></textarea>
+                <textarea id="" class="form-control" name="sec4_content"></textarea>
                 
             </div>
             
@@ -168,7 +189,7 @@ h1{color:'red'}
 
             <div class="mb-3">
                 <label class="form-label">impact hightlights text</label>
-                <textarea name="" id="" class="form-control"></textarea>
+                <input type="text" class="form-control" name="sec4_tinytitle"> 
                 
             </div>
             
@@ -183,7 +204,7 @@ h1{color:'red'}
                     <input type="file" placeholder="icon" class="form-control" name="icon_service[]">
                 </div> --}}
                 <div class="col-3">
-                    <textarea class="form-control" name="desc[]" cols="30" rows="5"></textarea>
+                    <textarea class="form-control" name="sec4_text[]" cols="30" rows="5"></textarea>
                     
                 </div>
                 
@@ -199,7 +220,7 @@ h1{color:'red'}
 
         <div class="mb-3">
             <label for="" class="form-label">button text(join the mission)</label>
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" name="sec4btn_text">
         </div>
     </div>
 
@@ -207,7 +228,7 @@ h1{color:'red'}
 
         <div class="mb-3">
             <label for="" class="form-label">button url(join the mission)</label>
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" name="sec4btn_url">
         </div>
     </div>
 
@@ -224,22 +245,30 @@ h1{color:'red'}
 
 <section>
 
-            <h3>Section (Our Business)</h3>
+            <h3>Section 5(Our Business)</h3>
 
             {{-- add in the cards here --}}
+
+            <div class="col-6">
+
+                <div class="mb-3">
+                    <label for="" class="form-label">title</label>
+                    <input type="text" class="form-control" name="sec5_title">
+                </div>
+            </div>
 
             
             <div class="" id="ourbusiness_cards">
                 <div class="mb-3 row">
                     
                     <div class="col-3">
-                        <input type="file" placeholder="icon" class="form-control" name="icon_service[]">
+                        <input type="file" placeholder="icon" class="form-control" name="sec5_img[]">
                     </div>
                     <div class="col-3">
-                        <input type="text" placeholder="icon" class="form-control" name="icon_service[]">
+                        <input type="text" placeholder="icon" class="form-control" name="sec5_stitle[]">
                     </div>
                     <div class="col-3">
-                        <textarea class="form-control" name="desc[]" cols="30" rows="5"></textarea>
+                        <textarea class="form-control" name="sec5_scontent[]" cols="30" rows="5"></textarea>
                         
                     </div>
                     
@@ -256,19 +285,19 @@ h1{color:'red'}
 
 <section>
 
-    <h3>Our Journey</h3>
+    <h3>Section 6(Our Journey)</h3>
 
     <div class="row">
         <div class="col-6">
             <div class="mb-3">
                 <label for="" class="form-label">title</label>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" name="sec6_title">
             </div>
         </div>
         <div class="col-6">
             <div class="mb-3">
                 <label for="" class="form-label">image</label>
-                <input type="file" class="form-control">
+                <input type="file" class="form-control" name="sec6_image">
         
             </div>
         </div>
@@ -280,13 +309,13 @@ h1{color:'red'}
         <div class="mb-3 row">
             
             <div class="col-3">
-                <input type="text" placeholder="icon" class="form-control" name="icon_service[]">
+                <input type="text" placeholder="year" class="form-control" name="sec6year[]">
             </div>
             <div class="col-3">
-                <input type="text" placeholder="icon" class="form-control" name="icon_service[]">
+                <input type="text" placeholder="icon" class="form-control" name="sec6stitle[]">
             </div>
             <div class="col-3">
-                <textarea class="form-control" name="desc[]" cols="30" rows="5"></textarea>
+                <textarea class="form-control" name="sec6scontent[]" cols="30" rows="5"></textarea>
                 
             </div>
             
@@ -304,17 +333,17 @@ h1{color:'red'}
 
 <section>
 
-    <h3>Our Purpose & Vision (section)</h3>
+    <h3>Section 7(Our Purpose & Vision)</h3>
 
     <div class="row">
         <div class="col-12 mb-3">
             <label for="" class="form-label">title</label>
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" name="sec7_title">
             
         </div>
         <div class="col-12 mb-3">
             <label for="" class="form-label">text</label>
-            <textarea name="" id="" cols="30" rows="5" class="form-control"></textarea>
+            <textarea name="sec7_content" id="" cols="30" rows="5" class="form-control"></textarea>
             
         </div>
 
@@ -323,10 +352,10 @@ h1{color:'red'}
                 
                 
                 <div class="col-3">
-                    <input type="file" placeholder="icon" class="form-control" name="icon_service[]">
+                    <input type="file" placeholder="image" class="form-control" name="sec7_simg[]">
                 </div>
                 <div class="col-3">
-                    <textarea class="form-control" name="desc[]" cols="30" rows="5"></textarea>
+                    <textarea class="form-control" name="sec7_scontent[]" cols="30" rows="5"></textarea>
                     
                 </div>
                 
@@ -338,12 +367,12 @@ h1{color:'red'}
 
         <div class="col-6 mb-3">
             <label for="" class="form-label">button text(join the mission text)</label>
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" name="sec7btn_text">
             
         </div>
         <div class="col-6 mb-3">
             <label for="" class="form-label">button url</label>
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" name="sec7btn_url">
             
         </div>
     </div>
@@ -353,13 +382,13 @@ h1{color:'red'}
 
 <section>
 
-    <h3>What we are working on (section)</h3>
+    <h3>Section 8(What we are working on)</h3>
 
     <div class="row">
       {{-- cards part --}}
       <div class="mb-3">
         <label for="" class="form-label">title</label>
-        <input type="text" class="form-control">
+        <input type="text" class="form-control" name="sec8_title">
 
       </div>
     </div>
@@ -369,14 +398,14 @@ h1{color:'red'}
             
             
             <div class="col-3">
-                <input type="file" placeholder="icon" class="form-control" name="icon_service[]">
+                <input type="file" placeholder="icon" class="form-control" name="sec8_slogo[]">
             </div>
             <div class="col-3">
-                <textarea class="form-control" name="desc[]" cols="30" rows="5"></textarea>
+                <textarea class="form-control" name="sec8_scontent[]" cols="30" rows="5"></textarea>
                 
             </div>
             <div class="col-3">
-                <input type="text" placeholder="icon" class="form-control" name="link[]">
+                <input type="text" placeholder="icon" class="form-control" name="sec8_slink[]">
             </div>
             
             <div class="col-3">
@@ -392,32 +421,32 @@ h1{color:'red'}
 
 <section>
 
-    <h3>Technology-Driven Agriculture (section)</h3>
+    <h3>Section(Technology-Driven Agriculture)</h3>
 
     <div class="row">
         <div class="col-12 mb-3">
             <label for="" class="form-label">title</label>
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" name="sec9title">
             
         </div>
         <div class="col-12 mb-3">
             <label for="" class="form-label">text</label>
-            <textarea name="" id="" cols="30" rows="5" class="form-control"></textarea>
+            <textarea name="sec9content" id="" cols="30" rows="5" class="form-control"></textarea>
             
         </div>
         <div class="col-6 mb-3">
             <label for="" class="form-label">button text(Learn about our technology text)</label>
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" name="sec9btn_text">
             
         </div>
         <div class="col-6 mb-3">
             <label for="" class="form-label">button url</label>
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" name="sec9btn_url">
             
         </div>
         <div class="col-6 mb-3">
             <label for="" class="form-label">features text</label>
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" name="sec9_featurestext">
             
         </div>
     </div>
@@ -427,10 +456,10 @@ h1{color:'red'}
             
             
             <div class="col-3">
-                <input type="file" placeholder="icon" class="form-control" name="icon_service[]">
+                <input type="file" placeholder="image" class="form-control" name="sec9_simg[]">
             </div>
             <div class="col-3">
-                <textarea class="form-control" name="desc[]" cols="30" rows="5"></textarea>
+                <textarea class="form-control" name="sec9_scontent[]" cols="30" rows="5"></textarea>
                 
             </div>
          
@@ -448,24 +477,24 @@ h1{color:'red'}
 
 <section>
 
-    <h3>Our Purpose & Values</h3>
+    <h3>Section(Our Purpose & Values)</h3>
 
     <div class="mb-3">
         <label for="" class="form-label">title</label>
-        <input type="text" class="form-control">
+        <input type="text" class="form-control" name="sec10_title">
     </div>
 
     <div class="" id="pvalue_tabs">
         <div class="mb-3 row">
             <div class="col-3">
-                <input type="text" placeholder="icon" class="form-control" name="icon_service[]">
+                <input type="text" placeholder="tab name" class="form-control" name="sec10_stitle[]">
             </div>
             
             <div class="col-3">
-                <input type="file" placeholder="icon" class="form-control" name="icon_service[]">
+                <input type="file" placeholder="tab image" class="form-control" name="sec10_simg[]">
             </div>
             <div class="col-3">
-                <textarea class="form-control" name="desc[]" cols="30" rows="5"></textarea>
+                <textarea class="form-control" name="sec10_scontent[]" cols="30" rows="5"></textarea>
                 
             </div>
          
@@ -482,17 +511,22 @@ h1{color:'red'}
 
 <section>
 
-    <h3>Empowering Communities & the Planet(section)</h3>
+    <h3>Section(Empowering Communities & the Planet)</h3>
 
     <div class="row">
         <div class="col-12 mb-3">
+            <label for="" class="form-label">banner image</label>
+            <input type="text" class="form-control" name="sec11_image">
+            
+        </div>
+        <div class="col-12 mb-3">
             <label for="" class="form-label">title</label>
-            <input type="text" class="form-control">
+            <input type="text" class="form-control"  name="sec11_title">
             
         </div>
         <div class="col-12 mb-3">
             <label for="" class="form-label">text</label>
-            <textarea name="" id="" cols="30" rows="5" class="form-control"></textarea>
+            <textarea name="sec11_image" id="" cols="30" rows="5" class="form-control"></textarea>
             
         </div>
         {{-- <div class="col-6 mb-3">
@@ -512,7 +546,7 @@ h1{color:'red'}
 
 <section>
 
-    <h3>Badges part (section)</h3>
+    <h3>Section(Badges)</h3>
 
     {{-- cards for the other part as well --}}
 
@@ -523,7 +557,7 @@ h1{color:'red'}
             
             
             <div class="col-3">
-                <textarea class="form-control" name="desc[]" cols="30" rows="5"></textarea>
+                <textarea class="form-control" name="sec12_scontent[]" cols="30" rows="5"></textarea>
                 
             </div>
          
@@ -539,17 +573,17 @@ h1{color:'red'}
 
 <section>
 
-    <h3>Be a part of the change(section)</h3>
+    <h3>Section(Be a part of the change)</h3>
 
     <div class="row">
         <div class="col-12 mb-3">
             <label for="" class="form-label">title</label>
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" name="sec13_title">
             
         </div>
         <div class="col-12 mb-3">
             <label for="" class="form-label">text</label>
-            <textarea name="" id="" cols="30" rows="5" class="form-control"></textarea>
+            <textarea name="sec13_content" id="" cols="30" rows="5" class="form-control"></textarea>
             
         </div>
         {{-- <div class="col-6 mb-3">
@@ -572,12 +606,12 @@ h1{color:'red'}
             
             
             <div class="col-3">
-                <textarea class="form-control" name="desc[]" cols="30" rows="5"></textarea>
+                <textarea class="form-control" name="sec13_scontent[]" cols="30" rows="5"></textarea>
                 
             </div>
 
             <div class="col-3">
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" name="sec13_slink[]">
             </div>
          
             
@@ -594,17 +628,19 @@ h1{color:'red'}
 
 <section>
 
-    <h3>Get in touch(section)</h3>
+    <h3>Section(Get in touch)</h3>
 
     <div class="row">
         <div class="col-12 mb-3">
+            
             <label for="" class="form-label">title</label>
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" name="sec14_title">
             
         </div>
         <div class="col-12 mb-3">
+            
             <label for="" class="form-label">text</label>
-            <textarea name="" id="" cols="30" rows="5" class="form-control"></textarea>
+            <textarea name="sec14_content" id="" cols="30" rows="5" class="form-control"></textarea>
             
         </div>
         {{-- <div class="col-6 mb-3">
@@ -619,6 +655,10 @@ h1{color:'red'}
         </div> --}}
     </div>
 
+</section>
+
+    <hr>
+
     <section>
 
         <h3>Map link google (section)</h3>
@@ -626,7 +666,7 @@ h1{color:'red'}
         <div class="row">
             <div class="col-12 mb-3">
                 <label for="" class="form-label">map link</label>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" name="map_code">
                 
             </div>
           
@@ -636,9 +676,9 @@ h1{color:'red'}
     </section>
 
 
-</section>
 
-<button>submit</button>
+
+<button class="btn btn-primary">submit</button>
 
 </form>
 

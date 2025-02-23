@@ -24,10 +24,14 @@ Route::get('/',function(){
     return view('pages.index');
 });
 
-Route::get('/homepage',function(){
+Route::get('/home',function(){
 
     return view('pages.homepage');
 });
+
+// Route::get('/choot',function(){
+//     return view('pages.homepage');
+// });
 
 Route::post('/add_homepage',[HomepageController::class,'add_homepage']);
 

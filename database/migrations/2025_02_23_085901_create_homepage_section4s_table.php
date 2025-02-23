@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('homepage_section4s', function (Blueprint $table) {
             $table->id();
+            $table->longText('sec4_text')->nullable();
             $table->timestamps();
         });
     }

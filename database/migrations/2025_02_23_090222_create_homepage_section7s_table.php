@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('homepage_section7s', function (Blueprint $table) {
             $table->id();
+            $table->string('sec7_simg')->nullable();
+            $table->longText('sec7_scontent')->nullable();
             $table->timestamps();
         });
     }

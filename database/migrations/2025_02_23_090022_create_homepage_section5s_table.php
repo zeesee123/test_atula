@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('homepage_section5s', function (Blueprint $table) {
             $table->id();
+            $table->string('sec5_img')->nullable();
+            $table->string('sec5_stitle')->nullable();
+            $table->longText('sec5_scontent')->nullable();
             $table->timestamps();
         });
     }

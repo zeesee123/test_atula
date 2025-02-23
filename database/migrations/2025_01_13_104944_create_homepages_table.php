@@ -106,8 +106,8 @@ return new class extends Migration
             //adding in the real cards for this 
 
             //get in touch section**************
-            $table->string('sec13_title')->nullable();
-            $table->longText('sec13_content')->nullable();
+            $table->string('sec14_title')->nullable();
+            $table->longText('sec14_content')->nullable();
 
             
 
