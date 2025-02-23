@@ -36,7 +36,7 @@ h1{color:'red'}
 
         <div class="mb-3">
             <label for="">Upload video</label>
-            <input type="file" name="hero_video">
+            <input type="file" name="sec1_vid">
         </div>
 
         {{-- <div class="mb-3">
@@ -74,7 +74,7 @@ h1{color:'red'}
     <h3>Hindi/english text with quill</h3>
 
     <label for="" class="form-label">add in gif</label>
-    <input type="file" class="form-control" name="gif_quill">
+    <input type="file" class="form-control" name="sec2_gif">
 
 </section>
 

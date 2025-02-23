@@ -14,77 +14,106 @@ return new class extends Migration
         Schema::create('homepages', function (Blueprint $table) {
            
             $table->id();
-            $table->string('sec1_title');
-            $table->longText('sec1_content');
-            $table->string('sec1btn_text');
-            $table->string('sec1btn_url');
+            $table->string('sec1_vid')->nullable();
+            // $table->longText('sec1_content');
+            // $table->string('sec1btn_text');
+            // $table->string('sec1btn_url');
 
 
-            $table->string('sec2gif');
+            //quill text******************
+            $table->string('sec2gif')->nullable();
 
 
-            $table->string('sec3title');
-            $table->string('sec3btn_text');
-            $table->string('sec3btn_url');
+            //what we do section*********************
+            $table->string('sec3logo')->nullable();
+            $table->string('sec3title')->nullable();
+            $table->longText('sec3content')->nullable();
+            $table->string('sec3btn_text')->nullable();
+            $table->string('sec3btn_url')->nullable();
 
-            $table->string('sec4_title');
-            $table->longText('sec4_content');
-            $table->string('sec4_tinytitle');
+            //\\*******table for images homepagesection3
 
-            //adding in the boxes for homepage need to make a new table for this
-            $table->string('sec4btn_text');
-            $table->string('sec4btn_url');
-            // $table->string('sec3title');
-            // $table->string('sec3btn_text');
-            // $table->string('sec3btn_url');
+            //making a difference at a time*****************
+            $table->string('sec4_title')->nullable();
+            $table->longText('sec4_content')->nullable();
+            $table->string('sec4_tinytitle')->nullable();//impact highlights
+            $table->string('sec4btn_text')->nullable();
+            $table->string('sec4btn_url')->nullable();
 
-            $table->string('sec5_title');
+             //\\*******table for images homepagesection4
 
-            //need to add in the cards for this 
-            $table->string('sec6_title');
-            $table->string('sec6_image');
+            
+            //our business section****************
+            $table->string('sec5_title')->nullable();
 
-            //need to add in the leaves for the section 6
-            $table->string('sec7_title');
-            //need to add in the cards for section 7 with the view project
+            //\\*******table for images homepagesection5
 
+            //our journey leaves section********************
+            $table->string('sec6_title')->nullable();
+            $table->string('sec6_image')->nullable();
+
+            //\\*******table for images homepagesection6
+
+            //our purpose and vision section******************
+            $table->string('sec7_title')->nullable();
+            $table->longText('sec7_content')->nullable();
+            $table->string('sec7btn_text')->nullable();
+            $table->string('sec7btn_url')->nullable();
+
+             //\\*******table for images homepagesection7
+            
+
+            //what we're working on section*************
+            $table->string('sec8_title')->nullable();
+
+            //\\*******table for images homepagesection8
+         
             
             //technology driven agriculture*************
-            $table->string('sec8title');
-            $table->longText('sec8content');
-            $table->string('sec8btn_text');
-            $table->string('sec8btn_url');
+            $table->string('sec9title')->nullable();
+            $table->longText('sec9content')->nullable();
+            $table->string('sec9btn_text')->nullable();
+            $table->string('sec9btn_url')->nullable();
 
-            $table->string('sec8_featurestext');
+            $table->string('sec9_featurestext')->nullable();//Features: text
 
-            //images and text go in here
+            //\\*******table for images homepagesection9
 
-            //need to make a new page for the team members
-            // pic,name,post
+             //our purpose and values section***********
+             $table->string('sec10_title')->nullable();
 
-            //our purpose and values***************
-
-            // button text and image along with the text
+             //\\*******table for images homepagesection10
             
-            $table->string('sec9_title');
-            $table->longText('sec9_content');
-            $table->string('sec9_image');
 
-            //badges for the other section
+         
+
+            
+            //empowering communities and the planet*************
+            $table->string('sec11_title')->nullable();
+            $table->longText('sec11_content')->nullable();
+            $table->string('sec11_image')->nullable();
+
+            //badges for the other section separate table for it
+            // ***********this would have been sec12
+            //\\*******table for images homepagesection12
 
             //be a part of the change**************
-            $table->string('sec10_title');
-            $table->longText('sec10_content');
+            $table->string('sec13_title')->nullable();
+            $table->longText('sec13_content')->nullable();
+
+            //\\*******table for images homepagesection13
             
             //adding in the real cards for this 
 
+            //get in touch section**************
+            $table->string('sec13_title')->nullable();
+            $table->longText('sec13_content')->nullable();
 
-            $table->string('sec11_title');
-            $table->string('sec11_content');
-            // $table->string('sec3btn_url');
+            
 
 
-            $table->longText('map_code');
+            //code for the map part******************
+            $table->longText('map_code')->nullable();
             //need to add in a list of images for section 3
             $table->timestamps();
         });
