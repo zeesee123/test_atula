@@ -516,7 +516,7 @@ h1{color:'red'}
     <div class="row">
         <div class="col-12 mb-3">
             <label for="" class="form-label">banner image</label>
-            <input type="text" class="form-control" name="sec11_image">
+            <input type="file" class="form-control" name="sec11_image">
             
         </div>
         <div class="col-12 mb-3">
