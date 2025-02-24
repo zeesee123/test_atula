@@ -17,6 +17,7 @@ use App\Models\HomepageSection12;
 use App\Models\HomepageSection13;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Log;
 
 class HomepageController extends Controller
 {
@@ -26,26 +27,28 @@ class HomepageController extends Controller
 
         // dd($r);
 
-
+         
         try{
 
-            DB::beginTransaction();
+            // DB::beginTransaction();
 
         $model = Homepage::first() ?? new Homepage();
 
-        if ($r->hasFile('sec1_vid')) {
-            if (!empty($model->sec1_vid) && File::exists(public_path('homepage/'.$model->sec1_vid))) {
-                File::delete(public_path('homepage/'.$model->sec1_vid));
+      
+            if ($r->hasFile('sec1_vid')) {
+                if (!empty($model->sec1_vid) && File::exists(public_path('homepage/'.$model->sec1_vid))) {
+                    File::delete(public_path('homepage/'.$model->sec1_vid));
+                }
+                $video = $r->file('sec1_vid');
+                // $videoName = time() . '_' . $video->getClientOriginalName();
+                $videoName = $video->hashName();
+                $videoPath = 'homepage/'; // Set the upload directory
+                $video->move(public_path($videoPath), $videoName);
+                $model->sec1_vid = $videoName; // Save path in DB
+                
             }
-            $video = $r->file('sec1_vid');
-            // $videoName = time() . '_' . $video->getClientOriginalName();
-            $videoName = $video->hashName();
-            $videoPath = 'homepage/'; // Set the upload directory
-            $video->move(public_path($videoPath), $videoName);
-            $model->sec1_vid = $videoName; // Save path in DB
-            
-        }
-
+      
+      try{
         if ($r->hasFile('sec2gif')) {
             if (!empty($model->sec2gif) && File::exists(public_path('homepage/'.$model->sec2gif))) {
                 File::delete(public_path('homepage/'.$model->sec2gif));
@@ -58,6 +61,9 @@ class HomepageController extends Controller
             $model->sec2gif = $gifName; // Save path in DB
             
         }
+     
+
+        
 
         $model->sec3title = $r->sec3title;
         $model->sec3content = $r->sec3content;
@@ -66,16 +72,20 @@ class HomepageController extends Controller
 
         $imagesec3 = $r->file('whatwe_doimg');
 
-foreach ($imagesec3 as $image) {
-    if ($image) {
-        $imageName = $image->hashName();
-        $image->move(public_path('homepage/'), $imageName);
 
-        $service = new HomepageSection3;
-        $service->whatwe_doimg = $imageName;
-        $service->save();
+if($imagesec3){
+    foreach ($imagesec3 as $image) {
+        if ($image) {
+            $imageName = $image->hashName();
+            $image->move(public_path('homepage/'), $imageName);
+    
+            $service = new HomepageSection3;
+            $service->whatwe_doimg = $imageName;
+            $service->save();
+        }
     }
 }
+
 
 //making a diff sec
 
@@ -88,13 +98,17 @@ foreach ($imagesec3 as $image) {
 
         $impactTexts = $r->input('sec4_text');
 
-        foreach ($impactTexts as $text) {
-            if (!empty($text)) {
-                $impact = new HomepageSection4();
-                $impact->sec4_text = $text;
-                $impact->save();
+        if($impactTexts){
+
+            foreach ($impactTexts as $text) {
+                if (!empty($text)) {
+                    $impact = new HomepageSection4();
+                    $impact->sec4_text = $text;
+                    $impact->save();
+                }
             }
         }
+        
 
         $model->sec5_title = $r->input('sec5_title');
 
@@ -117,6 +131,9 @@ foreach ($imagesec3 as $image) {
 
         $model->sec6_title = $r->input('sec6_title');
 
+        $model->sec6_addtext = $r->input('sec6_addtext');
+
+
     // Handle Image Upload
     if ($r->hasFile('sec6_image')) {
         // Delete old image if exists
@@ -136,15 +153,19 @@ foreach ($imagesec3 as $image) {
     $titles = $r->input('sec6stitle');
     $contents = $r->input('sec6scontent');
 
-    foreach ($years as $key => $year) {
-        if (!empty($year) || !empty($titles[$key]) || !empty($contents[$key])) {
-            $entry = new HomepageSection6();
-            $entry->sec6year = $year ?? null;
-            $entry->sec6stitle = $titles[$key] ?? null;
-            $entry->sec6scontent = $contents[$key] ?? null;
-            $entry->save();
+    if($years){
+
+        foreach ($years as $key => $year) {
+            if (!empty($year) || !empty($titles[$key]) || !empty($contents[$key])) {
+                $entry = new HomepageSection6();
+                $entry->sec6year = $year ?? null;
+                $entry->sec6stitle = $titles[$key] ?? null;
+                $entry->sec6scontent = $contents[$key] ?? null;
+                $entry->save();
+            }
         }
     }
+    
 
 
     //our purpose n vision
@@ -174,6 +195,8 @@ if ($sec7_simg) {
 
   $model->sec8_title = $r->input('sec8_title');
 
+
+  $sec8_slogo=$r->input('sec8_slogo');
 
   if ($sec8_slogo) {
     foreach ($sec8_slogo as $key => $image) {
@@ -215,19 +238,19 @@ if ($r->hasFile('sec9_simg')) {
 
 //our purpose and values
 
-$model->sec10title = $r->input('sec10title');
+$model->sec10_title = $r->input('sec10_title');
 
 
-if ($request->hasFile('sec10_simg')) {
-    foreach ($request->file('sec10_simg') as $key => $image) {
+if ($r->hasFile('sec10_simg')) {
+    foreach ($r->file('sec10_simg') as $key => $image) {
         if ($image) {
             $namez = $image->hashName();
             $image->move(public_path('homepage/'), $namez);
 
             $section10 = new HomepageSection10();
-            $section10->sec10_stitle = $request->input('sec10_stitle')[$key] ?? null;
+            $section10->sec10_stitle = $r->input('sec10_stitle')[$key] ?? null;
             $section10->sec10_simg = $namez;
-            $section10->sec10_scontent = $request->input('sec10_scontent')[$key] ?? null;
+            $section10->sec10_scontent = $r->input('sec10_scontent')[$key] ?? null;
             $section10->save();
         }
     }
@@ -235,19 +258,19 @@ if ($request->hasFile('sec10_simg')) {
 
 //empowering communities
 
-$model->sec11_title = $request->input('sec11_title');
-$model->sec11_content = $request->input('sec11_content');
+$model->sec11_title = $r->input('sec11_title');
+$model->sec11_content = $r->input('sec11_content');
 
-if ($request->hasFile('sec11_image')) {
-    $image = $request->file('sec11_image');
+if ($r->hasFile('sec11_image')) {
+    $image = $r->file('sec11_image');
     $imageName = $image->hashName();
     $image->move(public_path('homepage/'), $imageName);
     $model->sec11_image = $imageName;
 }
 
 //badges part
-if ($request->has('sec12_scontent')) {
-    foreach ($request->input('sec12_scontent') as $key => $content) {
+if ($r->has('sec12_scontent')) {
+    foreach ($r->input('sec12_scontent') as $key => $content) {
         $section12 = new HomepageSection12();
         $section12->sec12_scontent = $content;
         $section12->save();
@@ -256,28 +279,28 @@ if ($request->has('sec12_scontent')) {
 
 //be part of change
 
-$model->sec13_title = $request->sec13_title;
-$model->sec13_content = $request->sec13_content;
+$model->sec13_title = $r->sec13_title;
+$model->sec13_content = $r->sec13_content;
 
 
-if ($request->has('sec13_scontent')) {
-    foreach ($request->sec13_scontent as $key => $content) {
+if ($r->has('sec13_scontent')) {
+    foreach ($r->sec13_scontent as $key => $content) {
         if (!empty($content)) { // Ensure the content isn't empty
             $section13 = new HomepageSection13();
             $section13->sec13_scontent = $content;
-            $section13->sec13_slink = $request->sec13_slink[$key] ?? null;
+            $section13->sec13_slink = $r->sec13_slink[$key] ?? null;
             $section13->save();
         }
     }
 }
 
-$model->sec14_title = $request->sec14_title ?? null;
-$model->sec14_content = $request->sec14_content ?? null;
+$model->sec14_title = $r->sec14_title ?? null;
+$model->sec14_content = $r->sec14_content ?? null;
 $model->save();
 
 // Save Google Map link
 
-$model->map_code = $request->map_code ?? null;
+$model->map_code = $r->map_code ?? null;
 
 
 
@@ -290,10 +313,18 @@ $model->map_code = $request->map_code ?? null;
 
         $model->save();
 
+    }catch(Exception $e){
+
+        return $e->getMessage();
+        Log::info($e->getMessage());
+      }
+
+        // DB::commit();
+
         return back()->with('success','message added');
 
         }catch(Exception $e){
-            DB::rollback();
+            // DB::rollback();
             return back()->with('failure',$e->getMessage());}
         
 

@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\TestController;
+use App\Http\Controllers\api\PageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,3 +25,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 // Route::group()
 
 Route::get('/homepage_content',[TestController::class,'index']);
+
+Route::get('/homepage',[PageController::class,'index']);

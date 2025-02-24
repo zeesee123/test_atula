@@ -26,7 +26,14 @@ h1{color:'red'}
         {{session('success')}}
     </div>
 
+    @elseif(session('error'))
+
+    <div style="color:red;">
+        {{session('success')}}
+    </div>
+
     @endif
+
 
     @csrf
 
@@ -301,6 +308,13 @@ h1{color:'red'}
         
             </div>
         </div>
+    </div>
+
+    <div class="col-6">
+        <label for="" class="form-label">Text(Steps Towards a thriving tomorrow)</label>
+        <input type="text" name="sec6_addtext" class="form-control">
+
+
     </div>
 
     <h4>our journey timestamps</h4>
