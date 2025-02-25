@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomepageController;
 
@@ -24,10 +25,7 @@ Route::get('/',function(){
     return view('pages.index');
 });
 
-Route::get('/home',function(){
-
-    return view('pages.homepage');
-});
+Route::get('/home',[PageController::class,'index']);
 
 
 

@@ -103,7 +103,7 @@ h1{color:'red'}
         <div class="col-6">
             <div class="mb-3">
                 <label for="" class="form-label">title</label>
-                <input type="text" class="form-control" name="sec3title">
+                <input type="text" class="form-control" name="sec3title" value="{{$section->sec3title??''}}">
                 
             </div>
         </div>
@@ -121,19 +121,19 @@ h1{color:'red'}
 
     <div class="mb-3">
         <label for="" class="form-label">content</label>
-        <textarea name="sec3content" id="" cols="30" rows="5" class="form-control"></textarea>
+        <textarea name="sec3content" id="" cols="30" rows="5" class="form-control">{{$section->sec3content??''}}</textarea>
     </div>
 
 
     <div class="mb-3 d-flex">
         <div class="mx-2">
             <label for="" class="form-label">button text</label>
-            <input type="text" class="form-control " name="sec3btn_text">
+            <input type="text" class="form-control " name="sec3btn_text" value="{{$section->sec3btn_text??''}}">
         </div>
 
         <div class="mx-2">
             <label for="" class="form-label">button url</label>
-            <input type="text" class="form-control " name="sec3btn_url">
+            <input type="text" class="form-control " name="sec3btn_url" value={{$section->sec3btn_url??''}}>
         </div>
 
     </div>
@@ -171,7 +171,7 @@ h1{color:'red'}
 
             <div class="mb-3">
                 <label class="form-label">heading</label>
-                <input type="text" class="form-control" name="sec4_title">
+                <input type="text" class="form-control" name="sec4_title" value={{$section->sec4_title??''}}>
             </div>
             
             
@@ -185,7 +185,7 @@ h1{color:'red'}
 
             <div class="mb-3">
                 <label class="form-label">content</label>
-                <textarea id="" class="form-control" name="sec4_content"></textarea>
+                <textarea id="" class="form-control" name="sec4_content" value={{$section->sec4_content??''}}></textarea>
                 
             </div>
             
@@ -196,7 +196,7 @@ h1{color:'red'}
 
             <div class="mb-3">
                 <label class="form-label">impact hightlights text</label>
-                <input type="text" class="form-control" name="sec4_tinytitle"> 
+                <input type="text" class="form-control" name="sec4_tinytitle" value={{$section->sec4_tinytitle??''}}> 
                 
             </div>
             
@@ -227,7 +227,7 @@ h1{color:'red'}
 
         <div class="mb-3">
             <label for="" class="form-label">button text(join the mission)</label>
-            <input type="text" class="form-control" name="sec4btn_text">
+            <input type="text" class="form-control" name="sec4btn_text" value={{$section->sec4btn_text??''}}>
         </div>
     </div>
 
@@ -235,7 +235,7 @@ h1{color:'red'}
 
         <div class="mb-3">
             <label for="" class="form-label">button url(join the mission)</label>
-            <input type="text" class="form-control" name="sec4btn_url">
+            <input type="text" class="form-control" name="sec4btn_url" value={{$section->sec3btn_url??''}}>
         </div>
     </div>
 
@@ -260,7 +260,7 @@ h1{color:'red'}
 
                 <div class="mb-3">
                     <label for="" class="form-label">title</label>
-                    <input type="text" class="form-control" name="sec5_title">
+                    <input type="text" class="form-control" name="sec5_title" value={{$section->sec5_title??''}}>
                 </div>
             </div>
 
@@ -298,7 +298,7 @@ h1{color:'red'}
         <div class="col-6">
             <div class="mb-3">
                 <label for="" class="form-label">title</label>
-                <input type="text" class="form-control" name="sec6_title">
+                <input type="text" class="form-control" name="sec6_title" value={{$section->sec6_title??''}}>
             </div>
         </div>
         <div class="col-6">
@@ -312,7 +312,7 @@ h1{color:'red'}
 
     <div class="col-6">
         <label for="" class="form-label">Text(Steps Towards a thriving tomorrow)</label>
-        <input type="text" name="sec6_addtext" class="form-control">
+        <input type="text" name="sec6_addtext" class="form-control" value={{$section->sec6_addtext??''}}>
 
 
     </div>
@@ -352,12 +352,12 @@ h1{color:'red'}
     <div class="row">
         <div class="col-12 mb-3">
             <label for="" class="form-label">title</label>
-            <input type="text" class="form-control" name="sec7_title">
+            <input type="text" class="form-control" name="sec7_title" value={{$section->sec7_title??''}}>
             
         </div>
         <div class="col-12 mb-3">
             <label for="" class="form-label">text</label>
-            <textarea name="sec7_content" id="" cols="30" rows="5" class="form-control"></textarea>
+            <textarea name="sec7_content" id="" cols="30" rows="5" class="form-control">{{$section->sec7_content??''}}</textarea>
             
         </div>
 
@@ -381,12 +381,12 @@ h1{color:'red'}
 
         <div class="col-6 mb-3">
             <label for="" class="form-label">button text(join the mission text)</label>
-            <input type="text" class="form-control" name="sec7btn_text">
+            <input type="text" class="form-control" name="sec7btn_text" value={{$section->sec7btn_text??''}}>
             
         </div>
         <div class="col-6 mb-3">
             <label for="" class="form-label">button url</label>
-            <input type="text" class="form-control" name="sec7btn_url">
+            <input type="text" class="form-control" name="sec7btn_url" value={{$section->sec7btn_url??''}}>
             
         </div>
     </div>
@@ -402,7 +402,7 @@ h1{color:'red'}
       {{-- cards part --}}
       <div class="mb-3">
         <label for="" class="form-label">title</label>
-        <input type="text" class="form-control" name="sec8_title">
+        <input type="text" class="form-control" name="sec8_title" value={{$section->sec8_title??''}}>
 
       </div>
     </div>
@@ -440,27 +440,27 @@ h1{color:'red'}
     <div class="row">
         <div class="col-12 mb-3">
             <label for="" class="form-label">title</label>
-            <input type="text" class="form-control" name="sec9title">
+            <input type="text" class="form-control" name="sec9title" value={{$section->sec9title??''}}>
             
         </div>
         <div class="col-12 mb-3">
             <label for="" class="form-label">text</label>
-            <textarea name="sec9content" id="" cols="30" rows="5" class="form-control"></textarea>
+            <textarea name="sec9content" id="" cols="30" rows="5" class="form-control">{{$section->sec9content??''}}</textarea>
             
         </div>
         <div class="col-6 mb-3">
             <label for="" class="form-label">button text(Learn about our technology text)</label>
-            <input type="text" class="form-control" name="sec9btn_text">
+            <input type="text" class="form-control" name="sec9btn_text" value={{$section->sec9btn_text??''}}>
             
         </div>
         <div class="col-6 mb-3">
             <label for="" class="form-label">button url</label>
-            <input type="text" class="form-control" name="sec9btn_url">
+            <input type="text" class="form-control" name="sec9btn_url" value={{$section->sec9btn_url??''}}>
             
         </div>
         <div class="col-6 mb-3">
             <label for="" class="form-label">features text</label>
-            <input type="text" class="form-control" name="sec9_featurestext">
+            <input type="text" class="form-control" name="sec9_featurestext" value={{$section->sec9_featurestext??''}}>
             
         </div>
     </div>
@@ -495,7 +495,7 @@ h1{color:'red'}
 
     <div class="mb-3">
         <label for="" class="form-label">title</label>
-        <input type="text" class="form-control" name="sec10_title">
+        <input type="text" class="form-control" name="sec10_title" value={{$section->sec10_title??''}}>
     </div>
 
     <div class="" id="pvalue_tabs">
@@ -535,12 +535,12 @@ h1{color:'red'}
         </div>
         <div class="col-12 mb-3">
             <label for="" class="form-label">title</label>
-            <input type="text" class="form-control"  name="sec11_title">
+            <input type="text" class="form-control"  name="sec11_title" value={{$section->sec11_title??''}}>
             
         </div>
         <div class="col-12 mb-3">
-            <label for="" class="form-label">text</label>
-            <textarea name="sec11_image" id="" cols="30" rows="5" class="form-control"></textarea>
+            <label for="" class="form-label">content</label>
+            <textarea name="sec11_content" id="" cols="30" rows="5" class="form-control">{{$section->sec11_content??''}}</textarea>
             
         </div>
         {{-- <div class="col-6 mb-3">
@@ -592,12 +592,12 @@ h1{color:'red'}
     <div class="row">
         <div class="col-12 mb-3">
             <label for="" class="form-label">title</label>
-            <input type="text" class="form-control" name="sec13_title">
+            <input type="text" class="form-control" name="sec13_title" value={{$section->sec13_title??''}}>
             
         </div>
         <div class="col-12 mb-3">
             <label for="" class="form-label">text</label>
-            <textarea name="sec13_content" id="" cols="30" rows="5" class="form-control"></textarea>
+            <textarea name="sec13_content" id="" cols="30" rows="5" class="form-control">value={{$section->sec13_content??''}}</textarea>
             
         </div>
         {{-- <div class="col-6 mb-3">
@@ -648,13 +648,13 @@ h1{color:'red'}
         <div class="col-12 mb-3">
             
             <label for="" class="form-label">title</label>
-            <input type="text" class="form-control" name="sec14_title">
+            <input type="text" class="form-control" name="sec14_title" value={{$section->sec14_title??''}}>
             
         </div>
         <div class="col-12 mb-3">
             
             <label for="" class="form-label">text</label>
-            <textarea name="sec14_content" id="" cols="30" rows="5" class="form-control"></textarea>
+            <textarea name="sec14_content" id="" cols="30" rows="5" class="form-control">{{$section->sec14_content??''}}</textarea>
             
         </div>
         {{-- <div class="col-6 mb-3">
@@ -680,7 +680,7 @@ h1{color:'red'}
         <div class="row">
             <div class="col-12 mb-3">
                 <label for="" class="form-label">map link</label>
-                <input type="text" class="form-control" name="map_code">
+                <input type="text" class="form-control" name="map_code" value={{$section->map_code??''}}>
                 
             </div>
           
