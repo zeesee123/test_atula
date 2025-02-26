@@ -12,6 +12,7 @@
     <link href="./dist/css/tabler-payments.min.css?1692870487" rel="stylesheet"/>
     <link href="./dist/css/tabler-vendors.min.css?1692870487" rel="stylesheet"/>
     <link href="./dist/css/demo.min.css?1692870487" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <style>
       @import url('https://rsms.me/inter/inter.css');
       :root {
@@ -837,7 +838,7 @@
     <!-- Tabler Core -->
     <script src="./dist/js/tabler.min.js?1692870487" defer></script>
     <script src="./dist/js/demo.min.js?1692870487" defer></script>
-    <script>
+    {{-- <script>
       // @formatter:off
       document.addEventListener("DOMContentLoaded", function () {
       	window.ApexCharts && (new ApexCharts(document.getElementById('chart-revenue-bg'), {
@@ -1425,7 +1426,7 @@
       	})).render();
       });
       // @formatter:on
-    </script>
+    </script> --}}
   </body>
   @stack('scripts')
 </html>

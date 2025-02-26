@@ -41,10 +41,20 @@ h1{color:'red'}
 
         <h3>Section 1 (Forests of tomorrow,prosperity for generations)</h3>
 
-        <div class="mb-3">
-            <label for="">Upload video</label>
-            <input type="file" name="sec1_vid">
+        <div class="row">
+            <div class="mb-3 col-4">
+                <label for="" class="form-label">Upload video</label>
+                <input type="file" name="sec1_vid" class="form-control VideoInput">
+            </div>
+            <div class="col-2">
+                <button type="button" class="btn btn-danger clear-vidbtn" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="reset image"><i class="bi bi-arrow-clockwise"></i></button>
+            </div>
+            <div class="mb-3 col-6">
+                <img class="videoThumbnail" src="{{ asset('images/default.jpg') }}" width="400" alt="Default Video Thumbnail">
+                <video class="videoPreview" width="400" controls style="display:none;"></video>
+            </div>
         </div>
+        
 
         {{-- <div class="mb-3">
             <label for="" class="form-label">heading</label>
@@ -81,9 +91,18 @@ h1{color:'red'}
     <h3>Section 2(Hindi/english text with quill)</h3>
 
     <div class="row">
-        <div class="col-6">
-            <label for="" class="form-label">add in gif</label>
-    <input type="file" class="form-control" name="sec2gif">
+       
+
+        <div class="mb-3 col-4">
+            <label for="" class="form-label">Upload video</label>
+            <input type="file" name="sec2gif" class="form-control VideoInput" >
+        </div>
+        <div class=" mb-3 col-2">
+            <button type="button" class="btn btn-danger clear-vidbtn" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="reset image"><i class="bi bi-arrow-clockwise"></i></button>
+        </div>
+        <div class="mb-3 col-4">
+            <img class="videoThumbnail" src="{{ asset('images/default.jpg') }}" width="400" alt="Default Video Thumbnail">
+            <video class="videoPreview" width="400" controls style="display: none;"></video>
         </div>
     </div>
     
@@ -103,14 +122,22 @@ h1{color:'red'}
         <div class="col-6">
             <div class="mb-3">
                 <label for="" class="form-label">title</label>
-                <input type="text" class="form-control" name="sec3title" value="{{$section->sec3title??''}}">
+                <input type="text" class="form-control " name="sec3title" value="{{$section->sec3title??''}}">
                 
             </div>
         </div>
-        <div class="col-6">
-            <div class="mb-3">
+        <div class="row">
+            <div class="mb-3 col-6">
                 <label for="" class="form-label">logo over box</label>
-                <input type="file" class="form-control" name="sec3logo">
+                <input type="file" class="form-control img_inpp" name="sec3logo">
+                
+            </div>
+            <div class="mb-3 col-2">
+                
+                <button type="button" class="btn btn-danger clear-btn" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="reset image"><i class="bi bi-arrow-clockwise"></i></button>
+            </div>
+            <div class="mb-3 col-4">
+                <img class="Thumbnail" src="{{ asset('images/default.jpg') }}" width="400" alt="Default picture Thumbnail">
                 
             </div>
         </div>
@@ -528,11 +555,22 @@ h1{color:'red'}
     <h3>Section(Empowering Communities & the Planet)</h3>
 
     <div class="row">
-        <div class="col-12 mb-3">
-            <label for="" class="form-label">banner image</label>
-            <input type="file" class="form-control" name="sec11_image">
-            
+        <div class="row">
+            <div class="col-6">
+                <div class="mb-3">
+                    <label for="" class="form-label">banner image</label>
+                    <input type="file" class="form-control img_inpp" name="sec11_image">
+                    
+                </div>
+            </div>
+            <div class="col-2">
+                <button type="button" class="btn btn-danger clear-btn" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="reset image"><i class="bi bi-arrow-clockwise"></i></button>
+            </div>
+            <div class="col-4">
+                <img class="Thumbnail" src="{{ asset('images/default.jpg') }}" width="400" alt="Default Video Thumbnail">
+            </div>
         </div>
+        
         <div class="col-12 mb-3">
             <label for="" class="form-label">title</label>
             <input type="text" class="form-control"  name="sec11_title" value={{$section->sec11_title??''}}>
@@ -960,6 +998,108 @@ superparent.remove();
 
 
 }
+
+
+
+//script for the video preview part 
+
+
+let videothumb=document.querySelectorAll('.videoThumbnail');
+let videoprev=document.querySelectorAll('.videoPreview');
+
+console.log(videothumb);
+console.log(videoprev);
+
+let videoinputs=document.querySelectorAll('.VideoInput');
+
+videoinputs.forEach((v,i)=>{
+
+    console.log('videoinput');
+
+    v.addEventListener('change',(e)=>{
+
+        let file = event.target.files[0]; // Get the selected file
+        // let videoElement = document.getElementById('videoPreview');
+        // let thumbnail = document.getElementById('videoThumbnail');
+
+        if (file) {
+            let videoUrl = URL.createObjectURL(file); // Create object URL
+
+            videoprev[i].src = videoUrl; // Set video source
+            videoprev[i].style.display = 'block'; // Show video
+            videothumb[i].style.display = 'none'; // Hide the thumbnail
+        }
+
+    })
+});
+
+
+//script for video clear button
+
+let vidclear=document.querySelectorAll('.clear-vidbtn');
+
+vidclear.forEach((v,i)=>{
+    v.addEventListener('click',()=>{
+        videothumb[i].style.display = 'block'; // Hide the thumbnail
+        videoprev[i].style.display = 'none'; // Show video
+        videoinputs[i].value='';
+        videoprev[i].src ='';
+    })
+})
+
+
+//script for photo clear button
+
+let clearBtns=document.querySelectorAll('.clear-btn');
+
+clearBtns.forEach((v,i)=>{
+  v.addEventListener('click',function(){
+
+    const img = document.querySelectorAll('.Thumbnail')[i];
+
+  
+    img.src=`{{asset('images/default.jpg')}}`;
+    
+console.log(document.querySelectorAll('.img_inpp'));
+    document.querySelectorAll('.img_inpp')[i].value='';
+
+  });
+})
+
+
+//script for the image inputs preview
+
+// Loop through each file input
+
+let imageInputs=document.querySelectorAll('.img_inpp');
+let thumb=document.querySelectorAll('.Thumbnail');
+
+imageInputs.forEach((input, index) => {
+  console.log('this isthe index first',index);
+    input.addEventListener('change', function(event) {
+      console.log('this the index real',index);
+        const file = event.target.files[0]; // Get the selected file
+
+        if (file) {
+            const reader = new FileReader(); // Create a FileReader object
+
+            reader.onload = function(e) {
+                // Get the corresponding image preview element
+                const img = thumb[index];
+                console.log('this is the index',index,img);
+                img.src = e.target.result; // Set the image source to the file's data URL
+                img.style.display = 'block'; // Show the image
+            }
+
+            reader.readAsDataURL(file); // Read the file as a data URL
+        }
+    });
+
+   
+});
+
+
+
 
 </script>
 @endpush
