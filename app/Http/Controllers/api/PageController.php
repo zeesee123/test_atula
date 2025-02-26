@@ -23,7 +23,7 @@ class PageController extends Controller
      */
     public function index()
     {
-        //
+        //test comment
 
         $model=Homepage::first()??null;
         $section3=HomepageSection3::all()??null;
