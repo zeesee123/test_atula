@@ -5,6 +5,9 @@
 <style>
 h1{color:'red'}
 </style>
+
+
+
 @endpush
 
 
@@ -12,6 +15,30 @@ h1{color:'red'}
 @section('content')
 
 <div class="page-header d-print-none">
+
+
+    <!-- Button trigger modal -->
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Understood</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
 
     <div class="container-xl">
         <h1>Homepage</h1>
@@ -101,8 +128,19 @@ h1{color:'red'}
             <button type="button" class="btn btn-danger clear-vidbtn" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="reset image"><i class="bi bi-arrow-clockwise"></i></button>
         </div>
         <div class="mb-3 col-4">
-            <img class="videoThumbnail" src="{{ asset('images/default.jpg') }}" width="400" alt="Default Video Thumbnail">
-            <video class="videoPreview" width="400" controls style="display: none;"></video>
+            
+            <img class="videoThumbnail" 
+     src="{{ asset('images/default.jpg') }}" 
+     width="400" 
+     alt="Default Video Thumbnail"
+     style="{{ $section->sec2gif ? 'display:none;' : '' }}">
+
+<video class="videoPreview" 
+       width="400" 
+       controls 
+       style="{{ $section->sec2gif ? 'display:block;' : 'display:none;' }}">
+    <source src="{{ $section->sec2gif ? asset('homepage/'.$section->sec2gif) : '' }}" type="video/mp4">
+</video>
         </div>
     </div>
     
@@ -181,6 +219,23 @@ h1{color:'red'}
         </div>
     </div>
 
+    {{-- table for what we do images --}}
+
+    <table class="table" id="whatwedo_table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">image</th>
+            
+            {{-- <th scope="col">Url</th> --}}
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+        </tbody>
+      </table>
+
 
 </section>
 
@@ -248,6 +303,22 @@ h1{color:'red'}
             </div>
         </div>
 
+        <table class="table" id="impacthighlight_table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">text</th>
+                
+                {{-- <th scope="col">Url</th> --}}
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+            </tbody>
+          </table>
+    
+
     
 
     <div class="col-6">
@@ -296,10 +367,10 @@ h1{color:'red'}
                 <div class="mb-3 row">
                     
                     <div class="col-3">
-                        <input type="file" placeholder="icon" class="form-control" name="sec5_img[]">
+                        <input type="file" placeholder="image" class="form-control" name="sec5_img[]">
                     </div>
                     <div class="col-3">
-                        <input type="text" placeholder="icon" class="form-control" name="sec5_stitle[]">
+                        <input type="text" placeholder="title" class="form-control" name="sec5_stitle[]">
                     </div>
                     <div class="col-3">
                         <textarea class="form-control" name="sec5_scontent[]" cols="30" rows="5"></textarea>
@@ -311,6 +382,23 @@ h1{color:'red'}
                     </div>     
                 </div>
             </div>
+
+            <table class="table" id="ourbusiness_table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">image</th>
+                    <th scope="col">title</th>
+                    
+                    {{-- <th scope="col">Url</th> --}}
+                    <th scope="col">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  
+                </tbody>
+              </table>
+        
 
             {{-- elements and stuff multiple ones --}}
 </section>
@@ -353,7 +441,7 @@ h1{color:'red'}
                 <input type="text" placeholder="year" class="form-control" name="sec6year[]">
             </div>
             <div class="col-3">
-                <input type="text" placeholder="icon" class="form-control" name="sec6stitle[]">
+                <input type="text" placeholder="title" class="form-control" name="sec6stitle[]">
             </div>
             <div class="col-3">
                 <textarea class="form-control" name="sec6scontent[]" cols="30" rows="5"></textarea>
@@ -365,6 +453,24 @@ h1{color:'red'}
             </div>     
         </div>
     </div>
+
+    <table class="table" id="ourjourney_table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">year</th>
+            <th scope="col">title</th>
+            
+            {{-- <th scope="col">Url</th> --}}
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+        </tbody>
+      </table>
+
+    
     
 
     
@@ -406,6 +512,23 @@ h1{color:'red'}
             </div>
         </div>
 
+        <table class="table" id="purpose&vision_table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">image</th>
+                <th scope="col">content</th>
+                <th scope="col">title</th>
+                
+                {{-- <th scope="col">Url</th> --}}
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+            </tbody>
+          </table>
+
         <div class="col-6 mb-3">
             <label for="" class="form-label">button text(join the mission text)</label>
             <input type="text" class="form-control" name="sec7btn_text" value={{$section->sec7btn_text??''}}>
@@ -439,14 +562,14 @@ h1{color:'red'}
             
             
             <div class="col-3">
-                <input type="file" placeholder="icon" class="form-control" name="sec8_slogo[]">
+                <input type="file" placeholder="logo" class="form-control" name="sec8_slogo[]">
             </div>
             <div class="col-3">
                 <textarea class="form-control" name="sec8_scontent[]" cols="30" rows="5"></textarea>
                 
             </div>
             <div class="col-3">
-                <input type="text" placeholder="icon" class="form-control" name="sec8_slink[]">
+                <input type="text" placeholder="link" class="form-control" name="sec8_slink[]">
             </div>
             
             <div class="col-3">
@@ -454,6 +577,26 @@ h1{color:'red'}
             </div>     
         </div>
     </div>
+
+    <table class="table" id="whatwork_table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">image</th>
+            <th scope="col">content</th>
+            <th scope="col">link</th>
+            
+            {{-- <th scope="col">Url</th> --}}
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+        </tbody>
+      </table>
+
+
+    
 
 
 </section>
@@ -511,6 +654,24 @@ h1{color:'red'}
         </div>
     </div>
 
+    <table class="table" id="techimg_table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">image</th>
+            <th scope="col">content</th>
+            <th scope="col">title</th>
+            
+            {{-- <th scope="col">Url</th> --}}
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+        </tbody>
+      </table>
+
+
 
 </section>
 
@@ -545,6 +706,24 @@ h1{color:'red'}
             </div>     
         </div>
     </div>
+
+    <table class="table" id="pvalue_table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">title</th>
+            <th scope="col">image</th>
+            <th scope="col">title</th>
+            
+            {{-- <th scope="col">Url</th> --}}
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+        </tbody>
+      </table>
+
 
 </section>
 
@@ -620,6 +799,23 @@ h1{color:'red'}
         </div>
     </div>
 
+    <table class="table" id="badge_table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">content</th>
+            
+            
+            {{-- <th scope="col">Url</th> --}}
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+        </tbody>
+      </table>
+
+
 
 </section>
 
@@ -672,6 +868,24 @@ h1{color:'red'}
             </div>     
         </div>
     </div>
+
+    <table class="table" id="partchange_table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">content</th>
+            <th scope="col">link</th>
+            
+            
+            {{-- <th scope="col">Url</th> --}}
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+        </tbody>
+      </table>
+
 
     {{-- add in the cards for the rest --}}
 
@@ -1099,7 +1313,475 @@ imageInputs.forEach((input, index) => {
 });
 
 
+// datatable part
 
+var table1=$('#whatwedo_table').DataTable({
+              ajax:"{{url('/hometable/section3')}}",
+              processing:true,
+              columns:[
+                {"data":"id"},
+                {"data":"image"},
+                // {"data":"description"},
+                {"data":"actions"}],
+              order:[],
+              dom:'Bfrtip',
+              buttons:[{
+                       extend:'copy',
+                       exportOptions:{modifier:{
+                        page:'current'
+                       }}
+              },{
+                extend:'csv',
+                exportOptions:{
+                  modifier:{
+                    page:'current'
+                  }
+                }
+              },{
+                extend:'excel',
+                exportOptions:{
+                  modifier:{
+                    page:'current'
+                  }
+                }
+              },{
+                extend:'pdf',
+                exportOptions:{
+                  modifier:{
+                    page:'current'
+                  }
+                }
+              },{
+                extend:'print',
+                exportOptions:{
+                  modifier:{
+                    page:'current'
+                  }
+                }
+              }]
+  })
+
+  var table2=$('#impacthighlight_table').DataTable({
+              ajax:"{{url('/hometable/section4')}}",
+              processing:true,
+              columns:[
+                {"data":"id"},
+                {"data":"title"},
+                // {"data":"description"},
+                {"data":"actions"}],
+              order:[],
+              dom:'Bfrtip',
+              buttons:[{
+                       extend:'copy',
+                       exportOptions:{modifier:{
+                        page:'current'
+                       }}
+              },{
+                extend:'csv',
+                exportOptions:{
+                  modifier:{
+                    page:'current'
+                  }
+                }
+              },{
+                extend:'excel',
+                exportOptions:{
+                  modifier:{
+                    page:'current'
+                  }
+                }
+              },{
+                extend:'pdf',
+                exportOptions:{
+                  modifier:{
+                    page:'current'
+                  }
+                }
+              },{
+                extend:'print',
+                exportOptions:{
+                  modifier:{
+                    page:'current'
+                  }
+                }
+              }]
+  })
+
+  var table3=$('#ourbusiness_table').DataTable({
+              ajax:"{{url('/hometable/section5')}}",
+              processing:true,
+              columns:[
+                {"data":"id"},
+                {"data":"title"},
+                // {"data":"description"},
+                {"data":"actions"}],
+              order:[],
+              dom:'Bfrtip',
+              buttons:[{
+                       extend:'copy',
+                       exportOptions:{modifier:{
+                        page:'current'
+                       }}
+              },{
+                extend:'csv',
+                exportOptions:{
+                  modifier:{
+                    page:'current'
+                  }
+                }
+              },{
+                extend:'excel',
+                exportOptions:{
+                  modifier:{
+                    page:'current'
+                  }
+                }
+              },{
+                extend:'pdf',
+                exportOptions:{
+                  modifier:{
+                    page:'current'
+                  }
+                }
+              },{
+                extend:'print',
+                exportOptions:{
+                  modifier:{
+                    page:'current'
+                  }
+                }
+              }]
+  })
+
+  var table4=$('#ourjourney_table').DataTable({
+              ajax:"{{url('/hometable/section6')}}",
+              processing:true,
+              columns:[
+                {"data":"id"},
+                {"data":"title"},
+                // {"data":"description"},
+                {"data":"actions"}],
+              order:[],
+              dom:'Bfrtip',
+              buttons:[{
+                       extend:'copy',
+                       exportOptions:{modifier:{
+                        page:'current'
+                       }}
+              },{
+                extend:'csv',
+                exportOptions:{
+                  modifier:{
+                    page:'current'
+                  }
+                }
+              },{
+                extend:'excel',
+                exportOptions:{
+                  modifier:{
+                    page:'current'
+                  }
+                }
+              },{
+                extend:'pdf',
+                exportOptions:{
+                  modifier:{
+                    page:'current'
+                  }
+                }
+              },{
+                extend:'print',
+                exportOptions:{
+                  modifier:{
+                    page:'current'
+                  }
+                }
+              }]
+  })
+
+
+  var table5=$('#purpose&vision_table').DataTable({
+              ajax:"{{url('/hometable/section7')}}",
+              processing:true,
+              columns:[
+                {"data":"id"},
+                {"data":"title"},
+                // {"data":"description"},
+                {"data":"actions"}],
+              order:[],
+              dom:'Bfrtip',
+              buttons:[{
+                       extend:'copy',
+                       exportOptions:{modifier:{
+                        page:'current'
+                       }}
+              },{
+                extend:'csv',
+                exportOptions:{
+                  modifier:{
+                    page:'current'
+                  }
+                }
+              },{
+                extend:'excel',
+                exportOptions:{
+                  modifier:{
+                    page:'current'
+                  }
+                }
+              },{
+                extend:'pdf',
+                exportOptions:{
+                  modifier:{
+                    page:'current'
+                  }
+                }
+              },{
+                extend:'print',
+                exportOptions:{
+                  modifier:{
+                    page:'current'
+                  }
+                }
+              }]
+  })
+
+
+  var table6=$('#whatwork_table').DataTable({
+              ajax:"{{url('/hometable/section8')}}",
+              processing:true,
+              columns:[
+                {"data":"id"},
+                {"data":"title"},
+                // {"data":"description"},
+                {"data":"actions"}],
+              order:[],
+              dom:'Bfrtip',
+              buttons:[{
+                       extend:'copy',
+                       exportOptions:{modifier:{
+                        page:'current'
+                       }}
+              },{
+                extend:'csv',
+                exportOptions:{
+                  modifier:{
+                    page:'current'
+                  }
+                }
+              },{
+                extend:'excel',
+                exportOptions:{
+                  modifier:{
+                    page:'current'
+                  }
+                }
+              },{
+                extend:'pdf',
+                exportOptions:{
+                  modifier:{
+                    page:'current'
+                  }
+                }
+              },{
+                extend:'print',
+                exportOptions:{
+                  modifier:{
+                    page:'current'
+                  }
+                }
+              }]
+  })
+
+
+  var table7=$('#techimg_table').DataTable({
+              ajax:"{{url('/hometable/section9')}}",
+              processing:true,
+              columns:[
+                {"data":"id"},
+                {"data":"title"},
+                // {"data":"description"},
+                {"data":"actions"}],
+              order:[],
+              dom:'Bfrtip',
+              buttons:[{
+                       extend:'copy',
+                       exportOptions:{modifier:{
+                        page:'current'
+                       }}
+              },{
+                extend:'csv',
+                exportOptions:{
+                  modifier:{
+                    page:'current'
+                  }
+                }
+              },{
+                extend:'excel',
+                exportOptions:{
+                  modifier:{
+                    page:'current'
+                  }
+                }
+              },{
+                extend:'pdf',
+                exportOptions:{
+                  modifier:{
+                    page:'current'
+                  }
+                }
+              },{
+                extend:'print',
+                exportOptions:{
+                  modifier:{
+                    page:'current'
+                  }
+                }
+              }]
+  })
+
+
+  var table8=$('#pvalue_table').DataTable({
+              ajax:"{{url('/hometable/section10')}}",
+              processing:true,
+              columns:[
+                {"data":"id"},
+                {"data":"title"},
+                // {"data":"description"},
+                {"data":"actions"}],
+              order:[],
+              dom:'Bfrtip',
+              buttons:[{
+                       extend:'copy',
+                       exportOptions:{modifier:{
+                        page:'current'
+                       }}
+              },{
+                extend:'csv',
+                exportOptions:{
+                  modifier:{
+                    page:'current'
+                  }
+                }
+              },{
+                extend:'excel',
+                exportOptions:{
+                  modifier:{
+                    page:'current'
+                  }
+                }
+              },{
+                extend:'pdf',
+                exportOptions:{
+                  modifier:{
+                    page:'current'
+                  }
+                }
+              },{
+                extend:'print',
+                exportOptions:{
+                  modifier:{
+                    page:'current'
+                  }
+                }
+              }]
+  })
+
+
+  var table9=$('#badge_table').DataTable({
+              ajax:"{{url('/hometable/section12')}}",
+              processing:true,
+              columns:[
+                {"data":"id"},
+                {"data":"title"},
+                // {"data":"description"},
+                {"data":"actions"}],
+              order:[],
+              dom:'Bfrtip',
+              buttons:[{
+                       extend:'copy',
+                       exportOptions:{modifier:{
+                        page:'current'
+                       }}
+              },{
+                extend:'csv',
+                exportOptions:{
+                  modifier:{
+                    page:'current'
+                  }
+                }
+              },{
+                extend:'excel',
+                exportOptions:{
+                  modifier:{
+                    page:'current'
+                  }
+                }
+              },{
+                extend:'pdf',
+                exportOptions:{
+                  modifier:{
+                    page:'current'
+                  }
+                }
+              },{
+                extend:'print',
+                exportOptions:{
+                  modifier:{
+                    page:'current'
+                  }
+                }
+              }]
+  });
+
+
+  var table10=$('#partchange_table').DataTable({
+              ajax:"{{url('/hometable/section13')}}",
+              processing:true,
+              columns:[
+                {"data":"id"},
+                {"data":"title"},
+                // {"data":"description"},
+                {"data":"actions"}],
+              order:[],
+              dom:'Bfrtip',
+              buttons:[{
+                       extend:'copy',
+                       exportOptions:{modifier:{
+                        page:'current'
+                       }}
+              },{
+                extend:'csv',
+                exportOptions:{
+                  modifier:{
+                    page:'current'
+                  }
+                }
+              },{
+                extend:'excel',
+                exportOptions:{
+                  modifier:{
+                    page:'current'
+                  }
+                }
+              },{
+                extend:'pdf',
+                exportOptions:{
+                  modifier:{
+                    page:'current'
+                  }
+                }
+              },{
+                extend:'print',
+                exportOptions:{
+                  modifier:{
+                    page:'current'
+                  }
+                }
+              }]
+  })
 
 </script>
+
+
 @endpush

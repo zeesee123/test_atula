@@ -28,8 +28,12 @@ Route::get('/',function(){
 Route::get('/home',[PageController::class,'index']);
 
 
-
 Route::post('/add_homepage',[HomepageController::class,'add_homepage']);
+//routes for changing in the stuff
+Route::get('/hometable/{section}',[HomepageController::class,'loadtable']);
+
+
+
 
 Route::get('/login',function(){
 

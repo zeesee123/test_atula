@@ -22,6 +22,7 @@
       	font-feature-settings: "cv03", "cv04", "cv11";
       }
     </style>
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.1.6/css/dataTables.dataTables.css" />
 
     @stack('styles')
 
@@ -1428,5 +1429,7 @@
       // @formatter:on
     </script> --}}
   </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://cdn.datatables.net/2.1.6/js/dataTables.js"></script>
   @stack('scripts')
 </html>

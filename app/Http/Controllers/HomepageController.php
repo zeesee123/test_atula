@@ -330,4 +330,269 @@ $model->map_code = $r->map_code ?? null;
 
 
     }
+
+
+    public function loadtable($section){
+
+        
+
+        $data=[];
+        $c=1;
+        $content=null;
+        $error=false;
+
+        switch($section){
+
+            case "section3":
+
+                $content=HomepageSection3::all();
+    
+                $count=$content->count();
+    
+            
+            foreach($content as $cl){
+    
+              $serv_ind=[
+                  'id'=>$c++,
+                  'image'=>'<img src="'.asset('homepage/'.$cl->whatwe_doimg).'" style="width: 100px; height: auto; object-fit: contain;">',
+                  'actions'=>'<button type="button" class="btn btn-success editer" data-id="'.$cl->id.'" data-type="section3" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-pencil-square mx-1"></i>
+    EDIT</button><button type="button" data-type="section3" class="btn btn-danger mx-1 eradicator" data-id="'.$cl->id.'" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-trash3-fill mx-1"></i>
+    DELETE</button>'
+              ];
+    
+              $data[]=$serv_ind;
+    
+    
+            }
+
+            break;
+    
+           
+            case "section4":
+
+                $content=HompageSection3::all();
+    
+                $count=$content->count();
+    
+            
+            foreach($content as $cl){
+    
+              $serv_ind=[
+                  'id'=>$c++,
+                  'image'=>'<img src="{{asset('."homepage/".$cl->whatwe_doimg.')}}">',
+                  'actions'=>'<button type="button" class="btn btn-success editer" data-id="'.$cl->id.'" data-type="section3" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-pencil-square mx-1"></i>
+    EDIT</button><button type="button" data-type="section3" class="btn btn-danger mx-1 eradicator" data-id="'.$cl->id.'" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-trash3-fill mx-1"></i>
+    DELETE</button>'
+              ];
+    
+              $data[]=$serv_ind;
+    
+    
+            }
+
+            break;
+
+
+            case "section5":
+
+                $content=HompageSection3::all();
+    
+                $count=$content->count();
+    
+            
+            foreach($content as $cl){
+    
+              $serv_ind=[
+                  'id'=>$c++,
+                  'image'=>'<img src="{{asset('."homepage/".$cl->whatwe_doimg.')}}">',
+                  'actions'=>'<button type="button" class="btn btn-success editer" data-id="'.$cl->id.'" data-type="section3" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-pencil-square mx-1"></i>
+    EDIT</button><button type="button" data-type="section3" class="btn btn-danger mx-1 eradicator" data-id="'.$cl->id.'" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-trash3-fill mx-1"></i>
+    DELETE</button>'
+              ];
+    
+              $data[]=$serv_ind;
+    
+    
+            }
+
+            break;
+
+
+            case "section6":
+
+                $content=HompageSection3::all();
+    
+                $count=$content->count();
+    
+            
+            foreach($content as $cl){
+    
+              $serv_ind=[
+                  'id'=>$c++,
+                  'image'=>'<img src="{{asset('."homepage/".$cl->whatwe_doimg.')}}">',
+                  'actions'=>'<button type="button" class="btn btn-success editer" data-id="'.$cl->id.'" data-type="section3" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-pencil-square mx-1"></i>
+    EDIT</button><button type="button" data-type="section3" class="btn btn-danger mx-1 eradicator" data-id="'.$cl->id.'" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-trash3-fill mx-1"></i>
+    DELETE</button>'
+              ];
+    
+              $data[]=$serv_ind;
+    
+    
+            }
+
+            break;
+
+            case "section7":
+
+                $content=HompageSection3::all();
+    
+                $count=$content->count();
+    
+            
+            foreach($content as $cl){
+    
+              $serv_ind=[
+                  'id'=>$c++,
+                  'image'=>'<img src="{{asset('."homepage/".$cl->whatwe_doimg.')}}">',
+                  'actions'=>'<button type="button" class="btn btn-success editer" data-id="'.$cl->id.'" data-type="section3" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-pencil-square mx-1"></i>
+    EDIT</button><button type="button" data-type="section3" class="btn btn-danger mx-1 eradicator" data-id="'.$cl->id.'" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-trash3-fill mx-1"></i>
+    DELETE</button>'
+              ];
+    
+              $data[]=$serv_ind;
+    
+    
+            }
+
+            break;
+
+            case "section8":
+
+                $content=HompageSection3::all();
+    
+                $count=$content->count();
+    
+            
+            foreach($content as $cl){
+    
+              $serv_ind=[
+                  'id'=>$c++,
+                  'image'=>'<img src="{{asset('."homepage/".$cl->whatwe_doimg.')}}">',
+                  'actions'=>'<button type="button" class="btn btn-success editer" data-id="'.$cl->id.'" data-type="section3" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-pencil-square mx-1"></i>
+    EDIT</button><button type="button" data-type="section3" class="btn btn-danger mx-1 eradicator" data-id="'.$cl->id.'" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-trash3-fill mx-1"></i>
+    DELETE</button>'
+              ];
+    
+              $data[]=$serv_ind;
+    
+    
+            }
+
+            break;
+
+            case "section9":
+
+                $content=HompageSection3::all();
+    
+                $count=$content->count();
+    
+            
+            foreach($content as $cl){
+    
+              $serv_ind=[
+                  'id'=>$c++,
+                  'image'=>'<img src="{{asset('."homepage/".$cl->whatwe_doimg.')}}">',
+                  'actions'=>'<button type="button" class="btn btn-success editer" data-id="'.$cl->id.'" data-type="section3" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-pencil-square mx-1"></i>
+    EDIT</button><button type="button" data-type="section3" class="btn btn-danger mx-1 eradicator" data-id="'.$cl->id.'" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-trash3-fill mx-1"></i>
+    DELETE</button>'
+              ];
+    
+              $data[]=$serv_ind;
+    
+    
+            }
+
+            break;
+
+            case "section10":
+
+                $content=HompageSection3::all();
+    
+                $count=$content->count();
+    
+            
+            foreach($content as $cl){
+    
+              $serv_ind=[
+                  'id'=>$c++,
+                  'image'=>'<img src="{{asset('."homepage/".$cl->whatwe_doimg.')}}">',
+                  'actions'=>'<button type="button" class="btn btn-success editer" data-id="'.$cl->id.'" data-type="section3" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-pencil-square mx-1"></i>
+    EDIT</button><button type="button" data-type="section3" class="btn btn-danger mx-1 eradicator" data-id="'.$cl->id.'" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-trash3-fill mx-1"></i>
+    DELETE</button>'
+              ];
+    
+              $data[]=$serv_ind;
+    
+    
+            }
+
+            break;
+
+            case "section12":
+
+                $content=HompageSection3::all();
+    
+                $count=$content->count();
+    
+            
+            foreach($content as $cl){
+    
+              $serv_ind=[
+                  'id'=>$c++,
+                  'image'=>'<img src="{{asset('."homepage/".$cl->whatwe_doimg.')}}">',
+                  'actions'=>'<button type="button" class="btn btn-success editer" data-id="'.$cl->id.'" data-type="section3" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-pencil-square mx-1"></i>
+    EDIT</button><button type="button" data-type="section3" class="btn btn-danger mx-1 eradicator" data-id="'.$cl->id.'" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-trash3-fill mx-1"></i>
+    DELETE</button>'
+              ];
+    
+              $data[]=$serv_ind;
+    
+    
+            }
+
+            break;
+
+            case "section13":
+
+                $content=HompageSection3::all();
+    
+                $count=$content->count();
+    
+            
+            foreach($content as $cl){
+    
+              $serv_ind=[
+                  'id'=>$c++,
+                  'image'=>'<img src="{{asset('."homepage/".$cl->whatwe_doimg.')}}">',
+                  'actions'=>'<button type="button" class="btn btn-success editer" data-id="'.$cl->id.'" data-type="section3" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-pencil-square mx-1"></i>
+    EDIT</button><button type="button" data-type="section3" class="btn btn-danger mx-1 eradicator" data-id="'.$cl->id.'" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-trash3-fill mx-1"></i>
+    DELETE</button>'
+              ];
+    
+              $data[]=$serv_ind;
+    
+    
+            }
+
+            break;
+
+            default:
+            dd('wrong move');
+            break;
+        }
+        
+        return response()->json(['draw'=>1,'recordsTotal'=>$count,'recordsFiltered'=>$count,'data'=>$data]);
+
+
+    }
 }
