@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class HomepageSection3 extends Model
 {
     use HasFactory;
+
+    //test
 }
