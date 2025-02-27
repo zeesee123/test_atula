@@ -6,7 +6,11 @@
 h1{color:'red'}
 </style>
 
-
+<link href="https://unpkg.com/filepond@^4/dist/filepond.css" rel="stylesheet" />
+<link
+    href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css"
+    rel="stylesheet"
+/>
 
 @endpush
 
@@ -28,12 +32,12 @@ h1{color:'red'}
           <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body">
-          ...
+        <div class="modal-body" id="modal_content">
+          
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Understood</button>
+          {{-- <button type="button" class="btn btn-primary">Understood</button> --}}
         </div>
       </div>
     </div>
@@ -974,6 +978,10 @@ h1{color:'red'}
 
 @push('scripts')
 
+<script src="https://unpkg.com/filepond@^4/dist/filepond.js"></script>
+
+<script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
+
 <script>
     let field1=document.getElementById('whatwedo_images');
 
@@ -1801,6 +1809,130 @@ var table1=$('#whatwedo_table').DataTable({
                 }
               }]
   })
+
+
+  //code for editer button modal
+
+  let modal_body=document.getElementById('modal_content');
+
+  function routeUrl(type,button){
+
+      let editroutes=[]
+  }
+
+  function changeModal_content(type,button){
+
+    FilePond.destroy(document.querySelector('.filepond')); 
+
+    let content=null;
+    let img=false;
+    let pond=null;
+
+  //   let icon_url=document.getElementById('icon_url');
+  // const pond2=FilePond.create(icon_url);
+
+   if(button!='eradicator'){
+
+    switch(type){
+
+case "section3":
+  content=`<form id="dynForm">
+    <div class="mb-3">
+      <label for="" class="form-label">Image</label>
+      <input class="form-control filepond" type="file">
+      <button class="btn btn-success">Update</button>
+      </div>
+      </form>`;
+      img=true;
+break;
+case "section4":
+  content=`section4`;
+break;
+case "section5":
+content=`section5`;
+break;
+case "section6":
+content=`section6`;
+break;
+case "section7":
+  content=`section7`;
+break;
+case "section8":
+  content=`section8`;
+break;
+case "section9":
+  content=`section9`;
+break;
+case "section10":
+  content=`section9`;
+  
+break;
+case "section12":
+  content=`section9`;
+break;
+case "section13":
+  content=`section9`;
+break;
+default:
+content=`utc`;
+  break;
+
+
+}
+
+
+   } 
+
+
+    
+    console.log('value of content is',content);
+
+    modal_body.innerHTML=content;
+
+    if(img){
+
+      let imz=document.querySelector('.filepond');
+      pond=FilePond.create(imz);
+
+
+    }
+
+    let dynform=document.getElementById('dynForm');
+
+    dynform.addEventListener('submit',(e)=>{
+
+      e.preventDefault();
+
+      console.log('form submission');
+
+      let routeUrl=getrouteUrl(button,type);
+
+    })
+
+
+
+
+
+  }
+
+  $(document).on('click','.editer',async function(){
+
+      console.log('you clicked on an editor');
+
+
+
+      changeModal_content(this.getAttribute('data-type'),'editor');
+
+
+  });
+
+  $(document).on('click','.eradicator',async function(){
+
+    console.log('you clicked on eradicator');
+
+    changeModal_content(this.getAttribute('data-type'),'eradicator');
+
+  });
 
 </script>
 
