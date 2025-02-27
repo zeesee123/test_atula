@@ -595,7 +595,7 @@ h1{color:'red'}
         <thead>
           <tr>
             <th scope="col">#</th>
-            <th scope="col">image</th>
+            <th scope="col">logo</th>
             <th scope="col">content</th>
             <th scope="col">link</th>
             
@@ -673,7 +673,7 @@ h1{color:'red'}
             <th scope="col">#</th>
             <th scope="col">image</th>
             <th scope="col">content</th>
-            <th scope="col">title</th>
+            
             
             {{-- <th scope="col">Url</th> --}}
             <th scope="col">Actions</th>
@@ -724,9 +724,9 @@ h1{color:'red'}
         <thead>
           <tr>
             <th scope="col">#</th>
-            <th scope="col">title</th>
             <th scope="col">image</th>
             <th scope="col">title</th>
+            {{-- <th scope="col">title</th> --}}
             
             {{-- <th scope="col">Url</th> --}}
             <th scope="col">Actions</th>
@@ -1567,7 +1567,9 @@ var table1=$('#whatwedo_table').DataTable({
               processing:true,
               columns:[
                 {"data":"id"},
-                {"data":"title"},
+                {"data":"logo"},
+                {"data":"content"},
+                {"data":"link"},
                 // {"data":"description"},
                 {"data":"actions"}],
               order:[],
@@ -1614,9 +1616,11 @@ var table1=$('#whatwedo_table').DataTable({
               processing:true,
               columns:[
                 {"data":"id"},
-                {"data":"title"},
+                {"data":"image"},
+                {"data":"content"},
                 // {"data":"description"},
-                {"data":"actions"}],
+                {"data":"actions"}
+              ],
               order:[],
               dom:'Bfrtip',
               buttons:[{
@@ -1661,6 +1665,7 @@ var table1=$('#whatwedo_table').DataTable({
               processing:true,
               columns:[
                 {"data":"id"},
+                {"data":"image"},
                 {"data":"title"},
                 // {"data":"description"},
                 {"data":"actions"}],
@@ -1708,7 +1713,7 @@ var table1=$('#whatwedo_table').DataTable({
               processing:true,
               columns:[
                 {"data":"id"},
-                {"data":"title"},
+                {"data":"content"},
                 // {"data":"description"},
                 {"data":"actions"}],
               order:[],
@@ -1755,7 +1760,8 @@ var table1=$('#whatwedo_table').DataTable({
               processing:true,
               columns:[
                 {"data":"id"},
-                {"data":"title"},
+                {"data":"content"},
+                {"data":"link"},
                 // {"data":"description"},
                 {"data":"actions"}],
               order:[],

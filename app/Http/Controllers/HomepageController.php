@@ -498,7 +498,9 @@ $model->map_code = $r->map_code ?? null;
     
               $serv_ind=[
                   'id'=>$c++,
-                  'image'=>'<img src="{{asset('."homepage/".$cl->whatwe_doimg.')}}">',
+                  'logo'=>'<img src="'.asset('homepage/'.$cl->sec8_slogo).'" style="width: 100px; height: auto; object-fit: contain;">',
+                  'content'=>$cl->sec8_scontent,
+                  'link'=>$cl->sec8_slink,
                   'actions'=>'<button type="button" class="btn btn-success editer" data-id="'.$cl->id.'" data-type="section3" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-pencil-square mx-1"></i>
     EDIT</button><button type="button" data-type="section3" class="btn btn-danger mx-1 eradicator" data-id="'.$cl->id.'" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-trash3-fill mx-1"></i>
     DELETE</button>'
@@ -522,7 +524,8 @@ $model->map_code = $r->map_code ?? null;
     
               $serv_ind=[
                   'id'=>$c++,
-                  'image'=>'<img src="{{asset('."homepage/".$cl->whatwe_doimg.')}}">',
+                  'image'=>'<img src="'.asset('homepage/'.$cl->sec9_simg).'" style="width: 100px; height: auto; object-fit: contain;">',
+                  'content'=>$cl->sec9_scontent,
                   'actions'=>'<button type="button" class="btn btn-success editer" data-id="'.$cl->id.'" data-type="section3" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-pencil-square mx-1"></i>
     EDIT</button><button type="button" data-type="section3" class="btn btn-danger mx-1 eradicator" data-id="'.$cl->id.'" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-trash3-fill mx-1"></i>
     DELETE</button>'
@@ -546,7 +549,8 @@ $model->map_code = $r->map_code ?? null;
     
               $serv_ind=[
                   'id'=>$c++,
-                  'image'=>'<img src="{{asset('."homepage/".$cl->whatwe_doimg.')}}">',
+                  'image'=>'<img src="'.asset('homepage/'.$cl->sec10_simg).'" style="width: 100px; height: auto; object-fit: contain;">',
+                  'title'=>$cl->sec10_stitle,
                   'actions'=>'<button type="button" class="btn btn-success editer" data-id="'.$cl->id.'" data-type="section3" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-pencil-square mx-1"></i>
     EDIT</button><button type="button" data-type="section3" class="btn btn-danger mx-1 eradicator" data-id="'.$cl->id.'" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-trash3-fill mx-1"></i>
     DELETE</button>'
@@ -570,7 +574,7 @@ $model->map_code = $r->map_code ?? null;
     
               $serv_ind=[
                   'id'=>$c++,
-                  'image'=>'<img src="{{asset('."homepage/".$cl->whatwe_doimg.')}}">',
+                  'content'=>$cl->sec12_scontent,
                   'actions'=>'<button type="button" class="btn btn-success editer" data-id="'.$cl->id.'" data-type="section3" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-pencil-square mx-1"></i>
     EDIT</button><button type="button" data-type="section3" class="btn btn-danger mx-1 eradicator" data-id="'.$cl->id.'" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-trash3-fill mx-1"></i>
     DELETE</button>'
@@ -594,7 +598,8 @@ $model->map_code = $r->map_code ?? null;
     
               $serv_ind=[
                   'id'=>$c++,
-                  'image'=>'<img src="{{asset('."homepage/".$cl->whatwe_doimg.')}}">',
+                  'content'=>$cl->sec13_scontent,
+                  'link'=>$cl->sec13_slink,
                   'actions'=>'<button type="button" class="btn btn-success editer" data-id="'.$cl->id.'" data-type="section3" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-pencil-square mx-1"></i>
     EDIT</button><button type="button" data-type="section3" class="btn btn-danger mx-1 eradicator" data-id="'.$cl->id.'" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-trash3-fill mx-1"></i>
     DELETE</button>'
