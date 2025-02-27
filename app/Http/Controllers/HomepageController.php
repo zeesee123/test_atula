@@ -70,6 +70,23 @@ class HomepageController extends Controller
         $model->sec3btn_text = $r->sec3btn_text;
         $model->sec3btn_url = $r->sec3btn_url;
 
+        //section 3 logo image
+
+        if ($r->hasFile('sec3logo')) {
+            if (!empty($model->sec3logo) && File::exists(public_path('homepage/'.$model->sec3logo))) {
+                File::delete(public_path('homepage/'.$model->sec3logo));
+            }
+            $gif = $r->file('sec3logo');
+            // $videoName = time() . '_' . $video->getClientOriginalName();
+            $gifName = $gif->hashName();
+            $gifPath = 'homepage/'; // Set the upload directory
+            $gif->move(public_path($gifPath), $gifName);
+            $model->sec3logo = $gifName; // Save path in DB
+            
+        }
+
+        //section 3 logo image part ends
+
         $imagesec3 = $r->file('whatwe_doimg');
 
 
@@ -370,16 +387,18 @@ $model->map_code = $r->map_code ?? null;
            
             case "section4":
 
-                $content=HompageSection3::all();
+                $content=HomepageSection4::all();
     
                 $count=$content->count();
+
+                // dd($content);
     
             
             foreach($content as $cl){
     
               $serv_ind=[
                   'id'=>$c++,
-                  'image'=>'<img src="{{asset('."homepage/".$cl->whatwe_doimg.')}}">',
+                  'text'=>$cl->sec4_text,
                   'actions'=>'<button type="button" class="btn btn-success editer" data-id="'.$cl->id.'" data-type="section3" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-pencil-square mx-1"></i>
     EDIT</button><button type="button" data-type="section3" class="btn btn-danger mx-1 eradicator" data-id="'.$cl->id.'" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-trash3-fill mx-1"></i>
     DELETE</button>'
@@ -395,7 +414,7 @@ $model->map_code = $r->map_code ?? null;
 
             case "section5":
 
-                $content=HompageSection3::all();
+                $content=HomepageSection5::all();
     
                 $count=$content->count();
     
@@ -404,7 +423,8 @@ $model->map_code = $r->map_code ?? null;
     
               $serv_ind=[
                   'id'=>$c++,
-                  'image'=>'<img src="{{asset('."homepage/".$cl->whatwe_doimg.')}}">',
+                  'image'=>'<img src="'.asset('homepage/'.$cl->sec5_img).'" style="width: 100px; height: auto; object-fit: contain;">',
+                  'title'=>$cl->sec5_stitle,
                   'actions'=>'<button type="button" class="btn btn-success editer" data-id="'.$cl->id.'" data-type="section3" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-pencil-square mx-1"></i>
     EDIT</button><button type="button" data-type="section3" class="btn btn-danger mx-1 eradicator" data-id="'.$cl->id.'" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-trash3-fill mx-1"></i>
     DELETE</button>'
@@ -420,7 +440,7 @@ $model->map_code = $r->map_code ?? null;
 
             case "section6":
 
-                $content=HompageSection3::all();
+                $content=HomepageSection6::all();
     
                 $count=$content->count();
     
@@ -429,7 +449,8 @@ $model->map_code = $r->map_code ?? null;
     
               $serv_ind=[
                   'id'=>$c++,
-                  'image'=>'<img src="{{asset('."homepage/".$cl->whatwe_doimg.')}}">',
+                  'year'=>$cl->sec6year,
+                  'title'=>$cl->sec6stitle,
                   'actions'=>'<button type="button" class="btn btn-success editer" data-id="'.$cl->id.'" data-type="section3" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-pencil-square mx-1"></i>
     EDIT</button><button type="button" data-type="section3" class="btn btn-danger mx-1 eradicator" data-id="'.$cl->id.'" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-trash3-fill mx-1"></i>
     DELETE</button>'
@@ -444,7 +465,7 @@ $model->map_code = $r->map_code ?? null;
 
             case "section7":
 
-                $content=HompageSection3::all();
+                $content=HomepageSection7::all();
     
                 $count=$content->count();
     
@@ -453,7 +474,7 @@ $model->map_code = $r->map_code ?? null;
     
               $serv_ind=[
                   'id'=>$c++,
-                  'image'=>'<img src="{{asset('."homepage/".$cl->whatwe_doimg.')}}">',
+                  'image'=>'<img src="'.asset('homepage/'.$cl->sec7_simg).'" style="width: 100px; height: auto; object-fit: contain;">',
                   'actions'=>'<button type="button" class="btn btn-success editer" data-id="'.$cl->id.'" data-type="section3" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-pencil-square mx-1"></i>
     EDIT</button><button type="button" data-type="section3" class="btn btn-danger mx-1 eradicator" data-id="'.$cl->id.'" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-trash3-fill mx-1"></i>
     DELETE</button>'
@@ -468,7 +489,7 @@ $model->map_code = $r->map_code ?? null;
 
             case "section8":
 
-                $content=HompageSection3::all();
+                $content=HomepageSection8::all();
     
                 $count=$content->count();
     
@@ -492,7 +513,7 @@ $model->map_code = $r->map_code ?? null;
 
             case "section9":
 
-                $content=HompageSection3::all();
+                $content=HomepageSection9::all();
     
                 $count=$content->count();
     
@@ -516,7 +537,7 @@ $model->map_code = $r->map_code ?? null;
 
             case "section10":
 
-                $content=HompageSection3::all();
+                $content=HomepageSection10::all();
     
                 $count=$content->count();
     
@@ -540,7 +561,7 @@ $model->map_code = $r->map_code ?? null;
 
             case "section12":
 
-                $content=HompageSection3::all();
+                $content=HomepageSection12::all();
     
                 $count=$content->count();
     
@@ -564,7 +585,7 @@ $model->map_code = $r->map_code ?? null;
 
             case "section13":
 
-                $content=HompageSection3::all();
+                $content=HomepageSection13::all();
     
                 $count=$content->count();
     

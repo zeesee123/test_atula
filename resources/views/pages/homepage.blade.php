@@ -76,10 +76,25 @@ h1{color:'red'}
             <div class="col-2">
                 <button type="button" class="btn btn-danger clear-vidbtn" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="reset image"><i class="bi bi-arrow-clockwise"></i></button>
             </div>
-            <div class="mb-3 col-6">
+            {{-- <div class="mb-3 col-6">
                 <img class="videoThumbnail" src="{{ asset('images/default.jpg') }}" width="400" alt="Default Video Thumbnail">
                 <video class="videoPreview" width="400" controls style="display:none;"></video>
-            </div>
+            </div> --}}
+            <div class="mb-3 col-4">
+            
+              <img class="videoThumbnail" 
+       src="{{ asset('images/default.jpg') }}" 
+       width="400" 
+       alt="Default Video Thumbnail"
+       style="{{ $section->sec1_vid ? 'display:none;' : '' }}">
+  
+  <video class="videoPreview" 
+         width="400" 
+         controls 
+         style="{{ $section->sec1_vid ? 'display:block;' : 'display:none;' }}">
+      <source src="{{ $section->sec1_vid ? asset('homepage/'.$section->sec1_vid) : '' }}" type="video/mp4">
+  </video>
+          </div>
         </div>
         
 
@@ -175,7 +190,7 @@ h1{color:'red'}
                 <button type="button" class="btn btn-danger clear-btn" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="reset image"><i class="bi bi-arrow-clockwise"></i></button>
             </div>
             <div class="mb-3 col-4">
-                <img class="Thumbnail" src="{{ asset('images/default.jpg') }}" width="400" alt="Default picture Thumbnail">
+                <img class="Thumbnail" src="{{ $section->sec3logo?asset('homepage/'.$section->sec3logo):asset('images/default.jpg') }}" width="400" alt="Default picture Thumbnail">
                 
             </div>
         </div>
@@ -512,13 +527,11 @@ h1{color:'red'}
             </div>
         </div>
 
-        <table class="table" id="purpose&vision_table">
+        <table class="table" id="purposeNvision_table">
             <thead>
               <tr>
                 <th scope="col">#</th>
                 <th scope="col">image</th>
-                <th scope="col">content</th>
-                <th scope="col">title</th>
                 
                 {{-- <th scope="col">Url</th> --}}
                 <th scope="col">Actions</th>
@@ -605,7 +618,7 @@ h1{color:'red'}
 
 <section>
 
-    <h3>Section(Technology-Driven Agriculture)</h3>
+    <h3>Section 9(Technology-Driven Agriculture)</h3>
 
     <div class="row">
         <div class="col-12 mb-3">
@@ -679,7 +692,7 @@ h1{color:'red'}
 
 <section>
 
-    <h3>Section(Our Purpose & Values)</h3>
+    <h3>Section 10(Our Purpose & Values)</h3>
 
     <div class="mb-3">
         <label for="" class="form-label">title</label>
@@ -731,7 +744,7 @@ h1{color:'red'}
 
 <section>
 
-    <h3>Section(Empowering Communities & the Planet)</h3>
+    <h3>Section 11(Empowering Communities & the Planet)</h3>
 
     <div class="row">
         <div class="row">
@@ -746,7 +759,7 @@ h1{color:'red'}
                 <button type="button" class="btn btn-danger clear-btn" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="reset image"><i class="bi bi-arrow-clockwise"></i></button>
             </div>
             <div class="col-4">
-                <img class="Thumbnail" src="{{ asset('images/default.jpg') }}" width="400" alt="Default Video Thumbnail">
+                <img class="Thumbnail" src="{{ $section->sec11_image?asset('homepage/'.$section->sec11_image):asset('images/default.jpg') }}" width="400" alt="Default Video Thumbnail">
             </div>
         </div>
         
@@ -777,7 +790,7 @@ h1{color:'red'}
 
 <section>
 
-    <h3>Section(Badges)</h3>
+    <h3>Section 12(Badges)</h3>
 
     {{-- cards for the other part as well --}}
 
@@ -821,7 +834,7 @@ h1{color:'red'}
 
 <section>
 
-    <h3>Section(Be a part of the change)</h3>
+    <h3>Section 13(Be a part of the change)</h3>
 
     <div class="row">
         <div class="col-12 mb-3">
@@ -894,7 +907,7 @@ h1{color:'red'}
 
 <section>
 
-    <h3>Section(Get in touch)</h3>
+    <h3>Section 14(Get in touch)</h3>
 
     <div class="row">
         <div class="col-12 mb-3">
@@ -1359,14 +1372,14 @@ var table1=$('#whatwedo_table').DataTable({
                   }
                 }
               }]
-  })
+  });
 
   var table2=$('#impacthighlight_table').DataTable({
               ajax:"{{url('/hometable/section4')}}",
               processing:true,
               columns:[
                 {"data":"id"},
-                {"data":"title"},
+                {"data":"text"},
                 // {"data":"description"},
                 {"data":"actions"}],
               order:[],
@@ -1405,13 +1418,14 @@ var table1=$('#whatwedo_table').DataTable({
                   }
                 }
               }]
-  })
+  });
 
   var table3=$('#ourbusiness_table').DataTable({
               ajax:"{{url('/hometable/section5')}}",
               processing:true,
               columns:[
                 {"data":"id"},
+                {"data":"image"},
                 {"data":"title"},
                 // {"data":"description"},
                 {"data":"actions"}],
@@ -1451,13 +1465,14 @@ var table1=$('#whatwedo_table').DataTable({
                   }
                 }
               }]
-  })
+  });
 
   var table4=$('#ourjourney_table').DataTable({
               ajax:"{{url('/hometable/section6')}}",
               processing:true,
               columns:[
                 {"data":"id"},
+                {"data":"year"},
                 {"data":"title"},
                 // {"data":"description"},
                 {"data":"actions"}],
@@ -1500,12 +1515,12 @@ var table1=$('#whatwedo_table').DataTable({
   })
 
 
-  var table5=$('#purpose&vision_table').DataTable({
+  var table5=$('#purposeNvision_table').DataTable({
               ajax:"{{url('/hometable/section7')}}",
               processing:true,
               columns:[
                 {"data":"id"},
-                {"data":"title"},
+                {"data":"image"},
                 // {"data":"description"},
                 {"data":"actions"}],
               order:[],
