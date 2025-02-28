@@ -32,8 +32,7 @@ Route::post('/add_homepage',[HomepageController::class,'add_homepage']);
 //routes for changing in the stuff
 Route::get('/hometable/{section}',[HomepageController::class,'loadtable']);
 
-
-
+Route::get('/get_resource/{type}/{id}',[HomepageController::class,'get_resource']);
 
 Route::get('/login',function(){
 

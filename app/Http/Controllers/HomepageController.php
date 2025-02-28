@@ -621,4 +621,58 @@ $model->map_code = $r->map_code ?? null;
 
 
     }
+
+
+    public function get_resource($section,$id){
+
+        $sectionData=null;
+        switch ($section) {
+            case "section3":
+                $sectionData = HomepageSection3::find($id);
+                break;
+        
+            case "section4":
+                $sectionData = HomepageSection4::find($id);
+                break;
+        
+            case "section5":
+                $sectionData = HomepageSection5::find($id);
+                break;
+        
+            case "section6":
+                $sectionData = HomepageSection6::find($id);
+                break;
+        
+            case "section7":
+                $sectionData = HomepageSection7::find($id);
+                break;
+        
+            case "section8":
+                $sectionData = HomepageSection8::find($id);
+                break;
+        
+            case "section9":
+                $sectionData = HomepageSection9::find($id);
+                break;
+        
+            case "section10":
+                $sectionData = HomepageSection10::find($id);
+                break;
+        
+            case "section12":
+                $sectionData = HomepageSection12::find($id);
+                break;
+        
+            case "section13":
+                $sectionData = HomepageSection13::find($id);
+                break;
+        
+            default:
+                $sectionData = null;
+                break;
+        }
+ 
+        return response()->json(['status'=>'success','sectionData'=>$sectionData]);
+    }
+
 }

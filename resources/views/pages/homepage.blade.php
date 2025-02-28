@@ -1820,13 +1820,29 @@ var table1=$('#whatwedo_table').DataTable({
       let editroutes=[]
   }
 
-  function changeModal_content(type,button){
+  async function changeModal_content(type,button,id){
+
+
+   //resource call
+
+  //  type in loading for loading in the resource..
+
+  let fet=await fetch(`{{url('/')}}/get_resource/${type}/${id}`);
+  
+  let res=await fet.json();
+
+  console.log(res);
+
+  // console.log('this is the url'+`{{url('/')}}/get_resource/${type}`);
+
+
 
     FilePond.destroy(document.querySelector('.filepond')); 
 
     let content=null;
     let img=false;
     let pond=null;
+    let imglink=null;
 
   //   let icon_url=document.getElementById('icon_url');
   // const pond2=FilePond.create(icon_url);
@@ -1844,6 +1860,7 @@ case "section3":
       </div>
       </form>`;
       img=true;
+      imglink=`{{url('/')}}`
 break;
 case "section4":
   content=`section4`;
@@ -1894,6 +1911,8 @@ content=`utc`;
       let imz=document.querySelector('.filepond');
       pond=FilePond.create(imz);
 
+      
+
 
     }
 
@@ -1921,7 +1940,7 @@ content=`utc`;
 
 
 
-      changeModal_content(this.getAttribute('data-type'),'editor');
+      changeModal_content(this.getAttribute('data-type'),'editor',this.getAttribute('data-id'));
 
 
   });
@@ -1930,7 +1949,7 @@ content=`utc`;
 
     console.log('you clicked on eradicator');
 
-    changeModal_content(this.getAttribute('data-type'),'eradicator');
+    changeModal_content(this.getAttribute('data-type'),'eradicator',this.getAttribute('data-id'));
 
   });
 
