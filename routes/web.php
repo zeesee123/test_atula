@@ -34,6 +34,8 @@ Route::get('/hometable/{section}',[HomepageController::class,'loadtable']);
 
 Route::get('/get_resource/{type}/{id}',[HomepageController::class,'get_resource']);
 
+Route::post('/update_homesection/{section}',[HomepageController::class,'update_resource']);
+
 Route::get('/login',function(){
 
     return view('pages.auth.login');

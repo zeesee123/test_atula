@@ -983,6 +983,11 @@ h1{color:'red'}
 <script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
 
 <script>
+
+    FilePond.registerPlugin(FilePondPluginImagePreview);
+
+    let x_token=document.querySelector("meta[name='csrf-token']").getAttribute('content');
+
     let field1=document.getElementById('whatwedo_images');
 
     let field2=document.getElementById('impact_highlights');
@@ -1856,39 +1861,180 @@ case "section3":
     <div class="mb-3">
       <label for="" class="form-label">Image</label>
       <input class="form-control filepond" type="file">
-      <button class="btn btn-success">Update</button>
+      <input type="hidden" value="${id}" name="id">
+      <button class="btn btn-success" id="update_btnmod">Update</button>
       </div>
       </form>`;
       img=true;
       imglink=`{{url('/')}}/homepage/${res.sectionData.whatwe_doimg}`;
 break;
 case "section4":
-  content=`section4`;
+  content=`<form id="dynForm">
+    <div class="mb-3">
+      <label for="" class="form-label">Content</label>
+      <textarea class="form-control" rows="5" name="sec4_text">${res.sectionData.sec4_text}</textarea>
+      
+      </div>
+      <input type="hidden" value="${id}" name="id">
+      <button class="btn btn-success" id="update_btnmod" >Update</button>
+      </form>`;
 break;
 case "section5":
-content=`section5`;
+content=`<form id="dynForm">
+    <div class="mb-3">
+      <label for="" class="form-label">Image</label>
+      <input class="form-control filepond" type="file" >
+      </div>
+      <div class="mb-3">
+      <label for="" class="form-label">Title</label>
+      <input class="form-control" type="text" value="${res.sectionData.sec5_stitle}" name="sec5_stitle">
+      </div>
+      <div class="mb-3">
+      <label for="" class="form-label">Content</label>
+      <textarea class="form-control" rows="5" name="sec5_scontent">${res.sectionData.sec5_scontent}</textarea>
+      </div>
+      <input type="hidden" value="${id}" name="id">
+      <button class="btn btn-success" id="update_btnmod" >Update</button>
+      </form>`;
+      img=true;
+      imglink=`{{url('/')}}/homepage/${res.sectionData.sec5_img}`;
 break;
 case "section6":
-content=`section6`;
+content=`<form id="dynForm">
+    <div class="mb-3">
+      <label for="" class="form-label">Year</label>
+      <input class="form-control" type="text" value="${res.sectionData.sec6year}" name="sec6year">
+      </div>
+      <div class="mb-3">
+      <label for="" class="form-label">Title</label>
+      <input class="form-control" type="text" value="${res.sectionData.sec6stitle}" name="sec6stitle">
+      </div>
+      <div class="mb-3">
+      <label for="" class="form-label">Content</label>
+      <textarea class="form-control" rows="5" name="sec6scontent">${res.sectionData.sec6scontent}</textarea>
+      </div>
+      <input type="hidden" value="${id}" name="id">
+      <button class="btn btn-success" id="update_btnmod" >Update</button>
+      </form>`;
 break;
 case "section7":
-  content=`section7`;
+content=`<form id="dynForm">
+    <div class="mb-3">
+      <label for="" class="form-label">Image</label>
+      <input class="form-control filepond" type="file">
+      </div>
+    
+      <div class="mb-3">
+      <label for="" class="form-label">Content</label>
+      <textarea class="form-control" rows="5" name="sec7_scontent">${res.sectionData.sec7_scontent}</textarea>
+      </div>
+      <input type="hidden" value="${id}" name="id">
+      <button class="btn btn-success"  id="update_btnmod">Update</button>
+      </form>`;
+      img=true;
+      imglink=`{{url('/')}}/homepage/${res.sectionData.sec7_simg}`;
 break;
 case "section8":
-  content=`section8`;
+content=`<form id="dynForm">
+    <div class="mb-3">
+      <label for="" class="form-label">Image</label>
+      <input class="form-control filepond" type="file">
+      </div>
+    
+      <div class="mb-3">
+      <label for="" class="form-label">Content</label>
+      <textarea class="form-control" rows="5" name="sec8_scontent">${res.sectionData.sec8_scontent}</textarea>
+      </div>
+      <div class="mb-3">
+      <label for="" class="form-label">Link</label>
+      <input class="form-control" type="text" value="${res.sectionData.sec8_slink}" name="sec8_slink">
+      </div>
+      <input type="hidden" value="${id}" name="id">
+      <button class="btn btn-success"  id="update_btnmod">Update</button>
+      </form>`;
+      img=true;
+      imglink=`{{url('/')}}/homepage/${res.sectionData.sec8_slogo}`;
 break;
 case "section9":
-  content=`section9`;
+content=`<form id="dynForm">
+    <div class="mb-3">
+      <label for="" class="form-label">Image</label>
+      <input class="form-control filepond" type="file">
+      </div>
+    
+      <div class="mb-3">
+      <label for="" class="form-label">Content</label>
+      <textarea class="form-control" rows="5" name="sec9_scontent">${res.sectionData.sec9_scontent}</textarea>
+      </div>
+      <input type="hidden" value="${id}" name="id">
+      
+      <button class="btn btn-success" id="update_btnmod" >Update</button>
+      </form>`;
+      img=true;
+      imglink=`{{url('/')}}/homepage/${res.sectionData.sec9_simg}`;
 break;
 case "section10":
-  content=`section9`;
+content=`<form id="dynForm">
+  <div class="mb-3">
+      <label for="" class="form-label">Title</label>
+      <input class="form-control" type="text" name="sec10_stitle" value="${res.sectionData.sec10_stitle}">
+      </div>
+    <div class="mb-3">
+      <label for="" class="form-label">Image</label>
+      <input class="form-control filepond" type="file">
+      </div>
+    
+      <div class="mb-3">
+      <label for="" class="form-label">Content</label>
+      <textarea class="form-control" rows="5" name="sec10_scontent">${res.sectionData.sec10_scontent}</textarea>
+      </div>
+      <input type="hidden" value="${id}" name="id">
+      
+      <button class="btn btn-success"  id="update_btnmod">Update</button>
+      </form>`;
+      img=true;
+      imglink=`{{url('/')}}/homepage/${res.sectionData.sec10_simg}`;
+
   
 break;
 case "section12":
-  content=`section9`;
+content=`<form id="dynForm">
+  
+    
+      <div class="mb-3">
+      <label for="" class="form-label">Content</label>
+      <textarea class="form-control" rows="5" name="sec12_scontent">${res.sectionData.sec12_scontent??''}</textarea>
+      </div>
+      <input type="hidden" value="${id}" name="id">
+      
+      <button class="btn btn-success"  id="update_btnmod" >Update</button>
+      </form>`;
+
+
 break;
 case "section13":
-  content=`section9`;
+content=`<form id="dynForm">
+  
+    <div class="mb-3">
+      <label for="" class="form-label">Image</label>
+      <input class="form-control filepond" type="file" name="id">
+      </div>
+    
+      <div class="mb-3">
+      <label for="" class="form-label">Content</label>
+      <textarea class="form-control" rows="5" name="sec13_scontent">${res.sectionData.sec13_scontent}</textarea>
+      </div>
+
+      <div class="mb-3">
+      <label for="" class="form-label">Link</label>
+      <input class="form-control" type="text" value="${res.sectionData.sec13_slink}" name="sec13_slink">
+      </div>
+      <input type="hidden" value="${id}" name="id">
+      
+      <button class="btn btn-success" id="update_btnmod" >Update</button>
+      </form>`;
+      img=true;
+      imglink=`{{url('/')}}/homepage/${res.sectionData.image}`;
 break;
 default:
 content=`utc`;
@@ -1898,6 +2044,9 @@ content=`utc`;
 }
 
 
+   }else{
+    content=`<form id="dynForm"><h4 class="text-center">You sure you want to delete this ?</h4>
+              <div class="d-flex justify-content-center"><button class="btn btn-primary">Yes</button></div></form>`;
    } 
 
 
@@ -1920,13 +2069,40 @@ content=`utc`;
 
     let dynform=document.getElementById('dynForm');
 
-    dynform.addEventListener('submit',(e)=>{
+    dynform.addEventListener('submit',async(e)=>{
 
       e.preventDefault();
 
-      console.log('form submission');
+      let update_btnmod=document.getElementById('update_btnmod');
+      
 
-      let routeUrl=getrouteUrl(button,type);
+      update_btnmod.textContent='Updating...';
+
+      // console.log('form submission');
+      let data=new FormData(dynform);
+
+      if(img){
+        if(pond.getFile(0)){
+
+console.log('file is there');
+
+data.append('image',pond.getFile().file);
+}else{
+console.log('file is not there');
+}
+      }
+      
+
+      let fetchf=await fetch(`{{url('/update_homesection')}}/${type}`,{method:'POST',headers:{'X-CSRF-TOKEN':x_token},body:data})
+      
+
+      let resf=await fetchf.json();
+
+      
+
+      console.log('this is the response',resf);
+
+      // let routeUrl=getrouteUrl(button,type);
 
     })
 
@@ -1940,7 +2116,7 @@ content=`utc`;
 
       console.log('you clicked on an editor');
 
-
+      console.log('this is the section',this.getAttribute('data-type'));
 
       changeModal_content(this.getAttribute('data-type'),'editor',this.getAttribute('data-id'));
 
@@ -1950,6 +2126,8 @@ content=`utc`;
   $(document).on('click','.eradicator',async function(){
 
     console.log('you clicked on eradicator');
+
+    console.log('this is the section',this.getAttribute('data-type'));
 
     changeModal_content(this.getAttribute('data-type'),'eradicator',this.getAttribute('data-id'));
 

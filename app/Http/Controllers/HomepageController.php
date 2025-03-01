@@ -399,8 +399,8 @@ $model->map_code = $r->map_code ?? null;
               $serv_ind=[
                   'id'=>$c++,
                   'text'=>$cl->sec4_text,
-                  'actions'=>'<button type="button" class="btn btn-success editer" data-id="'.$cl->id.'" data-type="section3" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-pencil-square mx-1"></i>
-    EDIT</button><button type="button" data-type="section3" class="btn btn-danger mx-1 eradicator" data-id="'.$cl->id.'" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-trash3-fill mx-1"></i>
+                  'actions'=>'<button type="button" class="btn btn-success editer" data-id="'.$cl->id.'" data-type="section4" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-pencil-square mx-1"></i>
+    EDIT</button><button type="button" data-type="section4" class="btn btn-danger mx-1 eradicator" data-id="'.$cl->id.'" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-trash3-fill mx-1"></i>
     DELETE</button>'
               ];
     
@@ -425,8 +425,8 @@ $model->map_code = $r->map_code ?? null;
                   'id'=>$c++,
                   'image'=>'<img src="'.asset('homepage/'.$cl->sec5_img).'" style="width: 100px; height: auto; object-fit: contain;">',
                   'title'=>$cl->sec5_stitle,
-                  'actions'=>'<button type="button" class="btn btn-success editer" data-id="'.$cl->id.'" data-type="section3" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-pencil-square mx-1"></i>
-    EDIT</button><button type="button" data-type="section3" class="btn btn-danger mx-1 eradicator" data-id="'.$cl->id.'" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-trash3-fill mx-1"></i>
+                  'actions'=>'<button type="button" class="btn btn-success editer" data-id="'.$cl->id.'" data-type="section5" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-pencil-square mx-1"></i>
+    EDIT</button><button type="button" data-type="section5" class="btn btn-danger mx-1 eradicator" data-id="'.$cl->id.'" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-trash3-fill mx-1"></i>
     DELETE</button>'
               ];
     
@@ -451,8 +451,8 @@ $model->map_code = $r->map_code ?? null;
                   'id'=>$c++,
                   'year'=>$cl->sec6year,
                   'title'=>$cl->sec6stitle,
-                  'actions'=>'<button type="button" class="btn btn-success editer" data-id="'.$cl->id.'" data-type="section3" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-pencil-square mx-1"></i>
-    EDIT</button><button type="button" data-type="section3" class="btn btn-danger mx-1 eradicator" data-id="'.$cl->id.'" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-trash3-fill mx-1"></i>
+                  'actions'=>'<button type="button" class="btn btn-success editer" data-id="'.$cl->id.'" data-type="section6" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-pencil-square mx-1"></i>
+    EDIT</button><button type="button" data-type="section6" class="btn btn-danger mx-1 eradicator" data-id="'.$cl->id.'" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-trash3-fill mx-1"></i>
     DELETE</button>'
               ];
     
@@ -475,8 +475,8 @@ $model->map_code = $r->map_code ?? null;
               $serv_ind=[
                   'id'=>$c++,
                   'image'=>'<img src="'.asset('homepage/'.$cl->sec7_simg).'" style="width: 100px; height: auto; object-fit: contain;">',
-                  'actions'=>'<button type="button" class="btn btn-success editer" data-id="'.$cl->id.'" data-type="section3" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-pencil-square mx-1"></i>
-    EDIT</button><button type="button" data-type="section3" class="btn btn-danger mx-1 eradicator" data-id="'.$cl->id.'" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-trash3-fill mx-1"></i>
+                  'actions'=>'<button type="button" class="btn btn-success editer" data-id="'.$cl->id.'" data-type="section7" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-pencil-square mx-1"></i>
+    EDIT</button><button type="button" data-type="section7" class="btn btn-danger mx-1 eradicator" data-id="'.$cl->id.'" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-trash3-fill mx-1"></i>
     DELETE</button>'
               ];
     
@@ -501,8 +501,8 @@ $model->map_code = $r->map_code ?? null;
                   'logo'=>'<img src="'.asset('homepage/'.$cl->sec8_slogo).'" style="width: 100px; height: auto; object-fit: contain;">',
                   'content'=>$cl->sec8_scontent,
                   'link'=>$cl->sec8_slink,
-                  'actions'=>'<button type="button" class="btn btn-success editer" data-id="'.$cl->id.'" data-type="section3" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-pencil-square mx-1"></i>
-    EDIT</button><button type="button" data-type="section3" class="btn btn-danger mx-1 eradicator" data-id="'.$cl->id.'" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-trash3-fill mx-1"></i>
+                  'actions'=>'<button type="button" class="btn btn-success editer" data-id="'.$cl->id.'" data-type="section8" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-pencil-square mx-1"></i>
+    EDIT</button><button type="button" data-type="section8" class="btn btn-danger mx-1 eradicator" data-id="'.$cl->id.'" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-trash3-fill mx-1"></i>
     DELETE</button>'
               ];
     
@@ -526,8 +526,8 @@ $model->map_code = $r->map_code ?? null;
                   'id'=>$c++,
                   'image'=>'<img src="'.asset('homepage/'.$cl->sec9_simg).'" style="width: 100px; height: auto; object-fit: contain;">',
                   'content'=>$cl->sec9_scontent,
-                  'actions'=>'<button type="button" class="btn btn-success editer" data-id="'.$cl->id.'" data-type="section3" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-pencil-square mx-1"></i>
-    EDIT</button><button type="button" data-type="section3" class="btn btn-danger mx-1 eradicator" data-id="'.$cl->id.'" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-trash3-fill mx-1"></i>
+                  'actions'=>'<button type="button" class="btn btn-success editer" data-id="'.$cl->id.'" data-type="section9" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-pencil-square mx-1"></i>
+    EDIT</button><button type="button" data-type="section9" class="btn btn-danger mx-1 eradicator" data-id="'.$cl->id.'" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-trash3-fill mx-1"></i>
     DELETE</button>'
               ];
     
@@ -551,8 +551,8 @@ $model->map_code = $r->map_code ?? null;
                   'id'=>$c++,
                   'image'=>'<img src="'.asset('homepage/'.$cl->sec10_simg).'" style="width: 100px; height: auto; object-fit: contain;">',
                   'title'=>$cl->sec10_stitle,
-                  'actions'=>'<button type="button" class="btn btn-success editer" data-id="'.$cl->id.'" data-type="section3" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-pencil-square mx-1"></i>
-    EDIT</button><button type="button" data-type="section3" class="btn btn-danger mx-1 eradicator" data-id="'.$cl->id.'" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-trash3-fill mx-1"></i>
+                  'actions'=>'<button type="button" class="btn btn-success editer" data-id="'.$cl->id.'" data-type="section10" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-pencil-square mx-1"></i>
+    EDIT</button><button type="button" data-type="section10" class="btn btn-danger mx-1 eradicator" data-id="'.$cl->id.'" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-trash3-fill mx-1"></i>
     DELETE</button>'
               ];
     
@@ -575,8 +575,8 @@ $model->map_code = $r->map_code ?? null;
               $serv_ind=[
                   'id'=>$c++,
                   'content'=>$cl->sec12_scontent,
-                  'actions'=>'<button type="button" class="btn btn-success editer" data-id="'.$cl->id.'" data-type="section3" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-pencil-square mx-1"></i>
-    EDIT</button><button type="button" data-type="section3" class="btn btn-danger mx-1 eradicator" data-id="'.$cl->id.'" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-trash3-fill mx-1"></i>
+                  'actions'=>'<button type="button" class="btn btn-success editer" data-id="'.$cl->id.'" data-type="section12" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-pencil-square mx-1"></i>
+    EDIT</button><button type="button" data-type="section12" class="btn btn-danger mx-1 eradicator" data-id="'.$cl->id.'" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-trash3-fill mx-1"></i>
     DELETE</button>'
               ];
     
@@ -673,6 +673,105 @@ $model->map_code = $r->map_code ?? null;
         }
  
         return response()->json(['status'=>'success','sectionData'=>$sectionData]);
+    }
+
+    public function update_resource($section,Request $request){
+
+        try{
+
+                // Validate request data, including image validation
+        $validatedData = $request->validate([
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
+            'sec4_text' => 'nullable|string',
+            'sec5_stitle' => 'nullable|string',
+            'sec5_scontent' => 'nullable|string',
+            'sec6year' => 'nullable|string',
+            'sec6stitle' => 'nullable|string',
+            'sec6scontent' => 'nullable|string',
+            'sec7_scontent' => 'nullable|string',
+            'sec8_scontent' => 'nullable|string',
+            'sec8_slink' => 'nullable|string',
+            'sec9_scontent' => 'nullable|string',
+            'sec10_stitle' => 'nullable|string',
+            'sec10_scontent' => 'nullable|string',
+            'sec12_scontent' => 'nullable|string',
+            'sec13_scontent' => 'nullable|string',
+            'sec13_slink' => 'nullable|string',
+        ]);
+
+        // Section mapping
+        $sections = [
+            'section3' => HomepageSection3::class,
+            'section4' => HomepageSection4::class,
+            'section5' => HomepageSection5::class,
+            'section6' => HomepageSection6::class,
+            'section7' => HomepageSection7::class,
+            'section8' => HomepageSection8::class,
+            'section9' => HomepageSection9::class,
+            'section10' => HomepageSection10::class,
+            'section12' => HomepageSection12::class,
+            'section13' => HomepageSection13::class,
+        ];
+
+        if (!isset($sections[$section])) {
+            return response()->json(['error' => 'Invalid section'], 400);
+        }
+
+        // Get model
+        $section = $sections[$section]::find($id);
+
+        if (!$section) {
+            return response()->json(['error' => 'Section not found'], 404);
+        }
+
+        // Image fields for different sections
+        $imageFields = [
+            'section3' => 'whatwe_doimg',
+            'section5' => 'sec5_img',
+            'section7' => 'sec7_simg',
+            'section8' => 'sec8_slogo',
+            'section9' => 'sec9_simg',
+            'section10' => 'sec10_simg',
+            'section13' => 'image',
+        ];
+
+        // Handle image upload
+        if ($request->hasFile('image') && isset($imageFields[$section])) {
+            $image = $request->file('image');
+            $imageName = $image->hashName();
+            $imagePath = public_path('homepage/' . $imageName);
+
+            // Delete old image
+            $oldImage = $section->{$imageFields[$section]};
+            if (!empty($oldImage) && File::exists(public_path('homepage/' . $oldImage))) {
+                File::delete(public_path('homepage/' . $oldImage));
+            }
+
+            // Move new image
+            $image->move(public_path('homepage/'), $imageName);
+            $section->{$imageFields[$section]} = $imageName;
+        }
+
+        // Update other fields dynamically
+        foreach ($validatedData as $field => $value) {
+            if ($field !== 'image') {
+                $section->$field = $value;
+            }
+        }
+
+        // Save updated section
+        $section->save();
+        
+            return response()->json(['message' => 'Section updated successfully', 'status'=>'success','class'=>'alert-success'], 200);
+
+        }catch(Exception $e){
+
+            Log::error($e->getMessage());
+            return response()->json(['message' => 'Something went wrong', 'status'=>'error','class'=>'alert alert-danger'], 500);
+        }
+        
+
+        
     }
 
 }
