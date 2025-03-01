@@ -1860,7 +1860,7 @@ case "section3":
       </div>
       </form>`;
       img=true;
-      imglink=`{{url('/')}}`
+      imglink=`{{url('/')}}/homepage/${res.sectionData.whatwe_doimg}`;
 break;
 case "section4":
   content=`section4`;
@@ -1910,6 +1910,8 @@ content=`utc`;
 
       let imz=document.querySelector('.filepond');
       pond=FilePond.create(imz);
+
+      pond.addFile(imglink);
 
       
 
