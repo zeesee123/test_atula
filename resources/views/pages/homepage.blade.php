@@ -30,7 +30,7 @@ h1{color:'red'}
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close btn-bs-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body" id="modal_content">
           
@@ -53,15 +53,20 @@ h1{color:'red'}
 
     @if(session('success'))
 
-    <div style="color:green;">
+    
+      <div class="alert alert-success">
         {{session('success')}}
-    </div>
+      </div>
+        
+    
 
     @elseif(session('error'))
 
-    <div style="color:red;">
-        {{session('success')}}
+    <div class="alert alert-danger">
+      {{session('error')}}
     </div>
+
+    
 
     @endif
 
@@ -1851,6 +1856,7 @@ function reloadTable(sectionName) {
 
   async function changeModal_content(type,button,id){
 
+    console.log('this is the button',button);
 
    //resource call
 
@@ -2069,8 +2075,10 @@ content=`utc`;
 
 
    }else{
+
+    
     content=`<form id="dynForm"><h4 class="text-center">You sure you want to delete this ?</h4>
-              <div class="d-flex justify-content-center"><button class="btn btn-primary">Yes</button></div></form>`;
+              <div class="d-flex justify-content-center"> <input type="hidden" value="${id}" name="id"><button class="btn btn-primary" id="delete_btnmod">Yes</button></div></form>`;
    } 
 
 
@@ -2097,13 +2105,17 @@ content=`utc`;
 
       e.preventDefault();
 
-      let update_btnmod=document.getElementById('update_btnmod');
+      let data=new FormData(dynform);
+
+      if(button=='editor'){
+
+        let update_btnmod=document.getElementById('update_btnmod');
       
 
       update_btnmod.textContent='Updating...';
 
       // console.log('form submission');
-      let data=new FormData(dynform);
+      
 
       if(img){
         if(pond.getFile(0)){
@@ -2122,7 +2134,7 @@ console.log('file is not there');
 
       let resf=await fetchf.json();
 
-      console.log(resf);
+      console.log('this is the response',resf);
 
       update_btnmod.textContent='Update';
 
@@ -2135,7 +2147,37 @@ console.log('file is not there');
 
       reloadTable(type);
 
-      console.log('this is the response',resf);
+      }else{
+
+        let delete_btnmod=document.getElementById('delete_btnmod');
+
+        delete_btnmod.textContent='Deleting...';
+        let mod_close=document.querySelector('.btn-bs-close');
+      
+
+
+
+        let fetchf=await fetch(`{{url('/remove_homesection')}}/${type}`,{method:'POST',headers:{'X-CSRF-TOKEN':x_token},body:data})
+        let resf=await fetchf.json();
+
+        Swal.fire({
+  title: `${resf.status.charAt(0).toUpperCase()+resf.status.slice(1)}!`,
+  text: `${resf.message}`,
+  icon: `${resf.status}`,
+  confirmButtonText: 'OK'
+});
+
+mod_close.click();
+
+reloadTable(type);
+
+
+
+      }
+
+      
+
+      
 
       // let routeUrl=getrouteUrl(button,type);
 

@@ -822,4 +822,77 @@ $model->map_code = $r->map_code ?? null;
         
     }
 
+
+    public function delete_resource($sectionType,Request $request){
+
+         
+        try{
+
+            
+
+            $validatedRequest = $request->validate([
+                'id' => 'required|integer|min:1', // Ensures ID is valid
+            ]);
+        
+            $id = $validatedRequest['id']; // Extract validated ID
+        
+            // Section mapping
+            $sections = [
+                'section3' => HomepageSection3::class,
+                'section4' => HomepageSection4::class,
+                'section5' => HomepageSection5::class,
+                'section6' => HomepageSection6::class,
+                'section7' => HomepageSection7::class,
+                'section8' => HomepageSection8::class,
+                'section9' => HomepageSection9::class,
+                'section10' => HomepageSection10::class,
+                'section12' => HomepageSection12::class,
+                'section13' => HomepageSection13::class,
+            ];
+        
+            if (!isset($sections[$sectionType])) {
+                return response()->json(['error' => 'Invalid section'], 400);
+            }
+        
+            // Get model
+            $section = $sections[$sectionType]::find($id);
+        
+            if (!$section) {
+                return response()->json(['error' => 'Section not found'], 404);
+            }
+        
+            // Image fields for different sections
+            $imageFields = [
+                'section3' => 'whatwe_doimg',
+                'section5' => 'sec5_img',
+                'section7' => 'sec7_simg',
+                'section8' => 'sec8_slogo',
+                'section9' => 'sec9_simg',
+                'section10' => 'sec10_simg',
+                'section13' => 'image',
+            ];
+        
+            // Check if this section has an associated image field
+            if (!empty($imageFields[$sectionType])) {
+                $imageField = $imageFields[$sectionType];
+                $oldImage = $section->$imageField;
+        
+                // Delete old image if it exists
+                if (!empty($oldImage) && File::exists(public_path('homepage/' . $oldImage))) {
+                    File::delete(public_path('homepage/' . $oldImage));
+                }
+            }
+        
+            // Delete the section record from the database
+            $section->delete();
+        
+            return response()->json(['message' => 'Item deleted successfully', 'status' => 'success'], 200);
+
+        }catch(Exception $e){
+
+            Log::error($e->getMessage());
+            return response()->json(['message' => 'Something went wrong', 'status'=>'error'], 500);
+        }
+    }
+
 }

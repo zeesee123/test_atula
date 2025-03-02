@@ -36,6 +36,8 @@ Route::get('/get_resource/{type}/{id}',[HomepageController::class,'get_resource'
 
 Route::post('/update_homesection/{sectionType}',[HomepageController::class,'update_resource']);
 
+Route::post('/remove_homesection/{sectionType}',[HomepageController::class,'delete_resource']);
+
 Route::get('/login',function(){
 
     return view('pages.auth.login');
