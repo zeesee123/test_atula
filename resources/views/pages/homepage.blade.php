@@ -848,12 +848,12 @@ h1{color:'red'}
     <div class="row">
         <div class="col-12 mb-3">
             <label for="" class="form-label">title</label>
-            <input type="text" class="form-control" name="sec13_title" value={{$section->sec13_title??''}}>
+            <input type="text" class="form-control" name="sec13_title" value="{{$section->sec13_title??''}}">
             
         </div>
         <div class="col-12 mb-3">
             <label for="" class="form-label">text</label>
-            <textarea name="sec13_content" id="" cols="30" rows="5" class="form-control">value={{$section->sec13_content??''}}</textarea>
+            <textarea name="sec13_content" id="" cols="30" rows="5" class="form-control">value={!! $section->sec13_content??'' !!}</textarea>
             
         </div>
         {{-- <div class="col-6 mb-3">
@@ -928,7 +928,7 @@ h1{color:'red'}
         <div class="col-12 mb-3">
             
             <label for="" class="form-label">text</label>
-            <textarea name="sec14_content" id="" cols="30" rows="5" class="form-control">{{$section->sec14_content??''}}</textarea>
+            <textarea name="sec14_content" id="" cols="30" rows="5" class="form-control">{!! $section->sec14_content??'' !!}</textarea>
             
         </div>
         {{-- <div class="col-6 mb-3">
@@ -954,7 +954,7 @@ h1{color:'red'}
         <div class="row">
             <div class="col-12 mb-3">
                 <label for="" class="form-label">map link</label>
-                <input type="text" class="form-control" name="map_code" value={{$section->map_code??''}}>
+                <input type="text" class="form-control" name="map_code" value={!! $section->map_code??'' !!}>
                 
             </div>
           
