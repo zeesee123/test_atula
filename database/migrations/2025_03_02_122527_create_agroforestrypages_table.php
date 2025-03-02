@@ -19,33 +19,45 @@ return new class extends Migration
             $table->string('sec1btn_url')->nullable();
             $table->string('sec1image')->nullable();
 
-            //\\*******table for images aboutpagesection1
+            //\\*******table for images agroforestrypagesection1
 
-            //cultivating sustainable future***********
+            //about agroforestry***********
             $table->string('sec2title')->nullable();
+            $table->string('sec2_addtext')->nullable();
             $table->longText('sec2text')->nullable();
-            $table->string('sec2btn_text')->nullable();
-            $table->string('sec2btn_url')->nullable();
             $table->string('sec2image')->nullable();
 
-            //our guiding light***********
+            //our milestones***********
             $table->string('sec3title')->nullable();
-            $table->longText('sec3text')->nullable();
-            $table->string('sec3image')->nullable();
+            
+             //\\*******table for images aboutagroforestrypagesection3
 
-             //\\*******table for images aboutpagesection3
+              //trees are original skyscrapers that sustain life on earth***********
+            $table->string('sec4image')->nullable();
+            $table->longText('sec4quote')->nullable();
 
-              //our mission:growing sustainability together***********
-            $table->string('sec4title')->nullable();
-            $table->longText('sec4text')->nullable();
+            //about agroforestry***********
+            $table->string('sec5title')->nullable();
+            $table->string('sec5_addtext')->nullable();
+            
 
-            //\\*******table for images aboutpagesection4
+            //\\*******table for images aboutpagesection5
 
             
-              //journey from barren lands to lush forests*********
-              $table->string('sec5title')->nullable();
-              $table->longText('sec5text')->nullable();
-              $table->string('sec5addtext')->nullable();
+              //section 6 drought image 2 sections*********
+              $table->string('sec6image')->nullable();
+
+              //section 7 badges*********
+              $table->string('sec6image')->nullable();
+              //\\*******table for images aboutpagesection7
+
+              //section 8 is doubtful need to ask about it review partners farmers *******
+
+              //key crops and plantations**********
+              $table->string('sec9title')->nullable();
+
+              //\\*******table for images aboutpagesection9 need to aks for this 
+              
   
               //\\*******table for images aboutpagesection5
 

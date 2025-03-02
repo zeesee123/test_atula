@@ -1848,13 +1848,17 @@ function reloadTable(sectionName) {
   //code for editer button modal
 
   let modal_body=document.getElementById('modal_content');
+  let labelmod=document.getElementById('staticBackdropLabel');
 
-  function routeUrl(type,button){
-
-      let editroutes=[]
-  }
+  
 
   async function changeModal_content(type,button,id){
+
+    if(button=='editor'){
+      labelmod.textContent='EDIT';
+    }else{
+      labelmod.textContent='DELETE';
+    }
 
     console.log('this is the button',button);
 

@@ -25,6 +25,10 @@ Route::get('/',function(){
     return view('pages.index');
 });
 
+Route::get('/login',function(){
+    return view('pages.auth.login');
+});
+
 Route::get('/home',[PageController::class,'index']);
 
 Route::get('/about',[PageController::class,'about']);
