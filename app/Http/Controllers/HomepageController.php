@@ -810,12 +810,12 @@ $model->map_code = $r->map_code ?? null;
             $section->save();
     
                    
-            return response()->json(['message' => 'Section updated successfully', 'status'=>'success','class'=>'alert-success'], 200);
+            return response()->json(['message' => 'Item updated successfully', 'status'=>'success'], 200);
 
         }catch(Exception $e){
 
             Log::error($e->getMessage());
-            return response()->json(['message' => 'Something went wrong', 'status'=>'error','class'=>'alert alert-danger'], 500);
+            return response()->json(['message' => 'Something went wrong', 'status'=>'error'], 500);
         }
         
 

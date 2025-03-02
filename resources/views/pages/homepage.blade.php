@@ -1815,6 +1815,30 @@ var table1=$('#whatwedo_table').DataTable({
               }]
   })
 
+  //mapping section tables
+
+  const tableMap = {
+    "section3": table1,
+    "section4": table2,
+    "section5": table3,
+    "section6": table4,
+    "section7": table5,
+    "section8": table6,
+    "section9": table7,
+    "section10": table8,
+    "section12": table9,
+    "section13": table10
+};
+
+
+// Function to reload the correct table
+function reloadTable(sectionName) {
+    if (tableMap[sectionName]) {
+        tableMap[sectionName].ajax.reload(null, false); // Reload the specific table
+    } else {
+        console.error("No matching table found for section:", sectionName);
+    }
+}
 
   //code for editer button modal
 
@@ -2098,7 +2122,18 @@ console.log('file is not there');
 
       let resf=await fetchf.json();
 
-      
+      console.log(resf);
+
+      update_btnmod.textContent='Update';
+
+      Swal.fire({
+  title: `${resf.status.charAt(0).toUpperCase()+resf.status.slice(1)}!`,
+  text: `${resf.message}`,
+  icon: `${resf.status}`,
+  confirmButtonText: 'OK'
+});
+
+      reloadTable(type);
 
       console.log('this is the response',resf);
 
