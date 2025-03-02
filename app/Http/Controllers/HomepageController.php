@@ -675,93 +675,141 @@ $model->map_code = $r->map_code ?? null;
         return response()->json(['status'=>'success','sectionData'=>$sectionData]);
     }
 
-    public function update_resource($section,Request $request){
+    public function update_resource($sectionType,Request $request){
 
+        
         try{
 
-                // Validate request data, including image validation
-        $validatedData = $request->validate([
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
-            'sec4_text' => 'nullable|string',
-            'sec5_stitle' => 'nullable|string',
-            'sec5_scontent' => 'nullable|string',
-            'sec6year' => 'nullable|string',
-            'sec6stitle' => 'nullable|string',
-            'sec6scontent' => 'nullable|string',
-            'sec7_scontent' => 'nullable|string',
-            'sec8_scontent' => 'nullable|string',
-            'sec8_slink' => 'nullable|string',
-            'sec9_scontent' => 'nullable|string',
-            'sec10_stitle' => 'nullable|string',
-            'sec10_scontent' => 'nullable|string',
-            'sec12_scontent' => 'nullable|string',
-            'sec13_scontent' => 'nullable|string',
-            'sec13_slink' => 'nullable|string',
-        ]);
+            
 
-        // Section mapping
-        $sections = [
-            'section3' => HomepageSection3::class,
-            'section4' => HomepageSection4::class,
-            'section5' => HomepageSection5::class,
-            'section6' => HomepageSection6::class,
-            'section7' => HomepageSection7::class,
-            'section8' => HomepageSection8::class,
-            'section9' => HomepageSection9::class,
-            'section10' => HomepageSection10::class,
-            'section12' => HomepageSection12::class,
-            'section13' => HomepageSection13::class,
-        ];
+            $validatedRequest = $request->validate([
+                'id' => 'required|integer|min:1', // Ensures ID is valid
+            ]);
+    
+            $id = $validatedRequest['id']; // Extract validated ID
 
-        if (!isset($sections[$section])) {
-            return response()->json(['error' => 'Invalid section'], 400);
-        }
-
-        // Get model
-        $section = $sections[$section]::find($id);
-
-        if (!$section) {
-            return response()->json(['error' => 'Section not found'], 404);
-        }
-
-        // Image fields for different sections
-        $imageFields = [
-            'section3' => 'whatwe_doimg',
-            'section5' => 'sec5_img',
-            'section7' => 'sec7_simg',
-            'section8' => 'sec8_slogo',
-            'section9' => 'sec9_simg',
-            'section10' => 'sec10_simg',
-            'section13' => 'image',
-        ];
-
-        // Handle image upload
-        if ($request->hasFile('image') && isset($imageFields[$section])) {
-            $image = $request->file('image');
-            $imageName = $image->hashName();
-            $imagePath = public_path('homepage/' . $imageName);
-
-            // Delete old image
-            $oldImage = $section->{$imageFields[$section]};
-            if (!empty($oldImage) && File::exists(public_path('homepage/' . $oldImage))) {
-                File::delete(public_path('homepage/' . $oldImage));
+            $validationRules = [
+                'section3' => ['whatwe_doimg' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048'],
+                'section4' => ['sec4_text' => 'nullable|string'],
+                'section5' => [
+                    'sec5_stitle' => 'nullable|string',
+                    'sec5_scontent' => 'nullable|string',
+                    'sec5_img' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048'
+                ],
+                'section6' => [
+                    'sec6year' => 'nullable|string',
+                    'sec6stitle' => 'nullable|string',
+                    'sec6scontent' => 'nullable|string'
+                ],
+                'section7' => [
+                    'sec7_scontent' => 'nullable|string',
+                    'sec7_simg' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048'
+                ],
+                'section8' => [
+                    'sec8_scontent' => 'nullable|string',
+                    'sec8_slink' => 'nullable|string',
+                    'sec8_slogo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048'
+                ],
+                'section9' => [
+                    'sec9_scontent' => 'nullable|string',
+                    'sec9_simg' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048'
+                ],
+                'section10' => [
+                    'sec10_stitle' => 'nullable|string',
+                    'sec10_scontent' => 'nullable|string',
+                    'sec10_simg' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048'
+                ],
+                'section12' => ['sec12_scontent' => 'nullable|string'],
+                'section13' => [
+                    'sec13_scontent' => 'nullable|string',
+                    'sec13_slink' => 'nullable|string',
+                    'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048'
+                ],
+            ];
+    
+            // Section mapping
+            $sections = [
+                'section3' => HomepageSection3::class,
+                'section4' => HomepageSection4::class,
+                'section5' => HomepageSection5::class,
+                'section6' => HomepageSection6::class,
+                'section7' => HomepageSection7::class,
+                'section8' => HomepageSection8::class,
+                'section9' => HomepageSection9::class,
+                'section10' => HomepageSection10::class,
+                'section12' => HomepageSection12::class,
+                'section13' => HomepageSection13::class,
+            ];
+    
+            if (!isset($sections[$sectionType])) {
+                return response()->json(['error' => 'Invalid section'], 400);
             }
+    
+            // Validate only the fields related to the requested section
+            $validatedData = $request->validate($validationRules[$sectionType] ?? []);
+    
+            // Get model
+            $section = $sections[$sectionType]::find($id);
 
-            // Move new image
-            $image->move(public_path('homepage/'), $imageName);
-            $section->{$imageFields[$section]} = $imageName;
-        }
-
-        // Update other fields dynamically
-        foreach ($validatedData as $field => $value) {
-            if ($field !== 'image') {
-                $section->$field = $value;
+            // dump($section);
+    
+            if (!$section) {
+                return response()->json(['error' => 'Section not found'], 404);
             }
-        }
+    
+            // Image fields for different sections
+            $imageFields = [
+                'section3' => 'whatwe_doimg',
+                'section5' => 'sec5_img',
+                'section7' => 'sec7_simg',
+                'section8' => 'sec8_slogo',
+                'section9' => 'sec9_simg',
+                'section10' => 'sec10_simg',
+                'section13' => 'image',
+            ];
+    
+            // dd($imageFields, $sectionType, $imageFields[$sectionType] ?? 'not set', $request->all());
+            // Handle image upload
 
-        // Save updated section
-        $section->save();
-        
+            // dump(empty($imageFields[$sectionType]));
+            // dump($request->hasFile('image'));
+            if (!empty($imageFields[$sectionType]) && $request->hasFile('image')) {
+
+                // dd('randi');
+                // dd('hehe');
+                $image = $request->file('image');
+                $imageName = $image->hashName(); // Use time-based naming
+            
+                // Delete old image if it exists
+                $oldImage = $section->{$imageFields[$sectionType]};
+
+                // dump($oldImage);
+                try{
+                    if (!empty($oldImage) && File::exists(public_path('homepage/' . $oldImage))) {
+                        File::delete(public_path('homepage/' . $oldImage));
+                    }
+                }catch(Exception $e){
+
+                    dd($e->getMessage());
+                }
+                
+            
+                // Move new image
+                $image->move(public_path('homepage/'), $imageName);
+                $section->{$imageFields[$sectionType]} = $imageName;
+            }
+    
+            // Update other fields dynamically
+            foreach ($validatedData as $field => $value) {
+                if ($field !== ($imageFields[$sectionType] ?? null)) {
+                    $section->$field = $value;
+                }
+            }
+    
+            // Save updated section
+            $section->save();
+    
+                   
             return response()->json(['message' => 'Section updated successfully', 'status'=>'success','class'=>'alert-success'], 200);
 
         }catch(Exception $e){
