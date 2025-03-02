@@ -1858,6 +1858,12 @@ function reloadTable(sectionName) {
 
     console.log('this is the button',button);
 
+    modal_body.innerHTML=`<div class="d-flex justify-content-center">
+  <div class="spinner-border" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>`;
+
    //resource call
 
   //  type in loading for loading in the resource..

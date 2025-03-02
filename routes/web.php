@@ -27,7 +27,19 @@ Route::get('/',function(){
 
 Route::get('/home',[PageController::class,'index']);
 
+Route::get('/about',[PageController::class,'about']);
 
+Route::get('/agroforestry',[PageController::class,'agroforestry']);
+
+Route::get('/about-two',[PageController::class,'about_two']);
+
+Route::get('/business',[PageController::class,'business']);
+
+Route::get('/eco-initiative',[PageController::class,'eco_initiative']);
+
+
+
+//routes for homepage
 Route::post('/add_homepage',[HomepageController::class,'add_homepage']);
 //routes for changing in the stuff
 Route::get('/hometable/{section}',[HomepageController::class,'loadtable']);
