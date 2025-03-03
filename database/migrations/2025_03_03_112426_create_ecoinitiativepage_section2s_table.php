@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('ecoinitiativepage_section2s', function (Blueprint $table) {
             $table->id();
+            $table->string('sec2titlel')->nullable();
+            $table->string('sec2textl')->nullable();
             $table->timestamps();
         });
     }
