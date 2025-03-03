@@ -63,7 +63,7 @@ return new class extends Migration
               $table->string('sec7btn_text')->nullable();
               $table->string('sec7btn_url')->nullable();
 
-             //\\*******table for images aboutpagesection7(this is the table for the team part)
+             //\\*******table for images aboutpagesection7(this is the table for the team part)//made as "team" table
 
              //let's go green together***********
             $table->string('sec8title')->nullable();

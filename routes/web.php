@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\AuthController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomepageController;
 
@@ -22,39 +24,53 @@ use App\Http\Controllers\HomepageController;
 //dashboard route
 Route::get('/',function(){
 
-    return view('pages.index');
+    if(Auth::check()){
+
+        return view('pages.index');
+
+    }else{
+
+        return view('pages.auth.login');
+    }
+
+    
+})->name('login');
+
+
+
+
+Route::post('/login',[AuthController::class,'login']);
+
+Route::group(['middleware'=>['auth']],function(){
+
+    Route::post('/logout',[AuthController::class,'logout']);
+
+    Route::get('/home',[PageController::class,'index']);
+
+    Route::get('/about',[PageController::class,'about']);
+
+    Route::get('/agroforestry',[PageController::class,'agroforestry']);
+
+    Route::get('/about-two',[PageController::class,'about_two']);
+
+    Route::get('/business',[PageController::class,'business']);
+
+    Route::get('/eco-initiative',[PageController::class,'eco_initiative']);
+
+
+
+    //routes for homepage
+    Route::post('/add_homepage',[HomepageController::class,'add_homepage']);
+    //routes for changing in the stuff
+    Route::get('/hometable/{section}',[HomepageController::class,'loadtable']);
+
+    Route::get('/get_resource/{type}/{id}',[HomepageController::class,'get_resource']);
+
+    Route::post('/update_homesection/{sectionType}',[HomepageController::class,'update_resource']);
+
+    Route::post('/remove_homesection/{sectionType}',[HomepageController::class,'delete_resource']);
+
 });
 
-Route::get('/login',function(){
-    return view('pages.auth.login');
-});
-
-Route::get('/home',[PageController::class,'index']);
-
-Route::get('/about',[PageController::class,'about']);
-
-Route::get('/agroforestry',[PageController::class,'agroforestry']);
-
-Route::get('/about-two',[PageController::class,'about_two']);
-
-Route::get('/business',[PageController::class,'business']);
-
-Route::get('/eco-initiative',[PageController::class,'eco_initiative']);
 
 
-
-//routes for homepage
-Route::post('/add_homepage',[HomepageController::class,'add_homepage']);
-//routes for changing in the stuff
-Route::get('/hometable/{section}',[HomepageController::class,'loadtable']);
-
-Route::get('/get_resource/{type}/{id}',[HomepageController::class,'get_resource']);
-
-Route::post('/update_homesection/{sectionType}',[HomepageController::class,'update_resource']);
-
-Route::post('/remove_homesection/{sectionType}',[HomepageController::class,'delete_resource']);
-
-Route::get('/login',function(){
-
-    return view('pages.auth.login');
-});
