@@ -32,7 +32,7 @@ return new class extends Migration
             //our guiding light***********
             $table->string('sec3title')->nullable();
             $table->longText('sec3text')->nullable();
-            $table->string('sec3image')->nullable();
+            $table->string('sec3image')->nullable();//this field holds no value in here
 
              //\\*******table for images aboutpagesection3
 
