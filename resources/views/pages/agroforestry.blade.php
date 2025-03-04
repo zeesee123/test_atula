@@ -111,24 +111,7 @@
         </div>
     </div>
 
-    {{-- <div class="mb-3 d-flex">
-        <div class="mx-2">
-            <label for="" class="form-label">button text</label>
-            <input type="text" class="form-control ">
-        </div>
-
-        <div class="mx-2">
-            <label for="" class="form-label">button url</label>
-            <input type="text" class="form-control ">
-        </div>
-
-    </div> --}}
-
-    <div class="mb-3">
-        <label for="" class="form-label">image(family farm)</label>
-        <input type="file" class="form-control">
-        {{-- need to add in a preview for the image as well in here --}}
-    </div>
+    
 
 
 </section>
@@ -140,59 +123,51 @@
 
     
 
-    <h3>Section 3 (Who We Are)</h3>
+    <h3>Section 3 (Our milestones)</h3>
 
     <div class="mb-3">
         <label for="" class="form-label">title</label>
-        <input type="text" class="form-control ">
+        <input type="text" name="sec3title" class="form-control ">
     </div>
 
-    {{-- now i need to give an option for multiple services along with their names and stuff in here super quick the part has to be editable in it's entirety in here  --}}
 
-    <div class="mb-3">
-        <label for="" class="form-label">content</label>
-        <textarea name="" id="" cols="30" rows="10" class="form-control"></textarea>
-    </div>
-
-    <div class="mb-3">
-        <label for="" class="form-label">heading</label>
-        <input type="text" name="title" class="form-control">
-    </div>
-
-    <div class="mb-3">
-        <label for="" class="form-label">sub heading</label>
-        <input type="text" name="title" class="form-control">
-    </div>
-
-    <div class="mb-3">
-        <label for="" class="form-label">content</label>
-        <textarea name="" id="" cols="30" rows="5" class="form-control"></textarea>
-    </div>
-
-    <div class="mb-3 d-flex">
-        <div class="mx-2">
-            <label for="" class="form-label">button text(More about us)</label>
-            <input type="text" class="form-control ">
+    <div id="sec3_images">
+        <div class="mb-3 row">
+            
+            
+            <div class="col-3">
+                <input type="file" placeholder="image" class="form-control" name="sec3imagel[]">
+            </div>
+            
+            <div class="col-3">
+                <textarea placeholder="text" class="form-control" name="sec3textl[]" cols="30" rows="5"></textarea>
+                
+            </div>
+            
+            
+            <div class="col-3">
+                <button class="btn btn-primary" type="button" onclick="addsec3_images()">+</button>
+            </div>     
         </div>
-
-        <div class="mx-2">
-            <label for="" class="form-label">button url</label>
-            <input type="text" class="form-control ">
-        </div>
-
     </div>
-
-    <div class="mb-3">
-        <label for="" class="form-label">image(family farm)</label>
-        <input type="file" class="form-control">
-        {{-- need to add in a preview for the image as well in here --}}
-    </div>
-
-
-
-    {{-- button in the last --}}
     
+    <table class="table" id="sec3_table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            
+            <th scope="col">image</th>
 
+            <th scope="col">text</th>
+            
+            {{-- <th scope="col">Url</th> --}}
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+        </tbody>
+      </table>
 
 </section>
 
@@ -200,7 +175,7 @@
 
 <section>
 
-    <h3>Section 4(Mission & Vision)</h3>
+    <h3>Section 4(Tree quote section)</h3>
 
     {{-- heading --}}
 
@@ -210,130 +185,143 @@
 
             <div class="d-flex">
 
-                <div class="mb-3">
-                    <label class="form-label">heading</label>
-                    <input type="text" class="form-control">
-                </div>
+                
 
                 <div class="mb-3">
                     <label class="form-label">content</label>
-                    <textarea name="" id="" cols="30" rows="10" class="form-control"></textarea>
+                    <textarea name="sec4quote" id="" cols="30" rows="10" class="form-control"></textarea>
                 </div>
 
-                <div class="mb-3">
-                    <label class="form-label">image</label>
-                    <input type="file" class="form-control">
-                </div>
+                
 
             </div>
             
             
             
+
+        </div>
+
+        <div class="row">
+            <div class="mb-3 col-6">
+                <label for="" class="form-label">banner image</label>
+                <input type="file" class="form-control img_inpp" name="sec4image">
+                
+            </div>
+            <div class="mb-3 col-2">
+                
+                <button type="button" class="btn btn-danger clear-btn" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="reset image"><i class="bi bi-arrow-clockwise"></i></button>
+            </div>
+            <div class="mb-3 col-4">
+                <img class="Thumbnail" src="{{ optional($section)->sec4image ? asset('homepage/'.$section->sec4image) : asset('images/default.jpg') }}"  width="400" alt="Default picture Thumbnail">
+                
+            </div>
+        </div>
+
+    </div>
+
+    
+
+
+
+    
+    
+    
+</section>
+
+<hr>
+<section>
+
+    <h3>Section 5(Our Approach to Agroforestry)</h3>
+
+    {{-- heading --}}
+
+    <div class="row">
+        
+        <div class="col-6">
+
+            <div class="mb-3">
+                <label class="form-label">heading</label>
+                <input type="text" class="form-control" name="sec5title">
+            </div>
+            
+            <div class="mb-3">
+                <label for="" class="form-label">content(sub text)</label>
+                <textarea name="sec5_addtext" id="" cols="30" rows="5" class="form-control"></textarea>
+            </div>  
 
         </div>
 
         {{-- content 
-    highlights --}}
+    highlights cards thing --}}
 
-    <div class="col-6">
-
-        <div class="d-flex">
-
-            <div class="mb-3">
-                <label class="form-label">heading</label>
-                <input type="text" class="form-control">
+    <div class="" id="sec5_images">
+        <div class="mb-3 row">
+            
+            <div class="col-3">
+                <input type="file" placeholder="logo" class="form-control" name="sec5imagel[]">
             </div>
-
-            <div class="mb-3">
-                <label class="form-label">content</label>
-                <textarea name="" id="" cols="30" rows="10" class="form-control"></textarea>
+            <div class="col-3">
+                <input type="text" placeholder="title" class="form-control" name="sec5titlel[]">
             </div>
-
-            <div class="mb-3">
-                <label class="form-label">image</label>
-                <input type="file" class="form-control">
+            <div class="col-3">
+                <textarea class="form-control" name="sec5textl[]" cols="30" rows="5"></textarea>
+                
             </div>
-
+            
+            <div class="col-3">
+                <button class="btn btn-primary" type="button" onclick="addsec5_images()">+</button>
+            </div>     
         </div>
-        
-        
-        
-
     </div>
 
-        
-
-        {{-- use the multiple component
-    read more add in the image , title,content --}}
-
-    {{-- <div class="col-12">
-
-        <div class="mb-3">
-
-            <p>inputs for multiple stuff image , title, content (use text editor for all point stuff remember this dude)</p>
-
-        </div>
-        
-    </div> --}}
-
-    {{-- <div class="col-6">
-
-        <div class="mb-3">
-            <label for="" class="form-label">button text(join the mission)</label>
-            <input type="text" class="form-control">
-        </div>
-    </div> --}}
-
-    {{-- <div class="col-6">
-
-        <div class="mb-3">
-            <label for="" class="form-label">button url(join the mission)</label>
-            <input type="text" class="form-control">
-        </div>
-    </div> --}}
-
-    </div>
+    <table class="table" id="sec5_table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">image</th>
+            <th scope="col">title</th>
+            
+            {{-- <th scope="col">Url</th> --}}
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+        </tbody>
+      </table>
 
 
-
-    
-    
-    
-</section>
-
-<hr>
-<section>
-
-            <h3>Section 5(Our projects)</h3>
-
-            {{-- add in the cards here --}}
-
-            {{-- leave the image part for now it could get changed for some reason --}}
-
-            <div class="col-12">
-
-                <div class="mb-3">
-                    <label class="form-label">heading</label>
-                    <input type="text" class="form-control">
-                </div>
-                
-                
-    
-            </div>
-
-            {{-- need to add in cards for this --}}
+            
             
 
+        </div>
 
-            {{-- elements and stuff multiple ones --}}
+
+    
+    
 </section>
 
 <hr>
 
 <section>
 
-    <h3>Section 6(Our Impact)</h3>
+    <h3>Section 6(Banner image from barren lands to thriving ecosystems...)</h3>
 
+    <div class="row">
+        <div class="mb-3 col-6">
+            <label for="" class="form-label">banner image</label>
+            <input type="file" class="form-control img_inpp" name="sec6image">
+            
+        </div>
+        <div class="mb-3 col-2">
+            
+            <button type="button" class="btn btn-danger clear-btn" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="reset image"><i class="bi bi-arrow-clockwise"></i></button>
+        </div>
+        <div class="mb-3 col-4">
+            <img class="Thumbnail" src="{{ optional($section)->sec6image ? asset('homepage/'.$section->sec6image) : asset('images/default.jpg') }}"  width="400" alt="Default picture Thumbnail">
+            
+        </div>
+    </div>
             {{-- add in the cards here --}}
 
             {{-- add in the card stuff for this  --}}
@@ -345,76 +333,41 @@
 
 <section>
 
-    <h3>Section 7(Future Goals)</h3>
+    <h3>Section 7(Badges)</h3>
 
-    <div class="row">
-        <div class="col-12 mb-3">
-            <label for="" class="form-label">years</label>
-            <input type="text" class="form-control">
+    <div class="" id="sec7_images">
+        <div class="mb-3 row">
             
-        </div>
-        <div class="col-12 mb-3">
-            <label for="" class="form-label">heading</label>
-            <input type="text" class="form-control">
+            <div class="col-3">
+                <input type="file" placeholder="logo" class="form-control" name="sec7imagel[]">
+            </div>
             
-        </div>
-        <div class="col-12 mb-3">
-            <label for="" class="form-label">points</label>
-            <textarea name="" id="" cols="30" rows="5" class="form-control"></textarea>
-        </div>
-
-        {{-- add in the cards for the image ,name ,content --}}
-        {{-- <div class="col-6 mb-3">
-            <label for="" class="form-label">button text(join the mission text)</label>
-            <input type="text" class="form-control">
+            <div class="col-3">
+                <textarea class="form-control" name="sec7textl[]" cols="30" rows="5"></textarea>
+                
+            </div>
             
+            <div class="col-3">
+                <button class="btn btn-primary" type="button" onclick="addsec7_images()">+</button>
+            </div>     
         </div>
-        <div class="col-6 mb-3">
-            <label for="" class="form-label">button url</label>
-            <input type="text" class="form-control">
-            
-        </div> --}}
     </div>
 
-
-</section>
-
-<hr>
-
-<section>
-
-    <h3>Section 8(Our Core Values)</h3>
-
-    {{-- add in the multiple input fields for this  --}}
-
-    {{-- <div class="row">
-        <div class="col-12 mb-3">
-            <label for="" class="form-label">title</label>
-            <input type="text" class="form-control">
+    <table class="table" id="sec7_table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">image</th>
+            <th scope="col">text</th>
             
-        </div>
-        <div class="col-12 mb-3">
-            <label for="" class="form-label">text</label>
-            <textarea name="" id="" cols="30" rows="5" class="form-control"></textarea>
-            
-        </div>
-        <div class="col-6 mb-3">
-            <label for="" class="form-label">button text(Learn about our technology text)</label>
-            <input type="text" class="form-control">
-            
-        </div>
-        <div class="col-6 mb-3">
-            <label for="" class="form-label">button url</label>
-            <input type="text" class="form-control">
-            
-        </div>
-        <div class="col-6 mb-3">
-            <label for="" class="form-label">banner image</label>
-            <input type="file" class="form-control">
-            
-        </div>
-        
-    </div> --}}
+            {{-- <th scope="col">Url</th> --}}
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+        </tbody>
+      </table>
 
 
 </section>
@@ -423,40 +376,13 @@
 
 <section>
 
-    <h3>Section 9(Explore Our Initiatives)</h3>
+    <h3>Section 9(Key Crops & Plantations)</h3>
 
-  {{-- make a list for these  --}}
-
-  <div class="mb-3">
-    <label for="" class="form-label">title</label>
-    <input type="text" class="form-control">
-  </div>
-  
 
     <div class="mb-3">
-        <label for="" class="form-label">image</label>
-        <input type="file" name="title" class="form-control">
+        <label class="form-label">heading</label>
+        <input type="text" class="form-control" name="sec9title">
     </div>
-
-    {{-- inputs for fields logo and everything else --}}
-
-    
-
-    {{-- <div class="mb-3 d-flex">
-        <div class="mx-2">
-            <label for="" class="form-label">button text</label>
-            <input type="text" class="form-control ">
-        </div>
-
-        <div class="mx-2">
-            <label for="" class="form-label">button url</label>
-            <input type="text" class="form-control ">
-        </div>
-
-    </div> --}}
-
-    
-
 
 </section>
 
@@ -464,37 +390,120 @@
 
 <section>
 
-    <h3>Section 10(Be a part of change)</h3>
+    <h3>Section 10(Ornamental Plants)</h3>
+
+    <div class="mb-3">
+        <label for="" class="form-label">title</label>
+        <input type="text" name="sec10title" class="form-control">
+    </div>
+
+    
+
+    <div class="mb-3">
+        <label for="" class="form-label">content</label>
+        <textarea name="sec10_text" id="" cols="30" rows="5" class="form-control"></textarea>
+    </div>
+
+    <div class="mb-3 d-flex">
+        <div class="mx-2">
+            <label for="" class="form-label">button text</label>
+            <input type="text" class="form-control " name="sec10btn_text">
+        </div>
+
+        <div class="mx-2">
+            <label for="" class="form-label">button url</label>
+            <input type="text" class="form-control " name="sec10btn_url">
+        </div>
+
+    </div>
 
     <div class="row">
-        <div class="col-12 mb-3">
-            <label for="" class="form-label">title</label>
-            <input type="text" class="form-control">
+        <div class="mb-3 col-6">
+            <label for="" class="form-label">Image 1 (left side)</label>
+            <input type="file" class="form-control img_inpp" name="sec10_image1">
             
         </div>
-        <div class="col-12 mb-3">
-            <label for="" class="form-label">text</label>
-            <textarea name="" id="" cols="30" rows="5" class="form-control"></textarea>
+        <div class="mb-3 col-2">
             
+            <button type="button" class="btn btn-danger clear-btn" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="reset image"><i class="bi bi-arrow-clockwise"></i></button>
         </div>
-        <div class="col-6 mb-3">
-            <label for="" class="form-label">button text(join the mission text)</label>
-            <input type="text" class="form-control">
-            
-        </div>
-        <div class="col-6 mb-3">
-            <label for="" class="form-label">button url</label>
-            <input type="text" class="form-control">
+        <div class="mb-3 col-4">
+            <img class="Thumbnail" src="{{ optional($section)->sec10_image1 ? asset('homepage/'.$section->sec10_image1) : asset('images/default.jpg') }}"  width="400" alt="Default picture Thumbnail">
             
         </div>
     </div>
+
+    
+    <div class="row">
+        <div class="mb-3 col-6">
+            <label for="" class="form-label">Image 2 (right side)</label>
+            <input type="file" class="form-control img_inpp" name="sec10_image2">
+            
+        </div>
+        <div class="mb-3 col-2">
+            
+            <button type="button" class="btn btn-danger clear-btn" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="reset image"><i class="bi bi-arrow-clockwise"></i></button>
+        </div>
+        <div class="mb-3 col-4">
+            <img class="Thumbnail" src="{{ optional($section)->sec10_image2 ? asset('homepage/'.$section->sec10_image2) : asset('images/default.jpg') }}"  width="400" alt="Default picture Thumbnail">
+            
+        </div>
+    </div>
+
+</section>
+
+<hr>
+
+<section>
+
+    <h3>Section 11(3 plants neem,muleithi)</h3>
+
+    <div class="" id="sec11_images">
+        <div class="mb-3 row">
+            
+            <div class="col-3">
+                <input type="text" placeholder="title" class="form-control" name="sec11titlel[]">
+            </div>
+
+            <div class="col-3">
+                <input type="file" placeholder="image" class="form-control" name="sec11imagel[]">
+            </div>
+
+            <div class="col-3">
+                <input type="text" placeholder="link" class="form-control" name="sec11linkl[]">
+            </div>
+            
+            
+            
+            <div class="col-3">
+                <button class="btn btn-primary" type="button" onclick="addsec11_images()">+</button>
+            </div>     
+        </div>
+    </div>
+
+    <table class="table" id="sec11_table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">image</th>
+            <th scope="col">text</th>
+            
+            {{-- <th scope="col">Url</th> --}}
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+        </tbody>
+      </table>
+
 
 
 </section>
 
 <section>
 
-    <h3>Badges part (section)</h3>
+    <h3>Section 12(HYV)</h3>
 
     {{-- cards for the other part as well --}}
 
@@ -502,46 +511,110 @@
     <div class="row">
         
         <div class="col-6 mb-3">
-            <label for="" class="form-label">Support our social impact(join the mission text)</label>
-            <input type="text" class="form-control">
+            <label for="" class="form-label">title</label>
+            <input type="text" class="form-control" name="sec12title">
+            
+        </div>
+        <div class="col-6 mb-3">
+            <label for="" class="form-label">button text</label>
+            <input type="text" class="form-control" name="sec12btn_text">
             
         </div>
         <div class="col-6 mb-3">
             <label for="" class="form-label">button url</label>
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" name="sec12btn_url">
             
         </div>
     </div>
+
+    <div class="" id="sec12_images">
+        <div class="mb-3 row">
+            
+            <div class="col-3">
+                <input type="text" placeholder="title" class="form-control" name="sec12titlel[]">
+            </div>
+
+            <div class="col-3">
+                <input type="file" placeholder="image" class="form-control" name="sec12imagel[]">
+            </div>
+
+            <div class="col-3">
+                <input type="text" placeholder="link" class="form-control" name="sec12linkl[]">
+            </div>
+            
+            
+            
+            <div class="col-3">
+                <button class="btn btn-primary" type="button" onclick="addsec12_images()">+</button>
+            </div>     
+        </div>
+    </div>
+
+    <table class="table" id="sec12_table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">image</th>
+            <th scope="col">text</th>
+            
+            {{-- <th scope="col">Url</th> --}}
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+        </tbody>
+      </table>
 
 
 </section>
 
 <section>
 
-    <h3>Be a part of the change(section)</h3>
+    <h3>Section 13(Community and Environment Impact)</h3>
 
     <div class="row">
         <div class="col-12 mb-3">
             <label for="" class="form-label">title</label>
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" name="sec13title">
             
         </div>
         <div class="col-12 mb-3">
-            <label for="" class="form-label">text</label>
-            <textarea name="" id="" cols="30" rows="5" class="form-control"></textarea>
+            <label for="" class="form-label">text(Empowering communities)</label>
+            <textarea name="sec13addtext" id="" cols="30" rows="5" class="form-control"></textarea>
             
         </div>
-        {{-- <div class="col-6 mb-3">
-            <label for="" class="form-label">button text(join the mission text)</label>
-            <input type="text" class="form-control">
-            
-        </div>
-        <div class="col-6 mb-3">
-            <label for="" class="form-label">button url</label>
-            <input type="text" class="form-control">
-            
-        </div> --}}
+        
     </div>
+
+    <div class="" id="sec13_images">
+        <div class="mb-3 row">
+            
+            <div class="col-3">
+                <textarea name="sec13textl[]" id="" cols="30" rows="5" class="form-control"></textarea>
+            </div>
+            
+            <div class="col-3">
+                <button class="btn btn-primary" type="button" onclick="addsec13_images()">+</button>
+            </div>     
+        </div>
+    </div>
+
+    <table class="table" id="sec13_table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            
+            <th scope="col">text</th>
+            
+            {{-- <th scope="col">Url</th> --}}
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+        </tbody>
+      </table>
 
     {{-- add in the cards for the rest --}}
 
@@ -550,47 +623,70 @@
 
 <section>
 
-    <h3>Get in touch(section)</h3>
+    <h3>Section 14(By 2050,Atulya Krishi Vana.....)</h3>
 
     <div class="row">
-        <div class="col-12 mb-3">
-            <label for="" class="form-label">title</label>
-            <input type="text" class="form-control">
+        <div class="mb-3 col-6">
+            <label for="" class="form-label">banner image</label>
+            <input type="file" class="form-control img_inpp" name="sec14image">
             
         </div>
-        <div class="col-12 mb-3">
-            <label for="" class="form-label">text</label>
-            <textarea name="" id="" cols="30" rows="5" class="form-control"></textarea>
+        <div class="mb-3 col-2">
+            
+            <button type="button" class="btn btn-danger clear-btn" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="reset image"><i class="bi bi-arrow-clockwise"></i></button>
+        </div>
+        <div class="mb-3 col-4">
+            <img class="Thumbnail" src="{{ optional($section)->sec14image ? asset('homepage/'.$section->sec14image) : asset('images/default.jpg') }}"  width="400" alt="Default picture Thumbnail">
             
         </div>
-        {{-- <div class="col-6 mb-3">
-            <label for="" class="form-label">button text(join the mission text)</label>
-            <input type="text" class="form-control">
-            
-        </div>
-        <div class="col-6 mb-3">
-            <label for="" class="form-label">button url</label>
-            <input type="text" class="form-control">
-            
-        </div> --}}
+    </div>
+</section>
+    
+
+    
+<section>
+
+    <h3>Section 1(Partner with us to transform...)</h3>
+
+  
+
+    <div class="mb-3">
+        <label for="" class="form-label">title</label>
+        <input type="text" name="sec15title" class="form-control">
     </div>
 
-    <section>
-
-        <h3>Map link google (section)</h3>
     
-        <div class="row">
-            <div class="col-12 mb-3">
-                <label for="" class="form-label">map link</label>
-                <input type="text" class="form-control">
-                
-            </div>
-          
+
+    
+
+    <div class="mb-3 d-flex">
+        <div class="mx-2">
+            <label for="" class="form-label">button text</label>
+            <input type="text" class="form-control " name="sec15btn_text">
         </div>
-    
-    
-    </section>
 
+        <div class="mx-2">
+            <label for="" class="form-label">button url</label>
+            <input type="text" class="form-control " name="sec1btn_url">
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="mb-3 col-6">
+            <label for="" class="form-label">banner image</label>
+            <input type="file" class="form-control img_inpp" name="sec15image">
+            
+        </div>
+        <div class="mb-3 col-2">
+            
+            <button type="button" class="btn btn-danger clear-btn" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="reset image"><i class="bi bi-arrow-clockwise"></i></button>
+        </div>
+        <div class="mb-3 col-4">
+            <img class="Thumbnail" src="{{ optional($section)->sec15image ? asset('homepage/'.$section->sec15image) : asset('images/default.jpg') }}"  width="400" alt="Default picture Thumbnail">
+            
+        </div>
+    </div>
 
 </section>
 

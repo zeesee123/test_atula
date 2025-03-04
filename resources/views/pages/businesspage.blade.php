@@ -29,31 +29,41 @@
 
         <div class="mb-3">
             <label for="" class="form-label">heading</label>
-            <input type="text" name="title" class="form-control">
+            <input type="text" name="sec1title" class="form-control">
         </div>
 
         <div class="mb-3">
             <label for="" class="form-label">content</label>
-            <textarea name="" id="" cols="30" rows="5" class="form-control"></textarea>
+            <textarea name="sec1text" id="" cols="30" rows="5" class="form-control"></textarea>
         </div>
 
         <div class="mb-3 d-flex">
             <div class="mx-2">
                 <label for="" class="form-label">button text</label>
-                <input type="text" class="form-control ">
+                <input type="text" class="form-control" name="sec1btn_text">
             </div>
 
             <div class="mx-2">
                 <label for="" class="form-label">button url</label>
-                <input type="text" class="form-control ">
+                <input type="text" class="form-control" name="sec1btn_url">
             </div>
 
         </div>
 
-        <div class="mb-3">
-            <label for="" class="form-label">banner image</label>
-            <input type="file" class="form-control">
-            {{-- need to add in a preview for the image as well in here --}}
+        <div class="row">
+            <div class="mb-3 col-6">
+                <label for="" class="form-label">banner image</label>
+                <input type="file" class="form-control img_inpp" name="sec1image">
+                
+            </div>
+            <div class="mb-3 col-2">
+                
+                <button type="button" class="btn btn-danger clear-btn" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="reset image"><i class="bi bi-arrow-clockwise"></i></button>
+            </div>
+            <div class="mb-3 col-4">
+                <img class="Thumbnail" src="{{ optional($section)->sec1image ? asset('homepage/'.$section->sec1image) : asset('images/default.jpg') }}"  width="400" alt="Default picture Thumbnail">
+                
+            </div>
         </div>
 
 
@@ -70,32 +80,43 @@
 
     <div class="mb-3">
         <label for="" class="form-label">heading</label>
-        <input type="text" name="title" class="form-control">
+        <input type="text" name="sec2title" class="form-control">
     </div>
 
     <div class="mb-3">
         <label for="" class="form-label">content</label>
-        <textarea name="" id="" cols="30" rows="5" class="form-control"></textarea>
+        <textarea name="sec2text" id="" cols="30" rows="5" class="form-control"></textarea>
     </div>
 
     <div class="mb-3 d-flex">
         <div class="mx-2">
             <label for="" class="form-label">button text</label>
-            <input type="text" class="form-control ">
+            <input type="text" class="form-control" name="sec2btn_text">
         </div>
 
         <div class="mx-2">
             <label for="" class="form-label">button url</label>
-            <input type="text" class="form-control ">
+            <input type="text" class="form-control" name="sec2btn_url">
         </div>
 
     </div>
 
-    <div class="mb-3">
-        <label for="" class="form-label">image(butterfly one)</label>
-        <input type="file" class="form-control">
-        {{-- need to add in a preview for the image as well in here --}}
+    <div class="row">
+        <div class="mb-3 col-6">
+            <label for="" class="form-label">banner image</label>
+            <input type="file" class="form-control img_inpp" name="sec2image">
+            
+        </div>
+        <div class="mb-3 col-2">
+            
+            <button type="button" class="btn btn-danger clear-btn" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="reset image"><i class="bi bi-arrow-clockwise"></i></button>
+        </div>
+        <div class="mb-3 col-4">
+            <img class="Thumbnail" src="{{ optional($section)->sec2image ? asset('homepage/'.$section->sec2image) : asset('images/default.jpg') }}"  width="400" alt="Default picture Thumbnail">
+            
+        </div>
     </div>
+
 
 
 </section>
@@ -110,31 +131,25 @@
     <h3>Section 3 (Our Services)</h3>
 
     <div class="mb-3">
-        <label for="" class="form-label">title</label>
-        <input type="text" class="form-control ">
+        <label for="" class="form-label">heading</label>
+        <input type="text" name="sec2title" class="form-control">
     </div>
 
-    {{-- now i need to give an option for multiple services along with their names and stuff in here super quick the part has to be editable in it's entirety in here  --}}
-
-    {{-- <div class="mb-3">
+    <div class="mb-3">
         <label for="" class="form-label">content</label>
-        <textarea name="" id="" cols="30" rows="10" class="form-control"></textarea>
-    </div> --}}
+        <textarea name="sec3text" id="" cols="30" rows="5" class="form-control"></textarea>
+    </div>
 
-
-    {{-- button in the last --}}
     <div class="mb-3 d-flex">
         <div class="mx-2">
-            <label for="" class="form-label">button text(See all Services)</label>
-            <input type="text" class="form-control ">
+            <label for="" class="form-label">button text</label>
+            <input type="text" class="form-control" name="sec3btn_text">
         </div>
 
         <div class="mx-2">
             <label for="" class="form-label">button url</label>
-            <input type="text" class="form-control ">
+            <input type="text" class="form-control" name="sec3btn_url">
         </div>
-
-    </div>
 
 
 </section>
