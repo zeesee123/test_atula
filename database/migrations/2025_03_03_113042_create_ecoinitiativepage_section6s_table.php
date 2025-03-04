@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('ecoinitiativepage_section6s', function (Blueprint $table) {
             $table->id();
+            $table->string('sec6titlel')->nullable();
+            $table->string('sec6imagel')->nullable();
+            $table->string('sec6contentl')->nullable();
             $table->timestamps();
         });
     }

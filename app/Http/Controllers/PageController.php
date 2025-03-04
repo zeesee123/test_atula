@@ -29,7 +29,7 @@ class PageController extends Controller
       
     //   dd($section);
 
-      return view('pages.homepage',compact('section'));
+      return view('pages.aboutpage',compact('section'));
     }
 
     public function about_two(){

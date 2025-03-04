@@ -222,7 +222,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.17.2/dist/sweetalert2.min.css
                       <a class="dropdown-item" href="{{url('/business')}}">
                         Businesspage
                       </a>
-                      <a class="dropdown-item" href="{{url('/eco_initiative')}}">
+                      <a class="dropdown-item" href="{{url('/eco-initiative')}}">
                         Eco-initiative
                       </a>
                       

@@ -27,12 +27,12 @@
 
         <div class="mb-3">
             <label for="" class="form-label">heading</label>
-            <input type="text" name="title" class="form-control">
+            <input type="text" name="sec1title" class="form-control">
         </div>
 
         <div class="mb-3">
             <label for="" class="form-label">content</label>
-            <textarea name="" id="" cols="30" rows="5" class="form-control"></textarea>
+            <textarea name="sec1text" id="" cols="30" rows="5" class="form-control"></textarea>
         </div>
 
         <div class="mb-3 d-flex">

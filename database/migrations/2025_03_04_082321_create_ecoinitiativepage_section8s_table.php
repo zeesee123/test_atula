@@ -11,10 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('ecoinitiativepage_section5s', function (Blueprint $table) {
+        Schema::create('ecoinitiativepage_section8s', function (Blueprint $table) {
             $table->id();
-            $table->string('sec5imagel')->nullable();
-
+            $table->string('sec8contentl')->nullable();
             $table->timestamps();
         });
     }
@@ -24,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('ecoinitiativepage_section5s');
+        Schema::dropIfExists('ecoinitiativepage_section8s');
     }
 };
