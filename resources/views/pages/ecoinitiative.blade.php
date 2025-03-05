@@ -29,36 +29,37 @@
 
         <div class="mb-3">
             <label for="" class="form-label">heading</label>
-            <input type="text" name="title" class="form-control">
+            <input type="text" name="sec1title" class="form-control">
         </div>
 
-        {{-- <div class="mb-3">
-            <label for="" class="form-label">content(green text)</label>
-            <input type="text" name="title" class="form-control">
-        </div> --}}
-
-        {{-- <div class="mb-3">
-            <label for="" class="form-label">content</label>
-            <textarea name="" id="" cols="30" rows="5" class="form-control"></textarea>
-        </div> --}}
 
         <div class="mb-3 d-flex">
             <div class="mx-2">
                 <label for="" class="form-label">button text(Join Our Mission)</label>
-                <input type="text" class="form-control ">
+                <input type="text" class="form-control " name="sec1btn_text">
             </div>
 
             <div class="mx-2">
                 <label for="" class="form-label">button url</label>
-                <input type="text" class="form-control ">
+                <input type="text" class="form-control " name="sec1btn_url">
             </div>
 
         </div>
 
-        <div class="mb-3">
-            <label for="" class="form-label">banner image</label>
-            <input type="file" class="form-control">
-            {{-- need to add in a preview for the image as well in here --}}
+        <div class="row">
+            <div class="mb-3 col-6">
+                <label for="" class="form-label">banner image</label>
+                <input type="file" class="form-control img_inpp" name="sec1image">
+                
+            </div>
+            <div class="mb-3 col-2">
+                
+                <button type="button" class="btn btn-danger clear-btn" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="reset image"><i class="bi bi-arrow-clockwise"></i></button>
+            </div>
+            <div class="mb-3 col-4">
+                <img class="Thumbnail" src="{{ optional($section)->sec1image ? asset('homepage/'.$section->sec1image) : asset('images/default.jpg') }}"  width="400" alt="Default picture Thumbnail">
+                
+            </div>
         </div>
 
 
@@ -75,17 +76,62 @@
 
     <div class="mb-3">
         <label for="" class="form-label">heading</label>
-        <input type="text" name="title" class="form-control">
+        <input type="text" name="sec2title" class="form-control">
     </div>
 
     <div class="mb-3">
         <label for="" class="form-label">content</label>
-        <input type="text" name="title" class="form-control">
+        <input type="text" name="sec2text" class="form-control">
     </div>
 
-    <div class="mb-3">
-        {{-- add in the points for this  --}}
+    <div class="row">
+        <div class="mb-3 col-6">
+            <label for="" class="form-label">main image</label>
+            <input type="file" class="form-control img_inpp" name="sec2image">
+        </div>
+        <div class="mb-3 col-2">
+            <button type="button" class="btn btn-danger clear-btn" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="reset image"><i class="bi bi-arrow-clockwise"></i></button>
+        </div>
+        <div class="mb-3 col-4">
+            <img class="Thumbnail" src="{{ optional($section)->sec2image ? asset('homepage/'.$section->sec2image) : asset('images/default.jpg') }}"  width="400" alt="Default picture Thumbnail">
+        </div>
     </div>
+
+    <h4>points</h4>
+
+    <div id="sec2_images">
+        <div class="mb-3 row">
+            
+            <div class="col-3">
+                <input type="file" placeholder="logo" class="form-control" name="sec2titlel[]">
+            </div>
+            
+            <div class="col-3">
+                <textarea class="form-control" name="sec2textl[]" cols="30" rows="5"></textarea>
+                
+            </div>
+            
+            <div class="col-3">
+                <button class="btn btn-primary" type="button" onclick="addsec2_images()">+</button>
+            </div>     
+        </div>
+    </div>
+
+    <table class="table" id="sec2_table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            
+            <th scope="col">title</th>
+            
+            {{-- <th scope="col">Url</th> --}}
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+        </tbody>
+      </table>
 
     <div class="mb-3 d-flex">
         
@@ -101,36 +147,35 @@
 
     </div>
 
+    <h4>Inputs for badge(green one with yellow logo)</h4>
+
     <div class="mb-3">
-        <label for="" class="form-label">image(family farm)</label>
-        <input type="file" class="form-control">
-        {{-- need to add in a preview for the image as well in here --}}
+        <label for="" class="form-label">text</label>
+        <input type="text" name="sec2badgetext" class="form-control">
     </div>
 
     <div class="mb-3">
-        <div class="d-flex">
-
-        </div>
-
-        <div>
-            <label for="" class="form-label">image(badge logo)</label>
-            <input type="file" class="form-control">
-        </div>
-       
-
-        <div>
-            <label for="" class="form-label">Number for badge</label>
-            <input type="file" class="form-control">
-        </div>
-        
-
-        <div>
-            <label for="" class="form-label">Text for badge</label>
-            <input type="file" class="form-control">
-        </div>
-        
-        {{-- need to add in a preview for the image as well in here --}}
+        <label for="" class="form-label">figure</label>
+        <input type="text" name="sec2badgefigure" class="form-control">
     </div>
+
+    <div class="row">
+        <div class="mb-3 col-6">
+            <label for="" class="form-label">banner image</label>
+            <input type="file" class="form-control img_inpp" name="sec2badgelogo">
+            
+        </div>
+        <div class="mb-3 col-2">
+            
+            <button type="button" class="btn btn-danger clear-btn" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="reset image"><i class="bi bi-arrow-clockwise"></i></button>
+        </div>
+        <div class="mb-3 col-4">
+            <img class="Thumbnail" src="{{ optional($section)->sec2badgelogo ? asset('homepage/'.$section->sec2badgelogo) : asset('images/default.jpg') }}"  width="400" alt="Default picture Thumbnail">
+            
+        </div>
+    </div>
+
+    
 
 </section>
 
@@ -145,18 +190,59 @@
 
     <div class="mb-3">
         <label for="" class="form-label">title</label>
-        <input type="text" class="form-control ">
+        <input type="text" class="form-control" name="sec3title">
     </div>
 
     {{-- now i need to give an option for multiple services along with their names and stuff in here super quick the part has to be editable in it's entirety in here  --}}
 
     <div class="mb-3">
         <label for="" class="form-label">subtitle</label>
-        <input type="text" class="form-control ">
+        <input type="text" class="form-control " name="sec3addtext">
         {{-- <textarea name="" id="" cols="30" rows="10" class="form-control"></textarea> --}}
     </div>
 
-   
+    <div class="mb-3">
+        <label for="" class="form-label">content</label>
+        <textarea name="sec3text" id="" cols="30" rows="5" class="form-control"></textarea>
+    </div>
+
+
+    <div class="" id="sec3_images">
+        <div class="mb-3 row">
+            
+            <div class="col-6 mb-2">
+                <input type="file" placeholder="image" class="form-control" name="sec3imagel[]">
+            </div>
+            <div class="col-6 mb-2">
+                <input type="text" placeholder="title" class="form-control" name="sec3titlel[]">
+            </div>
+            <div class="col-5">
+                <textarea class="form-control" name="sec3textl[]" cols="30" rows="5"></textarea>
+                
+            </div>
+            
+            
+            <div class="col-3">
+                <button class="btn btn-primary" type="button" onclick="addsec3_images()">+</button>
+            </div>     
+        </div>
+    </div>
+
+    <table class="table" id="sec3_table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">image</th>
+            <th scope="col">title</th>
+            
+            {{-- <th scope="col">Url</th> --}}
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+        </tbody>
+      </table>
 
  {{-- need to add in image ,heading and content in here --}}
 

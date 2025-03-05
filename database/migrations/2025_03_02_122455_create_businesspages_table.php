@@ -36,9 +36,9 @@ return new class extends Migration
 
              //\\*******table for images businesspagesection3
 
-             //our services***********
+             //our impact***********
             $table->string('sec4title')->nullable();
-            $table->string('sec4image')->nullable();
+            $table->string('sec4image')->nullable();//image greenhouse one dark green 
             
             
 
@@ -64,7 +64,7 @@ return new class extends Migration
               //Real voices, real impact Stories from farmers, employees, and partners.*********
               $table->string('sec7title')->nullable();
               
-              //\\*******table for images businesspagesection7
+              //\\*******table for images businesspagesection7 ignore this table use the testimonials one for this 
 
               //join us in making a difference***********
             $table->string('sec8title')->nullable();

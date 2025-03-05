@@ -79,8 +79,7 @@ return new class extends Migration
               $table->string('sec10btn_url')->nullable();
 
 
-              //for address fields make global stuff
-              //\\*******table for images aboutpagesection9
+              
               
   
             $table->timestamps();

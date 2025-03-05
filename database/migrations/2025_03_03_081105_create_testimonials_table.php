@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name')->nullable();
             $table->string('text')->nullable();
-            $table->string('page')->nullable();
+            $table->string('page')->nullable();//this is the page type whether it is home page or some other page
             $table->string('image')->nullable();
             $table->timestamps();
         });
