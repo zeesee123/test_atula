@@ -76,8 +76,16 @@ Route::group(['middleware'=>['auth']],function(){
 
     Route::post('/remove_homesection/{sectionType}',[HomepageController::class,'delete_resource']);
 
-    //rotes for aboutpage
+    //routes for aboutpage
     Route::post('/add_aboutpage',[AboutpageController::class,'add_aboutpage']);
+
+    Route::get('/abouttable/{section}',[HomepageController::class,'loadtable']);
+
+    Route::get('/get_resource_about/{type}/{id}',[HomepageController::class,'get_resource']);
+
+    Route::post('/update_aboutsection/{sectionType}',[HomepageController::class,'update_resource']);
+
+    Route::post('/remove_aboutsection/{sectionType}',[HomepageController::class,'delete_resource']);
 
 });
 
