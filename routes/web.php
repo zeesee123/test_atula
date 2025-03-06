@@ -5,6 +5,12 @@ use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomepageController;
+use App\Http\Controllers\AboutpageController;
+use App\Http\Controllers\AgriventureController;
+use App\Http\Controllers\AgroforestrypageController;
+use App\Http\Controllers\EcoinitiativepageController;
+use App\Http\Controllers\BusinesspageController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -69,6 +75,9 @@ Route::group(['middleware'=>['auth']],function(){
     Route::post('/update_homesection/{sectionType}',[HomepageController::class,'update_resource']);
 
     Route::post('/remove_homesection/{sectionType}',[HomepageController::class,'delete_resource']);
+
+    //rotes for aboutpage
+    Route::post('/add_aboutpage',[AboutpageController::class,'add_aboutpage']);
 
 });
 

@@ -397,7 +397,7 @@
 
 <section>
 
-    <h3>Section 6(Achievements)</h3>
+    <h3>Section 6(Agroforestry & Sustainability)</h3>
 
     {{-- image content and other stuff --}}
 
@@ -408,40 +408,152 @@
             {{-- add in the image for this  --}}
 
     {{-- our journey card part --}}
+
+    
+    <div class="mb-3">
+        <label for="" class="form-label">heading</label>
+        <input type="text" name="sec6title" class="form-control">
+    </div>
+
+    <div class="mb-3">
+        <label for="" class="form-label">subheading</label>
+        <textarea name="sec6text" id="" cols="30" rows="10" class="form-control"></textarea>
+    </div>
+
+    
+    <div class="" id="sec4_images">
+        <div class="mb-3 row">
+            
+            <div class="col-3">
+                <input type="file" placeholder="image" class="form-control" name="sec4imagel[]">
+            </div>
+            <div class="col-3">
+                <input type="text" placeholder="title" class="form-control" name="sec4titlel[]">
+            </div>
+            <div class="col-3">
+                <textarea class="form-control" name="sec4contentl[]" cols="30" rows="5"></textarea>
+                
+            </div>
+            
+            <div class="col-3">
+                <button class="btn btn-primary" type="button" onclick="addsec4_images()">+</button>
+            </div>     
+        </div>
+    </div>
+
+    <h5>points</h5>
+    <table class="table" id="sec4_table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">image</th>
+            <th scope="col">title</th>
+            
+            {{-- <th scope="col">Url</th> --}}
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+        </tbody>
+      </table>
+
+    
+
+
+    <div class="mb-3 d-flex">
+        <div class="mx-2">
+            <label for="" class="form-label">button text(explore our agroforestry projects)</label>
+            <input type="text" class="form-control " name="sec6btn_text">
+        </div>
+
+        <div class="mx-2">
+            <label for="" class="form-label">button url</label>
+            <input type="text" class="form-control " name="sec6btn_url">
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="mb-3 col-6">
+            <label for="" class="form-label">banner image</label>
+            <input type="file" class="form-control img_inpp" name="sec6image">
+            
+        </div>
+        <div class="mb-3 col-2">
+            
+            <button type="button" class="btn btn-danger clear-btn" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="reset image"><i class="bi bi-arrow-clockwise"></i></button>
+        </div>
+        <div class="mb-3 col-4">
+            <img class="Thumbnail" src="{{ optional($section)->sec6image ? asset('homepage/'.$section->sec6image) : asset('images/default.jpg') }}"  width="400" alt="Default picture Thumbnail">
+            
+        </div>
+    </div>
+
 </section>
+
+
+    {{-- //input for adding in the points --}}
+
+<hr>
 
 <section>
 
-    <h3>Section 7(Future Goals)</h3>
+    <h3>Section 7(Achievements)</h3>
 
     <div class="row">
         <div class="col-12 mb-3">
-            <label for="" class="form-label">years</label>
-            <input type="text" class="form-control">
+            <label for="" class="form-label">title</label>
+            <input type="text" class="form-control" name="sec7title">
             
         </div>
         <div class="col-12 mb-3">
-            <label for="" class="form-label">heading</label>
-            <input type="text" class="form-control">
+            <label for="" class="form-label">sub text</label>
+            <input type="text" class="form-control" name="sec7addtext">
             
         </div>
-        <div class="col-12 mb-3">
-            <label for="" class="form-label">points</label>
-            <textarea name="" id="" cols="30" rows="5" class="form-control"></textarea>
-        </div>
+    
 
-        {{-- add in the cards for the image ,name ,content --}}
-        {{-- <div class="col-6 mb-3">
-            <label for="" class="form-label">button text(join the mission text)</label>
-            <input type="text" class="form-control">
-            
-        </div>
-        <div class="col-6 mb-3">
-            <label for="" class="form-label">button url</label>
-            <input type="text" class="form-control">
-            
-        </div> --}}
+        
     </div>
+
+    <h5>points</h5>
+    <div class="" id="sec7_images">
+        <div class="mb-3 row">
+            
+            <div class="col-3">
+                <input type="file" placeholder="image" class="form-control" name="sec7imagel[]">
+            </div>
+            <div class="col-3">
+                <input type="text" placeholder="title" class="form-control" name="sec7titlel[]">
+            </div>
+            <div class="col-3">
+                <textarea class="form-control" name="sec7contentl[]" cols="30" rows="5"></textarea>
+                
+            </div>
+            
+            <div class="col-3">
+                <button class="btn btn-primary" type="button" onclick="addsec7_images()">+</button>
+            </div>     
+        </div>
+    </div>
+
+    
+    <table class="table" id="sec7_table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">image</th>
+            <th scope="col">title</th>
+            
+            {{-- <th scope="col">Url</th> --}}
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+        </tbody>
+      </table>
 
 
 </section>
@@ -457,212 +569,69 @@
     <div class="row">
         <div class="col-12 mb-3">
             <label for="" class="form-label">title</label>
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" name="sec8title">
             
         </div>
         <div class="col-12 mb-3">
             <label for="" class="form-label">subtitle</label>
-            <textarea name="" id="" cols="30" rows="5" class="form-control"></textarea>
+            <textarea name="sec8text" id="" cols="30" rows="5" class="form-control"></textarea>
         </div>
         <div class="col-12 mb-3">
-            <label for="" class="form-label">line before the points</label>
-            <textarea name="" id="" cols="30" rows="5" class="form-control"></textarea>
-        </div>
-        <div class="col-6 mb-3">
-            <label for="" class="form-label">button text(Learn about our technology text)</label>
-            <input type="text" class="form-control">
-            
-        </div>
-        <div class="col-6 mb-3">
-            <label for="" class="form-label">button url</label>
-            <input type="text" class="form-control">
-            
-        </div>
-        <div class="col-6 mb-3">
-            <label for="" class="form-label">banner image</label>
-            <input type="file" class="form-control">
-            
-        </div>
-        
-    </div>
-
-
-</section>
-
-<hr>
-
-<section>
-
-    <h3>Section 9(Explore Our Initiatives)</h3>
-
-  {{-- make a list for these  --}}
-
-  <div class="mb-3">
-    <label for="" class="form-label">title</label>
-    <input type="text" class="form-control">
-  </div>
-  
-
-    <div class="mb-3">
-        <label for="" class="form-label">image</label>
-        <input type="file" name="title" class="form-control">
-    </div>
-
-    {{-- inputs for fields logo and everything else --}}
-
-    
-
-    {{-- <div class="mb-3 d-flex">
-        <div class="mx-2">
-            <label for="" class="form-label">button text</label>
-            <input type="text" class="form-control ">
+            <label for="" class="form-label">another additional text</label>
+            <textarea name="sec8addtext" id="" cols="30" rows="5" class="form-control"></textarea>
         </div>
 
-        <div class="mx-2">
-            <label for="" class="form-label">button url</label>
-            <input type="text" class="form-control ">
-        </div>
+        <h5>points</h5>
 
-    </div> --}}
-
-    
-
-
-</section>
-
-<hr>
-
-<section>
-
-    <h3>Section 10(Be a part of change)</h3>
-
-    <div class="row">
-        <div class="col-12 mb-3">
-            <label for="" class="form-label">title</label>
-            <input type="text" class="form-control">
-            
-        </div>
-        <div class="col-12 mb-3">
-            <label for="" class="form-label">text</label>
-            <textarea name="" id="" cols="30" rows="5" class="form-control"></textarea>
-            
-        </div>
-        <div class="col-6 mb-3">
-            <label for="" class="form-label">button text(join the mission text)</label>
-            <input type="text" class="form-control">
-            
-        </div>
-        <div class="col-6 mb-3">
-            <label for="" class="form-label">button url</label>
-            <input type="text" class="form-control">
-            
-        </div>
-    </div>
-
-
-</section>
-
-<section>
-
-    <h3>Badges part (section)</h3>
-
-    {{-- cards for the other part as well --}}
-
-
-    <div class="row">
-        
-        <div class="col-6 mb-3">
-            <label for="" class="form-label">Support our social impact(join the mission text)</label>
-            <input type="text" class="form-control">
-            
-        </div>
-        <div class="col-6 mb-3">
-            <label for="" class="form-label">button url</label>
-            <input type="text" class="form-control">
-            
-        </div>
-    </div>
-
-
-</section>
-
-<section>
-
-    <h3>Be a part of the change(section)</h3>
-
-    <div class="row">
-        <div class="col-12 mb-3">
-            <label for="" class="form-label">title</label>
-            <input type="text" class="form-control">
-            
-        </div>
-        <div class="col-12 mb-3">
-            <label for="" class="form-label">text</label>
-            <textarea name="" id="" cols="30" rows="5" class="form-control"></textarea>
-            
-        </div>
-        {{-- <div class="col-6 mb-3">
-            <label for="" class="form-label">button text(join the mission text)</label>
-            <input type="text" class="form-control">
-            
-        </div>
-        <div class="col-6 mb-3">
-            <label for="" class="form-label">button url</label>
-            <input type="text" class="form-control">
-            
-        </div> --}}
-    </div>
-
-    {{-- add in the cards for the rest --}}
-
-
-</section>
-
-<section>
-
-    <h3>Get in touch(section)</h3>
-
-    <div class="row">
-        <div class="col-12 mb-3">
-            <label for="" class="form-label">title</label>
-            <input type="text" class="form-control">
-            
-        </div>
-        <div class="col-12 mb-3">
-            <label for="" class="form-label">text</label>
-            <textarea name="" id="" cols="30" rows="5" class="form-control"></textarea>
-            
-        </div>
-        {{-- <div class="col-6 mb-3">
-            <label for="" class="form-label">button text(join the mission text)</label>
-            <input type="text" class="form-control">
-            
-        </div>
-        <div class="col-6 mb-3">
-            <label for="" class="form-label">button url</label>
-            <input type="text" class="form-control">
-            
-        </div> --}}
-    </div>
-
-    <section>
-
-        <h3>Map link google (section)</h3>
-    
-        <div class="row">
-            <div class="col-12 mb-3">
-                <label for="" class="form-label">map link</label>
-                <input type="text" class="form-control">
+        <div class="" id="sec8_images">
+            <div class="mb-3 row">
                 
+                
+                <div class="col-3">
+                    <textarea class="form-control" name="sec8contentl[]" cols="30" rows="5"></textarea>
+                    
+                </div>
+                
+                <div class="col-3">
+                    <button class="btn btn-primary" type="button" onclick="addsec8_images()">+</button>
+                </div>     
             </div>
-          
         </div>
     
-    
-    </section>
+        
+        <table class="table" id="sec8_table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">image</th>
+                <th scope="col">title</th>
+                
+                {{-- <th scope="col">Url</th> --}}
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+            </tbody>
+          </table>
+        
+        <div class="col-6 mb-3">
+            <label for="" class="form-label">button text(join the movemement)</label>
+            <input type="text" class="form-control" name="sec8btn_text">
+            
+        </div>
+        <div class="col-6 mb-3">
+            <label for="" class="form-label">button url</label>
+            <input type="text" class="form-control" name="sec8btn_url">
+            
+        </div>
+        
+        
+    </div>
 
 
 </section>
+
 
 <button>submit</button>
 

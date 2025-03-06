@@ -53,7 +53,7 @@ return new class extends Migration
 
               //agroforestry and sustainability***********
             $table->string('sec6title')->nullable();
-            $table->string('sec6addtext')->nullable();
+            $table->string('sec6addtext')->nullable();//no need for this column
             $table->longText('sec6text')->nullable();
             $table->string('sec6image')->nullable();
             $table->string('sec6btn_text')->nullable();
@@ -78,7 +78,8 @@ return new class extends Migration
             $table->string('sec8image')->nullable();
             $table->string('sec8btn_text')->nullable();
             $table->string('sec8btn_url')->nullable();
-
+            
+            //\\*******table for images ecoinitiativepagesection8
             
   
             $table->timestamps();
