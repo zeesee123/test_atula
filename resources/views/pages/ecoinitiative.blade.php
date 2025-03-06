@@ -264,13 +264,13 @@
 
     <div class="row">
         
-        <div class="col-6">
+        <div>
 
-            <div class="d-flex">
+            <div>
 
                 <div class="mb-3">
                     <label class="form-label">title</label>
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" name="sec4title">
                 </div>
 
                 <div class="mb-3">
@@ -280,28 +280,10 @@
 
                 <div class="mb-3">
                     <label class="form-label">content</label>
-                    <input type="text" class="form-control">
-                </div>
-
-                {{-- images set 1 --}}
-
-                <div class="mb-3">
-                    <label class="form-label">title 2 (CSR PROJECTS)</label>
-                    <input type="text" class="form-control">
-                </div>
-
-                {{-- next set of images --}}
-
-                
-                {{-- <div class="mb-3">
-                    <label class="form-label">content</label>
                     <textarea name="" id="" cols="30" rows="10" class="form-control"></textarea>
                 </div>
 
-                <div class="mb-3">
-                    <label class="form-label">image</label>
-                    <input type="file" class="form-control">
-                </div> --}}
+                
 
             </div>
             
@@ -310,67 +292,46 @@
 
         </div>
 
-        {{-- content 
-    highlights --}}
-
-    <div class="col-6">
-
-        <div class="d-flex">
-
-            <div class="mb-3">
-                <label class="form-label">heading</label>
-                <input type="text" class="form-control">
-            </div>
-
-            <div class="mb-3">
-                <label class="form-label">content</label>
-                <textarea name="" id="" cols="30" rows="10" class="form-control"></textarea>
-            </div>
-
-            <div class="mb-3">
-                <label class="form-label">image</label>
-                <input type="file" class="form-control">
-            </div>
-
-        </div>
-        
-        
-        
 
     </div>
 
-        
 
-        {{-- use the multiple component
-    read more add in the image , title,content --}}
-
-    {{-- <div class="col-12">
-
-        <div class="mb-3">
-
-            <p>inputs for multiple stuff image , title, content (use text editor for all point stuff remember this dude)</p>
-
+    <div class="" id="sec4_images">
+        <div class="mb-3 row">
+            
+            <div class="col-3">
+                <input type="file" placeholder="image" class="form-control" name="sec4imagel[]">
+            </div>
+            <div class="col-3">
+                <input type="text" placeholder="title" class="form-control" name="sec4titlel[]">
+            </div>
+            <div class="col-3">
+                <textarea class="form-control" name="sec4contentl[]" cols="30" rows="5"></textarea>
+                
+            </div>
+            
+            <div class="col-3">
+                <button class="btn btn-primary" type="button" onclick="addsec4_images()">+</button>
+            </div>     
         </div>
-        
-    </div> --}}
-
-    {{-- <div class="col-6">
-
-        <div class="mb-3">
-            <label for="" class="form-label">button text(join the mission)</label>
-            <input type="text" class="form-control">
-        </div>
-    </div> --}}
-
-    {{-- <div class="col-6">
-
-        <div class="mb-3">
-            <label for="" class="form-label">button url(join the mission)</label>
-            <input type="text" class="form-control">
-        </div>
-    </div> --}}
-
     </div>
+
+    <table class="table" id="sec4_table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">image</th>
+            <th scope="col">title</th>
+            
+            {{-- <th scope="col">Url</th> --}}
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+        </tbody>
+      </table>
+
 
 
 
@@ -382,68 +343,51 @@
 <hr>
 <section>
 
-            <h3>Section 5(Agroforestry & Sustainability)</h3>
+            <h3>Section 5(CSR Activities)</h3>
 
-            {{-- add in the cards here --}}
-
-            {{-- leave the image part for now it could get changed for some reason --}}
+           
 
             <div class="col-12">
 
                 <div class="mb-3">
-                    <label class="form-label">heading</label>
-                    <input type="text" class="form-control">
+                    <label class="form-label">title</label>
+                    <input type="text" class="form-control" name="sec5title">
                 </div>
                 
                 
     
             </div>
 
-            <div class="col-12">
-
-                <div class="mb-3">
-                    <label class="form-label">subtitle</label>
-                    <input type="text" class="form-control">
-                </div>
-                
-                
+            <h4 class="mx-2">images</h4>
     
-            </div>
-
-            <div class="col-12">
-
-                <div class="mb-3">
-                    <label class="form-label">content</label>
-                    <textarea name="" id="" cols="30" rows="5" class="form-control"></textarea>
+            <div class="" id="sec5_images">
+                <div class="mb-3 row">
+                    
+                    <div class="col-3">
+                        <input type="file" placeholder="add image" class="form-control" name="sec5imagel[]">
+                    </div>
+                    
+                    
+                    <div class="col-3">
+                        <button class="btn btn-primary" type="button" onclick="addsec5_images()">+</button>
+                    </div>     
                 </div>
-                
-                
-    
             </div>
-
-
-            {{-- points will come in here --}}
-
-
-            <div class="col-6 mb-3">
-         
-                <label for="" class="form-label">button text(join the mission text)</label>
-                <input type="text" class="form-control">
-            
-            </div>
-        <div class="col-6 mb-3">
-            <label for="" class="form-label">button url</label>
-            <input type="text" class="form-control">
-            
-        </div>
-
-        <div class="col-12 mb-3">
-            <label for="" class="form-label">image</label>
-            <input type="file" class="form-control">
-        </div>
-
-            {{-- need to add in cards for this --}}
-            
+        
+            <table class="table" id="sec5_table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">image</th>
+                    
+                    {{-- <th scope="col">Url</th> --}}
+                    <th scope="col">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  
+                </tbody>
+              </table>
 
 
             {{-- elements and stuff multiple ones --}}

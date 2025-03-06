@@ -225,13 +225,13 @@
         <div class="mb-3 row">
             
             <div class="col-3">
-                <input type="file" placeholder="logo" class="form-control" name="sec4_imagel[]">
+                <input type="file" placeholder="logo" class="form-control" name="sec4imagel[]">
             </div>
             <div class="col-3">
-                <input type="text" placeholder="title" class="form-control" name="sec4_titlel[]">
+                <input type="text" placeholder="title" class="form-control" name="sec4titlel[]">
             </div>
             <div class="col-3">
-                <textarea class="form-control" name="sec4_textl[]" cols="30" rows="5"></textarea>
+                <textarea class="form-control" name="sec4textl[]" cols="30" rows="5"></textarea>
                 
             </div>
             

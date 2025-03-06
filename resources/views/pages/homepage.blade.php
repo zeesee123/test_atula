@@ -107,28 +107,7 @@ h1{color:'red'}
         </div>
         
 
-        {{-- <div class="mb-3">
-            <label for="" class="form-label">heading</label>
-            <input type="text" name="title" class="form-control">
-        </div>
-
-        <div class="mb-3">
-            <label for="" class="form-label">content</label>
-            <textarea name="" id="" cols="30" rows="5" class="form-control"></textarea>
-        </div>
-
-        <div class="mb-3 d-flex">
-            <div class="mx-2">
-                <label for="" class="form-label">button text</label>
-                <input type="text" class="form-control ">
-            </div>
-
-            <div class="mx-2">
-                <label for="" class="form-label">button url</label>
-                <input type="text" class="form-control ">
-            </div>
-
-        </div> --}}
+        
 
 
 
@@ -931,16 +910,7 @@ h1{color:'red'}
             <textarea name="sec14_content" id="" cols="30" rows="5" class="form-control">{!! $section->sec14_content??'' !!}</textarea>
             
         </div>
-        {{-- <div class="col-6 mb-3">
-            <label for="" class="form-label">button text(join the mission text)</label>
-            <input type="text" class="form-control">
-            
-        </div>
-        <div class="col-6 mb-3">
-            <label for="" class="form-label">button url</label>
-            <input type="text" class="form-control">
-            
-        </div> --}}
+        
     </div>
 
 </section>
