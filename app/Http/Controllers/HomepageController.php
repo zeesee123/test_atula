@@ -213,7 +213,10 @@ if ($sec7_simg) {
   $model->sec8_title = $r->input('sec8_title');
 
 
-  $sec8_slogo=$r->input('sec8_slogo');
+  $sec8_slogo=$r->file('sec8_slogo');
+
+  $sec8_scontent = $r->input('sec8_scontent'); 
+$sec8_slink = $r->input('sec8_slink'); // Ensure this is fetched too
 
   if ($sec8_slogo) {
     foreach ($sec8_slogo as $key => $image) {
