@@ -9,7 +9,7 @@
 
 
 
-<form action="{{url('/add_aboutpage')}}" method="POST">
+<form action="{{url('/add_aboutpage')}}" method="POST" enctype="multipart/form-data">
 
     @if(session('success'))
 
@@ -411,7 +411,7 @@
 
 <section>
 
-    <h3>Our Visionaries (section)</h3>
+    <h3>Section 7(Our Visionaries)</h3>
 
     <div class="row">
         <div class="col-6 mb-3">
@@ -450,7 +450,7 @@
 
 <section>
 
-    <h3>Let's Go Green Together(section)</h3>
+    <h3>Section 8(Let's Go Green Together)</h3>
 
     <div class="row">
         <div class="col-12 mb-3">
@@ -477,7 +477,7 @@
             <button type="button" class="btn btn-danger clear-btn" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="reset image"><i class="bi bi-arrow-clockwise"></i></button>
         </div>
         <div class="mb-3 col-4">
-            <img class="Thumbnail" src="{{ optional($section)->sec8image ? asset('homepage/'.$section->sec2image) : asset('images/default.jpg') }}"  width="400" alt="Default picture Thumbnail">
+            <img class="Thumbnail" src="{{ optional($section)->sec8image ? asset('homepage/'.$section->sec8image) : asset('images/default.jpg') }}"  width="400" alt="Default picture Thumbnail">
             
         </div>
     </div>
@@ -492,7 +492,7 @@
 
 <section>
 
-    <h3>Collaborate with us(section)</h3>
+    <h3>Section 9(Collaborate with us)</h3>
 
     <div class="row">
         <div class="col-12 mb-3">
@@ -522,7 +522,7 @@
 
 <section>
 
-    <h3>Support Our Cause(section)</h3>
+    <h3>Section 9 p2(Support Our Cause)</h3>
 
     <div class="row">
         <div class="col-12 mb-3">

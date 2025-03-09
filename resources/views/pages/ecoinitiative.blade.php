@@ -9,7 +9,7 @@
 
 
 
-<form action="{{url('/add_homepage')}}" method="POST">
+<form action="{{url('/add_homepage')}}" method="POST" enctype="multipart/form-data">
 
     @if(session('success'))
 

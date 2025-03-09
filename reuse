@@ -1,0 +1,19 @@
+ $sec6_slogo=$r->file('sec6imagel');
+
+        $sec6_stitle = $r->input('sec6titlel'); 
+      $sec6_stext = $r->input('sec6textl'); // Ensure this is fetched too
+      
+        if ($sec4_slogo) {
+          foreach ($sec4_slogo as $key => $image) {
+              if ($image) {
+                  $namez = $image->hashName();
+                  $image->move(public_path('aboutpage/'), $namez);
+      
+                  $section6 = new AboutpageSection4();
+                  $section6->sec6imagel = $namez;
+                  $section6->sec6titlel = $sec6_stitle[$key] ?? null;
+                  $section6->sec6textl = $sec6_stext[$key] ?? null;
+                  $section6->save();
+              }
+          }
+      }
