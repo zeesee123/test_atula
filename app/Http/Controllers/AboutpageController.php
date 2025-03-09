@@ -4,7 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\Aboutpage;
 use Illuminate\Http\Request;
+use App\Models\AboutpageSection1;
+use App\Models\AboutpageSection3;
+use App\Models\AboutpageSection4;
 use App\Models\AboutpageSection5;
+use App\Models\AboutpageSection6;
+use Illuminate\Support\Facades\DB;
 
 class AboutpageController extends Controller
 {
@@ -15,7 +20,7 @@ class AboutpageController extends Controller
        
         try{
 
-            // DB::beginTransaction();
+            DB::beginTransaction();
 
         $model = Aboutpage::first() ?? new Aboutpage();
 
@@ -48,7 +53,7 @@ class AboutpageController extends Controller
                         $imageName = $image->hashName();
                         $image->move(public_path('aboutpage/'), $imageName);
                 
-                        $service = new HomepageSection3;
+                        $service = new AboutpageSection1;
                         $service->sec1imagel = $imageName;
                         $service->save();
                     }
@@ -89,7 +94,7 @@ class AboutpageController extends Controller
                     $imageName = $image->hashName();
                     $image->move(public_path('aboutpage/'), $imageName);
             
-                    $service = new HomepageSection3;
+                    $service = new AboutpageSection3;
                     $service->sec3imagel = $imageName;
                     $service->save();
                 }
@@ -166,13 +171,13 @@ $sec4_stext = $r->input('sec4textl'); // Ensure this is fetched too
         $sec6_stitle = $r->input('sec6titlel'); 
       $sec6_stext = $r->input('sec6textl'); // Ensure this is fetched too
       
-        if ($sec4_slogo) {
-          foreach ($sec4_slogo as $key => $image) {
+        if ($sec6_slogo) {
+          foreach ($sec6_slogo as $key => $image) {
               if ($image) {
                   $namez = $image->hashName();
                   $image->move(public_path('aboutpage/'), $namez);
       
-                  $section6 = new AboutpageSection4();
+                  $section6 = new AboutpageSection6();
                   $section6->sec6imagel = $namez;
                   $section6->sec6titlel = $sec6_stitle[$key] ?? null;
                   $section6->sec6textl = $sec6_stext[$key] ?? null;
@@ -250,12 +255,12 @@ if ($r->hasFile('sec92image')) {
         Log::info($e->getMessage());
       }
 
-        // DB::commit();
+        DB::commit();
 
         return back()->with('success','message added');
 
         }catch(Exception $e){
-            // DB::rollback();
+            DB::rollback();
             return back()->with('failure',$e->getMessage());}
     }
 }

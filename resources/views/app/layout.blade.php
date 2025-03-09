@@ -37,7 +37,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.17.2/dist/sweetalert2.min.css
     <script src="./dist/js/demo-theme.min.js?1692870487"></script>
     <div class="page">
       <!-- Sidebar -->
-      <aside class="navbar navbar-vertical navbar-expand-lg" data-bs-theme="dark">
+      <aside class="navbar navbar-vertical navbar-expand-lg " id="sidebar-menu" data-bs-theme="dark">
         <div class="container-fluid">
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar-menu" aria-controls="sidebar-menu" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
