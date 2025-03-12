@@ -29,19 +29,19 @@
 
         <div class="mb-3">
             <label for="" class="form-label">heading</label>
-            <input type="text" name="sec1title" class="form-control">
+            <input type="text" name="sec1title" class="form-control" value="{{$section->sec1title??''}}">
         </div>
 
 
         <div class="mb-3 d-flex">
             <div class="mx-2">
                 <label for="" class="form-label">button text(Join Our Mission)</label>
-                <input type="text" class="form-control " name="sec1btn_text">
+                <input type="text" class="form-control " name="sec1btn_text" value="{{$section->sec1btn_text??''}}">
             </div>
 
             <div class="mx-2">
                 <label for="" class="form-label">button url</label>
-                <input type="text" class="form-control " name="sec1btn_url">
+                <input type="text" class="form-control " name="sec1btn_url" value="{{$section->sec1btn_url??''}}">
             </div>
 
         </div>
@@ -57,7 +57,7 @@
                 <button type="button" class="btn btn-danger clear-btn" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="reset image"><i class="bi bi-arrow-clockwise"></i></button>
             </div>
             <div class="mb-3 col-4">
-                <img class="Thumbnail" src="{{ optional($section)->sec1image ? asset('homepage/'.$section->sec1image) : asset('images/default.jpg') }}"  width="400" alt="Default picture Thumbnail">
+                <img class="Thumbnail" src="{{ optional($section)->sec1image ? asset('ecoinitiative/'.$section->sec1image) : asset('images/default.jpg') }}"  width="400" alt="Default picture Thumbnail">
                 
             </div>
         </div>
@@ -76,12 +76,12 @@
 
     <div class="mb-3">
         <label for="" class="form-label">heading</label>
-        <input type="text" name="sec2title" class="form-control">
+        <input type="text" name="sec2title" class="form-control" value="{{$section->sec2title??''}}">
     </div>
 
     <div class="mb-3">
         <label for="" class="form-label">content</label>
-        <input type="text" name="sec2text" class="form-control">
+        <input type="text" name="sec2text" class="form-control" value="{{$section->sec2text??''}}">
     </div>
 
     <div class="row">
@@ -93,7 +93,7 @@
             <button type="button" class="btn btn-danger clear-btn" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="reset image"><i class="bi bi-arrow-clockwise"></i></button>
         </div>
         <div class="mb-3 col-4">
-            <img class="Thumbnail" src="{{ optional($section)->sec2image ? asset('homepage/'.$section->sec2image) : asset('images/default.jpg') }}"  width="400" alt="Default picture Thumbnail">
+            <img class="Thumbnail" src="{{ optional($section)->sec2image ? asset('ecoinitiative/'.$section->sec2image) : asset('images/default.jpg') }}"  width="400" alt="Default picture Thumbnail">
         </div>
     </div>
 
@@ -103,7 +103,7 @@
         <div class="mb-3 row">
             
             <div class="col-3">
-                <input type="file" placeholder="logo" class="form-control" name="sec2titlel[]">
+                <input type="file" placeholder="logo" class="form-control" name="sec2titlel[]" >
             </div>
             
             <div class="col-3">
@@ -137,12 +137,12 @@
         
         <div class="mx-2">
             <label for="" class="form-label">button text</label>
-            <input type="text" class="form-control ">
+            <input type="text" name="sec2btn_text" class="form-control" value="{{$section->sec2btn_text??''}}">
         </div>
 
         <div class="mx-2">
             <label for="" class="form-label">button url</label>
-            <input type="text" class="form-control ">
+            <input type="text" name="sec2btn_url" class="form-control" value="{{$section->sec2btn_url??''}}">
         </div>
 
     </div>
@@ -151,12 +151,12 @@
 
     <div class="mb-3">
         <label for="" class="form-label">text</label>
-        <input type="text" name="sec2badgetext" class="form-control">
+        <input type="text" name="sec2badgetext" class="form-control" value="{{$section->sec2badgetext??''}}">
     </div>
 
     <div class="mb-3">
         <label for="" class="form-label">figure</label>
-        <input type="text" name="sec2badgefigure" class="form-control">
+        <input type="text" name="sec2badgefigure" class="form-control" value="{{$section->sec2badgefigure??''}}">
     </div>
 
     <div class="row">
@@ -190,20 +190,20 @@
 
     <div class="mb-3">
         <label for="" class="form-label">title</label>
-        <input type="text" class="form-control" name="sec3title">
+        <input type="text" class="form-control" name="sec3title" value="{{$section->sec3title??''}}">
     </div>
 
     {{-- now i need to give an option for multiple services along with their names and stuff in here super quick the part has to be editable in it's entirety in here  --}}
 
     <div class="mb-3">
         <label for="" class="form-label">subtitle</label>
-        <input type="text" class="form-control " name="sec3addtext">
+        <input type="text" class="form-control " name="sec3addtext" value="{{$section->sec3addtext??''}}">
         {{-- <textarea name="" id="" cols="30" rows="10" class="form-control"></textarea> --}}
     </div>
 
     <div class="mb-3">
         <label for="" class="form-label">content</label>
-        <textarea name="sec3text" id="" cols="30" rows="5" class="form-control"></textarea>
+        <textarea name="sec3text" id="" cols="30" rows="5" class="form-control">{{$section->sec3text??''}}</textarea>
     </div>
 
 
@@ -270,17 +270,17 @@
 
                 <div class="mb-3">
                     <label class="form-label">title</label>
-                    <input type="text" class="form-control" name="sec4title">
+                    <input type="text" name="sec4title" class="form-control" name="sec4title" value="{{$section->sec4title??''}}">
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">subtitle</label>
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" name="sec4addtext" value="{{$section->sec4addtext??''}}">
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">content</label>
-                    <textarea name="" id="" cols="30" rows="10" class="form-control"></textarea>
+                    <textarea name="sec4text"  cols="30" rows="5" class="form-control">{{$section->sec4text??''}}</textarea>
                 </div>
 
                 
@@ -351,7 +351,7 @@
 
                 <div class="mb-3">
                     <label class="form-label">title</label>
-                    <input type="text" class="form-control" name="sec5title">
+                    <input type="text" class="form-control" name="sec5title" value="{{$section->sec5title??''}}">
                 </div>
                 
                 
@@ -412,12 +412,12 @@
     
     <div class="mb-3">
         <label for="" class="form-label">heading</label>
-        <input type="text" name="sec6title" class="form-control">
+        <input type="text" name="sec6title" class="form-control" value="{{$section->sec6title??''}}">
     </div>
 
     <div class="mb-3">
         <label for="" class="form-label">subheading</label>
-        <textarea name="sec6text" id="" cols="30" rows="10" class="form-control"></textarea>
+        <textarea name="sec6text" id="" cols="30" rows="10" class="form-control">{{$section->sec6text??''}}</textarea>
     </div>
 
     
@@ -464,12 +464,12 @@
     <div class="mb-3 d-flex">
         <div class="mx-2">
             <label for="" class="form-label">button text(explore our agroforestry projects)</label>
-            <input type="text" class="form-control " name="sec6btn_text">
+            <input type="text" class="form-control " name="sec6btn_text" value="{{$section->sec6btn_text??''}}"">
         </div>
 
         <div class="mx-2">
             <label for="" class="form-label">button url</label>
-            <input type="text" class="form-control " name="sec6btn_url">
+            <input type="text" class="form-control " name="sec6btn_url" value="{{$section->sec6btn_url??''}}">
         </div>
 
     </div>
@@ -477,7 +477,7 @@
     <div class="row">
         <div class="mb-3 col-6">
             <label for="" class="form-label">banner image</label>
-            <input type="file" class="form-control img_inpp" name="sec6image">
+            <input type="file" class="form-control img_inpp" name="sec6image" >
             
         </div>
         <div class="mb-3 col-2">
@@ -485,7 +485,7 @@
             <button type="button" class="btn btn-danger clear-btn" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="reset image"><i class="bi bi-arrow-clockwise"></i></button>
         </div>
         <div class="mb-3 col-4">
-            <img class="Thumbnail" src="{{ optional($section)->sec6image ? asset('homepage/'.$section->sec6image) : asset('images/default.jpg') }}"  width="400" alt="Default picture Thumbnail">
+            <img class="Thumbnail" src="{{ optional($section)->sec6image ? asset('ecoinitiative/'.$section->sec6image) : asset('images/default.jpg') }}"  width="400" alt="Default picture Thumbnail">
             
         </div>
     </div>
@@ -504,12 +504,12 @@
     <div class="row">
         <div class="col-12 mb-3">
             <label for="" class="form-label">title</label>
-            <input type="text" class="form-control" name="sec7title">
+            <input type="text" class="form-control" name="sec7title" value="{{$section->sec7title??''}}">
             
         </div>
         <div class="col-12 mb-3">
             <label for="" class="form-label">sub text</label>
-            <input type="text" class="form-control" name="sec7addtext">
+            <input type="text" class="form-control" name="sec7addtext" value="{{$section->sec7addtext??''}}">
             
         </div>
     
@@ -569,16 +569,16 @@
     <div class="row">
         <div class="col-12 mb-3">
             <label for="" class="form-label">title</label>
-            <input type="text" class="form-control" name="sec8title">
+            <input type="text" class="form-control" name="sec8title" value="{{$section->sec8title??''}}">
             
         </div>
         <div class="col-12 mb-3">
             <label for="" class="form-label">subtitle</label>
-            <textarea name="sec8text" id="" cols="30" rows="5" class="form-control"></textarea>
+            <textarea name="sec8text" id="" cols="30" rows="5" class="form-control">{{$section->sec8text??''}}</textarea>
         </div>
         <div class="col-12 mb-3">
             <label for="" class="form-label">another additional text</label>
-            <textarea name="sec8addtext" id="" cols="30" rows="5" class="form-control"></textarea>
+            <textarea name="sec8addtext" id="" cols="30" rows="5" class="form-control">{{$section->sec8addtext??''}}</textarea>
         </div>
 
         <h5>points</h5>
@@ -617,12 +617,12 @@
         
         <div class="col-6 mb-3">
             <label for="" class="form-label">button text(join the movemement)</label>
-            <input type="text" class="form-control" name="sec8btn_text">
+            <input type="text" class="form-control" name="sec8btn_text" value="{{$section->sec8btn_text??''}}">
             
         </div>
         <div class="col-6 mb-3">
             <label for="" class="form-label">button url</label>
-            <input type="text" class="form-control" name="sec8btn_url">
+            <input type="text" class="form-control" name="sec8btn_url" value="{{$section->sec8btn_url??''}}">
             
         </div>
         
@@ -633,7 +633,7 @@
 </section>
 
 
-<button>submit</button>
+<button class="btn btn-primary">submit</button>
 
 </form>
 

@@ -29,23 +29,23 @@
 
         <div class="mb-3">
             <label for="" class="form-label">heading</label>
-            <input type="text" name="sec1title" class="form-control">
+            <input type="text" name="sec1title" class="form-control" value="{{$section->sec1title??''}}">
         </div>
 
         <div class="mb-3">
             <label for="" class="form-label">content</label>
-            <textarea name="sec1text" id="" cols="30" rows="5" class="form-control"></textarea>
+            <textarea name="sec1text" id="" cols="30" rows="5" class="form-control">{{$section->sec1text??''}}</textarea>
         </div>
 
         <div class="mb-3 d-flex">
             <div class="mx-2">
                 <label for="" class="form-label">button text</label>
-                <input type="text" class="form-control" name="sec1btn_text">
+                <input type="text" class="form-control" name="sec1btn_text" value="{{$section->sec1btn_text??''}}">
             </div>
 
             <div class="mx-2">
                 <label for="" class="form-label">button url</label>
-                <input type="text" class="form-control" name="sec1btn_url">
+                <input type="text" class="form-control" name="sec1btn_url" value="{{$section->sec1btn_url??''}}">
             </div>
 
         </div>
@@ -61,7 +61,7 @@
                 <button type="button" class="btn btn-danger clear-btn" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="reset image"><i class="bi bi-arrow-clockwise"></i></button>
             </div>
             <div class="mb-3 col-4">
-                <img class="Thumbnail" src="{{ optional($section)->sec1image ? asset('homepage/'.$section->sec1image) : asset('images/default.jpg') }}"  width="400" alt="Default picture Thumbnail">
+                <img class="Thumbnail" src="{{ optional($section)->sec1image ? asset('businesspage/'.$section->sec1image) : asset('images/default.jpg') }}"  width="400" alt="Default picture Thumbnail">
                 
             </div>
         </div>
@@ -80,23 +80,23 @@
 
     <div class="mb-3">
         <label for="" class="form-label">heading</label>
-        <input type="text" name="sec2title" class="form-control">
+        <input type="text" name="sec2title" class="form-control" value="{{$section->sec2title??''}}">
     </div>
 
     <div class="mb-3">
         <label for="" class="form-label">content</label>
-        <textarea name="sec2text" id="" cols="30" rows="5" class="form-control"></textarea>
+        <textarea name="sec2text" id="" cols="30" rows="5" class="form-control">{{$section->sec2text??''}}</textarea>
     </div>
 
     <div class="mb-3 d-flex">
         <div class="mx-2">
             <label for="" class="form-label">button text</label>
-            <input type="text" class="form-control" name="sec2btn_text">
+            <input type="text" class="form-control" name="sec2btn_text" value="{{$section->sec2btn_text??''}}">
         </div>
 
         <div class="mx-2">
             <label for="" class="form-label">button url</label>
-            <input type="text" class="form-control" name="sec2btn_url">
+            <input type="text" class="form-control" name="sec2btn_url" value="{{$section->sec2btn_url??''}}">
         </div>
 
     </div>
@@ -112,7 +112,7 @@
             <button type="button" class="btn btn-danger clear-btn" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="reset image"><i class="bi bi-arrow-clockwise"></i></button>
         </div>
         <div class="mb-3 col-4">
-            <img class="Thumbnail" src="{{ optional($section)->sec2image ? asset('homepage/'.$section->sec2image) : asset('images/default.jpg') }}"  width="400" alt="Default picture Thumbnail">
+            <img class="Thumbnail" src="{{ optional($section)->sec2image ? asset('businesspage/'.$section->sec2image) : asset('images/default.jpg') }}"  width="400" alt="Default picture Thumbnail">
             
         </div>
     </div>
@@ -132,19 +132,19 @@
 
     <div class="mb-3">
         <label for="" class="form-label">heading</label>
-        <input type="text" name="sec3title" class="form-control">
+        <input type="text" name="sec3title" class="form-control" value="{{$section->sec3title??''}}">
     </div>
 
 
     <div class="mb-3 d-flex">
         <div class="mx-2">
             <label for="" class="form-label">button text</label>
-            <input type="text" class="form-control" name="sec3btn_text">
+            <input type="text" class="form-control" name="sec3btn_text" value="{{$section->sec3btn_text??''}}">
         </div>
 
         <div class="mx-2">
             <label for="" class="form-label">button url</label>
-            <input type="text" class="form-control" name="sec3btn_url">
+            <input type="text" class="form-control" name="sec3btn_url" value="{{$section->sec3btn_url??''}}">
         </div>
     </div>
 
@@ -204,7 +204,7 @@
 
             <div class="mb-3">
                 <label class="form-label">heading</label>
-                <input type="text" class="form-control" name="sec4title">
+                <input type="text" class="form-control" name="sec4title" value="{{$section->sec4title??''}}">
             </div>
             
             
@@ -225,7 +225,7 @@
             <button type="button" class="btn btn-danger clear-btn" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="reset image"><i class="bi bi-arrow-clockwise"></i></button>
         </div>
         <div class="mb-3 col-4">
-            <img class="Thumbnail" src="{{ optional($section)->sec4image ? asset('homepage/'.$section->sec4image) : asset('images/default.jpg') }}"  width="400" alt="Default picture Thumbnail">
+            <img class="Thumbnail" src="{{ optional($section)->sec4image ? asset('businesspage/'.$section->sec4image) : asset('images/default.jpg') }}"  width="400" alt="Default picture Thumbnail">
             
         </div>
     </div>
@@ -289,7 +289,7 @@
 
   <div class="mb-3">
     <label for="" class="form-label">title</label>
-    <input type="text" class="form-control" name="sec5title">
+    <input type="text" class="form-control" name="sec5title" value="{{$section->sec5title??''}}">
   </div>
   
 
@@ -304,7 +304,7 @@
         <button type="button" class="btn btn-danger clear-btn" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="reset image"><i class="bi bi-arrow-clockwise"></i></button>
     </div>
     <div class="mb-3 col-4">
-        <img class="Thumbnail" src="{{ optional($section)->sec5image ? asset('homepage/'.$section->sec5image) : asset('images/default.jpg') }}"  width="400" alt="Default picture Thumbnail">
+        <img class="Thumbnail" src="{{ optional($section)->sec5image ? asset('businesspage/'.$section->sec5image) : asset('images/default.jpg') }}"  width="400" alt="Default picture Thumbnail">
         
     </div>
 </div>
@@ -380,7 +380,7 @@
 
                 <div class="mb-3">
                     <label class="form-label">heading</label>
-                    <input type="text" class="form-control" name="sec6title">
+                    <input type="text" class="form-control" name="sec6title" value="{{$section->sec6title??''}}">
                 </div>
 
                 <div class="row">
@@ -394,7 +394,7 @@
                         <button type="button" class="btn btn-danger clear-btn" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="reset image"><i class="bi bi-arrow-clockwise"></i></button>
                     </div>
                     <div class="mb-3 col-4">
-                        <img class="Thumbnail" src="{{ optional($section)->sec6image ? asset('homepage/'.$section->sec6image) : asset('images/default.jpg') }}"  width="400" alt="Default picture Thumbnail">
+                        <img class="Thumbnail" src="{{ optional($section)->sec6image ? asset('businesspage/'.$section->sec6image) : asset('images/default.jpg') }}"  width="400" alt="Default picture Thumbnail">
                         
                     </div>
                 </div>
@@ -404,45 +404,45 @@
                 <h5>text 1</h5>
                 <div class="mb-3">
                     <label for="" class="form-label">heading</label>
-                    <input type="text" name="sec6title1" class="form-control">
+                    <input type="text" name="sec6title1" class="form-control" value="{{$section->sec6title1??''}}">
                 </div>
             
                 <div class="mb-3">
                     <label for="" class="form-label">content</label>
-                    <textarea name="sec6content1" id="" cols="30" rows="5" class="form-control"></textarea>
+                    <textarea name="sec6content1" id="" cols="30" rows="5" class="form-control">{{$section->sec6content1??''}}</textarea>
                 </div>
 
                 <h5>text 2</h5>
                 <div class="mb-3">
                     <label for="" class="form-label">heading</label>
-                    <input type="text"  name="sec6title2" class="form-control">
+                    <input type="text"  name="sec6title2" class="form-control" value="{{$section->sec6title2??''}}">
                 </div>
             
                 <div class="mb-3">
                     <label for="" class="form-label">content</label>
-                    <textarea name="sec6content2" id="" cols="30" rows="5" class="form-control"></textarea>
+                    <textarea name="sec6content2" id="" cols="30" rows="5" class="form-control">{{$section->sec6content2??''}}</textarea>
                 </div>
 
                 <h5>text 3</h5>
                 <div class="mb-3">
                     <label for="" class="form-label">heading</label>
-                    <input type="text" name="sec6title3" class="form-control">
+                    <input type="text" name="sec6title3" class="form-control" value="{{$section->sec6title3??''}}">
                 </div>
             
                 <div class="mb-3">
                     <label for="" class="form-label">content</label>
-                    <textarea name="sec6content3" id="" cols="30" rows="5" class="form-control"></textarea>
+                    <textarea name="sec6content3" id="" cols="30" rows="5" class="form-control">{{$section->sec6content3??''}}</textarea>
                 </div>
 
                 <h5>text 4</h5>
                 <div class="mb-3">
                     <label for="" class="form-label">heading</label>
-                    <input type="text" name="sec6title4" class="form-control">
+                    <input type="text" name="sec6title4" class="form-control" value="{{$section->sec6title4??''}}">
                 </div>
             
                 <div class="mb-3">
                     <label for="" class="form-label">content</label>
-                    <textarea name="sec6content4" id="" cols="30" rows="5" class="form-control"></textarea>
+                    <textarea name="sec6content4" id="" cols="30" rows="5" class="form-control">{{$section->sec6content4??''}}</textarea>
                 </div>
                 
                 
@@ -461,7 +461,7 @@
     <div class="row">
         <div class="col-12 mb-3">
             <label for="" class="form-label">text 1</label>
-            <input type="text" class="form-control" name="sec7title">
+            <input type="text" class="form-control" name="sec7title" value="{{$section->sec7}}">
             
         </div>
     </div>
@@ -517,22 +517,22 @@
     <div class="row">
         <div class="col-12 mb-3">
             <label for="" class="form-label">title</label>
-            <input type="text" class="form-control" name="sec8title">
+            <input type="text" class="form-control" name="sec8title" value="{{$section->sec8title??''}}">
             
         </div>
         <div class="col-12 mb-3">
             <label for="" class="form-label">text</label>
-            <textarea name="sec8text" id="" cols="30" rows="5" class="form-control"></textarea>
+            <textarea name="sec8text" id="" cols="30" rows="5" class="form-control">{{$section->sec8text??''}}</textarea>
             
         </div>
         <div class="col-6 mb-3">
             <label for="" class="form-label">button text(Learn about our technology text)</label>
-            <input type="text" class="form-control" name="sec8btn_text">
+            <input type="text" class="form-control" name="sec8btn_text" value="{{$section->sec8btn_text??''}}">
             
         </div>
         <div class="col-6 mb-3">
             <label for="" class="form-label">button url</label>
-            <input type="text" class="form-control" name="sec8btn_url">
+            <input type="text" class="form-control" name="sec8btn_url" value="{{$section->sec8btn_url??''}}">
             
         </div>
         <div class="row">
@@ -546,7 +546,7 @@
                 <button type="button" class="btn btn-danger clear-btn" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="reset image"><i class="bi bi-arrow-clockwise"></i></button>
             </div>
             <div class="mb-3 col-4">
-                <img class="Thumbnail" src="{{ optional($section)->sec8image ? asset('homepage/'.$section->sec8image) : asset('images/default.jpg') }}"  width="400" alt="Default picture Thumbnail">
+                <img class="Thumbnail" src="{{ optional($section)->sec8image ? asset('businesspage/'.$section->sec8image) : asset('images/default.jpg') }}"  width="400" alt="Default picture Thumbnail">
                 
             </div>
         </div>
@@ -560,7 +560,7 @@
 
 
 
-<button>submit</button>
+<button class="btn btn-primary">submit</button>
 
 </form>
 

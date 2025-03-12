@@ -50,6 +50,7 @@
 
         <div class="row">
           <div class="mb-3 col-6">
+              
               <label for="" class="form-label">banner image</label>
               <input type="file" class="form-control img_inpp" name="sec1image">
               
@@ -59,7 +60,8 @@
               <button type="button" class="btn btn-danger clear-btn" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="reset image"><i class="bi bi-arrow-clockwise"></i></button>
           </div>
           <div class="mb-3 col-4">
-              <img class="Thumbnail" src="{{ optional($section)->sec1image ? asset('aboutpage/'.$section->sec1image) : asset('images/default.jpg') }}"  width="400" alt="Default picture Thumbnail">
+              
+            <img class="Thumbnail" src="{{ optional($section)->sec1image ? asset('aboutpage/'.$section->sec1image) : asset('images/default.jpg') }}"  width="400" alt="Default picture Thumbnail">
               
           </div>
       </div>
@@ -568,7 +570,7 @@
 
 
 
-<button>submit</button>
+<button class="btn btn-primary">submit</button>
 
 </form>
 
