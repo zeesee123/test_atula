@@ -29,25 +29,25 @@
 
         <div class="mb-3">
             <label for="" class="form-label">title</label>
-            <input type="text" name="sec2title" class="form-control">
+            <input type="text" name="sec2title" class="form-control" value="{{$section->sec2title??''}}">
         </div>
 
         
 
         <div class="mb-3">
             <label for="" class="form-label">content</label>
-            <textarea name="sec1text" id="" cols="30" rows="5" class="form-control"></textarea>
+            <textarea name="sec1text" id="" cols="30" rows="5" class="form-control">{{$section->sec1text??''}}</textarea>
         </div>
 
         <div class="mb-3 d-flex">
             <div class="mx-2">
                 <label for="" class="form-label">button text</label>
-                <input type="text" class="form-control" name="sec1btn_text">
+                <input type="text" class="form-control" name="sec1btn_text" value="{{$section->sec1btn_text??''}}">
             </div>
 
             <div class="mx-2">
                 <label for="" class="form-label">button url</label>
-                <input type="text" class="form-control" name="sec1btn_url">
+                <input type="text" class="form-control" name="sec1btn_url" value="{{$section->sec1btn_url??''}}">
             </div>
 
         </div>
@@ -63,7 +63,7 @@
                 <button type="button" class="btn btn-danger clear-btn" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="reset image"><i class="bi bi-arrow-clockwise"></i></button>
             </div>
             <div class="mb-3 col-4">
-                <img class="Thumbnail" src="{{ optional($section)->sec1image ? asset('homepage/'.$section->sec1image) : asset('images/default.jpg') }}"  width="400" alt="Default picture Thumbnail">
+                <img class="Thumbnail" src="{{ optional($section)->sec1image ? asset('agriventurepage/'.$section->sec1image) : asset('images/default.jpg') }}"  width="400" alt="Default picture Thumbnail">
                 
             </div>
         </div>
@@ -82,17 +82,17 @@
 
     <div class="mb-3">
         <label for="" class="form-label">heading</label>
-        <input type="text" name="sec2title" class="form-control">
+        <input type="text" name="sec2title" class="form-control" value="{{$section->sec2title??''}}">
     </div>
 
     <div class="mb-3">
         <label for="" class="form-label">sub heading</label>
-        <input type="text" name="sec2addtext" class="form-control">
+        <input type="text" name="sec2addtext" class="form-control" value="{{$section->sec2addtext??''}}">
     </div>
 
     <div class="mb-3">
         <label for="" class="form-label">content</label>
-        <textarea name="sec2text" id="" cols="30" rows="5" class="form-control"></textarea>
+        <textarea name="sec2text" id="" cols="30" rows="5" class="form-control">{{$section->sec2text??''}}</textarea>
     </div>
 
     {{-- <div class="mb-3 d-flex">
@@ -119,7 +119,7 @@
             <button type="button" class="btn btn-danger clear-btn" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="reset image"><i class="bi bi-arrow-clockwise"></i></button>
         </div>
         <div class="mb-3 col-4">
-            <img class="Thumbnail" src="{{ optional($section)->sec2image ? asset('homepage/'.$section->sec2image) : asset('images/default.jpg') }}"  width="400" alt="Default picture Thumbnail">
+            <img class="Thumbnail" src="{{ optional($section)->sec2image ? asset('agriventurepage/'.$section->sec2image) : asset('images/default.jpg') }}"  width="400" alt="Default picture Thumbnail">
             
         </div>
     </div>
@@ -138,7 +138,7 @@
 
     <div class="mb-3">
         <label for="" class="form-label">title</label>
-        <input type="text" class="form-control" name="sec3title">
+        <input type="text" class="form-control" name="sec3title" value="{{$section->sec3title??''}}">
     </div>
 
     {{-- now i need to give an option for multiple services along with their names and stuff in here super quick the part has to be editable in it's entirety in here  --}}
@@ -456,7 +456,7 @@
             
             
             <div class="col-3">
-                <button class="btn btn-primary" type="button" onclick="addsec7_images()">+</button>
+                <button class="btn btn-primary" type="button" onclick="addsec8_images()">+</button>
             </div>     
         </div>
     </div>
@@ -506,7 +506,7 @@
         <button type="button" class="btn btn-danger clear-btn" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="reset image"><i class="bi bi-arrow-clockwise"></i></button>
     </div>
     <div class="mb-3 col-4">
-        <img class="Thumbnail" src="{{ optional($section)->sec9image ? asset('homepage/'.$section->sec9image) : asset('images/default.jpg') }}"  width="400" alt="Default picture Thumbnail">
+        <img class="Thumbnail" src="{{ optional($section)->sec9image ? asset('agriventurepage/'.$section->sec9image) : asset('images/default.jpg') }}"  width="400" alt="Default picture Thumbnail">
         
     </div>
 </div>
@@ -528,7 +528,7 @@
         
         
         <div class="col-3">
-            <button class="btn btn-primary" type="button" onclick="addsec7_images()">+</button>
+            <button class="btn btn-primary" type="button" onclick="addsec9_images()">+</button>
         </div>     
     </div>
 </div>

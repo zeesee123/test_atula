@@ -217,7 +217,7 @@
     <div class="row">
         <div class="mb-3 col-6">
             <label for="" class="form-label">banner image</label>
-            <input type="file" class="form-control img_inpp" name="sec4image">
+            <input type="file" class="form-control img_inpp" name="sec4image" >
             
         </div>
         <div class="mb-3 col-2">
@@ -461,7 +461,11 @@
     <div class="row">
         <div class="col-12 mb-3">
             <label for="" class="form-label">text 1</label>
+<<<<<<< HEAD
             <input type="text" class="form-control" name="sec7title" value="{{$section->sec7}}">
+=======
+            <input type="text" class="form-control" name="sec7title" value="{{$section->sec7title??''}}">
+>>>>>>> ae5f1d73fff9082d5337d20a3cc086e3336ab5f4
             
         </div>
     </div>
