@@ -29,7 +29,7 @@
 
         <div class="mb-3">
             <label for="" class="form-label">title</label>
-            <input type="text" name="sec2title" class="form-control" value="{{$section->sec2title??''}}">
+            <input type="text" name="sec1title" class="form-control" value="{{$section->sec1title??''}}">
         </div>
 
         
@@ -199,13 +199,13 @@
         <div class="mb-3 row">
             
             <div class="col-3">
-                <input type="file" placeholder="logo" class="form-control" name="sec4_imagel[]">
+                <input type="file" placeholder="logo" class="form-control" name="sec4imagel[]">
             </div>
             <div class="col-3">
-                <input type="text" placeholder="title" class="form-control" name="sec4_titlel[]">
+                <input type="text" placeholder="title" class="form-control" name="sec4titlel[]">
             </div>
             <div class="col-3">
-                <textarea class="form-control" name="sec4_textl[]" cols="30" rows="5"></textarea>
+                <textarea class="form-control" name="sec4textl[]" cols="30" rows="5"></textarea>
                 
             </div>
             
