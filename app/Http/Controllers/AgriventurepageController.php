@@ -71,7 +71,7 @@ class AgriventurepageController extends Controller
             $video = $r->file('sec3image');
             // $videoName = timerepage/'; // Set the upload directory
             $video->move(public_path($videoPath), $videoName);
-            $model->sec1image = $videoName; // Save path in DB
+            $model->sec3image = $videoName; // Save path in DB
             
         }
 
