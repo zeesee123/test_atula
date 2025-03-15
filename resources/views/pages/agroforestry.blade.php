@@ -376,6 +376,62 @@
 
 <section>
 
+    <h3>Section 8(Testimonials)</h3>
+
+    <div class="row">
+        <div class="col-12 mb-3">
+            <label for="" class="form-label">text 1</label>
+            <input type="text" class="form-control" name="sec8title" value="{{$section->sec8title??''}}">
+            
+        </div>
+    </div>
+
+
+    {{-- remember this one is using the testimonials table --}}
+    <div class="" id="sec8_images">
+        {{-- testimonials --}}
+        <div class="mb-3 row">
+            
+            <div class="col-6 mb-2">
+                <input type="file" placeholder="image" class="form-control" name="testimage[]">
+            </div>
+            <div class="col-6 mb-2">
+                <input type="text" placeholder="title" class="form-control" name="testname[]">
+            </div>
+            <div class="col-5">
+                <textarea class="form-control" name="testtext[]" cols="30" rows="5"></textarea>
+                
+            </div>
+            
+            <div class="col-3">
+                <button class="btn btn-primary" type="button" onclick="addsec8_images()">+</button>
+            </div>     
+        </div>
+    </div>
+
+    <table class="table" id="sec8_table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">image</th>
+            <th scope="col">title</th>
+            
+            {{-- <th scope="col">Url</th> --}}
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+        </tbody>
+      </table>
+
+
+</section>
+
+<hr>
+
+<section>
+
     <h3>Section 9(Key Crops & Plantations)</h3>
 
 
@@ -646,7 +702,7 @@
     
 <section>
 
-    <h3>Section 1(Partner with us to transform...)</h3>
+    <h3>Section 15(Partner with us to transform...)</h3>
 
   
 

@@ -188,24 +188,27 @@ class AgroforestrypageController extends Controller
       
         //section 8
 
-        
+        $model->sec8title=$r->sec8title;
+
+
 
         
-        $sec8_slogo=$r->file('sec8imagel');
+        $sec8_slogo=$r->file('testimage');
 
-        $sec8_stitle = $r->input('sec8titlel'); 
-        $sec8_stext = $r->input('sec8textl'); // Ensure this is fetched too
+        $sec8_sname = $r->input('testname'); 
+        $sec8_stext = $r->input('testtext'); // Ensure this is fetched too
 
         if ($sec8_slogo) {
             foreach ($sec8_slogo as $key => $image) {
                 if ($image) {
                     $namez = $image->hashName();
-                    $image->move(public_path('agroforestrypage/'), $namez);
+                    $image->move(public_path('testimonial/'), $namez);
 
-                    $section8 = new AgroforestrypageSection8();
-                    $section8->sec8imagel = $namez;
-                    $section8->sec8titlel = $sec8_stitle[$key] ?? null;
-                    $section8->sec8textl = $sec8_stext[$key] ?? null;
+                    $section8 = new Testimonial();
+                    $section8->image= $namez;
+                    $section8->name= $sec8_sname[$key] ?? null;
+                    $section->page='agroforestry';
+                    $section8->text = $sec8_stext[$key] ?? null;
                     $section8->save();
                 }
             }
@@ -216,47 +219,160 @@ class AgroforestrypageController extends Controller
         $model->sec9title = $r->sec9title;
         
 
-        if ($r->hasFile('sec9image')) {
-            if (!empty($model->sec9image) && File::exists(public_path('agroforestrypage/'.$model->sec9image))) {
-                File::delete(public_path('agroforestrypage/'.$model->sec9image));
+        //section 10
+
+        $model->sec10title = $r->sec10title;
+        $model->sec10_text = $r->sec10_text;
+        $model->sec10btn_text = $r->sec10btn_text;
+        $model->sec10btn_url = $r->sec10btn_url;
+
+        if ($r->hasFile('sec10_image1')) {
+            if (!empty($model->sec10_image1) && File::exists(public_path('agroforestrypage/'.$model->sec10_image1))) {
+                File::delete(public_path('agroforestrypage/'.$model->sec10_image1));
             }
-            $video = $r->file('sec9image');
+            $video = $r->file('sec10_image1');
             // $videoName = timerepage/'; // Set the upload directory
             $video->move(public_path($videoPath), $videoName);
-            $model->sec6image = $videoName; // Save path in DB
+            $model->sec10_image1 = $videoName; // Save path in DB
             
         }
 
-        // images array
+        if ($r->hasFile('sec10_image2')) {
+            if (!empty($model->sec10_image2) && File::exists(public_path('agroforestrypage/'.$model->sec10_image2))) {
+                File::delete(public_path('agroforestrypage/'.$model->sec10_image2));
+            }
+            $video = $r->file('sec10_image2');
+            // $videoName = timerepage/'; // Set the upload directory
+            $video->move(public_path($videoPath), $videoName);
+            $model->sec10_image2 = $videoName; // Save path in DB
+            
+        }
+
+        //section 11
+
+        $sec11_slogo1=$r->file('sec11imagel');
+         
+
+        $sec11_stitle = $r->input('sec11titlel'); 
+        $sec11_stext = $r->input('sec11linkl'); // Ensure this is fetched too
 
         
-        $sec9_slogo=$r->file('sec9imagel');
-        $sec9_stitle = $r->input('sec9titlel'); 
-        $sec9_stext = $r->input('sec9textl'); // Ensure this is fetched too
 
-        if ($sec9_slogo) {
-            foreach ($sec9_slogo as $key => $image) {
+        if ($sec11_slogo1) {
+            foreach ($sec11_slogo1 as $key => $image) {
                 if ($image) {
-
                     $namez = $image->hashName();
                     $image->move(public_path('agroforestrypage/'), $namez);
+
                     
 
-                    $section9 = new AgroforestrypageSection9();
+                    $section11 = new AgroforestrypageSection11();
+                    $section11->sec11imagel = $namez;
+        
+        
+                    $section11->sec11titlel = $sec11_stitle[$key] ?? null;
+        
+                    $section11->sec11linkl = $sec11_stext[$key] ?? null;
+                    $section11->save();
+                }
+            }
+        }
+
+        //section 12
+
+        $model->sec12title = $r->sec12title;
+        $model->sec12btn_text = $r->sec12btn_text;
+        $model->sec12btn_url = $r->sec12btn_url;
+
+        $sec12_slogo1=$r->file('sec12imagel');
+         
+
+        $sec12_stitle = $r->input('sec12titlel'); 
+        $sec12_slink = $r->input('sec12linkl'); // Ensure this is fetched too
+
+        
+
+        if ($sec12_slogo1) {
+            foreach ($sec12_slogo1 as $key => $image) {
+                if ($image) {
+                    $namez = $image->hashName();
+                    $image->move(public_path('agroforestrypage/'), $namez);
+
                     
-                    $section9->sec9titlel = $sec9_stitle[$key] ?? null;
-                    $section9->sec9imagel=$namez;
-                    $section9->sec9textl = $sec9_stext[$key] ?? null;
-                    $section9->save();
+
+                    $section12 = new AgroforestrypageSection12();
+                    $section12->sec12imagel = $namez;
+        
+        
+                    $section12->sec12titlel = $sec12_stitle[$key] ?? null;
+        
+                    $section12->sec12linkl = $sec12_slink[$key] ?? null;
+                    $section12->save();
+                }
+            }
+        }
+
+        //section 13
+
+        $model->sec13title = $r->sec13title;
+        $model->sec13addtext = $r->sec13addtext;
+
+
+         
+
+
+        $sec13_stext = $r->input('sec13textl'); // Ensure this is fetched too
+
+        
+
+        if ($sec13_stext) {
+            foreach ($sec13_stext as $key => $image) {
+                if ($image) {
+                    
+
+                    
+
+                    $section13 = new AgroforestrypageSection13();
+                    
+        
+                    $section12->sec13textl = $sec13_stext[$key] ?? null;
+                    $section12->save();
                 }
             }
         }
 
 
-        $model->sec10title = $r->sec10title;
-        $model->sec10text = $r->sec10text;
-        $model->sec10btn_text = $r->sec10btn_text;
-        $model->sec10btn_url = $r->sec10btn_url;
+        //section 14
+
+        if ($r->hasFile('sec14image')) {
+            if (!empty($model->sec14image) && File::exists(public_path('agroforestrypage/'.$model->sec14image))) {
+                File::delete(public_path('agroforestrypage/'.$model->sec14image));
+            }
+            $video = $r->file('sec14image');
+            // $videoName = timerepage/'; // Set the upload directory
+            $video->move(public_path($videoPath), $videoName);
+            $model->sec14image = $videoName; // Save path in DB
+            
+        }
+        //section 15
+
+        $model->sec15title = $r->sec15title;
+        
+        $model->sec15btn_text = $r->sec15btn_text;
+        $model->sec15btn_url = $r->sec15btn_url;
+
+        if ($r->hasFile('sec15image')) {
+            if (!empty($model->sec15image) && File::exists(public_path('agroforestrypage/'.$model->sec15image))) {
+                File::delete(public_path('agroforestrypage/'.$model->sec15image));
+            }
+            $video = $r->file('sec15image');
+            // $videoName = timerepage/'; // Set the upload directory
+            $video->move(public_path($videoPath), $videoName);
+            $model->sec15image= $videoName; // Save path in DB
+            
+        }
+
+      
 
 
     

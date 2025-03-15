@@ -454,6 +454,8 @@
     {{-- our journey card part --}}
 </section>
 
+<hr>
+
 <section>
 
     <h3>Section 7(Real voices,real impact: Stories from farmers,employees, and partners)</h3>
@@ -461,11 +463,7 @@
     <div class="row">
         <div class="col-12 mb-3">
             <label for="" class="form-label">text 1</label>
-<<<<<<< HEAD
-            <input type="text" class="form-control" name="sec7title" value="{{$section->sec7}}">
-=======
             <input type="text" class="form-control" name="sec7title" value="{{$section->sec7title??''}}">
->>>>>>> ae5f1d73fff9082d5337d20a3cc086e3336ab5f4
             
         </div>
     </div>
