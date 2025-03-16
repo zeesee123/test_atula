@@ -7,13 +7,13 @@ use Illuminate\Http\Request;
 class AgroforestrypageController extends Controller
 {
     //
-    public function add_agroforestry(){
+    public function add_agroforestry(Request $r){
 
         try{
 
             DB::beginTransaction();
 
-            $model = Agroforestrypage::first() ?? new Agroforestry();
+            $model = Agroforestrypage::first() ?? new Agroforestrypage();
 
 
             $model->sec1title = $r->sec1title;
@@ -207,7 +207,7 @@ class AgroforestrypageController extends Controller
                     $section8 = new Testimonial();
                     $section8->image= $namez;
                     $section8->name= $sec8_sname[$key] ?? null;
-                    $section->page='agroforestry';
+                    $section8->page='agroforestry';
                     $section8->text = $sec8_stext[$key] ?? null;
                     $section8->save();
                 }
@@ -321,7 +321,7 @@ class AgroforestrypageController extends Controller
          
 
 
-        $sec13_stext = $r->input('sec13textl'); // Ensure this is fetched too
+        $sec13_stext = $r->input('sec 13textl'); // Ensure this is fetched too
 
         
 

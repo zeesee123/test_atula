@@ -486,7 +486,7 @@
             </div>
             
             <div class="col-3">
-                <button class="btn btn-primary" type="button" onclick="addsec3_images()">+</button>
+                <button class="btn btn-primary" type="button" onclick="addsec7_images()">+</button>
             </div>     
         </div>
     </div>
