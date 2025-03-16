@@ -137,20 +137,12 @@
         
         <div class="mx-2">
             <label for="" class="form-label">button text</label>
-<<<<<<< HEAD
             <input type="text" name="sec2btn_text" class="form-control" value="{{$section->sec2btn_text??''}}">
-=======
-            <input type="text" class="form-control " name="sec2btn_text" value="{{$section->sec2btn_text??''}}">
->>>>>>> ae5f1d73fff9082d5337d20a3cc086e3336ab5f4
         </div>
 
         <div class="mx-2">
             <label for="" class="form-label">button url</label>
-<<<<<<< HEAD
             <input type="text" name="sec2btn_url" class="form-control" value="{{$section->sec2btn_url??''}}">
-=======
-            <input type="text" class="form-control " name="sec2btn_url" value="{{$section->sec2btn_url??''}}">
->>>>>>> ae5f1d73fff9082d5337d20a3cc086e3336ab5f4
         </div>
 
     </div>
@@ -278,11 +270,7 @@
 
                 <div class="mb-3">
                     <label class="form-label">title</label>
-<<<<<<< HEAD
                     <input type="text" name="sec4title" class="form-control" name="sec4title" value="{{$section->sec4title??''}}">
-=======
-                    <input type="text" class="form-control" name="sec4title" value="{{$section->sec4title??''}}">
->>>>>>> ae5f1d73fff9082d5337d20a3cc086e3336ab5f4
                 </div>
 
                 <div class="mb-3">
@@ -292,11 +280,7 @@
 
                 <div class="mb-3">
                     <label class="form-label">content</label>
-<<<<<<< HEAD
                     <textarea name="sec4text"  cols="30" rows="5" class="form-control">{{$section->sec4text??''}}</textarea>
-=======
-                    <textarea name="sec4text" cols="30" rows="10" class="form-control">{{$section->sec4text??''}}</textarea>
->>>>>>> ae5f1d73fff9082d5337d20a3cc086e3336ab5f4
                 </div>
 
                 
@@ -437,17 +421,17 @@
     </div>
 
     
-    <div class="" id="sec4_images">
+    <div class="" id="sec6_images">
         <div class="mb-3 row">
             
             <div class="col-3">
-                <input type="file" placeholder="image" class="form-control" name="sec4imagel[]">
+                <input type="file" placeholder="image" class="form-control" name="sec6imagel[]">
             </div>
             <div class="col-3">
-                <input type="text" placeholder="title" class="form-control" name="sec4titlel[]">
+                <input type="text" placeholder="title" class="form-control" name="sec6titlel[]">
             </div>
             <div class="col-3">
-                <textarea class="form-control" name="sec4contentl[]" cols="30" rows="5"></textarea>
+                <textarea class="form-control" name="sec6contentl[]" cols="30" rows="5"></textarea>
                 
             </div>
             
@@ -458,7 +442,7 @@
     </div>
 
     <h5>points</h5>
-    <table class="table" id="sec4_table">
+    <table class="table" id="sec6_table">
         <thead>
           <tr>
             <th scope="col">#</th>
@@ -480,11 +464,7 @@
     <div class="mb-3 d-flex">
         <div class="mx-2">
             <label for="" class="form-label">button text(explore our agroforestry projects)</label>
-<<<<<<< HEAD
-            <input type="text" class="form-control " name="sec6btn_text" value="{{$section->sec6btn_text??''}}"">
-=======
             <input type="text" class="form-control " name="sec6btn_text" value="{{$section->sec6btn_text??''}}">
->>>>>>> ae5f1d73fff9082d5337d20a3cc086e3336ab5f4
         </div>
 
         <div class="mx-2">
@@ -598,11 +578,7 @@
         </div>
         <div class="col-12 mb-3">
             <label for="" class="form-label">another additional text</label>
-<<<<<<< HEAD
             <textarea name="sec8addtext" id="" cols="30" rows="5" class="form-control">{{$section->sec8addtext??''}}</textarea>
-=======
-            <textarea name="sec8addtext" id="" cols="30" rows="5" class="form-control" value="{{$section->sec8addtext??''}}"></textarea>
->>>>>>> ae5f1d73fff9082d5337d20a3cc086e3336ab5f4
         </div>
 
         <h5>points</h5>

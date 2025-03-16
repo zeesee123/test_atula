@@ -106,7 +106,7 @@ class BusinesspageController extends Controller
 
         
         $sec4_slogo=$r->file('sec4imagel');
-        $sec4_stitle=$r->input('sec3titlel');
+        $sec4_stitle=$r->input('sec4titlel');
 
         
         $sec4_stext = $r->input('sec4textl'); // Ensure this is fetched too

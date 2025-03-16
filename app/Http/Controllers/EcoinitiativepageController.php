@@ -78,12 +78,37 @@ class EcoinitiativepageController extends Controller
                 }
             }
         }
-       
-     
+
+
+        $model->sec2btn_text = $r->sec2btn_text;
+        $model->sec2btn_url = $r->sec2btn_url;
+
+
+        $model->sec2badgetext = $r->sec2badgetext;
+        $model->sec2badgefigure = $r->sec2badgefigure;
+
+        if ($r->hasFile('sec2badgelogo')) {
+            if (!empty($model->sec2badgelogo) && File::exists(public_path('ecoinitiativepage/'.$model->sec2badgelogo))) {
+                File::delete(public_path('ecoinitiativepage/'.$model->sec2image));
+            }
+            $gif = $r->file('sec2badgelogo');
+            // $videoName = time() . '_' . $video->getClientOriginalName();
+            $gifName = $gif->hashName();
+            $gifPath = 'ecoinitiativepage/'; // Set the upload directory
+            $gif->move(public_path($gifPath), $gifName);
+            $model->sec2badgelogo = $gifName; // Save path in DB
+            
+        }
+
+        //section 3 
 
         $model->sec3title = $r->sec3title;
+        $model->sec3addtext = $r->sec3addtext;
+            
+        $model->sec3text = $r->sec3text;
 
         $sec3_slogo=$r->file('sec3imagel');
+        $sec3_stitle=$r->input('sec3titlel');
 
         
         $sec3_stext = $r->input('sec3textl'); // Ensure this is fetched too
@@ -92,310 +117,167 @@ class EcoinitiativepageController extends Controller
             foreach ($sec3_slogo as $key => $image) {
                 if ($image) {
                     $namez = $image->hashName();
-                    $image->move(public_path('ecoinitiativepage/'), $namez);
+                    $image->move(public_path('Ecoinitiativepage/'), $namez);
 
                     $section3 = new EcoinitiativepageSection3();
                     $section3->sec3imagel = $namez;
+                    $section3->sec3titlel = $sec3_stitle[$key]??null;
                     
                     $section3->sec3textl = $sec3_stext[$key] ?? null;
                     $section3->save();
                 }
             }
         }
-        
 
-        
-        //section 4 
+        //section 4
 
-        $model->sec4quote=$r->sec4quote;
-
-        if ($r->hasFile('sec4image')) {
-            if (!empty($model->sec4image) && File::exists(public_path('ecoinitiativepage/'.$model->sec4image))) {
-                File::delete(public_path('ecoinitiativepage/'.$model->sec4image));
-            }
-            $video = $r->file('sec4image');
-            // $videoName = time() . '_' . $video->getClientOriginalName();
-            $videoName = $video->hashName();
-            $videoPath = 'ecoinitiativepage/'; // Set the upload directory
-            $video->move(public_path($videoPath), $videoName);
-            $model->sec1image = $videoName; // Save path in DB
+        $model->sec4title = $r->sec4title;
+        $model->sec4addtext = $r->sec4addtext;
             
+        $model->sec4text = $r->sec4text;
+
+        $sec4_slogo=$r->file('sec3imagel');
+        $sec4_stitle=$r->input('sec3titlel');
+
+        
+        $sec4_stext = $r->input('sec4contentl'); // Ensure this is fetched too
+
+        if ($sec4_slogo) {
+            foreach ($sec4_slogo as $key => $image) {
+                if ($image) {
+                    $namez = $image->hashName();
+                    $image->move(public_path('Ecoinitiativepage/'), $namez);
+
+                    $section3 = new EcoinitiativepageSection4();
+                    $section3->sec4imagel = $namez;
+                    $section3->sec4titlel = $sec4_stitle[$key]??null;
+                    
+                    $section3->sec4contentl = $sec4_stext[$key] ?? null;
+                    $section3->save();
+                }
+            }
         }
 
+        //section 5
 
+        $model->sec5title = $r->sec5title;
 
-
-         //section 5
-
-         $model->sec5title = $r->sec5title;
-         $model->sec5_addtext = $r->sec5_addtext;
-            
-         $sec5_slogo1=$r->file('sec5imagel');
-         
-
-         $sec5_stitle = $r->input('sec5titlel'); 
-         $sec5_stext = $r->input('sec5textl'); // Ensure this is fetched too
-
-         
- 
-         if ($sec5_slogo1) {
-             foreach ($sec5_slogo1 as $key => $image) {
-                 if ($image) {
-                     $namez = $image->hashName();
-                     $image->move(public_path('ecoinitiativepage/'), $namez);
-
-                     
- 
-                     $section5 = new EcoinitiativepageSection5();
-                     $section5->sec5imagel = $namez;
-         
-         
-                     $section5->sec5titlel = $sec5_stitle[$key] ?? null;
-         
-                     $section5->sec5textl = $sec5_stext[$key] ?? null;
-                     $section5->save();
-                 }
-             }
-         }
+        $sec5_slogo=$r->file('sec5imagel');
         
 
+        if ($sec5_slogo) {
+            foreach ($sec5_slogo as $key => $image) {
+                if ($image) {
+                    $namez = $image->hashName();
+                    $image->move(public_path('Ecoinitiativepage/'), $namez);
+
+                    $section5 = new EcoinitiativepageSection5();
+                    $section5->sec5imagel = $namez;
+                    
+                    $section5->save();
+                }
+            }
+        }
 
         
-        
+       
+     //section 6
 
-        //section 6
+     $model->sec6title=$r->sec6title;
+     $model->sec6text=$r->sec6text;
+
+     $sec6_slogo=$r->file('sec6imagel');
+        $sec6_stitle=$r->input('sec3titlel');
 
         
-        
+        $sec6_stext = $r->input('sec4contentl'); // Ensure this is fetched too
+
+        if ($sec6_slogo) {
+            foreach ($sec6_slogo as $key => $image) {
+                if ($image) {
+                    $namez = $image->hashName();
+                    $image->move(public_path('Ecoinitiativepage/'), $namez);
+
+                    $section3 = new EcoinitiativepageSection6();
+                    $section3->sec6imagel = $namez;
+                    $section3->sec6titlel = $sec6_stitle[$key]??null;
+                    
+                    $section3->sec6contentl = $sec6_stext[$key] ?? null;
+                    $section3->save();
+                }
+            }
+        }
+
+        $model->sec6btn_text = $r->sec6btn_text;
+        $model->sec6btn_url = $r->sec6btn_url;
 
         if ($r->hasFile('sec6image')) {
             if (!empty($model->sec6image) && File::exists(public_path('ecoinitiativepage/'.$model->sec6image))) {
                 File::delete(public_path('ecoinitiativepage/'.$model->sec6image));
             }
-            $video = $r->file('sec6image');
-            // $videoName = timerepage/'; // Set the upload directory
-            $video->move(public_path($videoPath), $videoName);
-            $model->sec6image = $videoName; // Save path in DB
+            $gif = $r->file('sec6image');
+            // $videoName = time() . '_' . $video->getClientOriginalName();
+            $gifName = $gif->hashName();
+            $gifPath = 'ecoinitiativepage/'; // Set the upload directory
+            $gif->move(public_path($gifPath), $gifName);
+            $model->sec2badgelogo = $gifName; // Save path in DB
             
         }
 
-        
+     //section 7
 
-        //section 7
+     $model->sec7title=$r->sec7title;
+     $model->sec7addtext=$r->sec7addtext;
 
-        $sec7_slogo=$r->file('sec7imagel');
-         
-         $sec7_stext = $r->input('sec7textl'); // Ensure this is fetched too
-
-         
- 
-         if ($sec7_slogo) {
-             foreach ($sec7_slogo as $key => $image) {
-                 if ($image) {
-                     $namez = $image->hashName();
-                     $image->move(public_path('ecoinitiativepage/'), $namez);
-
-                     
- 
-                     $section7 = new EcoinitiativepageSection7();
-                     $section7->sec7imagel = $namez;
-         
-         
-                     
-         
-                     $section7->sec7textl = $sec7_stext[$key] ?? null;
-                     $section7->save();
-                 }
-             }
-         }
-
-      
-        //section 8
-
-        $model->sec8title=$r->sec8title;
-
-
+     $sec7_slogo=$r->file('sec7imagel');
+        $sec7_stitle=$r->input('sec7titlel');
 
         
-        $sec8_slogo=$r->file('testimage');
+        $sec7_stext = $r->input('sec7contentl'); // Ensure this is fetched too
 
-        $sec8_sname = $r->input('testname'); 
-        $sec8_stext = $r->input('testtext'); // Ensure this is fetched too
-
-        if ($sec8_slogo) {
-            foreach ($sec8_slogo as $key => $image) {
+        if ($sec7_slogo) {
+            foreach ($sec7_slogo as $key => $image) {
                 if ($image) {
                     $namez = $image->hashName();
-                    $image->move(public_path('testimonial/'), $namez);
+                    $image->move(public_path('Ecoinitiativepage/'), $namez);
 
-                    $section8 = new Testimonial();
-                    $section8->image= $namez;
-                    $section8->name= $sec8_sname[$key] ?? null;
-                    $section->page='ecoinitiative';
-                    $section8->text = $sec8_stext[$key] ?? null;
+                    $section7 = new EcoinitiativepageSection6();
+                    $section7->sec7imagel = $namez;
+                    $section7->sec7titlel = $sec7_stitle[$key]??null;
+                    
+                    $section7->sec7contentl = $sec7_stext[$key] ?? null;
+                    $section7->save();
+                }
+            }
+        }
+     //section 8
+
+     $model->sec8title=$r->sec8title;
+     $model->sec8text=$r->sec8text;
+     $model->sec8addtexttitle=$r->sec8addtext;
+     $model->sec8btn_text = $r->sec8btn_text;
+        $model->sec8btn_url = $r->sec8btn_url;
+
+      
+
+        
+
+        
+        $sec8_stext = $r->input('sec8contentl'); // Ensure this is fetched too
+
+        if ($sec8_stext) {
+            foreach ($sec8_stext as $key => $value) {
+                if ($image) {
+                    
+
+                    $section8 = new EcoinitiativepageSection8();
+                    
+                    
+                    $section8->sec8contentl = $sec8_stext[$key] ?? null;
                     $section8->save();
                 }
             }
         }
-
-        //section 9
-
-        $model->sec9title = $r->sec9title;
-        
-
-        //section 10
-
-        $model->sec10title = $r->sec10title;
-        $model->sec10_text = $r->sec10_text;
-        $model->sec10btn_text = $r->sec10btn_text;
-        $model->sec10btn_url = $r->sec10btn_url;
-
-        if ($r->hasFile('sec10_image1')) {
-            if (!empty($model->sec10_image1) && File::exists(public_path('ecoinitiativepage/'.$model->sec10_image1))) {
-                File::delete(public_path('ecoinitiativepage/'.$model->sec10_image1));
-            }
-            $video = $r->file('sec10_image1');
-            // $videoName = timerepage/'; // Set the upload directory
-            $video->move(public_path($videoPath), $videoName);
-            $model->sec10_image1 = $videoName; // Save path in DB
-            
-        }
-
-        if ($r->hasFile('sec10_image2')) {
-            if (!empty($model->sec10_image2) && File::exists(public_path('ecoinitiativepage/'.$model->sec10_image2))) {
-                File::delete(public_path('ecoinitiativepage/'.$model->sec10_image2));
-            }
-            $video = $r->file('sec10_image2');
-            // $videoName = timerepage/'; // Set the upload directory
-            $video->move(public_path($videoPath), $videoName);
-            $model->sec10_image2 = $videoName; // Save path in DB
-            
-        }
-
-        //section 11
-
-        $sec11_slogo1=$r->file('sec11imagel');
-         
-
-        $sec11_stitle = $r->input('sec11titlel'); 
-        $sec11_stext = $r->input('sec11linkl'); // Ensure this is fetched too
-
-        
-
-        if ($sec11_slogo1) {
-            foreach ($sec11_slogo1 as $key => $image) {
-                if ($image) {
-                    $namez = $image->hashName();
-                    $image->move(public_path('ecoinitiativepage/'), $namez);
-
-                    
-
-                    $section11 = new EcoinitiativepageSection11();
-                    $section11->sec11imagel = $namez;
-        
-        
-                    $section11->sec11titlel = $sec11_stitle[$key] ?? null;
-        
-                    $section11->sec11linkl = $sec11_stext[$key] ?? null;
-                    $section11->save();
-                }
-            }
-        }
-
-        //section 12
-
-        $model->sec12title = $r->sec12title;
-        $model->sec12btn_text = $r->sec12btn_text;
-        $model->sec12btn_url = $r->sec12btn_url;
-
-        $sec12_slogo1=$r->file('sec12imagel');
-         
-
-        $sec12_stitle = $r->input('sec12titlel'); 
-        $sec12_slink = $r->input('sec12linkl'); // Ensure this is fetched too
-
-        
-
-        if ($sec12_slogo1) {
-            foreach ($sec12_slogo1 as $key => $image) {
-                if ($image) {
-                    $namez = $image->hashName();
-                    $image->move(public_path('ecoinitiativepage/'), $namez);
-
-                    
-
-                    $section12 = new EcoinitiativepageSection12();
-                    $section12->sec12imagel = $namez;
-        
-        
-                    $section12->sec12titlel = $sec12_stitle[$key] ?? null;
-        
-                    $section12->sec12linkl = $sec12_slink[$key] ?? null;
-                    $section12->save();
-                }
-            }
-        }
-
-        //section 13
-
-        $model->sec13title = $r->sec13title;
-        $model->sec13addtext = $r->sec13addtext;
-
-
-         
-
-
-        $sec13_stext = $r->input('sec 13textl'); // Ensure this is fetched too
-
-        
-
-        if ($sec13_stext) {
-            foreach ($sec13_stext as $key => $image) {
-                if ($image) {
-                    
-
-                    
-
-                    $section13 = new EcoinitiativepageSection13();
-                    
-        
-                    $section12->sec13textl = $sec13_stext[$key] ?? null;
-                    $section12->save();
-                }
-            }
-        }
-
-
-        //section 14
-
-        if ($r->hasFile('sec14image')) {
-            if (!empty($model->sec14image) && File::exists(public_path('ecoinitiativepage/'.$model->sec14image))) {
-                File::delete(public_path('ecoinitiativepage/'.$model->sec14image));
-            }
-            $video = $r->file('sec14image');
-            // $videoName = timerepage/'; // Set the upload directory
-            $video->move(public_path($videoPath), $videoName);
-            $model->sec14image = $videoName; // Save path in DB
-            
-        }
-        //section 15
-
-        $model->sec15title = $r->sec15title;
-        
-        $model->sec15btn_text = $r->sec15btn_text;
-        $model->sec15btn_url = $r->sec15btn_url;
-
-        if ($r->hasFile('sec15image')) {
-            if (!empty($model->sec15image) && File::exists(public_path('ecoinitiativepage/'.$model->sec15image))) {
-                File::delete(public_path('ecoinitiativepage/'.$model->sec15image));
-            }
-            $video = $r->file('sec15image');
-            // $videoName = timerepage/'; // Set the upload directory
-            $video->move(public_path($videoPath), $videoName);
-            $model->sec15image= $videoName; // Save path in DB
-            
-        }
-
       
 
 
