@@ -84,9 +84,9 @@ Route::group(['middleware'=>['auth']],function(){
 
     Route::get('/get_resource_about/{type}/{id}',[AboutpageController::class,'get_resource']);
 
-    Route::post('/update_aboutsection/{sectionType}',[HomepageController::class,'update_resource']);
+    Route::post('/update_aboutsection/{sectionType}',[AboutpageController::class,'update_resource']);
 
-    Route::post('/remove_aboutsection/{sectionType}',[HomepageController::class,'delete_resource']);
+    Route::post('/remove_aboutsection/{sectionType}',[AboutpageController::class,'delete_resource']);
 
     //routes for AnMagriventure
     Route::post('/add_agriventurepage',[AgriventurepageController::class,'add_aboutpage']);

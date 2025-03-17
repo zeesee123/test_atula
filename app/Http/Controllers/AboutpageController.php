@@ -495,6 +495,7 @@ if ($r->hasFile('sec92image')) {
             ];
     
             if (!isset($sections[$sectionType])) {
+                dump($sectionType);
                 return response()->json(['error' => 'Invalid section'], 400);
             }
     
