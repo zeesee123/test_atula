@@ -1,16 +1,49 @@
 @extends('app.layout')
 
+
 @push('styles')
 
 <style>
 h1{color:'red'}
 </style>
 
-<link href="https://unpkg.com/filepond@^4/dist/filepond.css" rel="stylesheet" />
+{{-- <link href="https://unpkg.com/filepond@^4/dist/filepond.css" rel="stylesheet" />
 <link
     href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css"
     rel="stylesheet"
-/>
+/> --}}
+
+
+<link href="
+https://cdn.jsdelivr.net/npm/filepond@4.32.7/dist/filepond.min.css
+" rel="stylesheet"/>
+
+<link href="
+https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-plugin-image-preview.min.css
+" rel="stylesheet">
+
+@endpush
+
+@push('styles')
+
+<style>
+h1{color:'red'}
+</style>
+
+{{-- <link href="https://unpkg.com/filepond@^4/dist/filepond.css" rel="stylesheet" />
+<link
+    href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css"
+    rel="stylesheet"
+/> --}}
+
+
+<link href="
+https://cdn.jsdelivr.net/npm/filepond@4.32.7/dist/filepond.min.css
+" rel="stylesheet"/>
+
+<link href="
+https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-plugin-image-preview.min.css
+" rel="stylesheet">
 
 @endpush
 
@@ -953,9 +986,16 @@ h1{color:'red'}
 
 @push('scripts')
 
-<script src="https://unpkg.com/filepond@^4/dist/filepond.js"></script>
+{{-- <script src="https://unpkg.com/filepond@^4/dist/filepond.js"></script> --}}
 
-<script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
+<script src="
+https://cdn.jsdelivr.net/npm/filepond@4.32.7/dist/filepond.min.js
+"></script>
+
+{{-- <script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script> --}}
+<script src="
+https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-plugin-image-preview.min.js
+"></script>
 
 <script>
 

@@ -30,7 +30,7 @@ class HomepageController extends Controller
          
         try{
 
-            // DB::beginTransaction();
+            DB::beginTransaction();
 
         $model = Homepage::first() ?? new Homepage();
 
@@ -339,12 +339,12 @@ $model->map_code = $r->map_code ?? null;
         Log::info($e->getMessage());
       }
 
-        // DB::commit();
+        DB::commit();
 
         return back()->with('success','message added');
 
         }catch(Exception $e){
-            // DB::rollback();
+            DB::rollback();
             return back()->with('failure',$e->getMessage());}
         
 

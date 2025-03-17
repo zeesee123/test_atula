@@ -91,46 +91,46 @@ Route::group(['middleware'=>['auth']],function(){
     //routes for AnMagriventure
     Route::post('/add_agriventurepage',[AgriventurepageController::class,'add_aboutpage']);
 
-    Route::get('/abouttable/{section}',[HomepageController::class,'loadtable']);
+    Route::get('/agriventuretable/{section}',[AgriventurepageController::class,'loadtable']);
 
-    Route::get('/get_resource_about/{type}/{id}',[HomepageController::class,'get_resource']);
+    Route::get('/get_resource_agriventure/{type}/{id}',[AgriventurepageController::class,'get_resource']);
 
-    Route::post('/update_aboutsection/{sectionType}',[HomepageController::class,'update_resource']);
+    Route::post('/update_agriventuresection/{sectionType}',[AgriventurepageController::class,'update_resource']);
 
-    Route::post('/remove_aboutsection/{sectionType}',[HomepageController::class,'delete_resource']);
+    Route::post('/remove_agriventuresection/{sectionType}',[AgriventurepageController::class,'delete_resource']);
 
     //routes for agroforestry
-    Route::post('/add_agriventurepage',[AgriventurepageController::class,'add_aboutpage']);
+    Route::post('/add_agroforestrypage',[AgriventurepageController::class,'add_aboutpage']);
 
-    Route::get('/abouttable/{section}',[HomepageController::class,'loadtable']);
+    Route::get('/agroforestrytable/{section}',[HomepageController::class,'loadtable']);
 
-    Route::get('/get_resource_about/{type}/{id}',[HomepageController::class,'get_resource']);
+    Route::get('/get_resource_agroforestry/{type}/{id}',[HomepageController::class,'get_resource']);
 
-    Route::post('/update_aboutsection/{sectionType}',[HomepageController::class,'update_resource']);
+    Route::post('/update_agroforestrysection/{sectionType}',[HomepageController::class,'update_resource']);
 
-    Route::post('/remove_aboutsection/{sectionType}',[HomepageController::class,'delete_resource']);
+    Route::post('/remove_agroforestrysection/{sectionType}',[HomepageController::class,'delete_resource']);
 
     //routes for businesspage
-    Route::post('/add_agriventurepage',[AgriventurepageController::class,'add_aboutpage']);
+    Route::post('/add_businessenturepage',[AgriventurepageController::class,'add_aboutpage']);
 
-    Route::get('/abouttable/{section}',[HomepageController::class,'loadtable']);
+    Route::get('/businesstable/{section}',[HomepageController::class,'loadtable']);
 
-    Route::get('/get_resource_about/{type}/{id}',[HomepageController::class,'get_resource']);
+    Route::get('/get_resource_business/{type}/{id}',[HomepageController::class,'get_resource']);
 
-    Route::post('/update_aboutsection/{sectionType}',[HomepageController::class,'update_resource']);
+    Route::post('/update_businesssection/{sectionType}',[HomepageController::class,'update_resource']);
 
-    Route::post('/remove_aboutsection/{sectionType}',[HomepageController::class,'delete_resource']);
+    Route::post('/remove_businesssection/{sectionType}',[HomepageController::class,'delete_resource']);
 
     //routes for ecoinitiative
-    Route::post('/add_agriventurepage',[AgriventurepageController::class,'add_aboutpage']);
+    Route::post('/add_ecoinitiativepage',[AgriventurepageController::class,'add_aboutpage']);
 
-    Route::get('/abouttable/{section}',[HomepageController::class,'loadtable']);
+    Route::get('/ecoinitiativetable/{section}',[HomepageController::class,'loadtable']);
 
-    Route::get('/get_resource_about/{type}/{id}',[HomepageController::class,'get_resource']);
+    Route::get('/get_resource_ecoinitiative/{type}/{id}',[HomepageController::class,'get_resource']);
 
-    Route::post('/update_aboutsection/{sectionType}',[HomepageController::class,'update_resource']);
+    Route::post('/update_ecoinitiativesection/{sectionType}',[HomepageController::class,'update_resource']);
 
-    Route::post('/remove_aboutsection/{sectionType}',[HomepageController::class,'delete_resource']);
+    Route::post('/remove_ecoinitiativesection/{sectionType}',[HomepageController::class,'delete_resource']);
 
 });
 

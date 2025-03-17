@@ -1,8 +1,44 @@
 @extends('app.layout')
 
+
+@push('styles')
+
+<style>
+h1{color:'red'}
+</style>
+
+<link href="
+https://cdn.jsdelivr.net/npm/filepond@4.32.7/dist/filepond.min.css
+" rel="stylesheet"/>
+
+<link href="
+https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-plugin-image-preview.min.css
+" rel="stylesheet">
+
+@endpush
+
 @section('content')
 
 <div class="page-header d-print-none">
+
+   <!-- Modal -->
+   <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+          <button type="button" class="btn-close btn-bs-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="modal_content">
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          {{-- <button type="button" class="btn btn-primary">Understood</button> --}}
+        </div>
+      </div>
+    </div>
+  </div>
 
     <div class="container-xl">
         <h1>Aboutpage</h1>
@@ -587,9 +623,16 @@
 
 @push('scripts')
 
-<script src="https://unpkg.com/filepond@^4/dist/filepond.js"></script>
 
-<script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
+
+<script src="
+https://cdn.jsdelivr.net/npm/filepond@4.32.7/dist/filepond.min.js
+"></script>
+
+{{-- <script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script> --}}
+<script src="
+https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-plugin-image-preview.min.js
+"></script>
 
 <script>
 
@@ -738,51 +781,6 @@ superparent.remove();
 
 
 
-//script for the video preview part 
-
-
-let videothumb=document.querySelectorAll('.videoThumbnail');
-let videoprev=document.querySelectorAll('.videoPreview');
-
-console.log(videothumb);
-console.log(videoprev);
-
-let videoinputs=document.querySelectorAll('.VideoInput');
-
-videoinputs.forEach((v,i)=>{
-
-    console.log('videoinput');
-
-    v.addEventListener('change',(e)=>{
-
-        let file = event.target.files[0]; // Get the selected file
-        // let videoElement = document.getElementById('videoPreview');
-        // let thumbnail = document.getElementById('videoThumbnail');
-
-        if (file) {
-            let videoUrl = URL.createObjectURL(file); // Create object URL
-
-            videoprev[i].src = videoUrl; // Set video source
-            videoprev[i].style.display = 'block'; // Show video
-            videothumb[i].style.display = 'none'; // Hide the thumbnail
-        }
-
-    })
-});
-
-
-//script for video clear button
-
-let vidclear=document.querySelectorAll('.clear-vidbtn');
-
-vidclear.forEach((v,i)=>{
-    v.addEventListener('click',()=>{
-        videothumb[i].style.display = 'block'; // Hide the thumbnail
-        videoprev[i].style.display = 'none'; // Show video
-        videoinputs[i].value='';
-        videoprev[i].src ='';
-    })
-})
 
 
 //script for photo clear button
@@ -838,8 +836,8 @@ imageInputs.forEach((input, index) => {
 
 // datatable part
 
-var table1=$('#whatwedo_table').DataTable({
-              ajax:"{{url('/hometable/section3')}}",
+var table1=$('#sec1_table').DataTable({
+              ajax:"{{url('/abouttable/section1')}}",
               processing:true,
               columns:[
                 {"data":"id"},
@@ -884,12 +882,12 @@ var table1=$('#whatwedo_table').DataTable({
               }]
   });
 
-  var table2=$('#impacthighlight_table').DataTable({
-              ajax:"{{url('/hometable/section4')}}",
+  var table2=$('#sec3_table').DataTable({
+              ajax:"{{url('/abouttable/section3')}}",
               processing:true,
               columns:[
                 {"data":"id"},
-                {"data":"text"},
+                {"data":"image"},
                 // {"data":"description"},
                 {"data":"actions"}],
               order:[],
@@ -930,8 +928,8 @@ var table1=$('#whatwedo_table').DataTable({
               }]
   });
 
-  var table3=$('#ourbusiness_table').DataTable({
-              ajax:"{{url('/hometable/section5')}}",
+  var table3=$('#sec4_table').DataTable({
+              ajax:"{{url('/abouttable/section4')}}",
               processing:true,
               columns:[
                 {"data":"id"},
@@ -977,12 +975,11 @@ var table1=$('#whatwedo_table').DataTable({
               }]
   });
 
-  var table4=$('#ourjourney_table').DataTable({
-              ajax:"{{url('/hometable/section6')}}",
+  var table4=$('#sec5_table').DataTable({
+              ajax:"{{url('/abouttable/section5')}}",
               processing:true,
               columns:[
                 {"data":"id"},
-                {"data":"year"},
                 {"data":"title"},
                 // {"data":"description"},
                 {"data":"actions"}],
@@ -1025,153 +1022,8 @@ var table1=$('#whatwedo_table').DataTable({
   })
 
 
-  var table5=$('#purposeNvision_table').DataTable({
-              ajax:"{{url('/hometable/section7')}}",
-              processing:true,
-              columns:[
-                {"data":"id"},
-                {"data":"image"},
-                // {"data":"description"},
-                {"data":"actions"}],
-              order:[],
-              dom:'Bfrtip',
-              buttons:[{
-                       extend:'copy',
-                       exportOptions:{modifier:{
-                        page:'current'
-                       }}
-              },{
-                extend:'csv',
-                exportOptions:{
-                  modifier:{
-                    page:'current'
-                  }
-                }
-              },{
-                extend:'excel',
-                exportOptions:{
-                  modifier:{
-                    page:'current'
-                  }
-                }
-              },{
-                extend:'pdf',
-                exportOptions:{
-                  modifier:{
-                    page:'current'
-                  }
-                }
-              },{
-                extend:'print',
-                exportOptions:{
-                  modifier:{
-                    page:'current'
-                  }
-                }
-              }]
-  })
-
-
-  var table6=$('#whatwork_table').DataTable({
-              ajax:"{{url('/hometable/section8')}}",
-              processing:true,
-              columns:[
-                {"data":"id"},
-                {"data":"logo"},
-                {"data":"content"},
-                {"data":"link"},
-                // {"data":"description"},
-                {"data":"actions"}],
-              order:[],
-              dom:'Bfrtip',
-              buttons:[{
-                       extend:'copy',
-                       exportOptions:{modifier:{
-                        page:'current'
-                       }}
-              },{
-                extend:'csv',
-                exportOptions:{
-                  modifier:{
-                    page:'current'
-                  }
-                }
-              },{
-                extend:'excel',
-                exportOptions:{
-                  modifier:{
-                    page:'current'
-                  }
-                }
-              },{
-                extend:'pdf',
-                exportOptions:{
-                  modifier:{
-                    page:'current'
-                  }
-                }
-              },{
-                extend:'print',
-                exportOptions:{
-                  modifier:{
-                    page:'current'
-                  }
-                }
-              }]
-  })
-
-
-  var table7=$('#techimg_table').DataTable({
-              ajax:"{{url('/hometable/section9')}}",
-              processing:true,
-              columns:[
-                {"data":"id"},
-                {"data":"image"},
-                {"data":"content"},
-                // {"data":"description"},
-                {"data":"actions"}
-              ],
-              order:[],
-              dom:'Bfrtip',
-              buttons:[{
-                       extend:'copy',
-                       exportOptions:{modifier:{
-                        page:'current'
-                       }}
-              },{
-                extend:'csv',
-                exportOptions:{
-                  modifier:{
-                    page:'current'
-                  }
-                }
-              },{
-                extend:'excel',
-                exportOptions:{
-                  modifier:{
-                    page:'current'
-                  }
-                }
-              },{
-                extend:'pdf',
-                exportOptions:{
-                  modifier:{
-                    page:'current'
-                  }
-                }
-              },{
-                extend:'print',
-                exportOptions:{
-                  modifier:{
-                    page:'current'
-                  }
-                }
-              }]
-  })
-
-
-  var table8=$('#pvalue_table').DataTable({
-              ajax:"{{url('/hometable/section10')}}",
+  var table5=$('#sec6_table').DataTable({
+              ajax:"{{url('/abouttable/section6')}}",
               processing:true,
               columns:[
                 {"data":"id"},
@@ -1218,113 +1070,15 @@ var table1=$('#whatwedo_table').DataTable({
   })
 
 
-  var table9=$('#badge_table').DataTable({
-              ajax:"{{url('/hometable/section12')}}",
-              processing:true,
-              columns:[
-                {"data":"id"},
-                {"data":"content"},
-                // {"data":"description"},
-                {"data":"actions"}],
-              order:[],
-              dom:'Bfrtip',
-              buttons:[{
-                       extend:'copy',
-                       exportOptions:{modifier:{
-                        page:'current'
-                       }}
-              },{
-                extend:'csv',
-                exportOptions:{
-                  modifier:{
-                    page:'current'
-                  }
-                }
-              },{
-                extend:'excel',
-                exportOptions:{
-                  modifier:{
-                    page:'current'
-                  }
-                }
-              },{
-                extend:'pdf',
-                exportOptions:{
-                  modifier:{
-                    page:'current'
-                  }
-                }
-              },{
-                extend:'print',
-                exportOptions:{
-                  modifier:{
-                    page:'current'
-                  }
-                }
-              }]
-  });
-
-
-  var table10=$('#partchange_table').DataTable({
-              ajax:"{{url('/hometable/section13')}}",
-              processing:true,
-              columns:[
-                {"data":"id"},
-                {"data":"content"},
-                {"data":"link"},
-                // {"data":"description"},
-                {"data":"actions"}],
-              order:[],
-              dom:'Bfrtip',
-              buttons:[{
-                       extend:'copy',
-                       exportOptions:{modifier:{
-                        page:'current'
-                       }}
-              },{
-                extend:'csv',
-                exportOptions:{
-                  modifier:{
-                    page:'current'
-                  }
-                }
-              },{
-                extend:'excel',
-                exportOptions:{
-                  modifier:{
-                    page:'current'
-                  }
-                }
-              },{
-                extend:'pdf',
-                exportOptions:{
-                  modifier:{
-                    page:'current'
-                  }
-                }
-              },{
-                extend:'print',
-                exportOptions:{
-                  modifier:{
-                    page:'current'
-                  }
-                }
-              }]
-  })
-
+  
   //mapping section tables
 
   const tableMap = {
-    "section3": table1,
-    "section4": table2,
-    "section5": table3,
-    "section6": table4,
-    "section7": table5,
-    "section8": table6,
-    "section9": table7,
-    "section10": table8,
-    "section12": table9,
-    "section13": table10
+    "section1": table1,
+    "section3": table2,
+    "section4": table3,
+    "section5": table4,
+    "section6": table5,
 };
 
 
@@ -1364,7 +1118,7 @@ function reloadTable(sectionName) {
 
   //  type in loading for loading in the resource..
 
-  let fet=await fetch(`{{url('/')}}/get_resource/${type}/${id}`);
+  let fet=await fetch(`{{url('/')}}/get_resource_about/${type}/${id}`);
   
   let res=await fet.json();
 
@@ -1388,69 +1142,78 @@ function reloadTable(sectionName) {
 
     switch(type){
 
+case "section1":
+  content=`<form id="dynForm">
+    <div class="mb-3">
+      <label for="" class="form-label">Image</label>
+      <input class="form-control filepond" type="file">
+      </div>
+      <input type="hidden" value="${id}" name="id">
+      <button class="btn btn-success" id="update_btnmod">Update</button>
+      
+      </form>`;
+      img=true;
+      console.log('image link',imglink);
+      console.log('hehe');
+      console.log('this is the data',res.sectionData);
+      imglink=`{{url('/')}}/aboutpage/${res.sectionData.sec1imagel}`;
+      console.log('the link',imglink);
+break;
 case "section3":
   content=`<form id="dynForm">
     <div class="mb-3">
       <label for="" class="form-label">Image</label>
       <input class="form-control filepond" type="file">
-      <input type="hidden" value="${id}" name="id">
-      <button class="btn btn-success" id="update_btnmod">Update</button>
-      </div>
-      </form>`;
-      img=true;
-      imglink=`{{url('/')}}/homepage/${res.sectionData.whatwe_doimg}`;
-break;
-case "section4":
-  content=`<form id="dynForm">
-    <div class="mb-3">
-      <label for="" class="form-label">Content</label>
-      <textarea class="form-control" rows="5" name="sec4_text">${res.sectionData.sec4_text}</textarea>
-      
       </div>
       <input type="hidden" value="${id}" name="id">
       <button class="btn btn-success" id="update_btnmod" >Update</button>
       </form>`;
+      img=true;
+      imglink=`{{url('/')}}/aboutpage/${res.sectionData.sec3imagel}`;
+break;
+case "section4":
+content=`<form id="dynForm">
+    <div class="mb-3">
+      <label for="" class="form-label">Title</label>
+      <input class="form-control" type="text" name="sec4titlel" value="${res.sectionData.sec4titlel}">
+      </div>
+    <div class="mb-3">
+      <label for="" class="form-label">Image</label>
+      <input class="form-control filepond" type="file">
+      </div>
+    
+      <div class="mb-3">
+      <label for="" class="form-label">Content</label>
+      <textarea class="form-control" rows="5" name="sec4textl">${res.sectionData.sec4textl}</textarea>
+      </div>
+  
+      <input type="hidden" value="${id}" name="id">
+      <button class="btn btn-success" id="update_btnmod" >Update</button>
+      </form>`;
+      img=true;
+      imglink=`{{url('/')}}/aboutpage/${res.sectionData.sec4imagel}`;
 break;
 case "section5":
 content=`<form id="dynForm">
-    <div class="mb-3">
-      <label for="" class="form-label">Image</label>
-      <input class="form-control filepond" type="file" >
-      </div>
+    
       <div class="mb-3">
       <label for="" class="form-label">Title</label>
-      <input class="form-control" type="text" value="${res.sectionData.sec5_stitle}" name="sec5_stitle">
+      <input class="form-control" type="text" value="${res.sectionData.sec5titlel}" name="sec5titlel">
       </div>
       <div class="mb-3">
       <label for="" class="form-label">Content</label>
-      <textarea class="form-control" rows="5" name="sec5_scontent">${res.sectionData.sec5_scontent}</textarea>
+      <textarea class="form-control" rows="5" name="sec5textl">${res.sectionData.sec5textl}</textarea>
       </div>
       <input type="hidden" value="${id}" name="id">
       <button class="btn btn-success" id="update_btnmod" >Update</button>
       </form>`;
-      img=true;
-      imglink=`{{url('/')}}/homepage/${res.sectionData.sec5_img}`;
 break;
 case "section6":
 content=`<form id="dynForm">
     <div class="mb-3">
-      <label for="" class="form-label">Year</label>
-      <input class="form-control" type="text" value="${res.sectionData.sec6year}" name="sec6year">
-      </div>
-      <div class="mb-3">
       <label for="" class="form-label">Title</label>
-      <input class="form-control" type="text" value="${res.sectionData.sec6stitle}" name="sec6stitle">
+      <input class="form-control" type="text" name="sec6titlel" value="${res.sectionData.sec6titlel}">
       </div>
-      <div class="mb-3">
-      <label for="" class="form-label">Content</label>
-      <textarea class="form-control" rows="5" name="sec6scontent">${res.sectionData.sec6scontent}</textarea>
-      </div>
-      <input type="hidden" value="${id}" name="id">
-      <button class="btn btn-success" id="update_btnmod" >Update</button>
-      </form>`;
-break;
-case "section7":
-content=`<form id="dynForm">
     <div class="mb-3">
       <label for="" class="form-label">Image</label>
       <input class="form-control filepond" type="file">
@@ -1458,116 +1221,16 @@ content=`<form id="dynForm">
     
       <div class="mb-3">
       <label for="" class="form-label">Content</label>
-      <textarea class="form-control" rows="5" name="sec7_scontent">${res.sectionData.sec7_scontent}</textarea>
+      <textarea class="form-control" rows="5" name="sec6textl">${res.sectionData.sec6textl}</textarea>
       </div>
+  
       <input type="hidden" value="${id}" name="id">
       <button class="btn btn-success"  id="update_btnmod">Update</button>
       </form>`;
       img=true;
-      imglink=`{{url('/')}}/homepage/${res.sectionData.sec7_simg}`;
+      imglink=`{{url('/')}}/aboutpage/${res.sectionData.sec6imagel}`;
 break;
-case "section8":
-content=`<form id="dynForm">
-    <div class="mb-3">
-      <label for="" class="form-label">Image</label>
-      <input class="form-control filepond" type="file">
-      </div>
-    
-      <div class="mb-3">
-      <label for="" class="form-label">Content</label>
-      <textarea class="form-control" rows="5" name="sec8_scontent">${res.sectionData.sec8_scontent}</textarea>
-      </div>
-      <div class="mb-3">
-      <label for="" class="form-label">Link</label>
-      <input class="form-control" type="text" value="${res.sectionData.sec8_slink}" name="sec8_slink">
-      </div>
-      <input type="hidden" value="${id}" name="id">
-      <button class="btn btn-success"  id="update_btnmod">Update</button>
-      </form>`;
-      img=true;
-      imglink=`{{url('/')}}/homepage/${res.sectionData.sec8_slogo}`;
-break;
-case "section9":
-content=`<form id="dynForm">
-    <div class="mb-3">
-      <label for="" class="form-label">Image</label>
-      <input class="form-control filepond" type="file">
-      </div>
-    
-      <div class="mb-3">
-      <label for="" class="form-label">Content</label>
-      <textarea class="form-control" rows="5" name="sec9_scontent">${res.sectionData.sec9_scontent}</textarea>
-      </div>
-      <input type="hidden" value="${id}" name="id">
-      
-      <button class="btn btn-success" id="update_btnmod" >Update</button>
-      </form>`;
-      img=true;
-      imglink=`{{url('/')}}/homepage/${res.sectionData.sec9_simg}`;
-break;
-case "section10":
-content=`<form id="dynForm">
-  <div class="mb-3">
-      <label for="" class="form-label">Title</label>
-      <input class="form-control" type="text" name="sec10_stitle" value="${res.sectionData.sec10_stitle}">
-      </div>
-    <div class="mb-3">
-      <label for="" class="form-label">Image</label>
-      <input class="form-control filepond" type="file">
-      </div>
-    
-      <div class="mb-3">
-      <label for="" class="form-label">Content</label>
-      <textarea class="form-control" rows="5" name="sec10_scontent">${res.sectionData.sec10_scontent}</textarea>
-      </div>
-      <input type="hidden" value="${id}" name="id">
-      
-      <button class="btn btn-success"  id="update_btnmod">Update</button>
-      </form>`;
-      img=true;
-      imglink=`{{url('/')}}/homepage/${res.sectionData.sec10_simg}`;
 
-  
-break;
-case "section12":
-content=`<form id="dynForm">
-  
-    
-      <div class="mb-3">
-      <label for="" class="form-label">Content</label>
-      <textarea class="form-control" rows="5" name="sec12_scontent">${res.sectionData.sec12_scontent??''}</textarea>
-      </div>
-      <input type="hidden" value="${id}" name="id">
-      
-      <button class="btn btn-success"  id="update_btnmod" >Update</button>
-      </form>`;
-
-
-break;
-case "section13":
-content=`<form id="dynForm">
-  
-    <div class="mb-3">
-      <label for="" class="form-label">Image</label>
-      <input class="form-control filepond" type="file" name="id">
-      </div>
-    
-      <div class="mb-3">
-      <label for="" class="form-label">Content</label>
-      <textarea class="form-control" rows="5" name="sec13_scontent">${res.sectionData.sec13_scontent}</textarea>
-      </div>
-
-      <div class="mb-3">
-      <label for="" class="form-label">Link</label>
-      <input class="form-control" type="text" value="${res.sectionData.sec13_slink}" name="sec13_slink">
-      </div>
-      <input type="hidden" value="${id}" name="id">
-      
-      <button class="btn btn-success" id="update_btnmod" >Update</button>
-      </form>`;
-      img=true;
-      imglink=`{{url('/')}}/homepage/${res.sectionData.image}`;
-break;
 default:
 content=`utc`;
   break;
@@ -1631,7 +1294,7 @@ console.log('file is not there');
       }
       
 
-      let fetchf=await fetch(`{{url('/update_homesection')}}/${type}`,{method:'POST',headers:{'X-CSRF-TOKEN':x_token},body:data})
+      let fetchf=await fetch(`{{url('/update_aboutsection')}}/${type}`,{method:'POST',headers:{'X-CSRF-TOKEN':x_token},body:data})
       
 
       let resf=await fetchf.json();
@@ -1659,7 +1322,7 @@ console.log('file is not there');
 
 
 
-        let fetchf=await fetch(`{{url('/remove_homesection')}}/${type}`,{method:'POST',headers:{'X-CSRF-TOKEN':x_token},body:data})
+        let fetchf=await fetch(`{{url('/remove_aboutsection')}}/${type}`,{method:'POST',headers:{'X-CSRF-TOKEN':x_token},body:data})
         let resf=await fetchf.json();
 
         Swal.fire({

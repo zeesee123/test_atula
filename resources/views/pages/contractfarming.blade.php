@@ -1,6 +1,5 @@
 @extends('app.layout')
 
-
 @push('styles')
 
 <style>

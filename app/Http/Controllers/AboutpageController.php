@@ -10,6 +10,9 @@ use App\Models\AboutpageSection4;
 use App\Models\AboutpageSection5;
 use App\Models\AboutpageSection6;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Log;
+use Exception;
 
 class AboutpageController extends Controller
 {
@@ -262,5 +265,377 @@ if ($r->hasFile('sec92image')) {
         }catch(Exception $e){
             DB::rollback();
             return back()->with('failure',$e->getMessage());}
+    }
+
+
+    public function loadtable($section){
+
+        
+
+        $data=[];
+        $c=1;
+        $content=null;
+        $error=false;
+
+        switch($section){
+
+            case "section1":
+
+                $content=AboutpageSection1::all();
+    
+                $count=$content->count();
+    
+            
+            foreach($content as $cl){
+    
+              $serv_ind=[
+                  'id'=>$c++,
+                  'image'=>'<img src="'.asset('aboutpage/'.$cl->sec1imagel).'" style="width: 100px; height: auto; object-fit: contain;">',
+                  'actions'=>'<button type="button" class="btn btn-success editer" data-id="'.$cl->id.'" data-type="section1" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-pencil-square mx-1"></i>
+    EDIT</button><button type="button" data-type="section1" class="btn btn-danger mx-1 eradicator" data-id="'.$cl->id.'" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-trash3-fill mx-1"></i>
+    DELETE</button>'
+              ];
+    
+              $data[]=$serv_ind;
+    
+    
+            }
+
+            break;
+    
+           
+            case "section3":
+
+                $content=AboutpageSection3::all();
+    
+                $count=$content->count();
+
+                // dd($content);
+    
+            
+            foreach($content as $cl){
+    
+              $serv_ind=[
+                  'id'=>$c++,
+                  'image'=>'<img src="'.asset('aboutpage/'.$cl->sec3imagel).'" style="width: 100px; height: auto; object-fit: contain;">',
+                  'actions'=>'<button type="button" class="btn btn-success editer" data-id="'.$cl->id.'" data-type="section3" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-pencil-square mx-1"></i>
+    EDIT</button><button type="button" data-type="section3" class="btn btn-danger mx-1 eradicator" data-id="'.$cl->id.'" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-trash3-fill mx-1"></i>
+    DELETE</button>'
+              ];
+    
+              $data[]=$serv_ind;
+    
+    
+            }
+
+            break;
+
+
+            case "section4":
+
+                $content=AboutpageSection4::all();
+    
+                $count=$content->count();
+    
+            
+            foreach($content as $cl){
+    
+              $serv_ind=[
+                  'id'=>$c++,
+                  'image'=>'<img src="'.asset('aboutpage/'.$cl->sec4imagel).'" style="width: 100px; height: auto; object-fit: contain;">',
+                  'title'=>$cl->sec4titlel,
+                  'actions'=>'<button type="button" class="btn btn-success editer" data-id="'.$cl->id.'" data-type="section4" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-pencil-square mx-1"></i>
+    EDIT</button><button type="button" data-type="section4" class="btn btn-danger mx-1 eradicator" data-id="'.$cl->id.'" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-trash3-fill mx-1"></i>
+    DELETE</button>'
+              ];
+    
+              $data[]=$serv_ind;
+    
+    
+            }
+
+            break;
+
+
+            case "section5":
+
+                $content=AboutpageSection5::all();
+    
+                $count=$content->count();
+    
+            
+            foreach($content as $cl){
+    
+              $serv_ind=[
+                  'id'=>$c++,
+                  'title'=>$cl->sec5stitlel,
+                  'actions'=>'<button type="button" class="btn btn-success editer" data-id="'.$cl->id.'" data-type="section5" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-pencil-square mx-1"></i>
+    EDIT</button><button type="button" data-type="section5" class="btn btn-danger mx-1 eradicator" data-id="'.$cl->id.'" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-trash3-fill mx-1"></i>
+    DELETE</button>'
+              ];
+    
+              $data[]=$serv_ind;
+    
+    
+            }
+
+            break;
+
+            case "section6":
+
+                $content=AboutpageSection6::all();
+    
+                $count=$content->count();
+    
+            
+            foreach($content as $cl){
+    
+              $serv_ind=[
+                  'id'=>$c++,
+                  'image'=>'<img src="'.asset('aboutpage/'.$cl->sec6imagel).'" style="width: 100px; height: auto; object-fit: contain;">',
+                  'title'=>$cl->sec6titlel,
+                  'actions'=>'<button type="button" class="btn btn-success editer" data-id="'.$cl->id.'" data-type="section6" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-pencil-square mx-1"></i>
+    EDIT</button><button type="button" data-type="section6" class="btn btn-danger mx-1 eradicator" data-id="'.$cl->id.'" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-trash3-fill mx-1"></i>
+    DELETE</button>'
+              ];
+    
+              $data[]=$serv_ind;
+    
+    
+            }
+
+            break;
+
+            
+
+            default:
+            dd('wrong about move');
+            break;
+        }
+        
+        return response()->json(['draw'=>1,'recordsTotal'=>$count,'recordsFiltered'=>$count,'data'=>$data]);
+
+
+    }
+
+
+    public function get_resource($section,$id){
+
+        $sectionData=null;
+        switch ($section) {
+            case "section1":
+                $sectionData = AboutpageSection1::find($id);
+                break;
+        
+            case "section3":
+                $sectionData = AboutpageSection3::find($id);
+                break;
+        
+            case "section4":
+                $sectionData = AboutpageSection4::find($id);
+                break;
+        
+            case "section5":
+                $sectionData = AboutpageSection5::find($id);
+                break;
+        
+            case "section6":
+                $sectionData = AboutpageSection6::find($id);
+                break;
+        
+            
+            default:
+                $sectionData = null;
+                break;
+        }
+ 
+        return response()->json(['status'=>'success','sectionData'=>$sectionData]);
+    }
+
+    public function update_resource($sectionType,Request $request){
+
+        
+        try{
+
+            
+
+            $validatedRequest = $request->validate([
+                'id' => 'required|integer|min:1', // Ensures ID is valid
+            ]);
+    
+            $id = $validatedRequest['id']; // Extract validated ID
+
+            $validationRules = [
+                'section1' => ['sec1_imagel' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048'],
+                'section3' => ['sec3_imagel' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048'],
+                'section4' => [
+                    'sec4titlel' => 'nullable|string',
+                    'sec4textl' => 'nullable|string',
+                    'sec4imagel' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048'
+                ],
+                'section5' => [
+                    'sec5titlel' => 'nullable|string',
+                    'sec6stextl' => 'nullable|string',
+                ],
+                'section6' => [
+                    'sec6titlel' => 'nullable|string',
+                    'sec6textl' => 'nullable|string',
+                    'sec6imagel' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048'
+                ],
+               
+            ];
+    
+            // Section mapping
+            $sections = [
+                'section1' => AboutpageSection1::class,
+                'section3' => AboutpageSection3::class,
+                'section4' => AboutpageSection4::class,
+                'section5' => AboutpageSection5::class,
+                'section6' => AboutpageSection6::class,
+            ];
+    
+            if (!isset($sections[$sectionType])) {
+                return response()->json(['error' => 'Invalid section'], 400);
+            }
+    
+            // Validate only the fields related to the requested section
+            $validatedData = $request->validate($validationRules[$sectionType] ?? []);
+    
+            // Get model
+            $section = $sections[$sectionType]::find($id);
+
+            // dump($section);
+    
+            if (!$section) {
+                return response()->json(['error' => 'Section not found'], 404);
+            }
+    
+            // Image fields for different sections
+            $imageFields = [
+                'section1' => 'sec1imagel',
+                'section3' => 'sec3imagel',
+                'section4' => 'sec4imagel',
+                'section6' => 'sec6imagel',
+                
+            ];
+    
+            // dd($imageFields, $sectionType, $imageFields[$sectionType] ?? 'not set', $request->all());
+            // Handle image upload
+
+            // dump(empty($imageFields[$sectionType]));
+            // dump($request->hasFile('image'));
+            if (!empty($imageFields[$sectionType]) && $request->hasFile('image')) {
+
+                // dd('randi');
+                // dd('hehe');
+                $image = $request->file('image');
+                $imageName = $image->hashName(); // Use time-based naming
+            
+                // Delete old image if it exists
+                $oldImage = $section->{$imageFields[$sectionType]};
+
+                // dump($oldImage);
+                try{
+                    if (!empty($oldImage) && File::exists(public_path('aboutpage/' . $oldImage))) {
+                        File::delete(public_path('aboutpage/' . $oldImage));
+                    }
+                }catch(Exception $e){
+
+                    dd($e->getMessage());
+                }
+                
+            
+                // Move new image
+                $image->move(public_path('aboutpage/'), $imageName);
+                $section->{$imageFields[$sectionType]} = $imageName;
+            }
+    
+            // Update other fields dynamically
+            foreach ($validatedData as $field => $value) {
+                if ($field !== ($imageFields[$sectionType] ?? null)) {
+                    $section->$field = $value;
+                }
+            }
+    
+            // Save updated section
+            $section->save();
+    
+                   
+            return response()->json(['message' => 'Item updated successfully', 'status'=>'success'], 200);
+
+        }catch(Exception $e){
+
+            Log::error($e->getMessage());
+            return response()->json(['message' => 'Something went wrong', 'status'=>'error'], 500);
+        }
+        
+
+        
+    }
+
+
+    public function delete_resource($sectionType,Request $request){
+
+         
+        try{
+
+            
+
+            $validatedRequest = $request->validate([
+                'id' => 'required|integer|min:1', // Ensures ID is valid
+            ]);
+        
+            $id = $validatedRequest['id']; // Extract validated ID
+        
+            // Section mapping
+            $sections = [
+                'section1' => AboutpageSection1::class,
+                'section3' => AboutpageSection3::class,
+                'section4' => AboutpageSection4::class,
+                'section5' => AboutpageSection5::class,
+                'section6' => AboutpageSection6::class,
+            ];
+        
+            if (!isset($sections[$sectionType])) {
+                return response()->json(['error' => 'Invalid section'], 400);
+            }
+        
+            // Get model
+            $section = $sections[$sectionType]::find($id);
+        
+            if (!$section) {
+                return response()->json(['error' => 'Section not found'], 404);
+            }
+        
+            // Image fields for different sections
+            $imageFields = [
+                'section1' => 'sec1imagel',
+                'section3' => 'sec3imagel',
+                'section4' => 'sec4imagel',
+                'section6' => 'sec6imagel',
+                
+            ];
+        
+            // Check if this section has an associated image field
+            if (!empty($imageFields[$sectionType])) {
+                $imageField = $imageFields[$sectionType];
+                $oldImage = $section->$imageField;
+        
+                // Delete old image if it exists
+                if (!empty($oldImage) && File::exists(public_path('aboutpage/' . $oldImage))) {
+                    File::delete(public_path('aboutpage/' . $oldImage));
+                }
+            }
+        
+            // Delete the section record from the database
+            $section->delete();
+        
+            return response()->json(['message' => 'Item deleted successfully', 'status' => 'success'], 200);
+
+        }catch(Exception $e){
+
+            Log::error($e->getMessage());
+            return response()->json(['message' => 'Something went wrong', 'status'=>'error'], 500);
+        }
     }
 }
