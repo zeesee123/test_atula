@@ -35,13 +35,13 @@ class AgriventurepageController extends Controller
 
       
             if ($r->hasFile('sec1image')) {
-                if (!empty($model->sec1image) && File::exists(public_path('agriventurepage/'.$model->sec1image))) {
-                    File::delete(public_path('agriventurepage/'.$model->sec1image));
+                if (!empty($model->sec1image) && File::exists(public_path('agriventure/'.$model->sec1image))) {
+                    File::delete(public_path('agriventure/'.$model->sec1image));
                 }
                 $video = $r->file('sec1image');
                 // $videoName = time() . '_' . $video->getClientOriginalName();
                 $videoName = $video->hashName();
-                $videoPath = 'agriventurepage/'; // Set the upload directory
+                $videoPath = 'agriventure/'; // Set the upload directory
                 $video->move(public_path($videoPath), $videoName);
                 $model->sec1image = $videoName; // Save path in DB
                 
@@ -56,13 +56,13 @@ class AgriventurepageController extends Controller
       
       try{
         if ($r->hasFile('sec2image')) {
-            if (!empty($model->sec2image) && File::exists(public_path('agriventurepage/'.$model->sec2image))) {
-                File::delete(public_path('agriventurepage/'.$model->sec2image));
+            if (!empty($model->sec2image) && File::exists(public_path('agriventure/'.$model->sec2image))) {
+                File::delete(public_path('agriventure/'.$model->sec2image));
             }
             $gif = $r->file('sec2image');
             // $videoName = time() . '_' . $video->getClientOriginalName();
             $gifName = $gif->hashName();
-            $gifPath = 'agriventurepage/'; // Set the upload directory
+            $gifPath = 'agriventure/'; // Set the upload directory
             $gif->move(public_path($gifPath), $gifName);
             $model->sec2image = $gifName; // Save path in DB
             
@@ -75,11 +75,12 @@ class AgriventurepageController extends Controller
         $model->sec3btn_url = $r->sec3btn_url;
 
         if ($r->hasFile('sec3image')) {
-            if (!empty($model->sec3image) && File::exists(public_path('agriventurepage/'.$model->sec3image))) {
-                File::delete(public_path('agriventurepage/'.$model->sec3image));
+            if (!empty($model->sec3image) && File::exists(public_path('agriventure/'.$model->sec3image))) {
+                File::delete(public_path('agriventure/'.$model->sec3image));
             }
             $video = $r->file('sec3image');
-            // $videoName = timerepage/'; // Set the upload directory
+            $videoName = $video->hashName();
+            $videoPath = 'agriventure/'; // Set the upload directory
             $video->move(public_path($videoPath), $videoName);
             $model->sec3image = $videoName; // Save path in DB
             
@@ -97,7 +98,7 @@ class AgriventurepageController extends Controller
             foreach ($sec4_slogo as $key => $image) {
                 if ($image) {
                     $namez = $image->hashName();
-                    $image->move(public_path('agriventurepage/'), $namez);
+                    $image->move(public_path('agriventure/'), $namez);
 
                     $section4 = new AboutpagetwoSection4();
                     $section4->sec4imagel = $namez;
@@ -124,11 +125,11 @@ class AgriventurepageController extends Controller
              foreach ($sec5_slogo1 as $key => $image) {
                  if ($image) {
                      $namez = $image->hashName();
-                     $image->move(public_path('agriventurepage/'), $namez);
+                     $image->move(public_path('agriventure/'), $namez);
 
                      $image2=$sec5_slogo2[$key];
                      $namez2 = $image2->hashName();
-                     $image2->move(public_path('agriventurepage/'), $namez2);
+                     $image2->move(public_path('agriventure/'), $namez2);
  
                      $section5 = new AboutpagetwoSection5();
                      $section5->sec5img1l = $namez;
@@ -153,11 +154,13 @@ class AgriventurepageController extends Controller
         
 
         if ($r->hasFile('sec6image')) {
-            if (!empty($model->sec6image) && File::exists(public_path('agriventurepage/'.$model->sec6image))) {
-                File::delete(public_path('agriventurepage/'.$model->sec6image));
+            if (!empty($model->sec6image) && File::exists(public_path('agriventure/'.$model->sec6image))) {
+                File::delete(public_path('agriventure/'.$model->sec6image));
             }
             $video = $r->file('sec6image');
-            // $videoName = timerepage/'; // Set the upload directory
+            
+            $videoName = $video->hashName();
+            $videoPath = 'agriventure/'; // Set the upload directory
             $video->move(public_path($videoPath), $videoName);
             $model->sec6image = $videoName; // Save path in DB
             
@@ -170,8 +173,8 @@ class AgriventurepageController extends Controller
         $sec6_stitle = $r->input('sec6titlel'); 
         $sec6_stext = $r->input('sec6textl'); // Ensure this is fetched too
 
-        if ($sec6_slogo) {
-            foreach ($sec4_slogo as $key => $image) {
+        if ($sec6_stitle) {
+            foreach ($sec6_stitle as $key => $image) {
                 if ($image) {
                     
 
@@ -219,7 +222,7 @@ class AgriventurepageController extends Controller
             foreach ($sec8_slogo as $key => $image) {
                 if ($image) {
                     $namez = $image->hashName();
-                    $image->move(public_path('agriventurepage/'), $namez);
+                    $image->move(public_path('agriventure/'), $namez);
 
                     $section8 = new AboutpagetwoSection8();
                     $section8->sec8imagel = $namez;
@@ -236,11 +239,13 @@ class AgriventurepageController extends Controller
         
 
         if ($r->hasFile('sec9image')) {
-            if (!empty($model->sec9image) && File::exists(public_path('agriventurepage/'.$model->sec9image))) {
-                File::delete(public_path('agriventurepage/'.$model->sec9image));
+            if (!empty($model->sec9image) && File::exists(public_path('agriventure/'.$model->sec9image))) {
+                File::delete(public_path('agriventure/'.$model->sec9image));
             }
             $video = $r->file('sec9image');
-            // $videoName = timerepage/'; // Set the upload directory
+            
+            $videoName = $video->hashName();
+            $videoPath = 'agriventure/'; // Set the upload directory
             $video->move(public_path($videoPath), $videoName);
             $model->sec6image = $videoName; // Save path in DB
             
@@ -258,7 +263,7 @@ class AgriventurepageController extends Controller
                 if ($image) {
 
                     $namez = $image->hashName();
-                    $image->move(public_path('agriventurepage/'), $namez);
+                    $image->move(public_path('agriventure/'), $namez);
                     
 
                     $section9 = new AboutpagetwoSection9();
@@ -308,45 +313,19 @@ class AgriventurepageController extends Controller
 
         switch($section){
 
-            case "section3":
-
-                $content=HomepageSection3::all();
-    
-                $count=$content->count();
-    
-            
-            foreach($content as $cl){
-    
-              $serv_ind=[
-                  'id'=>$c++,
-                  'image'=>'<img src="'.asset('homepage/'.$cl->whatwe_doimg).'" style="width: 100px; height: auto; object-fit: contain;">',
-                  'actions'=>'<button type="button" class="btn btn-success editer" data-id="'.$cl->id.'" data-type="section3" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-pencil-square mx-1"></i>
-    EDIT</button><button type="button" data-type="section3" class="btn btn-danger mx-1 eradicator" data-id="'.$cl->id.'" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-trash3-fill mx-1"></i>
-    DELETE</button>'
-              ];
-    
-              $data[]=$serv_ind;
-    
-    
-            }
-
-            break;
-    
-           
             case "section4":
 
-                $content=HomepageSection4::all();
+                $content=AboutpagetwoSection4::all();
     
                 $count=$content->count();
-
-                // dd($content);
     
             
             foreach($content as $cl){
     
               $serv_ind=[
                   'id'=>$c++,
-                  'text'=>$cl->sec4_text,
+                  'image'=>'<img src="'.asset('agriventure/'.$cl->sec4imagel).'" style="width: 100px; height: auto; object-fit: contain;">',
+                  'title'=>$cl->sec4titlel,
                   'actions'=>'<button type="button" class="btn btn-success editer" data-id="'.$cl->id.'" data-type="section4" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-pencil-square mx-1"></i>
     EDIT</button><button type="button" data-type="section4" class="btn btn-danger mx-1 eradicator" data-id="'.$cl->id.'" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-trash3-fill mx-1"></i>
     DELETE</button>'
@@ -358,21 +337,23 @@ class AgriventurepageController extends Controller
             }
 
             break;
-
-
+    
+           
             case "section5":
 
-                $content=HomepageSection5::all();
+                $content=AboutpagetwoSection5::all();
     
                 $count=$content->count();
+
+                // dd($content);
     
             
             foreach($content as $cl){
     
               $serv_ind=[
                   'id'=>$c++,
-                  'image'=>'<img src="'.asset('homepage/'.$cl->sec5_img).'" style="width: 100px; height: auto; object-fit: contain;">',
-                  'title'=>$cl->sec5_stitle,
+                  'image'=>'<img src="'.asset('agriventure/'.$cl->sec5img1l).'" style="width: 100px; height: auto; object-fit: contain;">',
+                  'title'=>$cl->sec5titlel,
                   'actions'=>'<button type="button" class="btn btn-success editer" data-id="'.$cl->id.'" data-type="section5" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-pencil-square mx-1"></i>
     EDIT</button><button type="button" data-type="section5" class="btn btn-danger mx-1 eradicator" data-id="'.$cl->id.'" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-trash3-fill mx-1"></i>
     DELETE</button>'
@@ -388,7 +369,7 @@ class AgriventurepageController extends Controller
 
             case "section6":
 
-                $content=HomepageSection6::all();
+                $content=AboutpagetwoSection6::all();
     
                 $count=$content->count();
     
@@ -397,8 +378,7 @@ class AgriventurepageController extends Controller
     
               $serv_ind=[
                   'id'=>$c++,
-                  'year'=>$cl->sec6year,
-                  'title'=>$cl->sec6stitle,
+                  'title'=>$cl->sec6titlel,
                   'actions'=>'<button type="button" class="btn btn-success editer" data-id="'.$cl->id.'" data-type="section6" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-pencil-square mx-1"></i>
     EDIT</button><button type="button" data-type="section6" class="btn btn-danger mx-1 eradicator" data-id="'.$cl->id.'" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-trash3-fill mx-1"></i>
     DELETE</button>'
@@ -411,9 +391,10 @@ class AgriventurepageController extends Controller
 
             break;
 
+
             case "section7":
 
-                $content=HomepageSection7::all();
+                $content=AboutpagetwoSection7::all();
     
                 $count=$content->count();
     
@@ -422,7 +403,7 @@ class AgriventurepageController extends Controller
     
               $serv_ind=[
                   'id'=>$c++,
-                  'image'=>'<img src="'.asset('homepage/'.$cl->sec7_simg).'" style="width: 100px; height: auto; object-fit: contain;">',
+                  'title'=>$cl->sec7titlel,
                   'actions'=>'<button type="button" class="btn btn-success editer" data-id="'.$cl->id.'" data-type="section7" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-pencil-square mx-1"></i>
     EDIT</button><button type="button" data-type="section7" class="btn btn-danger mx-1 eradicator" data-id="'.$cl->id.'" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-trash3-fill mx-1"></i>
     DELETE</button>'
@@ -437,7 +418,7 @@ class AgriventurepageController extends Controller
 
             case "section8":
 
-                $content=HomepageSection8::all();
+                $content=AboutpagetwoSection8::all();
     
                 $count=$content->count();
     
@@ -446,9 +427,7 @@ class AgriventurepageController extends Controller
     
               $serv_ind=[
                   'id'=>$c++,
-                  'logo'=>'<img src="'.asset('homepage/'.$cl->sec8_slogo).'" style="width: 100px; height: auto; object-fit: contain;">',
-                  'content'=>$cl->sec8_scontent,
-                  'link'=>$cl->sec8_slink,
+                  'title'=>$cl->sec8titlel,
                   'actions'=>'<button type="button" class="btn btn-success editer" data-id="'.$cl->id.'" data-type="section8" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-pencil-square mx-1"></i>
     EDIT</button><button type="button" data-type="section8" class="btn btn-danger mx-1 eradicator" data-id="'.$cl->id.'" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-trash3-fill mx-1"></i>
     DELETE</button>'
@@ -463,7 +442,7 @@ class AgriventurepageController extends Controller
 
             case "section9":
 
-                $content=HomepageSection9::all();
+                $content=AboutpagetwoSection9::all();
     
                 $count=$content->count();
     
@@ -472,8 +451,7 @@ class AgriventurepageController extends Controller
     
               $serv_ind=[
                   'id'=>$c++,
-                  'image'=>'<img src="'.asset('homepage/'.$cl->sec9_simg).'" style="width: 100px; height: auto; object-fit: contain;">',
-                  'content'=>$cl->sec9_scontent,
+                  'title'=>$cl->sec9titlel,
                   'actions'=>'<button type="button" class="btn btn-success editer" data-id="'.$cl->id.'" data-type="section9" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-pencil-square mx-1"></i>
     EDIT</button><button type="button" data-type="section9" class="btn btn-danger mx-1 eradicator" data-id="'.$cl->id.'" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-trash3-fill mx-1"></i>
     DELETE</button>'
@@ -486,79 +464,7 @@ class AgriventurepageController extends Controller
 
             break;
 
-            case "section10":
-
-                $content=HomepageSection10::all();
-    
-                $count=$content->count();
-    
-            
-            foreach($content as $cl){
-    
-              $serv_ind=[
-                  'id'=>$c++,
-                  'image'=>'<img src="'.asset('homepage/'.$cl->sec10_simg).'" style="width: 100px; height: auto; object-fit: contain;">',
-                  'title'=>$cl->sec10_stitle,
-                  'actions'=>'<button type="button" class="btn btn-success editer" data-id="'.$cl->id.'" data-type="section10" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-pencil-square mx-1"></i>
-    EDIT</button><button type="button" data-type="section10" class="btn btn-danger mx-1 eradicator" data-id="'.$cl->id.'" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-trash3-fill mx-1"></i>
-    DELETE</button>'
-              ];
-    
-              $data[]=$serv_ind;
-    
-    
-            }
-
-            break;
-
-            case "section12":
-
-                $content=HomepageSection12::all();
-    
-                $count=$content->count();
-    
-            
-            foreach($content as $cl){
-    
-              $serv_ind=[
-                  'id'=>$c++,
-                  'content'=>$cl->sec12_scontent,
-                  'actions'=>'<button type="button" class="btn btn-success editer" data-id="'.$cl->id.'" data-type="section12" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-pencil-square mx-1"></i>
-    EDIT</button><button type="button" data-type="section12" class="btn btn-danger mx-1 eradicator" data-id="'.$cl->id.'" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-trash3-fill mx-1"></i>
-    DELETE</button>'
-              ];
-    
-              $data[]=$serv_ind;
-    
-    
-            }
-
-            break;
-
-            case "section13":
-
-                $content=HomepageSection13::all();
-    
-                $count=$content->count();
-    
-            
-            foreach($content as $cl){
-    
-              $serv_ind=[
-                  'id'=>$c++,
-                  'content'=>$cl->sec13_scontent,
-                  'link'=>$cl->sec13_slink,
-                  'actions'=>'<button type="button" class="btn btn-success editer" data-id="'.$cl->id.'" data-type="section13" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-pencil-square mx-1"></i>
-    EDIT</button><button type="button" data-type="section13" class="btn btn-danger mx-1 eradicator" data-id="'.$cl->id.'" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-trash3-fill mx-1"></i>
-    DELETE</button>'
-              ];
-    
-              $data[]=$serv_ind;
-    
-    
-            }
-
-            break;
+          
 
             default:
             dd('wrong move');
@@ -575,45 +481,30 @@ class AgriventurepageController extends Controller
 
         $sectionData=null;
         switch ($section) {
-            case "section3":
-                $sectionData = HomepageSection3::find($id);
-                break;
-        
             case "section4":
-                $sectionData = HomepageSection4::find($id);
+                $sectionData = AboutpagetwoSection4::find($id);
                 break;
         
             case "section5":
-                $sectionData = HomepageSection5::find($id);
+                $sectionData = AboutpagetwoSection5::find($id);
                 break;
         
             case "section6":
-                $sectionData = HomepageSection6::find($id);
+                $sectionData = AboutpagetwoSection6::find($id);
                 break;
         
             case "section7":
-                $sectionData = HomepageSection7::find($id);
+                $sectionData = AboutpagetwoSection7::find($id);
                 break;
         
             case "section8":
-                $sectionData = HomepageSection8::find($id);
+                $sectionData = AboutpagetwoSection8::find($id);
                 break;
         
             case "section9":
-                $sectionData = HomepageSection9::find($id);
+                $sectionData = AboutpagetwoSection9::find($id);
                 break;
         
-            case "section10":
-                $sectionData = HomepageSection10::find($id);
-                break;
-        
-            case "section12":
-                $sectionData = HomepageSection12::find($id);
-                break;
-        
-            case "section13":
-                $sectionData = HomepageSection13::find($id);
-                break;
         
             default:
                 $sectionData = null;
@@ -623,152 +514,94 @@ class AgriventurepageController extends Controller
         return response()->json(['status'=>'success','sectionData'=>$sectionData]);
     }
 
-    public function update_resource($sectionType,Request $request){
-
-        
-        try{
-
-            
-
-            $validatedRequest = $request->validate([
-                'id' => 'required|integer|min:1', // Ensures ID is valid
-            ]);
+    public function update_resource($sectionType, Request $request)
+{
     
-            $id = $validatedRequest['id']; // Extract validated ID
+    try {
+        // Validate ID
+        $validatedRequest = $request->validate([
+            'id' => 'required|integer|min:1',
+        ]);
+        $id = $validatedRequest['id'];
 
-            $validationRules = [
-                'section3' => ['whatwe_doimg' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048'],
-                'section4' => ['sec4_text' => 'nullable|string'],
-                'section5' => [
-                    'sec5_stitle' => 'nullable|string',
-                    'sec5_scontent' => 'nullable|string',
-                    'sec5_img' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048'
-                ],
-                'section6' => [
-                    'sec6year' => 'nullable|string',
-                    'sec6stitle' => 'nullable|string',
-                    'sec6scontent' => 'nullable|string'
-                ],
-                'section7' => [
-                    'sec7_scontent' => 'nullable|string',
-                    'sec7_simg' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048'
-                ],
-                'section8' => [
-                    'sec8_scontent' => 'nullable|string',
-                    'sec8_slink' => 'nullable|string',
-                    'sec8_slogo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048'
-                ],
-                'section9' => [
-                    'sec9_scontent' => 'nullable|string',
-                    'sec9_simg' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048'
-                ],
-                'section10' => [
-                    'sec10_stitle' => 'nullable|string',
-                    'sec10_scontent' => 'nullable|string',
-                    'sec10_simg' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048'
-                ],
-                'section12' => ['sec12_scontent' => 'nullable|string'],
-                'section13' => [
-                    'sec13_scontent' => 'nullable|string',
-                    'sec13_slink' => 'nullable|string',
-                    'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048'
-                ],
-            ];
-    
-            // Section mapping
-            $sections = [
-                'section3' => HomepageSection3::class,
-                'section4' => HomepageSection4::class,
-                'section5' => HomepageSection5::class,
-                'section6' => HomepageSection6::class,
-                'section7' => HomepageSection7::class,
-                'section8' => HomepageSection8::class,
-                'section9' => HomepageSection9::class,
-                'section10' => HomepageSection10::class,
-                'section12' => HomepageSection12::class,
-                'section13' => HomepageSection13::class,
-            ];
-    
-            if (!isset($sections[$sectionType])) {
-                return response()->json(['error' => 'Invalid section'], 400);
-            }
-    
-            // Validate only the fields related to the requested section
-            $validatedData = $request->validate($validationRules[$sectionType] ?? []);
-    
-            // Get model
-            $section = $sections[$sectionType]::find($id);
+        // Validation rules
+        $validationRules = [
+            'section4' => ['sec4titlel' => 'nullable|string', 'sec4textl' => 'nullable|string', 'sec4imagel' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048'],
+            'section5' => ['sec5titlel' => 'nullable|string', 'sec5textl' => 'nullable|string', 'sec5achieve' => 'nullable|string', 'sec5tech' => 'nullable|string', 'sec5img1l' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048', 'sec5img2l' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048'],
+            'section6' => ['sec6titlel' => 'nullable|string', 'sec6textl' => 'nullable|string'],
+            'section7' => ['sec7yearl' => 'nullable|string', 'sec7titlel' => 'nullable|string', 'sec7textl' => 'nullable|string'],
+            'section8' => ['sec8titlel' => 'nullable|string', 'sec8textl' => 'nullable|string', 'sec8imagel' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048'],
+            'section9' => ['sec9titlel' => 'nullable|string', 'sec9textl' => 'nullable|string', 'sec9imagel' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048'],
+        ];
 
-            // dump($section);
-    
-            if (!$section) {
-                return response()->json(['error' => 'Section not found'], 404);
-            }
-    
-            // Image fields for different sections
-            $imageFields = [
-                'section3' => 'whatwe_doimg',
-                'section5' => 'sec5_img',
-                'section7' => 'sec7_simg',
-                'section8' => 'sec8_slogo',
-                'section9' => 'sec9_simg',
-                'section10' => 'sec10_simg',
-                'section13' => 'image',
-            ];
-    
-            // dd($imageFields, $sectionType, $imageFields[$sectionType] ?? 'not set', $request->all());
-            // Handle image upload
+        // Section mapping
+        $sections = [
+            'section4' => AboutpagetwoSection4::class,
+            'section5' => AboutpagetwoSection5::class,
+            'section6' => AboutpagetwoSection6::class,
+            'section7' => AboutpagetwoSection7::class,
+            'section8' => AboutpagetwoSection8::class,
+            'section9' => AboutpagetwoSection9::class,
+        ];
 
-            // dump(empty($imageFields[$sectionType]));
-            // dump($request->hasFile('image'));
-            if (!empty($imageFields[$sectionType]) && $request->hasFile('image')) {
-
-                // dd('randi');
-                // dd('hehe');
-                $image = $request->file('image');
-                $imageName = $image->hashName(); // Use time-based naming
-            
-                // Delete old image if it exists
-                $oldImage = $section->{$imageFields[$sectionType]};
-
-                // dump($oldImage);
-                try{
-                    if (!empty($oldImage) && File::exists(public_path('homepage/' . $oldImage))) {
-                        File::delete(public_path('homepage/' . $oldImage));
-                    }
-                }catch(Exception $e){
-
-                    dd($e->getMessage());
-                }
-                
-            
-                // Move new image
-                $image->move(public_path('homepage/'), $imageName);
-                $section->{$imageFields[$sectionType]} = $imageName;
-            }
-    
-            // Update other fields dynamically
-            foreach ($validatedData as $field => $value) {
-                if ($field !== ($imageFields[$sectionType] ?? null)) {
-                    $section->$field = $value;
-                }
-            }
-    
-            // Save updated section
-            $section->save();
-    
-                   
-            return response()->json(['message' => 'Item updated successfully', 'status'=>'success'], 200);
-
-        }catch(Exception $e){
-
-            Log::error($e->getMessage());
-            return response()->json(['message' => 'Something went wrong', 'status'=>'error'], 500);
+        if (!isset($sections[$sectionType])) {
+            return response()->json(['error' => 'Invalid section'], 400);
         }
-        
 
+        // Validate only the relevant section fields
+        $validatedData = $request->validate($validationRules[$sectionType] ?? []);
+
+        // Find section model
+        $section = $sections[$sectionType]::find($id);
+        if (!$section) {
+            return response()->json(['error' => 'Section not found'], 404);
+        }
+
+        // Image fields mapping
+        $imageFieldMapping = [
+            'section4' => ['image' => 'sec4imagel'],
+            'section5' => ['image' => 'sec5img1l', 'image2' => 'sec5img2l'], // Section 5 has two images
+            'section6' => ['image' => 'sec6imagel'],
+            'section7' => ['image' => 'sec7imagel'],
+            'section8' => ['image' => 'sec8imagel'],
+            'section9' => ['image' => 'sec9imagel'],
+        ];
+
+        // Handle image upload
+        // Check and process image uploads
+        foreach ($imageFieldMapping[$sectionType] ?? [] as $requestField => $dbField) {
+            if ($request->hasFile($requestField)) {
+                $image = $request->file($requestField);
+                $imageName = $image->hashName(); // Laravel's hashName() ensures unique naming
         
+                // Delete old image if it exists
+                $oldImage = $section->$dbField;
+                if (!empty($oldImage) && File::exists(public_path('agriventure/' . $oldImage))) {
+                    File::delete(public_path('agriventure/' . $oldImage));
+                }
+        
+                // Move new image
+                $image->move(public_path('agriventure/'), $imageName);
+                $section->$dbField = $imageName;
+            }
+        }
+
+        // Update other fields
+        foreach ($validatedData as $field => $value) {
+            if (!in_array($field, $imageFields[$sectionType] ?? [])) {
+                $section->$field = $value;
+            }
+        }
+
+        // Save the updated section
+        $section->save();
+
+        return response()->json(['message' => 'Item updated successfully', 'status' => 'success'], 200);
+    } catch (Exception $e) {
+        Log::error($e->getMessage());
+        return response()->json(['message' => 'Something went wrong', 'status' => 'error'], 500);
     }
+}
 
 
     public function delete_resource($sectionType,Request $request){
@@ -786,16 +619,16 @@ class AgriventurepageController extends Controller
         
             // Section mapping
             $sections = [
-                'section3' => HomepageSection3::class,
-                'section4' => HomepageSection4::class,
-                'section5' => HomepageSection5::class,
-                'section6' => HomepageSection6::class,
-                'section7' => HomepageSection7::class,
-                'section8' => HomepageSection8::class,
-                'section9' => HomepageSection9::class,
-                'section10' => HomepageSection10::class,
-                'section12' => HomepageSection12::class,
-                'section13' => HomepageSection13::class,
+                'section3' => AboutpagetwoSection3::class,
+                'section4' => AboutpagetwoSection4::class,
+                'section5' => AboutpagetwoSection5::class,
+                'section6' => AboutpagetwoSection6::class,
+                'section7' => AboutpagetwoSection7::class,
+                'section8' => AboutpagetwoSection8::class,
+                'section9' => AboutpagetwoSection9::class,
+                'section10' => AboutpagetwoSection10::class,
+                'section12' => AboutpagetwoSection12::class,
+                'section13' => AboutpagetwoSection13::class,
             ];
         
             if (!isset($sections[$sectionType])) {
@@ -826,8 +659,8 @@ class AgriventurepageController extends Controller
                 $oldImage = $section->$imageField;
         
                 // Delete old image if it exists
-                if (!empty($oldImage) && File::exists(public_path('homepage/' . $oldImage))) {
-                    File::delete(public_path('homepage/' . $oldImage));
+                if (!empty($oldImage) && File::exists(public_path('agriventure/' . $oldImage))) {
+                    File::delete(public_path('agriventure/' . $oldImage));
                 }
             }
         

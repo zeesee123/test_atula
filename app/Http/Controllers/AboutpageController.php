@@ -368,7 +368,7 @@ if ($r->hasFile('sec92image')) {
     
               $serv_ind=[
                   'id'=>$c++,
-                  'title'=>$cl->sec5stitlel,
+                  'title'=>$cl->sec5titlel,
                   'actions'=>'<button type="button" class="btn btn-success editer" data-id="'.$cl->id.'" data-type="section5" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-pencil-square mx-1"></i>
     EDIT</button><button type="button" data-type="section5" class="btn btn-danger mx-1 eradicator" data-id="'.$cl->id.'" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-trash3-fill mx-1"></i>
     DELETE</button>'
