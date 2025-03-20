@@ -17,7 +17,7 @@
           <!-- Page title actions -->
           <div class="col-auto ms-auto d-print-none">
             <div class="btn-list">
-              {{-- <span class="d-none d-sm-inline">
+              <span class="d-none d-sm-inline">
                 <a href="#" class="btn">
                   New view
                 </a>
@@ -26,7 +26,7 @@
                 <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 5l0 14" /><path d="M5 12l14 0" /></svg>
                 Create new report
-              </a> --}}
+              </a>
               <a href="#" class="btn btn-primary d-sm-none btn-icon" data-bs-toggle="modal" data-bs-target="#modal-report" aria-label="Create new report">
                 <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 5l0 14" /><path d="M5 12l14 0" /></svg>
@@ -44,7 +44,7 @@
             <div class="card">
               <div class="card-body">
                 <div class="d-flex align-items-center">
-                  <div class="subheader">Leads</div>
+                  <div class="subheader">Sales</div>
                   <div class="ms-auto lh-1">
                     <div class="dropdown">
                       <a class="dropdown-toggle text-secondary" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Last 7 days</a>
@@ -74,7 +74,7 @@
               </div>
             </div>
           </div>
-          {{-- <div class="col-sm-6 col-lg-3">
+          <div class="col-sm-6 col-lg-3">
             <div class="card">
               <div class="card-body">
                 <div class="d-flex align-items-center">
@@ -1370,10 +1370,10 @@
                       <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 6l6 6l-6 6" /></svg>
                     </a>
                   </li>
-                </ul> 
+                </ul>
               </div>
             </div>
-          </div>--}}
+          </div>
         </div>
       </div>
     </div>
