@@ -100,37 +100,37 @@ Route::group(['middleware'=>['auth']],function(){
     Route::post('/remove_agriventuresection/{sectionType}',[AgriventurepageController::class,'delete_resource']);
 
     //routes for agroforestry
-    Route::post('/add_agroforestrypage',[AgriventurepageController::class,'add_aboutpage']);
+    Route::post('/add_agroforestrypage',[AgroforestrypageController::class,'add_agroforestrypage']);
 
-    Route::get('/agroforestrytable/{section}',[HomepageController::class,'loadtable']);
+    Route::get('/agroforestrytable/{section}',[AgroforestrypageController::class,'loadtable']);
 
-    Route::get('/get_resource_agroforestry/{type}/{id}',[HomepageController::class,'get_resource']);
+    Route::get('/get_resource_agroforestry/{type}/{id}',[AgroforestrypageController::class,'get_resource']);
 
-    Route::post('/update_agroforestrysection/{sectionType}',[HomepageController::class,'update_resource']);
+    Route::post('/update_agroforestrysection/{sectionType}',[AgroforestrypageController::class,'update_resource']);
 
-    Route::post('/remove_agroforestrysection/{sectionType}',[HomepageController::class,'delete_resource']);
+    Route::post('/remove_agroforestrysection/{sectionType}',[AgroforestrypageController::class,'delete_resource']);
 
     //routes for businesspage
-    Route::post('/add_businessenturepage',[AgriventurepageController::class,'add_aboutpage']);
+    Route::post('/add_businessenturepage',[BusinesspageController::class,'add_businesspage']);
 
-    Route::get('/businesstable/{section}',[HomepageController::class,'loadtable']);
+    Route::get('/businesstable/{section}',[BusinesspageController::class,'loadtable']);
 
-    Route::get('/get_resource_business/{type}/{id}',[HomepageController::class,'get_resource']);
+    Route::get('/get_resource_business/{type}/{id}',[BusinesspageController::class,'get_resource']);
 
-    Route::post('/update_businesssection/{sectionType}',[HomepageController::class,'update_resource']);
+    Route::post('/update_businesssection/{sectionType}',[BusinesspageController::class,'update_resource']);
 
-    Route::post('/remove_businesssection/{sectionType}',[HomepageController::class,'delete_resource']);
+    Route::post('/remove_businesssection/{sectionType}',[BusinesspageController::class,'delete_resource']);
 
     //routes for ecoinitiative
-    Route::post('/add_ecoinitiativepage',[AgriventurepageController::class,'add_aboutpage']);
+    Route::post('/add_ecoinitiativepage',[EcoinitiativepageController::class,'add_ecoinitiativepage']);
 
-    Route::get('/ecoinitiativetable/{section}',[HomepageController::class,'loadtable']);
+    Route::get('/ecoinitiativetable/{section}',[EcoinitiativepageController::class,'loadtable']);
 
-    Route::get('/get_resource_ecoinitiative/{type}/{id}',[HomepageController::class,'get_resource']);
+    Route::get('/get_resource_ecoinitiative/{type}/{id}',[EcoinitiativepageController::class,'get_resource']);
 
-    Route::post('/update_ecoinitiativesection/{sectionType}',[HomepageController::class,'update_resource']);
+    Route::post('/update_ecoinitiativesection/{sectionType}',[EcoinitiativepageController::class,'update_resource']);
 
-    Route::post('/remove_ecoinitiativesection/{sectionType}',[HomepageController::class,'delete_resource']);
+    Route::post('/remove_ecoinitiativesection/{sectionType}',[EcoinitiativepageController::class,'delete_resource']);
 
 });
 
