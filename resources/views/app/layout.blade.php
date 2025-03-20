@@ -43,8 +43,9 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.17.2/dist/sweetalert2.min.css
             <span class="navbar-toggler-icon"></span>
           </button>
           <h1 class="navbar-brand navbar-brand-autodark">
-            <a href=".">
-              <img src="./static/logo.svg" width="110" height="32" alt="Akv" class="navbar-brand-image">
+            <a href="." style="text-decoration:none;">
+              <img src="{{asset('/images/akvlogo.svg')}}" width="110" height="32" alt="Akv" class="navbar-brand-image">
+              &nbsp;AKV
             </a>
           </h1>
           <div class="navbar-nav flex-row d-lg-none">
@@ -270,7 +271,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.17.2/dist/sweetalert2.min.css
                   </div>
                 </div>
               </li>
-              <li class="nav-item">
+              {{-- <li class="nav-item">
                 <a class="nav-link" href="{{url('/homepage')}}" >
                   <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/home -->
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l-2 0l9 -9l9 9l-2 0" /><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" /><path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" /></svg>
@@ -744,7 +745,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.17.2/dist/sweetalert2.min.css
                     Sponsor project!
                   </a>
                 </div>
-              </li>
+              </li> --}}
             </ul>
           </div>
         </div>
@@ -754,22 +755,24 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.17.2/dist/sweetalert2.min.css
         {{-- user profile section --}}
          <div class="d-flex justify-content-end mx-4 mt-3">
               <a href="#" class="nav-link d-flex lh-1 text-reset p-0" data-bs-toggle="dropdown" aria-label="Open user menu">
-                <span class="avatar avatar-sm" style="background-image: url(./static/avatars/000m.jpg)"></span>
+                <span class="avatar avatar-sm" style="background-image: url('{{asset("/images/avatar.jpg")}}')"></span>
                 <div class="d-none d-xl-block ps-2">
                   <div>Admin</div>
                   {{-- <div class="mt-1 small text-secondary">UI Designer</div> --}}
                 </div>
               </a>
               <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                <a href="#" class="dropdown-item">Status</a>
+                {{-- <a href="#" class="dropdown-item">Status</a>
                 <a href="./profile.html" class="dropdown-item">Profile</a>
                 <a href="#" class="dropdown-item">Feedback</a>
-                <div class="dropdown-divider"></div>
-                <a href="./settings.html" class="dropdown-item">Settings</a>
+                <div class="dropdown-divider"></div> --}}
+                {{-- <a href="./settings.html" class="dropdown-item">Settings</a> --}}
                 <form action="{{url('/logout')}}" method="post">
                   @csrf
+                  <div class="text-center">
+                    <button style="border:none;background-color:white;"><i class="bi bi-power"></i>&nbsp;Logout</button>
+                  </div>
                   
-                  <button>Logout</button>
                   
                 </form>
               </div>

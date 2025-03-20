@@ -260,7 +260,7 @@ if ($r->hasFile('sec92image')) {
 
         DB::commit();
 
-        return back()->with('success','message added');
+        return back()->with('success','Section has been added/updated successfully!');
 
         }catch(Exception $e){
             DB::rollback();

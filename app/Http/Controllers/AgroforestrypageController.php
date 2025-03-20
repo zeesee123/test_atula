@@ -51,7 +51,7 @@ class AgroforestrypageController extends Controller
             
 
             $model->sec2title = $r->sec2title;
-            $model->sec2addtext = $r->sec2addtext;
+            $model->sec2_addtext = $r->sec2_addtext;
             $model->sec2text = $r->sec2text;
             
       
@@ -400,7 +400,7 @@ class AgroforestrypageController extends Controller
 
         DB::commit();
 
-        return back()->with('success','message added');
+        return back()->with('success','Section has been added/updated successfully!');
 
         }catch(Exception $e){
             DB::rollback();

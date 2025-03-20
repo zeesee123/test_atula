@@ -51,7 +51,7 @@ https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-
 
 
 
-<form action="{{url('/add_homepage')}}" method="POST" enctype="multipart/form-data">
+<form action="{{url('/add_agroforestrypage')}}" method="POST" enctype="multipart/form-data">
 
     @if(session('success'))
 
@@ -105,7 +105,7 @@ https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-
                 <button type="button" class="btn btn-danger clear-btn" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="reset image"><i class="bi bi-arrow-clockwise"></i></button>
             </div>
             <div class="mb-3 col-4">
-                <img class="Thumbnail" src="{{ optional($section)->sec1image ? asset('homepage/'.$section->sec1image) : asset('images/default.jpg') }}"  width="400" alt="Default picture Thumbnail">
+                <img class="Thumbnail" src="{{ optional($section)->sec1image ? asset('agroforestrypage/'.$section->sec1image) : asset('images/default.jpg') }}"  width="400" alt="Default picture Thumbnail">
                 
             </div>
         </div>
@@ -129,7 +129,7 @@ https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-
 
     <div class="mb-3">
         <label for="" class="form-label">sub heading</label>
-        <input type="text" name="sec2addtext" class="form-control" value="{{$section->sec2addtext??''}}">
+        <input type="text" name="sec2addtext" class="form-control" value="{{$section->sec2_addtext??''}}">
     </div>
 
     <div class="mb-3">
@@ -254,7 +254,7 @@ https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-
                 <button type="button" class="btn btn-danger clear-btn" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="reset image"><i class="bi bi-arrow-clockwise"></i></button>
             </div>
             <div class="mb-3 col-4">
-                <img class="Thumbnail" src="{{ optional($section)->sec4image ? asset('homepage/'.$section->sec4image) : asset('images/default.jpg') }}"  width="400" alt="Default picture Thumbnail">
+                <img class="Thumbnail" src="{{ optional($section)->sec4image ? asset('agroforestrypage/'.$section->sec4image) : asset('images/default.jpg') }}"  width="400" alt="Default picture Thumbnail">
                 
             </div>
         </div>
@@ -360,7 +360,7 @@ https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-
             <button type="button" class="btn btn-danger clear-btn" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="reset image"><i class="bi bi-arrow-clockwise"></i></button>
         </div>
         <div class="mb-3 col-4">
-            <img class="Thumbnail" src="{{ optional($section)->sec6image ? asset('homepage/'.$section->sec6image) : asset('images/default.jpg') }}"  width="400" alt="Default picture Thumbnail">
+            <img class="Thumbnail" src="{{ optional($section)->sec6image ? asset('agroforestrypage/'.$section->sec6image) : asset('images/default.jpg') }}"  width="400" alt="Default picture Thumbnail">
             
         </div>
     </div>
@@ -526,7 +526,7 @@ https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-
             <button type="button" class="btn btn-danger clear-btn" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="reset image"><i class="bi bi-arrow-clockwise"></i></button>
         </div>
         <div class="mb-3 col-4">
-            <img class="Thumbnail" src="{{ optional($section)->sec10_image1 ? asset('homepage/'.$section->sec10_image1) : asset('images/default.jpg') }}"  width="400" alt="Default picture Thumbnail">
+            <img class="Thumbnail" src="{{ optional($section)->sec10_image1 ? asset('agroforestrypage/'.$section->sec10_image1) : asset('images/default.jpg') }}"  width="400" alt="Default picture Thumbnail">
             
         </div>
     </div>

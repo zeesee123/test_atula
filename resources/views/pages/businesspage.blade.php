@@ -52,7 +52,7 @@ https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-
 
 
 
-<form action="{{url('/add_homepage')}}" method="POST" enctype="multipart/form-data">
+<form action="{{url('/add_businesspage')}}" method="POST" enctype="multipart/form-data">
 
     @if(session('success'))
 

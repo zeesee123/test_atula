@@ -23,6 +23,8 @@ class EcoinitiativepageController extends Controller
 
         try{
 
+            // dd($r);
+
             DB::beginTransaction();
 
             $model = Ecoinitiativepage::first() ?? new Ecoinitiativepage();
@@ -79,7 +81,7 @@ class EcoinitiativepageController extends Controller
 
         if ($sec2_stitle) {
             foreach ($sec2_stitle as $key => $value) {
-                if ($image) {
+                if ($value) {
                     
 
                     $section2 = new EcoinitiativepageSection2();
@@ -125,21 +127,29 @@ class EcoinitiativepageController extends Controller
         
         $sec3_stext = $r->input('sec3textl'); // Ensure this is fetched too
 
-        if ($sec3_slogo) {
-            foreach ($sec3_slogo as $key => $image) {
-                if ($image) {
-                    $namez = $image->hashName();
-                    $image->move(public_path('Ecoinitiativepage/'), $namez);
 
-                    $section3 = new EcoinitiativepageSection3();
-                    $section3->sec3imagel = $namez;
-                    $section3->sec3titlel = $sec3_stitle[$key]??null;
-                    
-                    $section3->sec3textl = $sec3_stext[$key] ?? null;
-                    $section3->save();
+        try{
+            if ($sec3_slogo) {
+                foreach ($sec3_slogo as $key => $image) {
+                    if ($image) {
+                        $namez = $image->hashName();
+                        $image->move(public_path('Ecoinitiativepage/'), $namez);
+    
+                        $section3 = new EcoinitiativepageSection3();
+                        $section3->sec3imagel = $namez;
+                        $section3->sec3titlel = $sec3_stitle[$key]??null;
+                        
+                        $section3->sec3textl = $sec3_stext[$key] ?? null;
+                        $section3->save();
+                    }
                 }
             }
-        }
+
+        }catch(Exception $e){
+                  dump('sec3');
+                  dd($e->getMessage);
+             }
+        
 
         //section 4
 
@@ -266,7 +276,7 @@ class EcoinitiativepageController extends Controller
 
      $model->sec8title=$r->sec8title;
      $model->sec8text=$r->sec8text;
-     $model->sec8addtexttitle=$r->sec8addtext;
+     $model->sec8addtext=$r->sec8addtext;
      $model->sec8btn_text = $r->sec8btn_text;
         $model->sec8btn_url = $r->sec8btn_url;
 
@@ -279,7 +289,7 @@ class EcoinitiativepageController extends Controller
 
         if ($sec8_stext) {
             foreach ($sec8_stext as $key => $value) {
-                if ($image) {
+                if ($value) {
                     
 
                     $section8 = new EcoinitiativepageSection8();
@@ -299,17 +309,28 @@ class EcoinitiativepageController extends Controller
 
     }catch(Exception $e){
 
-        return $e->getMessage();
+        dump('Error:', $e->getMessage());
+        dump('File:', $e->getFile());
+        dump('Line:', $e->getLine());
+        dd($e->getTraceAsString()); // Full stack trace
+        // return $e->getMessage();
+
         Log::info($e->getMessage());
       }
 
         DB::commit();
 
-        return back()->with('success','message added');
+        return back()->with('success','Section has been added/updated successfully!');
 
         }catch(Exception $e){
+
+            dump('Error:', $e->getMessage());
+            dump('File:', $e->getFile());
+            dump('Line:', $e->getLine());
+            dd($e->getTraceAsString()); // Full stack trace
             DB::rollback();
-            return back()->with('failure',$e->getMessage());}
+            // return back()->with('failure',$e->getMessage());
+        }
     }
 
     public function loadtable($section){

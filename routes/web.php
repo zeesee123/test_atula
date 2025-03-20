@@ -100,7 +100,7 @@ Route::group(['middleware'=>['auth']],function(){
     Route::post('/remove_agriventuresection/{sectionType}',[AgriventurepageController::class,'delete_resource']);
 
     //routes for agroforestry
-    Route::post('/add_agroforestrypage',[AgroforestrypageController::class,'add_agroforestrypage']);
+    Route::post('/add_agroforestrypage',[AgroforestrypageController::class,'add_agroforestry']);
 
     Route::get('/agroforestrytable/{section}',[AgroforestrypageController::class,'loadtable']);
 
@@ -111,7 +111,7 @@ Route::group(['middleware'=>['auth']],function(){
     Route::post('/remove_agroforestrysection/{sectionType}',[AgroforestrypageController::class,'delete_resource']);
 
     //routes for businesspage
-    Route::post('/add_businessenturepage',[BusinesspageController::class,'add_businesspage']);
+    Route::post('/add_businesspage',[BusinesspageController::class,'add_businesspage']);
 
     Route::get('/businesstable/{section}',[BusinesspageController::class,'loadtable']);
 
@@ -122,7 +122,7 @@ Route::group(['middleware'=>['auth']],function(){
     Route::post('/remove_businesssection/{sectionType}',[BusinesspageController::class,'delete_resource']);
 
     //routes for ecoinitiative
-    Route::post('/add_ecoinitiativepage',[EcoinitiativepageController::class,'add_ecoinitiativepage']);
+    Route::post('/add_ecoinitiativepage',[EcoinitiativepageController::class,'add_ecoinitiative']);
 
     Route::get('/ecoinitiativetable/{section}',[EcoinitiativepageController::class,'loadtable']);
 

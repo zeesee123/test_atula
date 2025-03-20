@@ -295,7 +295,7 @@ class AgriventurepageController extends Controller
 
         DB::commit();
 
-        return back()->with('success','message added');
+        return back()->with('success','Section has been added/updated successfully!');
 
         }catch(Exception $e){
             DB::rollback();
