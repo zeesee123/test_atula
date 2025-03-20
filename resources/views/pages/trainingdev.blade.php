@@ -28,12 +28,31 @@ https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-
 
 <div class="page-header d-print-none">
 
+   <!-- Modal -->
+   <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+          <button type="button" class="btn-close btn-bs-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="modal_content">
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          {{-- <button type="button" class="btn btn-primary">Understood</button> --}}
+        </div>
+      </div>
+    </div>
+  </div>
+
     <div class="container-xl">
-        <h1>Eco-Initiative</h1>
+        <h1>Training & Development</h1>
 
 
 
-<form action="{{url('/add_homepage')}}" method="POST" enctype="multipart/form-data">
+<form action="{{url('/add_ecoinitiativepage')}}" method="POST" enctype="multipart/form-data">
 
     @if(session('success'))
 

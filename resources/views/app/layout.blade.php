@@ -226,6 +226,19 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.17.2/dist/sweetalert2.min.css
                       <a class="dropdown-item" href="{{url('/eco-initiative')}}">
                         Eco-initiative
                       </a>
+                      <a class="dropdown-item" href="{{url('/contract-farming')}}">
+                        Contract Farming
+                      </a>
+                      <a class="dropdown-item" href="{{url('/training-and-dev')}}">
+                        Training Development
+                      </a>
+                     
+                      <a class="dropdown-item" href="{{url('/bamboo')}}">
+                        Bamboo
+                      </a>
+                      <a class="dropdown-item" href="{{url('/fruits-and-vegetables')}}">
+                        Fruits & Vegetables
+                      </a>
                       
                       
                       
@@ -249,13 +262,13 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.17.2/dist/sweetalert2.min.css
                       <a class="dropdown-item" href="{{url('/home')}}">
                         Team
                       </a>
-                      <a class="dropdown-item" href="{{url('/about')}}">
+                      {{-- <a class="dropdown-item" href="{{url('/about')}}">
                         Testimonials
-                      </a>
+                      </a> --}}
                       <a class="dropdown-item" href="{{url('/about-two')}}">
                         Contact info
                       </a>
-                      <a class="dropdown-item" href="{{url('/agroforestry')}}">
+                      {{-- <a class="dropdown-item" href="{{url('/agroforestry')}}">
                         Agroforestry
                       </a>
                       <a class="dropdown-item" href="{{url('/business')}}">
@@ -263,7 +276,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.17.2/dist/sweetalert2.min.css
                       </a>
                       <a class="dropdown-item" href="{{url('/eco-initiative')}}">
                         Eco-initiative
-                      </a>
+                      </a> --}}
                       
                       
                       

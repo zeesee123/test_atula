@@ -64,6 +64,14 @@ Route::group(['middleware'=>['auth']],function(){
 
     Route::get('/eco-initiative',[PageController::class,'eco_initiative']);
 
+    Route::get('/contract-farming',[PageController::class,'contractfarming']);
+
+    Route::get('/training-and-dev',[PageController::class,'trainingNdev']);
+
+    Route::get('/bamboo',[PageController::class,'bamboo']);
+
+    Route::get('/fruits-and-vegetables',[PageController::class,'fruitsNveggies']);
+
 
 
     //routes for homepage

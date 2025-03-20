@@ -67,4 +67,41 @@ class PageController extends Controller
 
       return view('pages.ecoinitiative',compact('section'));
     }
+
+    public function trainingNdev(){
+
+      $section=Ecoinitiativepage::first()??null;     
+      
+      //   dd($section);
+  
+        return view('pages.trainingdev',compact('section'));
+
+    }
+
+    public function contractfarming(){
+
+      $section=Ecoinitiativepage::first()??null;     
+      
+      //   dd($section);
+  
+        return view('pages.contractfarming',compact('section'));
+    }
+
+    public function bamboo(){
+
+      $section=Ecoinitiativepage::first()??null;     
+      $title='Bamboo';
+      //   dd($section);
+  
+        return view('pages.timber',compact('section','title'));
+    }
+
+    public function fruitsNveggies(){
+
+      $section=Ecoinitiativepage::first()??null;     
+      
+      //   dd($section);
+  
+        return view('pages.fruitsnveggies',compact('section'));
+    }
 }
