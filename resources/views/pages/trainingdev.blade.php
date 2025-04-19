@@ -66,7 +66,7 @@ https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-
 
     <section>
 
-        <h3>Section 1(A Journey Towards Prosperous Sustainability)</h3>
+        <h3>Section 1(Nurturing Knowledge,Cultivating Success)</h3>
 
       
 
@@ -75,19 +75,14 @@ https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-
             <input type="text" name="sec1title" class="form-control" value="{{$section->sec1title??''}}">
         </div>
 
+        
 
-        <div class="mb-3 d-flex">
-            <div class="mx-2">
-                <label for="" class="form-label">button text(Join Our Mission)</label>
-                <input type="text" class="form-control " name="sec1btn_text" value="{{$section->sec1btn_text??''}}">
-            </div>
+        <div class="mb-3">
+          <label for="" class="form-label">content</label>
+          <input type="text" name="sec1text" class="form-control" value="{{$section->sec1text??''}}">
+      </div>
 
-            <div class="mx-2">
-                <label for="" class="form-label">button url</label>
-                <input type="text" class="form-control " name="sec1btn_url" value="{{$section->sec1btn_url??''}}">
-            </div>
-
-        </div>
+        
 
         <div class="row">
             <div class="mb-3 col-6">
@@ -113,7 +108,7 @@ https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-
 
 <section>
 
-    <h3>Section 2(Reviving Ecosystems,Empowering Communities)</h3>
+    <h3>Section 2(Introduction to Training & Development)</h3>
 
   
 
@@ -126,6 +121,11 @@ https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-
         <label for="" class="form-label">content</label>
         <input type="text" name="sec2text" class="form-control" value="{{$section->sec2text??''}}">
     </div>
+
+    <div class="mb-3">
+      <label for="" class="form-label">additional text(Our structured training programs are designed to:)</label>
+      <input type="text" name="sec2title" class="form-control" value="{{$section->sec2title??''}}">
+  </div>
 
     <div class="row">
         <div class="mb-3 col-6">
@@ -176,47 +176,14 @@ https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-
         </tbody>
       </table>
 
-    <div class="mb-3 d-flex">
-        
-        <div class="mx-2">
-            <label for="" class="form-label">button text</label>
-            <input type="text" name="sec2btn_text" class="form-control" value="{{$section->sec2btn_text??''}}">
-        </div>
+    
 
-        <div class="mx-2">
-            <label for="" class="form-label">button url</label>
-            <input type="text" name="sec2btn_url" class="form-control" value="{{$section->sec2btn_url??''}}">
-        </div>
-
+      <div class="mb-3">
+        <label for="" class="form-label">ending text(Join us in building a future where knowledge and nature grow together!)</label>
+        <input type="text" name="sec2endtext" class="form-control" value="{{$section->sec2title??''}}">
     </div>
 
-    <h4>Inputs for badge(green one with yellow logo)</h4>
-
-    <div class="mb-3">
-        <label for="" class="form-label">text</label>
-        <input type="text" name="sec2badgetext" class="form-control" value="{{$section->sec2badgetext??''}}">
-    </div>
-
-    <div class="mb-3">
-        <label for="" class="form-label">figure</label>
-        <input type="text" name="sec2badgefigure" class="form-control" value="{{$section->sec2badgefigure??''}}">
-    </div>
-
-    <div class="row">
-        <div class="mb-3 col-6">
-            <label for="" class="form-label">banner image</label>
-            <input type="file" class="form-control img_inpp" name="sec2badgelogo">
-            
-        </div>
-        <div class="mb-3 col-2">
-            
-            <button type="button" class="btn btn-danger clear-btn" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="reset image"><i class="bi bi-arrow-clockwise"></i></button>
-        </div>
-        <div class="mb-3 col-4">
-            <img class="Thumbnail" src="{{ optional($section)->sec2badgelogo ? asset('ecoinitiative/'.$section->sec2badgelogo) : asset('images/default.jpg') }}"  width="400" alt="Default picture Thumbnail">
-            
-        </div>
-    </div>
+    
 
     
 
@@ -229,7 +196,7 @@ https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-
 
     
 
-    <h3>Section 3 (Objectives)</h3>
+    <h3>Section 3 (Our Training Programs)</h3>
 
     <div class="mb-3">
         <label for="" class="form-label">title</label>
@@ -289,7 +256,10 @@ https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-
 
  {{-- need to add in image ,heading and content in here --}}
 
-
+ <div class="mb-3">
+  <label for="" class="form-label">end text( All our programs include hands-on field training, expert mentorship, and interactive workshops.)</label>
+  <textarea name="sec3endtext" id="" cols="30" rows="5" class="form-control">{{$section->sec3endtext??''}}</textarea>
+</div>
 
     {{-- button in the last --}}
     
@@ -301,7 +271,7 @@ https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-
 
 <section>
 
-    <h3>Section 4(CSR Projects)</h3>
+    <h3>Section 4(Why Choose Us?)</h3>
 
     {{-- heading --}}
 
@@ -316,15 +286,7 @@ https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-
                     <input type="text" name="sec4title" class="form-control" name="sec4title" value="{{$section->sec4title??''}}">
                 </div>
 
-                <div class="mb-3">
-                    <label class="form-label">subtitle</label>
-                    <input type="text" class="form-control" name="sec4addtext" value="{{$section->sec4addtext??''}}">
-                </div>
-
-                <div class="mb-3">
-                    <label class="form-label">content</label>
-                    <textarea name="sec4text"  cols="30" rows="5" class="form-control">{{$section->sec4text??''}}</textarea>
-                </div>
+                
 
                 
 
@@ -386,7 +348,7 @@ https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-
 <hr>
 <section>
 
-            <h3>Section 5(CSR Activities)</h3>
+            <h3>Section 5(Success Stories)</h3>
 
            
 
@@ -405,10 +367,23 @@ https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-
     
             <div class="" id="sec5_images">
                 <div class="mb-3 row">
+
+                  <div class="col-3">
+                    <input type="file" placeholder="image" class="form-control" name="sec5imagel[]">
+                </div>
+                <div class="col-3">
+                    <input type="text" placeholder="title" class="form-control" name="sec5titlel[]">
+                </div>
+                <div class="col-3">
+                  <input type="text" placeholder="author" class="form-control" name="sec5author[]">
+              </div>
+                <div class="col-3">
+                    <textarea class="form-control" name="sec5contentl[]" cols="30" rows="5"></textarea>
                     
-                    <div class="col-3">
-                        <input type="file" placeholder="add image" class="form-control" name="sec5imagel[]">
-                    </div>
+                </div>
+                
+                    
+                    
                     
                     
                     <div class="col-3">
@@ -440,7 +415,7 @@ https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-
 
 <section>
 
-    <h3>Section 6(Agroforestry & Sustainability)</h3>
+    <h3>Section 6(Certification & Recognition)</h3>
 
     {{-- image content and other stuff --}}
 
@@ -459,7 +434,7 @@ https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-
     </div>
 
     <div class="mb-3">
-        <label for="" class="form-label">subheading</label>
+        <label for="" class="form-label">subheading(get certified)</label>
         <textarea name="sec6text" id="" cols="30" rows="10" class="form-control">{{$section->sec6text??''}}</textarea>
     </div>
 
@@ -468,11 +443,12 @@ https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-
         <div class="mb-3 row">
             
             <div class="col-3">
-                <input type="file" placeholder="image" class="form-control" name="sec6imagel[]">
+                <input type="file" placeholder="image background" class="form-control" name="sec6imagel[]">
             </div>
             <div class="col-3">
-                <input type="text" placeholder="title" class="form-control" name="sec6titlel[]">
-            </div>
+              <input type="file" placeholder="image logo" class="form-control" name="sec6image2l[]">
+          </div>
+            
             <div class="col-3">
                 <textarea class="form-control" name="sec6contentl[]" cols="30" rows="5"></textarea>
                 
@@ -532,6 +508,96 @@ https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-
             
         </div>
     </div>
+
+</section>
+
+<hr>
+
+<section>
+
+  <h3>Section 7(Faqs)</h3>
+
+  {{-- image content and other stuff --}}
+
+          {{-- add in the cards here --}}
+
+          {{-- add in the card stuff for this  --}}
+
+          {{-- add in the image for this  --}}
+
+  {{-- our journey card part --}}
+
+  
+  
+
+  
+  <div class="" id="sec7_images">
+      <div class="mb-3 row">
+          
+        <div class="col-3">
+          <input type="text" placeholder="title" class="form-control" name="faqtitle[]">
+      </div>
+          
+          
+          <div class="col-3">
+              <textarea class="form-control" name="faqcontent[]" cols="30" rows="5"></textarea>
+              
+          </div>
+          
+          <div class="col-3">
+              <button class="btn btn-primary" type="button" onclick="addsec7_images()">+</button>
+          </div>     
+      </div>
+  </div>
+
+  <h5>points</h5>
+  <table class="table" id="sec7_table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">image</th>
+          <th scope="col">title</th>
+          
+          {{-- <th scope="col">Url</th> --}}
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+      </tbody>
+    </table>
+
+  
+
+
+  <div class="mb-3 d-flex">
+      <div class="mx-2">
+          <label for="" class="form-label">button text(explore our agroforestry projects)</label>
+          <input type="text" class="form-control " name="sec6btn_text" value="{{$section->sec6btn_text??''}}">
+      </div>
+
+      <div class="mx-2">
+          <label for="" class="form-label">button url</label>
+          <input type="text" class="form-control " name="sec6btn_url" value="{{$section->sec6btn_url??''}}">
+      </div>
+
+  </div>
+
+  <div class="row">
+      <div class="mb-3 col-6">
+          <label for="" class="form-label">banner image</label>
+          <input type="file" class="form-control img_inpp" name="sec6image" >
+          
+      </div>
+      <div class="mb-3 col-2">
+          
+          <button type="button" class="btn btn-danger clear-btn" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="reset image"><i class="bi bi-arrow-clockwise"></i></button>
+      </div>
+      <div class="mb-3 col-4">
+          <img class="Thumbnail" src="{{ optional($section)->sec6image ? asset('ecoinitiative/'.$section->sec6image) : asset('images/default.jpg') }}"  width="400" alt="Default picture Thumbnail">
+          
+      </div>
+  </div>
 
 </section>
 
@@ -605,7 +671,7 @@ https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-
 
 <section>
 
-    <h3>Section 8(Future Vision)</h3>
+    <h3>Section 8(Join the Movement-Register Today)</h3>
 
     {{-- add in the multiple input fields for this  --}}
 
@@ -659,13 +725,13 @@ https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-
           </table>
         
         <div class="col-6 mb-3">
-            <label for="" class="form-label">button text(join the movemement)</label>
+            <label for="" class="form-label">button text(join the green revolution)</label>
             <input type="text" class="form-control" name="sec8btn_text" value="{{$section->sec8btn_text??''}}">
             
         </div>
         <div class="col-6 mb-3">
             <label for="" class="form-label">button url</label>
-            <input type="text" class="form-control" name="sec8btn_url" value="{{$section->sec8btn_url??''}}">
+            <textarea class="form-control" name="sec8textfinal[]" cols="30" rows="5"></textarea>
             
         </div>
         

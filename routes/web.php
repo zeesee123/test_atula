@@ -11,6 +11,8 @@ use App\Http\Controllers\BusinesspageController;
 use App\Http\Controllers\AgriventurepageController;
 use App\Http\Controllers\AgroforestrypageController;
 use App\Http\Controllers\EcoinitiativepageController;
+use App\Http\Controllers\ContractfarmingController;
+use App\Http\Controllers\TrainingpageController;
 
 
 /*
@@ -130,6 +132,28 @@ Route::group(['middleware'=>['auth']],function(){
     Route::post('/remove_businesssection/{sectionType}',[BusinesspageController::class,'delete_resource']);
 
     //routes for ecoinitiative
+    Route::post('/add_ecoinitiativepage',[EcoinitiativepageController::class,'add_ecoinitiative']);
+
+    Route::get('/ecoinitiativetable/{section}',[EcoinitiativepageController::class,'loadtable']);
+
+    Route::get('/get_resource_ecoinitiative/{type}/{id}',[EcoinitiativepageController::class,'get_resource']);
+
+    Route::post('/update_ecoinitiativesection/{sectionType}',[EcoinitiativepageController::class,'update_resource']);
+
+    Route::post('/remove_ecoinitiativesection/{sectionType}',[EcoinitiativepageController::class,'delete_resource']);
+
+    //routes for CONTRACT FARMING
+    Route::post('/add_contractfarmingpage',[ContractfarmingController::class,'add_ecoinitiative']);
+
+    Route::get('/contractfarmingtable/{section}',[ContractfarmingController::class,'loadtable']);
+
+    Route::get('/get_resource_contractfarming/{type}/{id}',[ContractfarmingController::class,'get_resource']);
+
+    Route::post('/update_contractfarmingsection/{sectionType}',[ContractfarmingController::class,'update_resource']);
+
+    Route::post('/remove_contractfarmingsection/{sectionType}',[ContractfarmingController::class,'delete_resource']);
+
+    //routes for training and development
     Route::post('/add_ecoinitiativepage',[EcoinitiativepageController::class,'add_ecoinitiative']);
 
     Route::get('/ecoinitiativetable/{section}',[EcoinitiativepageController::class,'loadtable']);
