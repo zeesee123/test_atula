@@ -45,7 +45,7 @@ https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-
 
 
 
-<form action="{{url('/admin/admin/add_aboutpage')}}" method="POST" enctype="multipart/form-data">
+<form action="{{url('/admin/add_aboutpage')}}" method="POST" enctype="multipart/form-data">
 
     @if(session('success'))
 
@@ -837,7 +837,7 @@ imageInputs.forEach((input, index) => {
 // datatable part
 
 var table1=$('#sec1_table').DataTable({
-              ajax:"{{url('/admin/admin/abouttable/section1')}}",
+              ajax:"{{url('/admin/abouttable/section1')}}",
               processing:true,
               columns:[
                 {"data":"id"},
@@ -883,7 +883,7 @@ var table1=$('#sec1_table').DataTable({
   });
 
   var table2=$('#sec3_table').DataTable({
-              ajax:"{{url('/admin/abouttable/section3')}}",
+              ajax:"{{url('/abouttable/section3')}}",
               processing:true,
               columns:[
                 {"data":"id"},
@@ -929,7 +929,7 @@ var table1=$('#sec1_table').DataTable({
   });
 
   var table3=$('#sec4_table').DataTable({
-              ajax:"{{url('/admin/abouttable/section4')}}",
+              ajax:"{{url('/abouttable/section4')}}",
               processing:true,
               columns:[
                 {"data":"id"},
@@ -976,7 +976,7 @@ var table1=$('#sec1_table').DataTable({
   });
 
   var table4=$('#sec5_table').DataTable({
-              ajax:"{{url('/admin/abouttable/section5')}}",
+              ajax:"{{url('/abouttable/section5')}}",
               processing:true,
               columns:[
                 {"data":"id"},
@@ -1023,7 +1023,7 @@ var table1=$('#sec1_table').DataTable({
 
 
   var table5=$('#sec6_table').DataTable({
-              ajax:"{{url('/admin/abouttable/section6')}}",
+              ajax:"{{url('/abouttable/section6')}}",
               processing:true,
               columns:[
                 {"data":"id"},
@@ -1118,13 +1118,13 @@ function reloadTable(sectionName) {
 
   //  type in loading for loading in the resource..
 
-  let fet=await fetch(`{{url('/admin/')}}/get_resource_about/${type}/${id}`);
+  let fet=await fetch(`{{url('/')}}/get_resource_about/${type}/${id}`);
   
   let res=await fet.json();
 
   console.log(res);
 
-  // console.log('this is the url'+`{{url('/admin/')}}/get_resource/${type}`);
+  // console.log('this is the url'+`{{url('/')}}/get_resource/${type}`);
 
 
 
@@ -1156,7 +1156,7 @@ case "section1":
       console.log('image link',imglink);
       console.log('hehe');
       console.log('this is the data',res.sectionData);
-      imglink=`{{url('/admin/')}}/aboutpage/${res.sectionData.sec1imagel}`;
+      imglink=`{{url('/')}}/aboutpage/${res.sectionData.sec1imagel}`;
       console.log('the link',imglink);
 break;
 case "section3":
@@ -1169,7 +1169,7 @@ case "section3":
       <button class="btn btn-success" id="update_btnmod" >Update</button>
       </form>`;
       img=true;
-      imglink=`{{url('/admin/')}}/aboutpage/${res.sectionData.sec3imagel}`;
+      imglink=`{{url('/')}}/aboutpage/${res.sectionData.sec3imagel}`;
 break;
 case "section4":
 content=`<form id="dynForm">
@@ -1191,7 +1191,7 @@ content=`<form id="dynForm">
       <button class="btn btn-success" id="update_btnmod" >Update</button>
       </form>`;
       img=true;
-      imglink=`{{url('/admin/')}}/aboutpage/${res.sectionData.sec4imagel}`;
+      imglink=`{{url('/')}}/aboutpage/${res.sectionData.sec4imagel}`;
 break;
 case "section5":
 content=`<form id="dynForm">
@@ -1228,7 +1228,7 @@ content=`<form id="dynForm">
       <button class="btn btn-success"  id="update_btnmod">Update</button>
       </form>`;
       img=true;
-      imglink=`{{url('/admin/')}}/aboutpage/${res.sectionData.sec6imagel}`;
+      imglink=`{{url('/')}}/aboutpage/${res.sectionData.sec6imagel}`;
 break;
 
 default:
@@ -1294,7 +1294,7 @@ console.log('file is not there');
       }
       
 
-      let fetchf=await fetch(`{{url('/admin/update_aboutsection')}}/${type}`,{method:'POST',headers:{'X-CSRF-TOKEN':x_token},body:data})
+      let fetchf=await fetch(`{{url('/update_aboutsection')}}/${type}`,{method:'POST',headers:{'X-CSRF-TOKEN':x_token},body:data})
       
 
       let resf=await fetchf.json();
@@ -1322,7 +1322,7 @@ console.log('file is not there');
 
 
 
-        let fetchf=await fetch(`{{url('/admin/remove_aboutsection')}}/${type}`,{method:'POST',headers:{'X-CSRF-TOKEN':x_token},body:data})
+        let fetchf=await fetch(`{{url('/remove_aboutsection')}}/${type}`,{method:'POST',headers:{'X-CSRF-TOKEN':x_token},body:data})
         let resf=await fetchf.json();
 
         Swal.fire({
