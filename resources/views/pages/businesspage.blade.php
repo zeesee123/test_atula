@@ -52,7 +52,7 @@ https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-
 
 
 
-<form action="{{url('/add_businesspage')}}" method="POST" enctype="multipart/form-data">
+<form action="{{url('/admin/add_businesspage')}}" method="POST" enctype="multipart/form-data">
 
     @if(session('success'))
 
@@ -881,7 +881,7 @@ imageInputs.forEach((input, index) => {
 // datatable part
 
 var table1=$('#whatwedo_table').DataTable({
-              ajax:"{{url('/hometable/section3')}}",
+              ajax:"{{url('/admin/hometable/section3')}}",
               processing:true,
               columns:[
                 {"data":"id"},
@@ -927,7 +927,7 @@ var table1=$('#whatwedo_table').DataTable({
   });
 
   var table2=$('#impacthighlight_table').DataTable({
-              ajax:"{{url('/hometable/section4')}}",
+              ajax:"{{url('/admin/hometable/section4')}}",
               processing:true,
               columns:[
                 {"data":"id"},
@@ -973,7 +973,7 @@ var table1=$('#whatwedo_table').DataTable({
   });
 
   var table3=$('#ourbusiness_table').DataTable({
-              ajax:"{{url('/hometable/section5')}}",
+              ajax:"{{url('/admin/hometable/section5')}}",
               processing:true,
               columns:[
                 {"data":"id"},
@@ -1020,7 +1020,7 @@ var table1=$('#whatwedo_table').DataTable({
   });
 
   var table4=$('#ourjourney_table').DataTable({
-              ajax:"{{url('/hometable/section6')}}",
+              ajax:"{{url('/admin/hometable/section6')}}",
               processing:true,
               columns:[
                 {"data":"id"},
@@ -1068,7 +1068,7 @@ var table1=$('#whatwedo_table').DataTable({
 
 
   var table5=$('#purposeNvision_table').DataTable({
-              ajax:"{{url('/hometable/section7')}}",
+              ajax:"{{url('/admin/hometable/section7')}}",
               processing:true,
               columns:[
                 {"data":"id"},
@@ -1115,7 +1115,7 @@ var table1=$('#whatwedo_table').DataTable({
 
 
   var table6=$('#whatwork_table').DataTable({
-              ajax:"{{url('/hometable/section8')}}",
+              ajax:"{{url('/admin/hometable/section8')}}",
               processing:true,
               columns:[
                 {"data":"id"},
@@ -1164,7 +1164,7 @@ var table1=$('#whatwedo_table').DataTable({
 
 
   var table7=$('#techimg_table').DataTable({
-              ajax:"{{url('/hometable/section9')}}",
+              ajax:"{{url('/admin/hometable/section9')}}",
               processing:true,
               columns:[
                 {"data":"id"},
@@ -1213,7 +1213,7 @@ var table1=$('#whatwedo_table').DataTable({
 
 
   var table8=$('#pvalue_table').DataTable({
-              ajax:"{{url('/hometable/section10')}}",
+              ajax:"{{url('/admin/hometable/section10')}}",
               processing:true,
               columns:[
                 {"data":"id"},
@@ -1261,7 +1261,7 @@ var table1=$('#whatwedo_table').DataTable({
 
 
   var table9=$('#badge_table').DataTable({
-              ajax:"{{url('/hometable/section12')}}",
+              ajax:"{{url('/admin/hometable/section12')}}",
               processing:true,
               columns:[
                 {"data":"id"},
@@ -1308,7 +1308,7 @@ var table1=$('#whatwedo_table').DataTable({
 
 
   var table10=$('#partchange_table').DataTable({
-              ajax:"{{url('/hometable/section13')}}",
+              ajax:"{{url('/admin/hometable/section13')}}",
               processing:true,
               columns:[
                 {"data":"id"},
@@ -1406,13 +1406,13 @@ function reloadTable(sectionName) {
 
   //  type in loading for loading in the resource..
 
-  let fet=await fetch(`{{url('/')}}/get_resource/${type}/${id}`);
+  let fet=await fetch(`{{url('/admin/')}}/get_resource/${type}/${id}`);
   
   let res=await fet.json();
 
   console.log(res);
 
-  // console.log('this is the url'+`{{url('/')}}/get_resource/${type}`);
+  // console.log('this is the url'+`{{url('/admin/')}}/get_resource/${type}`);
 
 
 
@@ -1440,7 +1440,7 @@ case "section3":
       </div>
       </form>`;
       img=true;
-      imglink=`{{url('/')}}/homepage/${res.sectionData.whatwe_doimg}`;
+      imglink=`{{url('/admin/')}}/homepage/${res.sectionData.whatwe_doimg}`;
 break;
 case "section4":
   content=`<form id="dynForm">
@@ -1471,7 +1471,7 @@ content=`<form id="dynForm">
       <button class="btn btn-success" id="update_btnmod" >Update</button>
       </form>`;
       img=true;
-      imglink=`{{url('/')}}/homepage/${res.sectionData.sec5_img}`;
+      imglink=`{{url('/admin/')}}/homepage/${res.sectionData.sec5_img}`;
 break;
 case "section6":
 content=`<form id="dynForm">
@@ -1506,7 +1506,7 @@ content=`<form id="dynForm">
       <button class="btn btn-success"  id="update_btnmod">Update</button>
       </form>`;
       img=true;
-      imglink=`{{url('/')}}/homepage/${res.sectionData.sec7_simg}`;
+      imglink=`{{url('/admin/')}}/homepage/${res.sectionData.sec7_simg}`;
 break;
 case "section8":
 content=`<form id="dynForm">
@@ -1527,7 +1527,7 @@ content=`<form id="dynForm">
       <button class="btn btn-success"  id="update_btnmod">Update</button>
       </form>`;
       img=true;
-      imglink=`{{url('/')}}/homepage/${res.sectionData.sec8_slogo}`;
+      imglink=`{{url('/admin/')}}/homepage/${res.sectionData.sec8_slogo}`;
 break;
 case "section9":
 content=`<form id="dynForm">
@@ -1545,7 +1545,7 @@ content=`<form id="dynForm">
       <button class="btn btn-success" id="update_btnmod" >Update</button>
       </form>`;
       img=true;
-      imglink=`{{url('/')}}/homepage/${res.sectionData.sec9_simg}`;
+      imglink=`{{url('/admin/')}}/homepage/${res.sectionData.sec9_simg}`;
 break;
 case "section10":
 content=`<form id="dynForm">
@@ -1567,7 +1567,7 @@ content=`<form id="dynForm">
       <button class="btn btn-success"  id="update_btnmod">Update</button>
       </form>`;
       img=true;
-      imglink=`{{url('/')}}/homepage/${res.sectionData.sec10_simg}`;
+      imglink=`{{url('/admin/')}}/homepage/${res.sectionData.sec10_simg}`;
 
   
 break;
@@ -1608,7 +1608,7 @@ content=`<form id="dynForm">
       <button class="btn btn-success" id="update_btnmod" >Update</button>
       </form>`;
       img=true;
-      imglink=`{{url('/')}}/homepage/${res.sectionData.image}`;
+      imglink=`{{url('/admin/')}}/homepage/${res.sectionData.image}`;
 break;
 default:
 content=`utc`;
@@ -1673,7 +1673,7 @@ console.log('file is not there');
       }
       
 
-      let fetchf=await fetch(`{{url('/update_homesection')}}/${type}`,{method:'POST',headers:{'X-CSRF-TOKEN':x_token},body:data})
+      let fetchf=await fetch(`{{url('/admin/update_homesection')}}/${type}`,{method:'POST',headers:{'X-CSRF-TOKEN':x_token},body:data})
       
 
       let resf=await fetchf.json();
@@ -1701,7 +1701,7 @@ console.log('file is not there');
 
 
 
-        let fetchf=await fetch(`{{url('/remove_homesection')}}/${type}`,{method:'POST',headers:{'X-CSRF-TOKEN':x_token},body:data})
+        let fetchf=await fetch(`{{url('/admin/remove_homesection')}}/${type}`,{method:'POST',headers:{'X-CSRF-TOKEN':x_token},body:data})
         let resf=await fetchf.json();
 
         Swal.fire({

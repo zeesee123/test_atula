@@ -51,7 +51,7 @@ https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-
 
 
 
-<form action="{{url('/add_agriventurepage')}}" method="POST" enctype="multipart/form-data">
+<form action="{{url('/admin/add_agriventurepage')}}" method="POST" enctype="multipart/form-data">
 
     @if(session('success'))
 
@@ -926,7 +926,7 @@ imageInputs.forEach((input, index) => {
 // datatable part
 
 var table1=$('#sec4_table').DataTable({
-              ajax:"{{url('/agriventuretable/section4')}}",
+              ajax:"{{url('/admin/agriventuretable/section4')}}",
               processing:true,
               columns:[
                 {"data":"id"},
@@ -973,7 +973,7 @@ var table1=$('#sec4_table').DataTable({
   });
 
   var table2=$('#sec5_table').DataTable({
-              ajax:"{{url('/agriventuretable/section5')}}",
+              ajax:"{{url('/admin/agriventuretable/section5')}}",
               processing:true,
               columns:[
                 {"data":"id"},
@@ -1020,7 +1020,7 @@ var table1=$('#sec4_table').DataTable({
   });
 
   var table3=$('#sec6_table').DataTable({
-              ajax:"{{url('/agriventuretable/section6')}}",
+              ajax:"{{url('/admin/agriventuretable/section6')}}",
               processing:true,
               columns:[
                 {"data":"id"},
@@ -1066,7 +1066,7 @@ var table1=$('#sec4_table').DataTable({
   });
 
   var table4=$('#sec7_table').DataTable({
-              ajax:"{{url('/agriventuretable/section7')}}",
+              ajax:"{{url('/admin/agriventuretable/section7')}}",
               processing:true,
               columns:[
                 {"data":"id"},
@@ -1113,7 +1113,7 @@ var table1=$('#sec4_table').DataTable({
 
 
   var table5=$('#sec8_table').DataTable({
-              ajax:"{{url('/agriventuretable/section8')}}",
+              ajax:"{{url('/admin/agriventuretable/section8')}}",
               processing:true,
               columns:[
                 {"data":"id"},
@@ -1160,7 +1160,7 @@ var table1=$('#sec4_table').DataTable({
 
 
   var table6=$('#sec9_table').DataTable({
-              ajax:"{{url('/agriventuretable/section9')}}",
+              ajax:"{{url('/admin/agriventuretable/section9')}}",
               processing:true,
               columns:[
                 {"data":"id"},
@@ -1257,13 +1257,13 @@ function reloadTable(sectionName) {
 
   //  type in loading for loading in the resource..
 
-  let fet=await fetch(`{{url('/')}}/get_resource_agriventure/${type}/${id}`);
+  let fet=await fetch(`{{url('/admin/')}}/get_resource_agriventure/${type}/${id}`);
   
   let res=await fet.json();
 
   console.log(res);
 
-  // console.log('this is the url'+`{{url('/')}}/get_resource/${type}`);
+  // console.log('this is the url'+`{{url('/admin/')}}/get_resource/${type}`);
 
 
 
@@ -1304,7 +1304,7 @@ case "section4":
       
       </form>`;
       img=true;
-      imglink=`{{url('/')}}/agriventure/${res.sectionData.sec4imagel}`;
+      imglink=`{{url('/admin/')}}/agriventure/${res.sectionData.sec4imagel}`;
       if(dialogpart.classList.contains('modal-xl')){
         dialogpart.classList.remove('modal-xl');
       }
@@ -1341,8 +1341,8 @@ case "section5":
       <button class="btn btn-success" id="update_btnmod" >Update</button>
       </form>`;
       img=true;
-      imglink=`{{url('/')}}/agriventure/${res.sectionData.sec5img1l}`;
-      imglink2=`{{url('/')}}/agriventure/${res.sectionData.sec5img2l}`;
+      imglink=`{{url('/admin/')}}/agriventure/${res.sectionData.sec5img1l}`;
+      imglink2=`{{url('/admin/')}}/agriventure/${res.sectionData.sec5img2l}`;
       if(!dialogpart.classList.contains('modal-xl')){
         dialogpart.classList.add('modal-xl');
       }
@@ -1405,7 +1405,7 @@ content=`<form id="dynForm">
       <button class="btn btn-success"  id="update_btnmod">Update</button>
       </form>`;
       img=true;
-      imglink=`{{url('/')}}/agriventure/${res.sectionData.sec8imagel}`;
+      imglink=`{{url('/admin/')}}/agriventure/${res.sectionData.sec8imagel}`;
       if(dialogpart.classList.contains('modal-xl')){
         dialogpart.classList.remove('modal-xl');
       }
@@ -1428,7 +1428,7 @@ content=`<form id="dynForm">
       <button class="btn btn-success"  id="update_btnmod">Update</button>
       </form>`;
       img=true;
-      imglink=`{{url('/')}}/agriventure/${res.sectionData.sec9imagel}`;
+      imglink=`{{url('/admin/')}}/agriventure/${res.sectionData.sec9imagel}`;
       if(dialogpart.classList.contains('modal-xl')){
         dialogpart.classList.remove('modal-xl');
       }
@@ -1521,7 +1521,7 @@ console.log('file is not there 2section5');
       }
       
 
-      let fetchf=await fetch(`{{url('/update_agriventuresection')}}/${type}`,{method:'POST',headers:{'X-CSRF-TOKEN':x_token},body:data})
+      let fetchf=await fetch(`{{url('/admin/update_agriventuresection')}}/${type}`,{method:'POST',headers:{'X-CSRF-TOKEN':x_token},body:data})
       
 
       let resf=await fetchf.json();
@@ -1549,7 +1549,7 @@ console.log('file is not there 2section5');
 
 
 
-        let fetchf=await fetch(`{{url('/remove_agriventuresection')}}/${type}`,{method:'POST',headers:{'X-CSRF-TOKEN':x_token},body:data})
+        let fetchf=await fetch(`{{url('/admin/remove_agriventuresection')}}/${type}`,{method:'POST',headers:{'X-CSRF-TOKEN':x_token},body:data})
         let resf=await fetchf.json();
 
         Swal.fire({

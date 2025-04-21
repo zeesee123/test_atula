@@ -27,7 +27,7 @@ class AuthController extends Controller
         if(Auth::attempt($cred,$remember)){
 
             $r->session()->regenerate();
-            return redirect('/');
+            return redirect('/admin');
 
 
         }else{
@@ -42,6 +42,6 @@ class AuthController extends Controller
 
         Auth::logout();
 
-        return redirect('/');
+        return redirect('/admin');
     }
 }
