@@ -14,11 +14,16 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <title>Sign in - AKV</title>
     <!-- CSS files -->
-    <link href="./dist/css/tabler.min.css?1692870487" rel="stylesheet"/>
+    {{-- <link href="./dist/css/tabler.min.css?1692870487" rel="stylesheet"/>
     <link href="./dist/css/tabler-flags.min.css?1692870487" rel="stylesheet"/>
     <link href="./dist/css/tabler-payments.min.css?1692870487" rel="stylesheet"/>
     <link href="./dist/css/tabler-vendors.min.css?1692870487" rel="stylesheet"/>
-    <link href="./dist/css/demo.min.css?1692870487" rel="stylesheet"/>
+    <link href="./dist/css/demo.min.css?1692870487" rel="stylesheet"/> --}}
+    <link href="{{asset('/dist/css/tabler.min.css?1692870487')}}" rel="stylesheet"/>
+    <link href="{{asset('/dist/css/tabler-flags.min.css?1692870487')}}" rel="stylesheet"/>
+    <link href="{{asset('/dist/css/tabler-payments.min.css?1692870487')}}" rel="stylesheet"/>
+    <link href="{{asset('/dist/css/tabler-vendors.min.css?1692870487')}}" rel="stylesheet"/>
+    <link href="{{asset('/dist/css/demo.min.css?1692870487')}}" rel="stylesheet"/>
     <style>
       @import url('https://rsms.me/inter/inter.css');
       :root {
@@ -39,7 +44,7 @@
           <div class="d-flex">
             <div><svg xmlns="http://www.w3.org/2000/svg" class="icon alert-icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0"></path><path d="M12 8v4"></path><path d="M12 16h.01"></path></svg>
             </div>
-            <div>{{session('error')}}</div>
+            <div>{{session(key: 'error')}}</div>
           </div>
           <a class="btn-close" data-bs-dismiss="alert" aria-label="close"></a>
         </div>

@@ -9,11 +9,11 @@
     
     <title>AKV-Admin Panel</title>
     <!-- CSS files -->
-    <link href="{{asset_env('dist/css/tabler.min.css?1692870487')}}" rel="stylesheet"/>
-    <link href="{{asset_env('dist/css/tabler-flags.min.css?1692870487')}}" rel="stylesheet"/>
-    <link href="{{asset_env('dist/css/tabler-payments.min.css?1692870487')}}" rel="stylesheet"/>
-    <link href="{{asset_env('dist/css/tabler-vendors.min.css?1692870487')}}" rel="stylesheet"/>
-    <link href="{{asset_env('dist/css/demo.min.css?1692870487')}}" rel="stylesheet"/>
+    <link href="./dist/css/tabler.min.css?1692870487" rel="stylesheet"/>
+    <link href="./dist/css/tabler-flags.min.css?1692870487" rel="stylesheet"/>
+    <link href="./dist/css/tabler-payments.min.css?1692870487" rel="stylesheet"/>
+    <link href="./dist/css/tabler-vendors.min.css?1692870487" rel="stylesheet"/>
+    <link href="./dist/css/demo.min.css?1692870487" rel="stylesheet"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link href="
 https://cdn.jsdelivr.net/npm/sweetalert2@11.17.2/dist/sweetalert2.min.css
@@ -34,7 +34,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.17.2/dist/sweetalert2.min.css
 
   </head>
   <body >
-    <script src="{{asset_env('dist/js/demo-theme.min.js?1692870487')}}"></script>
+    <script src="./dist/js/demo-theme.min.js?1692870487"></script>
     <div class="page">
       <!-- Sidebar -->
       <aside class="navbar navbar-vertical navbar-expand-lg " id="sidebar-menu" data-bs-theme="dark">
@@ -43,9 +43,8 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.17.2/dist/sweetalert2.min.css
             <span class="navbar-toggler-icon"></span>
           </button>
           <h1 class="navbar-brand navbar-brand-autodark">
-            <a href="." style="text-decoration:none;">
-              <img src="{{asset_env('/images/akvlogo.svg')}}" width="110" height="32" alt="Akv" class="navbar-brand-image">
-              &nbsp;AKV
+            <a href=".">
+              <img src="./static/logo.svg" width="110" height="32" alt="Akv" class="navbar-brand-image">
             </a>
           </h1>
           <div class="navbar-nav flex-row d-lg-none">
@@ -208,37 +207,34 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.17.2/dist/sweetalert2.min.css
                 <div class="dropdown-menu">
                   <div class="dropdown-menu-columns">
                     <div class="dropdown-menu-column">
-                      <a class="dropdown-item" href="{{url('/admin/home')}}">
+                      <a class="dropdown-item" href="{{url('/home')}}">
                         Homepage
                       </a>
-                      <a class="dropdown-item" href="{{url('/admin/about')}}">
+                      <a class="dropdown-item" href="{{url('/about')}}">
                         Aboutpage
                       </a>
-                      <a class="dropdown-item" href="{{url('/admin/about-two')}}">
+                      <a class="dropdown-item" href="{{url('/about-two')}}">
                         Aboutpage-2(A&M Agriventure)
                       </a>
-                      <a class="dropdown-item" href="{{url('/admin/agroforestry')}}">
+                      <a class="dropdown-item" href="{{url('/agroforestry')}}">
                         Agroforestry
                       </a>
-                      <a class="dropdown-item" href="{{url('/admin/business')}}">
+                      <a class="dropdown-item" href="{{url('/business')}}">
                         Businesspage
                       </a>
-                      <a class="dropdown-item" href="{{url('/admin/eco-initiative')}}">
-                        Eco-initiative
+                      <a class="dropdown-item" href="{{url('/eco-initiative')}}">
+                        CSR
                       </a>
-                      <a class="dropdown-item" href="{{url('/admin/contract-farming')}}">
-                        Contract Farming
+                      <a class="dropdown-item" href="{{url('/training')}}">
+                        Training
                       </a>
-                      <a class="dropdown-item" href="{{url('/admin/training-and-dev')}}">
-                        Training Development
-                      </a>
-                     
-                      <a class="dropdown-item" href="{{url('/admin/bamboo')}}">
+                      <a class="dropdown-item" href="{{url('/bamboo')}}">
                         Bamboo
                       </a>
-                      <a class="dropdown-item" href="{{url('/admin/fruits-and-vegetables')}}">
+                      <a class="dropdown-item" href="{{url('/fruits_and_veggies')}}">
                         Fruits & Vegetables
                       </a>
+                      
                       
                       
                       
@@ -262,13 +258,13 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.17.2/dist/sweetalert2.min.css
                       <a class="dropdown-item" href="{{url('/home')}}">
                         Team
                       </a>
-                      {{-- <a class="dropdown-item" href="{{url('/about')}}">
+                      <a class="dropdown-item" href="{{url('/about')}}">
                         Testimonials
-                      </a> --}}
+                      </a>
                       <a class="dropdown-item" href="{{url('/about-two')}}">
                         Contact info
                       </a>
-                      {{-- <a class="dropdown-item" href="{{url('/agroforestry')}}">
+                      <a class="dropdown-item" href="{{url('/agroforestry')}}">
                         Agroforestry
                       </a>
                       <a class="dropdown-item" href="{{url('/business')}}">
@@ -276,7 +272,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.17.2/dist/sweetalert2.min.css
                       </a>
                       <a class="dropdown-item" href="{{url('/eco-initiative')}}">
                         Eco-initiative
-                      </a> --}}
+                      </a>
                       
                       
                       
@@ -284,7 +280,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.17.2/dist/sweetalert2.min.css
                   </div>
                 </div>
               </li>
-              {{-- <li class="nav-item">
+              <li class="nav-item">
                 <a class="nav-link" href="{{url('/homepage')}}" >
                   <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/home -->
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l-2 0l9 -9l9 9l-2 0" /><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" /><path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" /></svg>
@@ -758,7 +754,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.17.2/dist/sweetalert2.min.css
                     Sponsor project!
                   </a>
                 </div>
-              </li> --}}
+              </li>
             </ul>
           </div>
         </div>
@@ -768,24 +764,22 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.17.2/dist/sweetalert2.min.css
         {{-- user profile section --}}
          <div class="d-flex justify-content-end mx-4 mt-3">
               <a href="#" class="nav-link d-flex lh-1 text-reset p-0" data-bs-toggle="dropdown" aria-label="Open user menu">
-                <span class="avatar avatar-sm" style="background-image: url('{{asset_env("/images/avatar.jpg")}}')"></span>
+                <span class="avatar avatar-sm" style="background-image: url(./static/avatars/000m.jpg)"></span>
                 <div class="d-none d-xl-block ps-2">
                   <div>Admin</div>
                   {{-- <div class="mt-1 small text-secondary">UI Designer</div> --}}
                 </div>
               </a>
               <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                {{-- <a href="#" class="dropdown-item">Status</a>
+                <a href="#" class="dropdown-item">Status</a>
                 <a href="./profile.html" class="dropdown-item">Profile</a>
                 <a href="#" class="dropdown-item">Feedback</a>
-                <div class="dropdown-divider"></div> --}}
-                {{-- <a href="./settings.html" class="dropdown-item">Settings</a> --}}
+                <div class="dropdown-divider"></div>
+                <a href="./settings.html" class="dropdown-item">Settings</a>
                 <form action="{{url('/logout')}}" method="post">
                   @csrf
-                  <div class="text-center">
-                    <button style="border:none;background-color:white;"><i class="bi bi-power"></i>&nbsp;Logout</button>
-                  </div>
                   
+                  <button>Logout</button>
                   
                 </form>
               </div>
@@ -798,7 +792,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.17.2/dist/sweetalert2.min.css
               <div class="row text-center align-items-center flex-row-reverse">
                 <div class="col-lg-auto ms-lg-auto">
                   <ul class="list-inline list-inline-dots mb-0">
-                    {{-- <li class="list-inline-item"><a href="https://tabler.io/docs" target="_blank" class="link-secondary" rel="noopener">Documentation</a></li>
+                    <li class="list-inline-item"><a href="https://tabler.io/docs" target="_blank" class="link-secondary" rel="noopener">Documentation</a></li>
                     <li class="list-inline-item"><a href="./license.html" class="link-secondary">License</a></li>
                     <li class="list-inline-item"><a href="https://github.com/tabler/tabler" target="_blank" class="link-secondary" rel="noopener">Source code</a></li>
                     <li class="list-inline-item">
@@ -807,19 +801,19 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.17.2/dist/sweetalert2.min.css
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon text-pink icon-filled icon-inline" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" /></svg>
                         Sponsor
                       </a>
-                    </li> --}}
+                    </li>
                   </ul>
                 </div>
                 <div class="col-12 col-lg-auto mt-3 mt-lg-0">
                   <ul class="list-inline list-inline-dots mb-0">
                     <li class="list-inline-item">
-                      Copyright &copy; 2025
-                      <a href="." class="link-secondary">Crux</a>.
+                      Copyright &copy; 2023
+                      <a href="." class="link-secondary">Tabler</a>.
                       All rights reserved.
                     </li>
                     <li class="list-inline-item">
                       <a href="./changelog.html" class="link-secondary" rel="noopener">
-                        {{-- v1.0.0-beta20 --}}
+                        v1.0.0-beta20
                       </a>
                     </li>
                   </ul>
@@ -933,13 +927,13 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.17.2/dist/sweetalert2.min.css
       </div>
     </div>
     <!-- Libs JS -->
-    <script src="{{asset_env('dist/libs/apexcharts/dist/apexcharts.min.js?1692870487')}}" defer></script>
-    <script src="{{asset_env(')dist/libs/jsvectormap/dist/js/jsvectormap.min.js?1692870487')}}" defer></script>
-    <script src="{{asset_env(')dist/libs/jsvectormap/dist/maps/world.js?1692870487')}}" defer></script>
-    <script src="{{asset_env(')dist/libs/jsvectormap/dist/maps/world-merc.js?1692870487')}}" defer></script>
+    <script src="./dist/libs/apexcharts/dist/apexcharts.min.js?1692870487" defer></script>
+    <script src="./dist/libs/jsvectormap/dist/js/jsvectormap.min.js?1692870487" defer></script>
+    <script src="./dist/libs/jsvectormap/dist/maps/world.js?1692870487" defer></script>
+    <script src="./dist/libs/jsvectormap/dist/maps/world-merc.js?1692870487" defer></script>
     <!-- Tabler Core -->
-    <script src="{{asset_env('dist/js/tabler.min.js?1692870487')}}" defer></script>
-    <script src="{{asset_env('dist/js/demo.min.js?1692870487')}}" defer></script>
+    <script src="./dist/js/tabler.min.js?1692870487" defer></script>
+    <script src="./dist/js/demo.min.js?1692870487" defer></script>
     {{-- <script>
       // @formatter:off
       document.addEventListener("DOMContentLoaded", function () {
