@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('trainingpage_section3s', function (Blueprint $table) {
             $table->id();
+            $table->string('sec3imagel')->nullable();
+            $table->string('sec3titlel')->nullable();
+            $table->longText('sec3textl')->nullable();
             $table->timestamps();
         });
     }
