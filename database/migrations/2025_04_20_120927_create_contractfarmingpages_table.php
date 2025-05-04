@@ -34,7 +34,7 @@ return new class extends Migration
              //Our Mission & Vision***********
             $table->string('sec3title')->nullable();
             $table->longText('sec3text')->nullable();
-            $table->longText('sec3text')->nullable();
+            
             $table->longText('sec3endtext')->nullable();
             //\\*******table for images ecoinitiativepagesection3
 
