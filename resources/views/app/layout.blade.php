@@ -9,12 +9,11 @@
     
     <title>AKV-Admin Panel</title>
     <!-- CSS files -->
-    <link href="{{ env('APP_ENV') === 'production' ? asset('admin/dist/css/tabler.min.css?1692870487') : asset('dist/css/tabler.min.css?1692870487') }}" rel="stylesheet"/>
-<link href="{{ env('APP_ENV') === 'production' ? asset('admin/dist/css/tabler-flags.min.css?1692870487') : asset('dist/css/tabler-flags.min.css?1692870487') }}" rel="stylesheet"/>
-<link href="{{ env('APP_ENV') === 'production' ? asset('admin/dist/css/tabler-payments.min.css?1692870487') : asset('dist/css/tabler-payments.min.css?1692870487') }}" rel="stylesheet"/>
-<link href="{{ env('APP_ENV') === 'production' ? asset('admin/dist/css/tabler-vendors.min.css?1692870487') : asset('dist/css/tabler-vendors.min.css?1692870487') }}" rel="stylesheet"/>
-<link href="{{ env('APP_ENV') === 'production' ? asset('admin/dist/css/demo.min.css?1692870487') : asset('dist/css/demo.min.css?1692870487') }}" rel="stylesheet"/>
-
+    <link href="{{asset_env('dist/css/tabler.min.css?1692870487')}}" rel="stylesheet"/>
+    <link href="{{asset_env('dist/css/tabler-flags.min.css?1692870487')}}" rel="stylesheet"/>
+    <link href="{{asset_env('dist/css/tabler-payments.min.css?1692870487')}}" rel="stylesheet"/>
+    <link href="{{asset_env('dist/css/tabler-vendors.min.css?1692870487')}}" rel="stylesheet"/>
+    <link href="{{asset_env('dist/css/demo.min.css?1692870487')}}" rel="stylesheet"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link href="
 https://cdn.jsdelivr.net/npm/sweetalert2@11.17.2/dist/sweetalert2.min.css
