@@ -79,8 +79,7 @@ https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-
 
     <div class="container-xl">
         <h1>Homepage</h1>
-
-
+       
 
 <form action="{{url('admin/add_homepage')}}" method="POST" enctype="multipart/form-data">
 

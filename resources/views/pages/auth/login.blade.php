@@ -56,6 +56,7 @@
           <a href="." class="navbar-brand navbar-brand-autodark">
             <img src="{{asset('/images/akvlogo.svg')}}" width="110" height="32" alt="Tabler" class="navbar-brand-image mb-3">
             <h1>AKV</h1>
+            <p>APP_ENV Value: {{ env('APP_ENV') }}</p>
           </a>
         </div>
         <div class="card card-md">
