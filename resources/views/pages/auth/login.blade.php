@@ -56,7 +56,7 @@
           <a href="." class="navbar-brand navbar-brand-autodark">
             <img src="{{asset_env('/images/akvlogo.svg')}}" width="110" height="32" alt="Tabler" class="navbar-brand-image mb-3">
             <h1>AKV</h1>
-            
+            {{-- test --}}
           </a>
         </div>
         <div class="card card-md">
