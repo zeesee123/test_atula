@@ -19,11 +19,11 @@
     <link href="./dist/css/tabler-payments.min.css?1692870487" rel="stylesheet"/>
     <link href="./dist/css/tabler-vendors.min.css?1692870487" rel="stylesheet"/>
     <link href="./dist/css/demo.min.css?1692870487" rel="stylesheet"/> --}}
-    <link href="{{asset('/dist/css/tabler.min.css?1692870487')}}" rel="stylesheet"/>
-    <link href="{{asset('/dist/css/tabler-flags.min.css?1692870487')}}" rel="stylesheet"/>
-    <link href="{{asset('/dist/css/tabler-payments.min.css?1692870487')}}" rel="stylesheet"/>
-    <link href="{{asset('/dist/css/tabler-vendors.min.css?1692870487')}}" rel="stylesheet"/>
-    <link href="{{asset('/dist/css/demo.min.css?1692870487')}}" rel="stylesheet"/>
+    <link href="{{asset_env('/dist/css/tabler.min.css?1692870487')}}" rel="stylesheet"/>
+    <link href="{{asset_env('/dist/css/tabler-flags.min.css?1692870487')}}" rel="stylesheet"/>
+    <link href="{{asset_env('/dist/css/tabler-payments.min.css?1692870487')}}" rel="stylesheet"/>
+    <link href="{{asset_env('/dist/css/tabler-vendors.min.css?1692870487')}}" rel="stylesheet"/>
+    <link href="{{asset_env('/dist/css/demo.min.css?1692870487')}}" rel="stylesheet"/>
     <style>
       @import url('https://rsms.me/inter/inter.css');
       :root {
@@ -54,7 +54,7 @@
       <div class="container container-tight py-4">
         <div class="text-center mb-4">
           <a href="." class="navbar-brand navbar-brand-autodark">
-            <img src="{{asset('/images/akvlogo.svg')}}" width="110" height="32" alt="Tabler" class="navbar-brand-image mb-3">
+            <img src="{{asset_env('/images/akvlogo.svg')}}" width="110" height="32" alt="Tabler" class="navbar-brand-image mb-3">
             <h1>AKV</h1>
             <p>APP_ENV Value: {{ env('APP_ENV') }}</p>
           </a>
