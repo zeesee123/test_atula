@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('contractfarmingpage_section2s', function (Blueprint $table) {
             $table->id();
+            $table->string('sec2imagel')->nullable();
+            $table->string('sec2titlel')->nullable();
+            $table->longText('sec2textl')->nullable();
             $table->timestamps();
         });
     }

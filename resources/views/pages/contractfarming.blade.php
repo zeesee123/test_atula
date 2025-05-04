@@ -118,7 +118,7 @@ https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-
 
     <div class="mb-3">
       <label class="form-label">points title(benefits for farmers)</label>
-      <input type="text" class="form-control" name="sec2addtext" value="{{$section->sec4addtext??''}}">
+      <input type="text" class="form-control" name="sec2addtext" value="{{$section->sec2addtext??''}}">
   </div>
 
     <h4>points</h4>
@@ -439,13 +439,13 @@ https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-
       <div class="mb-3 row">
           
           <div class="col-3">
-              <input type="file" placeholder="image" class="form-control" name="sec4imagel[]">
+              <input type="file" placeholder="image" class="form-control" name="sec6imagel[]">
           </div>
           <div class="col-3">
-              <input type="text" placeholder="title" class="form-control" name="sec4titlel[]">
+              <input type="text" placeholder="title" class="form-control" name="sec6titlel[]">
           </div>
           <div class="col-3">
-              <textarea class="form-control" name="sec4contentl[]" cols="30" rows="5"></textarea>
+              <textarea class="form-control" name="sec6contentl[]" cols="30" rows="5"></textarea>
               
           </div>
           
