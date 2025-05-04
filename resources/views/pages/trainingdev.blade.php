@@ -435,7 +435,7 @@ https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-
 
     <div class="mb-3">
         <label for="" class="form-label">subheading(get certified)</label>
-        <textarea name="sec6text" id="" cols="30" rows="10" class="form-control">{{$section->sec6text??''}}</textarea>
+        <textarea name="sec6text" id="" cols="30" rows="10" class="form-control">{{$section->sec6addtext??''}}</textarea>
     </div>
 
     
@@ -604,68 +604,6 @@ https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-
 
     {{-- //input for adding in the points --}}
 
-<hr>
-
-<section>
-
-    <h3>Section 7(Achievements)</h3>
-
-    <div class="row">
-        <div class="col-12 mb-3">
-            <label for="" class="form-label">title</label>
-            <input type="text" class="form-control" name="sec7title" value="{{$section->sec7title??''}}">
-            
-        </div>
-        <div class="col-12 mb-3">
-            <label for="" class="form-label">sub text</label>
-            <input type="text" class="form-control" name="sec7addtext" value="{{$section->sec7addtext??''}}">
-            
-        </div>
-    
-
-        
-    </div>
-
-    <h5>points</h5>
-    <div class="" id="sec7_images">
-        <div class="mb-3 row">
-            
-            <div class="col-3">
-                <input type="file" placeholder="image" class="form-control" name="sec7imagel[]">
-            </div>
-            <div class="col-3">
-                <input type="text" placeholder="title" class="form-control" name="sec7titlel[]">
-            </div>
-            <div class="col-3">
-                <textarea class="form-control" name="sec7contentl[]" cols="30" rows="5"></textarea>
-                
-            </div>
-            
-            <div class="col-3">
-                <button class="btn btn-primary" type="button" onclick="addsec7_images()">+</button>
-            </div>     
-        </div>
-    </div>
-
-    
-    <table class="table" id="sec7_table">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">image</th>
-            <th scope="col">title</th>
-            
-            {{-- <th scope="col">Url</th> --}}
-            <th scope="col">Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          
-        </tbody>
-      </table>
-
-
-</section>
 
 <hr>
 

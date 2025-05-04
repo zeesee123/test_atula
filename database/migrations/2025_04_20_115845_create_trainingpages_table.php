@@ -36,47 +36,45 @@ return new class extends Migration
              //Our Training Programs***********
             $table->string('sec3title')->nullable();
             $table->string('sec3addtext')->nullable();
-            $table->longText('sec3text')->nullable();
+            $table->longText('sec3text')->nullable(); 
+            $table->longText('sec3endtext')->nullable();
             //\\*******table for images ecoinitiativepagesection3
 
-             //csr projects***********
+             //Why Choose Us?***********
              $table->string('sec4title')->nullable();
-             $table->string('sec4addtext')->nullable();
-             $table->longText('sec4text')->nullable();
+             
              //\\*******table for images ecoinitiativepagesection4 //all images and stuff for the projects
 
-             //csr activities***********
+             //Success Stories***********
              $table->string('sec5title')->nullable();
             
              //\\*******table for images ecoinitiativepagesection5 //just images 
 
               //Certification & Recognition***********
             $table->string('sec6title')->nullable();
-            $table->string('sec6addtext')->nullable();//no need for this column
-            $table->longText('sec6text')->nullable();
-            $table->string('sec6image')->nullable();
+            $table->longText('sec6addtext')->nullable();//no need for this column
+            $table->longText('sec6image')->nullable();
             $table->string('sec6btn_text')->nullable();
             $table->string('sec6btn_url')->nullable();
 
             //\\*******table for images ecoinitiativepagesection6
 
             
-              //achievements***********
-              $table->string('sec7title')->nullable();
-              $table->string('sec7addtext')->nullable();
+              //faqs***********
+            //   $table->string('sec7title')->nullable();
+            //   $table->string('sec7addtext')->nullable();
              
   
               //\\*******table for images ecoinitiativepagesection7
 
 
-                //future vision***********
-            $table->string('sec8title')->nullable();
-            
-            $table->string('sec8text')->nullable();//this ain't a long text
-            $table->string('sec8addtext')->nullable();
-            $table->string('sec8image')->nullable();
-            $table->string('sec8btn_text')->nullable();
-            $table->string('sec8btn_url')->nullable();
+                //Join the Movement-Register Today***********
+                $table->string('sec8title')->nullable();
+                $table->longText('sec8text')->nullable();
+                $table->longText('sec8addtext')->nullable();
+                $table->string('sec8btn_text')->nullable();
+                $table->longText('sec8btn_url')->nullable(); // Even though it's a single string, using longText to be safe
+                $table->longText('sec8endtext')->nullable();
             
             //\\*******table for images ecoinitiativepagesection8
             $table->timestamps();
