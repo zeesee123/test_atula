@@ -66,7 +66,8 @@ https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-
 
     <section>
 
-        <h3>Section 1(Contract Farming for farmers...)</h3>
+        <h3>Section 1(Contract Farming for Fodder
+          A Partnership Rooted in Sustainability!)</h3>
 
       
 
@@ -561,68 +562,6 @@ https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-
 
 <hr>
 
-<section>
-
-    <h3>Section 7(Achievements)</h3>
-
-    <div class="row">
-        <div class="col-12 mb-3">
-            <label for="" class="form-label">title</label>
-            <input type="text" class="form-control" name="sec7title" value="{{$section->sec7title??''}}">
-            
-        </div>
-        <div class="col-12 mb-3">
-            <label for="" class="form-label">sub text</label>
-            <input type="text" class="form-control" name="sec7addtext" value="{{$section->sec7addtext??''}}">
-            
-        </div>
-    
-
-        
-    </div>
-
-    <h5>points</h5>
-    <div class="" id="sec7_images">
-        <div class="mb-3 row">
-            
-            <div class="col-3">
-                <input type="file" placeholder="image" class="form-control" name="sec7imagel[]">
-            </div>
-            <div class="col-3">
-                <input type="text" placeholder="title" class="form-control" name="sec7titlel[]">
-            </div>
-            <div class="col-3">
-                <textarea class="form-control" name="sec7contentl[]" cols="30" rows="5"></textarea>
-                
-            </div>
-            
-            <div class="col-3">
-                <button class="btn btn-primary" type="button" onclick="addsec7_images()">+</button>
-            </div>     
-        </div>
-    </div>
-
-    
-    <table class="table" id="sec7_table">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">image</th>
-            <th scope="col">title</th>
-            
-            {{-- <th scope="col">Url</th> --}}
-            <th scope="col">Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          
-        </tbody>
-      </table>
-
-
-</section>
-
-<hr>
 
 <section>
 
@@ -647,64 +586,64 @@ https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-
         <h5>text 1</h5>
 
         <div class="mb-3">
-          <label for="" class="form-label">imagev 1</label>
-          <input type="file" name="sec6title1" class="form-control" value="{{$section->sec6title1??''}}">
+          <label for="" class="form-label">image 1</label>
+          <input type="file" name="sec8imgc1" class="form-control" value="{{$section->sec8imgc1??''}}">
       </div>
 
         <div class="mb-3">
             <label for="" class="form-label">heading</label>
-            <input type="text" name="sec6title1" class="form-control" value="{{$section->sec6title1??''}}">
+            <input type="text" name="sec8titlec1" class="form-control" value="{{$section->sec6title1??''}}">
         </div>
     
         <div class="mb-3">
             <label for="" class="form-label">content</label>
-            <textarea name="sec6content1" id="" cols="30" rows="5" class="form-control">{{$section->sec6content1??''}}</textarea>
+            <textarea name="sec8contentc1" id="" cols="30" rows="5" class="form-control">{{$section->sec6content1??''}}</textarea>
         </div>
 
         <h5>text 2</h5>
 
         <div class="mb-3">
-          <label for="" class="form-label">imagev 1</label>
-          <input type="file" name="sec6title1" class="form-control" value="{{$section->sec6title1??''}}">
+          <label for="" class="form-label">image 2</label>
+          <input type="file" name="sec8imgc2" class="form-control" value="{{$section->sec6title1??''}}">
       </div>
         <div class="mb-3">
             <label for="" class="form-label">heading</label>
-            <input type="text"  name="sec6title2" class="form-control" value="{{$section->sec6title2??''}}">
+            <input type="text"  name="sec8titlec2" class="form-control" value="{{$section->sec6title2??''}}">
         </div>
     
         <div class="mb-3">
             <label for="" class="form-label">content</label>
-            <textarea name="sec6content2" id="" cols="30" rows="5" class="form-control">{{$section->sec6content2??''}}</textarea>
+            <textarea name="sec8contentc2" id="" cols="30" rows="5" class="form-control">{{$section->sec6content2??''}}</textarea>
         </div>
 
         <h5>text 3</h5>
         <div class="mb-3">
-          <label for="" class="form-label">imagev 1</label>
-          <input type="file" name="sec6title1" class="form-control" value="{{$section->sec6title1??''}}">
+          <label for="" class="form-label">image</label>
+          <input type="file" name="sec8imgc3" class="form-control" value="{{$section->sec6title1??''}}">
       </div>
         <div class="mb-3">
             <label for="" class="form-label">heading</label>
-            <input type="text" name="sec6title3" class="form-control" value="{{$section->sec6title3??''}}">
+            <input type="text" name="sec8titlec3" class="form-control" value="{{$section->sec6title3??''}}">
         </div>
     
         <div class="mb-3">
             <label for="" class="form-label">content</label>
-            <textarea name="sec6content3" id="" cols="30" rows="5" class="form-control">{{$section->sec6content3??''}}</textarea>
+            <textarea name="sec8contentc3" id="" cols="30" rows="5" class="form-control">{{$section->sec6content3??''}}</textarea>
         </div>
 
         <h5>text 4</h5>
         <div class="mb-3">
-          <label for="" class="form-label">imagev 1</label>
-          <input type="file" name="sec6title1" class="form-control" value="{{$section->sec6title1??''}}">
+          <label for="" class="form-label">image </label>
+          <input type="file" name="sec8imgc4" class="form-control" value="{{$section->sec6title1??''}}">
       </div>
         <div class="mb-3">
             <label for="" class="form-label">heading</label>
-            <input type="text" name="sec6title4" class="form-control" value="{{$section->sec6title4??''}}">
+            <input type="text" name="sec8titlec4" class="form-control" value="{{$section->sec6title4??''}}">
         </div>
     
         <div class="mb-3">
             <label for="" class="form-label">content</label>
-            <textarea name="sec6content4" id="" cols="30" rows="5" class="form-control">{{$section->sec6content4??''}}</textarea>
+            <textarea name="sec8contentc4" id="" cols="30" rows="5" class="form-control">{{$section->sec6content4??''}}</textarea>
         </div>
         
         
@@ -727,13 +666,13 @@ https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-
 
               <div class="mb-3">
                   <label class="form-label">title</label>
-                  <input type="text" name="sec6title" class="form-control" name="sec6title" value="{{$section->sec6title??''}}">
+                  <input type="text" name="sec9title" class="form-control" name="sec6title" value="{{$section->sec9title??''}}">
               </div>
 
 
               <div class="mb-3">
                   <label class="form-label">content</label>
-                  <textarea name="sec6text"  cols="30" rows="5" class="form-control">{{$section->sec6text??''}}</textarea>
+                  <textarea name="sec9text"  cols="30" rows="5" class="form-control">{{$section->sec9text??''}}</textarea>
               </div>
 
               

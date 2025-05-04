@@ -124,7 +124,7 @@ https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-
 
     <div class="mb-3">
       <label for="" class="form-label">additional text(Our structured training programs are designed to:)</label>
-      <input type="text" name="sec2title" class="form-control" value="{{$section->sec2title??''}}">
+      <input type="text" name="sec2addtext" class="form-control" value="{{$section->sec2addtext??''}}">
   </div>
 
     <div class="row">
@@ -731,9 +731,14 @@ https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-
         </div>
         <div class="col-6 mb-3">
             <label for="" class="form-label">button url</label>
-            <textarea class="form-control" name="sec8textfinal[]" cols="30" rows="5"></textarea>
+            <textarea class="form-control" name="sec8btn_url[]" cols="30" rows="5"></textarea>
             
         </div>
+        <div class="col-6 mb-3">
+          <label for="" class="form-label">End Text(Together, we can grow a greener, smarter, and more sustainable world!)</label>
+          <textarea class="form-control" name="sec8endtext" cols="30" rows="5"></textarea>
+          
+      </div>
         
         
     </div>

@@ -14,26 +14,26 @@ return new class extends Migration
         Schema::create('trainingpages', function (Blueprint $table) {
             $table->id();
             
+
+            //Nurturing Knowledge,Cultivating Success************
             $table->string('sec1title')->nullable();
             
-            $table->string('sec1btn_text')->nullable();
-            $table->string('sec1btn_url')->nullable();
+            $table->string('sec1text')->nullable();
+            
             $table->string('sec1image')->nullable();
 
             
 
-            //reviving ecosystems,empowering communities***********
+            //Introduction to Training & Development***********
             $table->string('sec2title')->nullable();
             $table->longText('sec2text')->nullable();
+            $table->longText('sec2addtext')->nullable();
             $table->longText('sec2image')->nullable();
-            $table->longText('sec2badgelogo')->nullable();
-            $table->longText('sec2badgefigure')->nullable();
-            $table->string('sec2badgetext')->nullable();
-            $table->string('sec2btn_url')->nullable();
-            $table->string('sec2btn_text')->nullable();
+            $table->longText('sec2endtext')->nullable();
+            
              //\\*******table for images ecoinitiativepagesection2
 
-             //objectives***********
+             //Our Training Programs***********
             $table->string('sec3title')->nullable();
             $table->string('sec3addtext')->nullable();
             $table->longText('sec3text')->nullable();
@@ -50,7 +50,7 @@ return new class extends Migration
             
              //\\*******table for images ecoinitiativepagesection5 //just images 
 
-              //agroforestry and sustainability***********
+              //Certification & Recognition***********
             $table->string('sec6title')->nullable();
             $table->string('sec6addtext')->nullable();//no need for this column
             $table->longText('sec6text')->nullable();
