@@ -146,7 +146,7 @@ https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-
   <video class="videoPreview" 
          width="400" 
          controls 
-         style="{{ $section->sec1_vid ? 'display:block;' : 'display:none;' }}">
+         style="{{ $section?->sec1_vid ? 'display:block;' : 'display:none;' }}">
       <source src="{{ $section->sec1_vid ? asset_env('homepage/'.$section->sec1_vid) : '' }}" type="video/mp4">
   </video>
           </div>
