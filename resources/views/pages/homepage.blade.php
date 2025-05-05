@@ -224,7 +224,7 @@ https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-
                 <button type="button" class="btn btn-danger clear-btn" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="reset image"><i class="bi bi-arrow-clockwise"></i></button>
             </div>
             <div class="mb-3 col-4">
-                <img class="Thumbnail" src="{{ $section->sec3logo?asset_env('homepage/'.$section->sec3logo):asset_env('images/default.jpg') }}" width="400" alt="Default picture Thumbnail">
+                <img class="Thumbnail" src="{{ $section?->sec3logo?asset_env('homepage/'.$section->sec3logo):asset_env('images/default.jpg') }}" width="400" alt="Default picture Thumbnail">
                 
             </div>
         </div>
