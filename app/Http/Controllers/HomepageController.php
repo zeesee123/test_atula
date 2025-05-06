@@ -295,7 +295,7 @@ if ($r->has('sec12_scontent')) {
     foreach ($r->input('sec12_scontent') as $key => $content) {
 
         if (!is_null($content) && trim($content) !== ''){
-            
+
         $section12 = new HomepageSection12();
         $section12->sec12_scontent = $content;
         $section12->save();
@@ -380,7 +380,7 @@ $model->map_code = $r->map_code ?? null;
     
               $serv_ind=[
                   'id'=>$c++,
-                  'image'=>'<img src="'.asset('homepage/'.$cl->whatwe_doimg).'" style="width: 100px; height: auto; object-fit: contain;">',
+                  'image'=>'<img src="'.asset_env('homepage/'.$cl->whatwe_doimg).'" style="width: 100px; height: auto; object-fit: contain;">',
                   'actions'=>'<button type="button" class="btn btn-success editer" data-id="'.$cl->id.'" data-type="section3" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-pencil-square mx-1"></i>
     EDIT</button><button type="button" data-type="section3" class="btn btn-danger mx-1 eradicator" data-id="'.$cl->id.'" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-trash3-fill mx-1"></i>
     DELETE</button>'
@@ -432,7 +432,7 @@ $model->map_code = $r->map_code ?? null;
     
               $serv_ind=[
                   'id'=>$c++,
-                  'image'=>'<img src="'.asset('homepage/'.$cl->sec5_img).'" style="width: 100px; height: auto; object-fit: contain;">',
+                  'image'=>'<img src="'.asset_env('homepage/'.$cl->sec5_img).'" style="width: 100px; height: auto; object-fit: contain;">',
                   'title'=>$cl->sec5_stitle,
                   'actions'=>'<button type="button" class="btn btn-success editer" data-id="'.$cl->id.'" data-type="section5" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-pencil-square mx-1"></i>
     EDIT</button><button type="button" data-type="section5" class="btn btn-danger mx-1 eradicator" data-id="'.$cl->id.'" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-trash3-fill mx-1"></i>
@@ -483,7 +483,7 @@ $model->map_code = $r->map_code ?? null;
     
               $serv_ind=[
                   'id'=>$c++,
-                  'image'=>'<img src="'.asset('homepage/'.$cl->sec7_simg).'" style="width: 100px; height: auto; object-fit: contain;">',
+                  'image'=>'<img src="'.asset_env('homepage/'.$cl->sec7_simg).'" style="width: 100px; height: auto; object-fit: contain;">',
                   'actions'=>'<button type="button" class="btn btn-success editer" data-id="'.$cl->id.'" data-type="section7" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-pencil-square mx-1"></i>
     EDIT</button><button type="button" data-type="section7" class="btn btn-danger mx-1 eradicator" data-id="'.$cl->id.'" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-trash3-fill mx-1"></i>
     DELETE</button>'
@@ -507,7 +507,7 @@ $model->map_code = $r->map_code ?? null;
     
               $serv_ind=[
                   'id'=>$c++,
-                  'logo'=>'<img src="'.asset('homepage/'.$cl->sec8_slogo).'" style="width: 100px; height: auto; object-fit: contain;">',
+                  'logo'=>'<img src="'.asset_env('homepage/'.$cl->sec8_slogo).'" style="width: 100px; height: auto; object-fit: contain;">',
                   'content'=>$cl->sec8_scontent,
                   'link'=>$cl->sec8_slink,
                   'actions'=>'<button type="button" class="btn btn-success editer" data-id="'.$cl->id.'" data-type="section8" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-pencil-square mx-1"></i>
@@ -533,7 +533,7 @@ $model->map_code = $r->map_code ?? null;
     
               $serv_ind=[
                   'id'=>$c++,
-                  'image'=>'<img src="'.asset('homepage/'.$cl->sec9_simg).'" style="width: 100px; height: auto; object-fit: contain;">',
+                  'image'=>'<img src="'.asset_env('homepage/'.$cl->sec9_simg).'" style="width: 100px; height: auto; object-fit: contain;">',
                   'content'=>$cl->sec9_scontent,
                   'actions'=>'<button type="button" class="btn btn-success editer" data-id="'.$cl->id.'" data-type="section9" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-pencil-square mx-1"></i>
     EDIT</button><button type="button" data-type="section9" class="btn btn-danger mx-1 eradicator" data-id="'.$cl->id.'" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-trash3-fill mx-1"></i>
@@ -558,7 +558,7 @@ $model->map_code = $r->map_code ?? null;
     
               $serv_ind=[
                   'id'=>$c++,
-                  'image'=>'<img src="'.asset('homepage/'.$cl->sec10_simg).'" style="width: 100px; height: auto; object-fit: contain;">',
+                  'image'=>'<img src="'.asset_env('homepage/'.$cl->sec10_simg).'" style="width: 100px; height: auto; object-fit: contain;">',
                   'title'=>$cl->sec10_stitle,
                   'actions'=>'<button type="button" class="btn btn-success editer" data-id="'.$cl->id.'" data-type="section10" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-pencil-square mx-1"></i>
     EDIT</button><button type="button" data-type="section10" class="btn btn-danger mx-1 eradicator" data-id="'.$cl->id.'" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-trash3-fill mx-1"></i>
