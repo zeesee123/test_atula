@@ -316,7 +316,7 @@ https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-
 
             <div class="mb-3">
                 <label class="form-label">content</label>
-                <textarea id="" class="form-control" name="sec4_content" value="{{$section?->sec4_content??''}}"></textarea>
+                <textarea id="" class="form-control" name="sec4_content">{{$section?->sec4_content??''}}</textarea>
                 
             </div>
             

@@ -25,7 +25,8 @@ class HomepageController extends Controller
 
     public function add_homepage(Request $r){
 
-        // dd($r);
+        //  dd($r);
+        
 
          
         try{
@@ -106,6 +107,7 @@ if($imagesec3){
 
 //making a diff sec
 
+        $model->sec4_title=$r->sec4_title;
         $model->sec4_content = $r->input('sec4_content');
         $model->sec4_tinytitle = $r->input('sec4_tinytitle');
         $model->sec4btn_text = $r->input('sec4btn_text');
@@ -291,9 +293,13 @@ if ($r->hasFile('sec11_image')) {
 //badges part
 if ($r->has('sec12_scontent')) {
     foreach ($r->input('sec12_scontent') as $key => $content) {
+
+        if (!is_null($content) && trim($content) !== ''){
+            
         $section12 = new HomepageSection12();
         $section12->sec12_scontent = $content;
         $section12->save();
+    }
     }
 }
 
