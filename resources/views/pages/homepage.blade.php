@@ -119,7 +119,7 @@ https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-
 
     @csrf
 
-    <section>
+    <section class="sec_eve">
 
         <h3>Section 1 (Forests of tomorrow,prosperity for generations)</h3>
 
@@ -159,7 +159,7 @@ https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-
 
     </section>
 
-<hr>
+<br><br><hr><br><br>
 
 
 <section>
@@ -197,9 +197,9 @@ https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-
 </section>
 
 
-<hr>
+<br><br><hr><br><br>
 
-<section>
+<section class="sec_eve">
 
     
 
@@ -288,7 +288,7 @@ https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-
 
 </section>
 
-<hr>
+<br><br><hr><br><br>
 
 <section>
 
@@ -395,9 +395,9 @@ https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-
     
 </section>
 
-<hr>
+<br><br><hr><br><br>
 
-<section>
+<section class="sec_eve">
 
             <h3>Section 5(Our Business)</h3>
 
@@ -452,7 +452,7 @@ https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-
             {{-- elements and stuff multiple ones --}}
 </section>
 
-<hr>
+<br><br><hr><br><br>
 
 <section>
 
@@ -525,9 +525,9 @@ https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-
     
 </section>
 
+<br><br><hr><br><br>
 
-
-<section>
+<section class="sec_eve">
 
     <h3>Section 7(Our Purpose & Vision)</h3>
 
@@ -590,7 +590,7 @@ https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-
 
 
 </section>
-
+<br><br><hr><br><br>
 <section>
 
     <h3>Section 8(What we are working on)</h3>
@@ -648,9 +648,9 @@ https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-
 
 </section>
 
-<hr>
+<br><br><hr><br><br>
 
-<section>
+<section class="sec_eve">
 
     <h3>Section 9(Technology-Driven Agriculture)</h3>
 
@@ -722,7 +722,7 @@ https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-
 
 </section>
 
-<hr>
+<br><br><hr><br><br>
 
 <section>
 
@@ -774,9 +774,9 @@ https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-
 
 </section>
 
-<hr>
+<br><br><hr><br><br>
 
-<section>
+<section class="sec_eve">
 
     <h3>Section 11(Empowering Communities & the Planet)</h3>
 
@@ -821,7 +821,7 @@ https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-
 
 
 </section>
-
+<br><br><hr><br><br>
 <section>
 
     <h3>Section 12(Badges)</h3>
@@ -865,8 +865,8 @@ https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-
 
 
 </section>
-
-<section>
+<br><br><hr><br><br>
+<section class="sec_eve">
 
     <h3>Section 13(Be a part of the change)</h3>
 
@@ -893,7 +893,7 @@ https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-
         </div> --}}
     </div>
 
-    <hr>
+    <br><br><hr><br><br>
 
     <div class="" id="partchange_tabs">
         <div class="mb-3 row">
@@ -922,8 +922,6 @@ https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-
             <th scope="col">#</th>
             <th scope="col">content</th>
             <th scope="col">link</th>
-            
-            
             {{-- <th scope="col">Url</th> --}}
             <th scope="col">Actions</th>
           </tr>
@@ -939,6 +937,7 @@ https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-
 
 </section>
 
+<br><br><hr><br><br>
 <section>
 
     <h3>Section 14(Get in touch)</h3>
@@ -961,7 +960,7 @@ https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-
 
 </section>
 
-    <hr>
+    <br><br><hr><br><br>
 
     <section>
 

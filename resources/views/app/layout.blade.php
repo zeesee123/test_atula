@@ -27,6 +27,12 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.17.2/dist/sweetalert2.min.css
       body {
       	font-feature-settings: "cv03", "cv04", "cv11";
       }
+
+      .sec_eve{
+        background: #f1efed ;
+        padding:2.5rem;
+      }
+
     </style>
     <link rel="stylesheet" href="https://cdn.datatables.net/2.2.2/css/dataTables.dataTables.min.css" />
 
@@ -211,6 +217,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.17.2/dist/sweetalert2.min.css
                       <a class="dropdown-item" href="{{url('/admin/home')}}">
                         Homepage
                       </a>
+                      
                       <a class="dropdown-item" href="{{url('/admin/about')}}">
                         Aboutpage
                       </a>
