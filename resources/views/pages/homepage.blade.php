@@ -122,7 +122,7 @@ https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-
 
     <section class="sec_eve">
 
-        <h3>Section 1 (Forests of tomorrow,prosperity for generations)</h3>
+        <h3>Section 1 (Video)</h3>
 
         <div class="row">
             <div class="mb-3 col-4">
@@ -165,7 +165,7 @@ https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-
 
 <section>
 
-    <h3>Section 2(Hindi/english text with quill)</h3>
+    <h3>Section 2(Hindi/english text with quill Video)</h3>
 
     <div class="row">
        
@@ -204,7 +204,7 @@ https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-
 
     
 
-    <h3>Section 3(What we do)</h3>
+    <h3>Section 3(What We Do)</h3>
 
     <div class="row">
         <div class="col-6">
@@ -293,7 +293,7 @@ https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-
 
 <section>
 
-    <h3>Section 4(Making a difference, one tree at a time)</h3>
+    <h3>Section 4({{$section?->sec4_title??"Making a difference, one tree at a time"}})</h3>
 
     {{-- heading --}}
 
@@ -400,7 +400,7 @@ https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-
 
 <section class="sec_eve">
 
-            <h3>Section 5(Our Business)</h3>
+            <h3>Section 5({{$section?->sec5_title??'Our Business'}})</h3>
 
             {{-- add in the cards here --}}
 
@@ -457,7 +457,7 @@ https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-
 
 <section>
 
-    <h3>Section 6(Our Journey)</h3>
+    <h3>Section 6({{$section?->sec6_title??"Our Journey"}})</h3>
 
     <div class="row">
         <div class="col-6">
@@ -530,7 +530,7 @@ https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-
 
 <section class="sec_eve">
 
-    <h3>Section 7(Our Purpose & Vision)</h3>
+    <h3>Section 7({{$section?->sec7_title??"Our Purpose & Vision"}})</h3>
 
     <div class="row">
         <div class="col-12 mb-3">
@@ -594,7 +594,7 @@ https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-
 <br><br><hr><br><br>
 <section>
 
-    <h3>Section 8(What we are working on)</h3>
+    <h3>Section 8({{$section?->sec8_title??"What we are working on"}})</h3>
 
     <div class="row">
       {{-- cards part --}}
@@ -653,7 +653,7 @@ https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-
 
 <section class="sec_eve">
 
-    <h3>Section 9(Technology-Driven Agriculture)</h3>
+    <h3>Section 9({{$section?->sec9title??"Technology-Driven Agriculture"}})</h3>
 
     <div class="row">
         <div class="col-12 mb-3">
@@ -727,7 +727,7 @@ https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-
 
 <section>
 
-    <h3>Section 10(Our Purpose & Values)</h3>
+    <h3>Section 10({{$section?->sec10_title??"Our Purpose & Values"}})</h3>
 
     <div class="mb-3">
         <label for="" class="form-label">title</label>
@@ -779,7 +779,7 @@ https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-
 
 <section class="sec_eve">
 
-    <h3>Section 11(Empowering Communities & the Planet)</h3>
+    <h3>Section 11({{$section?->sec11_title??"Empowering Communities & the Planet"}})</h3>
 
     <div class="row">
         <div class="row">
@@ -869,7 +869,7 @@ https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-
 <br><br><hr><br><br>
 <section class="sec_eve">
 
-    <h3>Section 13(Be a part of the change)</h3>
+    <h3>Section 13({{$section?->sec13_title??"Be a part of the change"}})</h3>
 
     <div class="row">
         <div class="col-12 mb-3">
@@ -941,7 +941,7 @@ https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-
 <br><br><hr><br><br>
 <section>
 
-    <h3>Section 14(Get in touch)</h3>
+    <h3>Section 14({{$section?->sec14_title??"Get in touch"}})</h3>
 
     <div class="row">
         <div class="col-12 mb-3">
