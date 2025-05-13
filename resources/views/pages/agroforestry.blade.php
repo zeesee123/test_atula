@@ -788,7 +788,9 @@ https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-
 
 </section>
 
-<button class="btn btn-primary">submit</button>
+<div class="text-end p-3" style="bottom:0;position:sticky;">
+  <button class="btn btn-lg btn-primary p-3"><i class="bi bi-floppy2-fill mx-2"></i>Save</button>
+</div>
 
 </form>
 
