@@ -13,7 +13,8 @@ use App\Http\Controllers\AgroforestrypageController;
 use App\Http\Controllers\EcoinitiativepageController;
 use App\Http\Controllers\ContractfarmingController;
 use App\Http\Controllers\TrainingpageController;
-
+use App\Http\Controllers\TestController;
+use App\Models\Testpage;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +32,15 @@ use App\Http\Controllers\TrainingpageController;
 // });
 
 //dashboard route
+
+
+Route::get('/testpage',function(){
+    $model=Testpage::first()??null;
+    return view('pages.testpage',compact('model'));});
+
+Route::get('/load_tables',[TestController::class,'loadtable']);
+
+Route::post('/test_submit',[TestController::class,'submit_pg']);
 
 Route::group(['prefix'=>'admin'],function(){
 
@@ -122,7 +132,7 @@ Route::group(['prefix'=>'admin'],function(){
         Route::post('/update_agroforestrysection/{sectionType}',[AgroforestrypageController::class,'update_resource']);
     
         Route::post('/remove_agroforestrysection/{sectionType}',[AgroforestrypageController::class,'delete_resource']);
-    
+    // riders of the storm
         //routes for businesspage
         Route::post('/add_businesspage',[BusinesspageController::class,'add_businesspage']);
     
