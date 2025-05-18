@@ -82,6 +82,7 @@ return new class extends Migration
             //why choose atulye krishi vana for papaya farming?
 
             $table->string('sec12title')->nullable();
+            $table->string('sec12image')->nullable();
             $table->string('sec12text')->nullable();
 
 

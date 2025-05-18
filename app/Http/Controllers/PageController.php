@@ -9,6 +9,9 @@ use App\Models\Businesspage;
 use Illuminate\Http\Request;
 use App\Models\Agroforestrypage;
 use App\Models\Ecoinitiativepage;
+use App\Models\Papaya;
+
+
 
 class PageController extends Controller
 {
@@ -103,5 +106,15 @@ class PageController extends Controller
       //   dd($section);
   
         return view('pages.fruitsnveggies',compact('section'));
+    }
+
+    public function papaya(){
+
+      $section=Papaya::first()??null;     
+      
+      //   dd($section);
+  
+        return view('pages.papaya',compact('section'));
+
     }
 }

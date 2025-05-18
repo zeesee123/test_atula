@@ -52,7 +52,7 @@ https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-
 
 
 
-<form action="{{url('/add_papaya')}}" method="POST" enctype="multipart/form-data">
+<form action="{{url('/admin/add_papaya')}}" method="POST" enctype="multipart/form-data">
 
     @if(session('success'))
 
@@ -553,7 +553,26 @@ with Atulye Krishi Vana)</h3>
 
     {{-- add in the multiple input fields for this  --}}
 
+
+
     <div class="row">
+
+      <div class="row">
+        <div class="mb-3 col-6">
+            <label for="" class="form-label">banner image</label>
+            <input type="file" class="form-control img_inpp" name="sec6image" >
+            
+        </div>
+        <div class="mb-3 col-2">
+            
+            <button type="button" class="btn btn-danger clear-btn" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="reset image"><i class="bi bi-arrow-clockwise"></i></button>
+        </div>
+        <div class="mb-3 col-4">
+            <img class="Thumbnail" src="{{ optional($section)->sec8image ? asset_env('images/'.$section->sec8image) : asset_env('images/default.jpg') }}"  width="400" alt="Default picture Thumbnail">
+            
+        </div>
+    </div>
+
         <div class="col-12 mb-3">
             <label for="" class="form-label">title</label>
             <input type="text" class="form-control" name="sec8title" value="{{$section->sec8title??''}}">
@@ -565,11 +584,193 @@ with Atulye Krishi Vana)</h3>
         </div>
         
 
-        <h5>points</h5>
+       
 
         
         
     </div>
+
+
+</section>
+
+<section>
+
+    <h3>Section 9(Pest and Disease Management)</h3>
+
+
+    <div class="row">
+
+      <div class="col-12 mb-3">
+        <label for="" class="form-label">title</label>
+        <input type="text" class="form-control" name="sec9title" value="{{$section->sec9title??''}}">
+        
+    </div>
+
+
+    <h5>images</h5>
+    <div class="" id="sec9_images">
+        <div class="mb-3 row">
+            
+            <div class="col-3">
+                <input type="file" placeholder="image" class="form-control" name="sec9imagel[]">
+            </div>
+            <div class="col-3">
+                <input type="text" placeholder="title" class="form-control" name="sec9titlel[]">
+            </div>
+            <div class="col-3">
+                <textarea class="form-control" name="sec9pointsl[]" cols="30" rows="5"></textarea>
+                
+            </div>
+            
+            <div class="col-3">
+                <button class="btn btn-primary" type="button" onclick="addsec9_images()">+</button>
+            </div>     
+        </div>
+    </div>
+
+    </div>
+    
+
+
+</section>
+
+<hr>
+<section>
+
+  <h3>Section 10(Papain Extraction – A Profitable By-Product)</h3>
+
+
+  <div class="row">
+
+    <div class="col-12 mb-3">
+      <label for="" class="form-label">title</label>
+      <input type="text" class="form-control" name="sec10title" value="{{$section->sec10title??''}}">
+      
+  </div>
+
+  <div class="col-12 mb-3">
+    <label for="" class="form-label">content</label>
+    <input type="text" class="form-control" name="sec10content" value="{{$section->sec10content??''}}">
+    
+</div>
+
+<div class="col-12 mb-3">
+  <label for="" class="form-label">additional text(extraction process)</label>
+  <input type="text" class="form-control" name="sec9title" value="{{$section->sec10addtext??''}}">
+  
+</div>
+
+
+  <h5>boxes</h5>
+  <div class="" id="sec10_images">
+      <div class="mb-3 row">
+          
+         
+          
+          <div class="col-3">
+              <textarea class="form-control" name="sec10pointsl[]" cols="30" rows="5"></textarea>
+              
+          </div>
+
+          <div class="col-3">
+            <input type="text" placeholder="link" class="form-control" name="sec10linkl[]">
+        </div>
+          
+          <div class="col-3">
+              <button class="btn btn-primary" type="button" onclick="addsec10_images()">+</button>
+          </div>     
+      </div>
+  </div>
+
+  </div>
+  
+
+
+</section>
+<hr>
+
+<section>
+
+  <h3>Section 11(Seed Technology for high germination)</h3>
+
+
+  <div class="row">
+
+    <div class="row">
+      <div class="mb-3 col-6">
+          <label for="" class="form-label">banner image</label>
+          <input type="file" class="form-control img_inpp" name="sec11image" >
+          
+      </div>
+      <div class="mb-3 col-2">
+          
+          <button type="button" class="btn btn-danger clear-btn" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="reset image"><i class="bi bi-arrow-clockwise"></i></button>
+      </div>
+      <div class="mb-3 col-4">
+          <img class="Thumbnail" src="{{ optional($section)->sec11image ? asset_env('images/'.$section->sec11image) : asset_env('images/default.jpg') }}"  width="400" alt="Default picture Thumbnail">
+          
+      </div>
+  </div>
+
+    <div class="col-12 mb-3">
+      <label for="" class="form-label">title</label>
+      <input type="text" class="form-control" name="sec11title" value="{{$section->sec10title??''}}">
+      
+  </div>
+
+  <div class="col-12 mb-3">
+    <label for="" class="form-label">content</label>
+    <textarea name="sec11text" id="" cols="30" rows="10" class="form-control">{{$section->sec11text??''}}</textarea>
+    
+    
+</div>
+
+
+
+  </div>
+  
+
+
+</section>
+
+<hr>
+
+<section>
+
+  <h3>Section 12(Why Choose Atulye Krishi Vana for Papaya Farming?)</h3>
+
+
+  <div class="row">
+
+    <div class="row">
+      <div class="mb-3 col-6">
+          <label for="" class="form-label">banner image</label>
+          <input type="file" class="form-control img_inpp" name="sec12image" >
+          
+      </div>
+      <div class="mb-3 col-2">
+          
+          <button type="button" class="btn btn-danger clear-btn" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="reset image"><i class="bi bi-arrow-clockwise"></i></button>
+      </div>
+      <div class="mb-3 col-4">
+          <img class="Thumbnail" src="{{ optional($section)->sec12image ? asset_env('images/'.$section->sec12image) : asset_env('images/default.jpg') }}"  width="400" alt="Default picture Thumbnail">
+          
+      </div>
+  </div>
+
+    
+
+  <div class="col-12 mb-3">
+    <label for="" class="form-label">content</label>
+    <textarea name="sec12text" id="" cols="30" rows="10" class="form-control">{{$section->sec12text??''}}</textarea>
+    
+    
+</div>
+
+
+
+  </div>
+  
 
 
 </section>

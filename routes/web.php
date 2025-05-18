@@ -1,20 +1,21 @@
 <?php
 
+use App\Models\Testpage;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\TestController;
+use App\Http\Controllers\PapayaController;
 use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\AboutpageController;
 use App\Http\Controllers\AgriventureController;
 use App\Http\Controllers\BusinesspageController;
+use App\Http\Controllers\TrainingpageController;
 use App\Http\Controllers\AgriventurepageController;
+use App\Http\Controllers\ContractfarmingController;
 use App\Http\Controllers\AgroforestrypageController;
 use App\Http\Controllers\EcoinitiativepageController;
-use App\Http\Controllers\ContractfarmingController;
-use App\Http\Controllers\TrainingpageController;
-use App\Http\Controllers\TestController;
-use App\Models\Testpage;
 
 /*
 |--------------------------------------------------------------------------
@@ -87,6 +88,7 @@ Route::group(['prefix'=>'admin'],function(){
     
         Route::get('/fruits-and-vegetables',[PageController::class,'fruitsNveggies']);
     
+        Route::get('/papaya',[PageController::class,'papaya']);
     
     
         //routes for homepage
@@ -177,6 +179,8 @@ Route::group(['prefix'=>'admin'],function(){
     
         Route::post('/remove_trainingndevsection/{sectionType}',[TrainingpageController::class,'delete_resource']);
     
+        //routes for papaya page
+        Route::post('/add_papaya',[PapayaController::class,'addpage']);
     });
     
 });
