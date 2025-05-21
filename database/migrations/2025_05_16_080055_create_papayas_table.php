@@ -54,6 +54,7 @@ return new class extends Migration
 
             //market demand and supply
             $table->string('sec7title')->nullable();
+            $table->json('sec7imagez')->nullable();
 
             //aftercare and maintainence
             $table->string('sec8title')->nullable();
@@ -72,7 +73,7 @@ return new class extends Migration
             $table->string('sec10content')->nullable();
             $table->string('sec10addtext')->nullable();//extraction process
 
-            $table->string('sec10imagez')->nullable();//boxes with view picture link
+            $table->json('sec10imagez')->nullable();//boxes with view picture link
 
             //seed technology for high germination
             $table->string('sec11title')->nullable();

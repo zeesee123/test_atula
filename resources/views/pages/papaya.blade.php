@@ -80,7 +80,7 @@ with Atulye Krishi Vana)</h3>
         <div class="mb-3 d-flex">
             <div class="mx-2">
                 <label for="" class="form-label">content</label>
-                 <textarea name="sec1text" id="" cols="30" rows="10">{{$section->sec1text??''}}</textarea>
+                 <textarea name="sec1text" id="" cols="30" rows="10" class="form-control">{{$section->sec1text??''}}</textarea>
             </div>
 
         </div>
@@ -209,7 +209,7 @@ with Atulye Krishi Vana)</h3>
 
     <div class="mb-3">
         <label for="" class="form-label">content</label>
-        <textarea name="sec3text" id="" cols="30" rows="10">{{$section->sec3text??''}}</textarea>
+        <textarea name="sec3text" id="" cols="30" rows="10" class="form-control">{{$section->sec3text??''}}</textarea>
  
         {{-- <textarea name="" id="" cols="30" rows="10" class="form-control"></textarea> --}}
     </div>
@@ -230,7 +230,7 @@ with Atulye Krishi Vana)</h3>
 
     <div class="mb-3">
         <label for="" class="form-label">points</label>
-        <textarea name="sec3points" id="" cols="30" rows="10">{{$section->sec3points??''}}</textarea>
+        <textarea name="sec3points" id="" cols="30" rows="10" class="form-control">{{$section->sec3points??''}}</textarea>
  
         {{-- <textarea name="" id="" cols="30" rows="10" class="form-control"></textarea> --}}
     </div>
@@ -496,11 +496,7 @@ with Atulye Krishi Vana)</h3>
             <input type="text" class="form-control" name="sec7title" value="{{$section->sec7title??''}}">
             
         </div>
-     
-    
-
-        
-    </div>
+     </div>
 
     <h5>points</h5>
     <div class="" id="sec7_images">
@@ -714,7 +710,7 @@ with Atulye Krishi Vana)</h3>
 
     <div class="col-12 mb-3">
       <label for="" class="form-label">title</label>
-      <input type="text" class="form-control" name="sec11title" value="{{$section->sec10title??''}}">
+      <input type="text" class="form-control" name="sec11title" value="{{$section->sec11title??''}}">
       
   </div>
 
@@ -812,19 +808,19 @@ https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-
 
     let x_token=document.querySelector("meta[name='csrf-token']").getAttribute('content');
 
-    let field1=document.getElementById('sec1_images');
+    let field1=document.getElementById('sec2_images');
+    let field2=document.getElementById('sec4_images');
+    let field3=document.getElementById('sec5_images');
+    let field4=document.getElementById('sec6_images');
+    let field5=document.getElementById('sec7_images');
+    let field6=document.getElementById('sec9_images');
+    let field7=document.getElementById('sec10_images');
 
-    let field2=document.getElementById('sec3_images');
-
-    let field3=document.getElementById('sec4_images');
-
-    let field4=document.getElementById('sec5_images');
-
-    let field5=document.getElementById('sec6_images');
+   
 
   
 
-    function addsec1_images(){
+    function addsec2_images(){
 
        
 
@@ -835,28 +831,26 @@ field1.insertAdjacentHTML('beforeend',`<div class="mb-3 row">
             <input type="file" placeholder="icon" class="form-control" name="icon_service[]">
         </div> --}}
        
-       <div class="col-3">
-                <input type="file" placeholder="add image" class="form-control" name="sec1imagel[]">
+<div class="col-3">
+                <input type="file" placeholder="papaya image" class="form-control" name="sec2imagel[]" >
             </div>
-    <div class="col-3">
-        <button class="btn btn-primary" type="button" onclick="addsec1_images()">+</button>
-        <button class="btn btn-danger" type="button" onclick="remove_input(this)">-</button>
-    </div></div>`);
-}
-
-
-function addsec3_images(){
-
-       
-
-
-field2.insertAdjacentHTML('beforeend',`<div class="mb-3 row">
-    
-   <div class="col-3">
-                <input type="file" placeholder="add image" class="form-control" name="sec3imagel[]">
+            
+            <div class="col-3">
+                
+              <input type="text" placeholder="name" class="form-control" name="sec2titlel[]">
+              
+                
             </div>
+
+            <div class="col-3">
+                
+              <textarea class="form-control" name="sec2textl[]" cols="30" rows="5"></textarea>
+                
+            </div>
+            
+        
     <div class="col-3">
-        <button class="btn btn-primary" type="button" onclick="addsec3_images()">+</button>
+        <button class="btn btn-primary" type="button" onclick="addsec2_images()">+</button>
         <button class="btn btn-danger" type="button" onclick="remove_input(this)">-</button>
     </div></div>`);
 }
@@ -867,16 +861,16 @@ function addsec4_images(){
        
 
 
-field3.insertAdjacentHTML('beforeend',`<div class="mb-3 row">
+field2.insertAdjacentHTML('beforeend',`<div class="mb-3 row">
     
-     <div class="col-3">
-                <input type="file" placeholder="logo" class="form-control" name="sec4imagel[]">
+   <div class="col-3">
+                <input type="file" placeholder="image" class="form-control" name="sec4imagel[]">
             </div>
             <div class="col-3">
                 <input type="text" placeholder="title" class="form-control" name="sec4titlel[]">
             </div>
             <div class="col-3">
-                <textarea class="form-control" name="sec4textl[]" cols="30" rows="5"></textarea>
+                <textarea class="form-control" name="sec4pointsl[]" cols="30" rows="5"></textarea>
                 
             </div>
     <div class="col-3">
@@ -885,26 +879,22 @@ field3.insertAdjacentHTML('beforeend',`<div class="mb-3 row">
     </div></div>`);
 }
 
+
 function addsec5_images(){
 
        
 
 
-field4.insertAdjacentHTML('beforeend',`<div class="mb-3 row">
+field3.insertAdjacentHTML('beforeend',`<div class="mb-3 row">
     
      <div class="col-3">
-                <input type="text" placeholder="title" class="form-control" name="sec5titlel[]">
-            </div>
-            
-            <div class="col-3">
-                <textarea class="form-control" name="sec5textl[]" cols="30" rows="5"></textarea>
-                
-            </div>
+                      <textarea name="" id="" cols="30" rows="10" class="form-control" name="sec5textl"></textarea>
+                        
+                    </div>
     <div class="col-3">
         <button class="btn btn-primary" type="button" onclick="addsec5_images()">+</button>
         <button class="btn btn-danger" type="button" onclick="remove_input(this)">-</button>
-    </div></div>`);
-}
+    </div></div>`);}
 
 
 function addsec6_images(){
@@ -912,18 +902,86 @@ function addsec6_images(){
        
 
 
-field5.insertAdjacentHTML('beforeend',`<div class="mb-3 row">
+field4.insertAdjacentHTML('beforeend',`<div class="mb-3 row">
     
      <div class="col-3">
-                <input type="file" placeholder="logo" class="form-control" name="sec6imagel[]">
-            </div>
-            <div class="col-3">
                 <input type="text" placeholder="title" class="form-control" name="sec6titlel[]">
             </div>
             <div class="col-3">
-                <textarea class="form-control" name="sec6textl[]" cols="30" rows="5"></textarea>
+                <textarea class="form-control" name="sec6pointsl[]" cols="30" rows="5"></textarea>
                 
             </div>
+    <div class="col-3">
+        <button class="btn btn-primary" type="button" onclick="addsec6_images()">+</button>
+        <button class="btn btn-danger" type="button" onclick="remove_input(this)">-</button>
+    </div></div>`);
+}
+
+
+function addsec7_images(){
+
+       
+
+
+field5.insertAdjacentHTML('beforeend',`<div class="mb-3 row">
+    
+<div class="col-3">
+                <input type="file" placeholder="image" class="form-control" name="sec7imagel[]">
+            </div>
+            <div class="col-3">
+                <input type="text" placeholder="title" class="form-control" name="sec7titlel[]">
+            </div>
+            <div class="col-3">
+                <textarea class="form-control" name="sec7pointsl[]" cols="30" rows="5"></textarea>
+                
+            </div>
+    <div class="col-3">
+        <button class="btn btn-primary" type="button" onclick="addsec7_images()">+</button>
+        <button class="btn btn-danger" type="button" onclick="remove_input(this)">-</button>
+    </div></div>`);
+}
+
+
+
+function addsec9_images(){
+
+       
+
+
+field6.insertAdjacentHTML('beforeend',`<div class="mb-3 row">
+    
+     <div class="col-3">
+                <input type="file" placeholder="image" class="form-control" name="sec9imagel[]">
+            </div>
+            <div class="col-3">
+                <input type="text" placeholder="title" class="form-control" name="sec9titlel[]">
+            </div>
+            <div class="col-3">
+                <textarea class="form-control" name="sec9pointsl[]" cols="30" rows="5"></textarea>
+                
+            </div>
+    <div class="col-3">
+        <button class="btn btn-primary" type="button" onclick="addsec9_images()">+</button>
+        <button class="btn btn-danger" type="button" onclick="remove_input(this)">-</button>
+    </div></div>`);
+}
+
+
+function addsec10_images(){
+
+       
+
+
+field7.insertAdjacentHTML('beforeend',`<div class="mb-3 row">
+    
+     <div class="col-3">
+              <textarea class="form-control" name="sec10pointsl[]" cols="30" rows="5"></textarea>
+              
+          </div>
+
+          <div class="col-3">
+            <input type="text" placeholder="link" class="form-control" name="sec10linkl[]">
+        </div>
     <div class="col-3">
         <button class="btn btn-primary" type="button" onclick="addsec6_images()">+</button>
         <button class="btn btn-danger" type="button" onclick="remove_input(this)">-</button>
