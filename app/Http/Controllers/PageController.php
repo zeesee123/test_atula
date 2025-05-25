@@ -117,4 +117,12 @@ class PageController extends Controller
         return view('pages.papaya',compact('section'));
 
     }
+
+
+    public function listusers(){
+
+      return view('pages.users');
+
+
+    }
 }

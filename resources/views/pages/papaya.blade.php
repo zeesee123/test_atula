@@ -77,7 +77,10 @@ with Atulye Krishi Vana)</h3>
         </div>
 
 
-        <div class="mb-3 d-flex">
+        
+        <div class="row">
+
+          <div class="mb-3">
             <div class="mx-2">
                 <label for="" class="form-label">content</label>
                  <textarea name="sec1text" id="" cols="30" rows="10" class="form-control">{{$section->sec1text??''}}</textarea>
@@ -85,13 +88,13 @@ with Atulye Krishi Vana)</h3>
 
         </div>
 
-        <div class="row">
+
             <div class="mb-3 col-6">
                 <label for="" class="form-label">banner image</label>
                 <input type="file" class="form-control img_inpp" name="sec1image">
                 
             </div>
-            <div class="mb-3 col-2">
+            <div class="mb-3 col-2 pt-4">
                 
                 <button type="button" class="btn btn-danger clear-btn" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="reset image"><i class="bi bi-arrow-clockwise"></i></button>
             </div>
@@ -155,7 +158,7 @@ with Atulye Krishi Vana)</h3>
 
             <div class="col-3">
                 
-              <textarea class="form-control" name="sec2textl[]" cols="30" rows="5"></textarea>
+              <textarea class="form-control" name="sec2pointsl[]" cols="30" rows="5"></textarea>
                 
             </div>
             
@@ -242,7 +245,7 @@ with Atulye Krishi Vana)</h3>
                 <input type="file" class="form-control img_inpp" name="sec3image">
                 
             </div>
-            <div class="mb-3 col-2">
+            <div class="mb-3 col-2 pt-4">
                 
                 <button type="button" class="btn btn-danger clear-btn" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="reset image"><i class="bi bi-arrow-clockwise"></i></button>
             </div>
@@ -432,7 +435,7 @@ with Atulye Krishi Vana)</h3>
             <input type="file" class="form-control img_inpp" name="sec6image" >
             
         </div>
-        <div class="mb-3 col-2">
+        <div class="mb-3 col-2 pt-4">
             
             <button type="button" class="btn btn-danger clear-btn" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="reset image"><i class="bi bi-arrow-clockwise"></i></button>
         </div>
@@ -559,7 +562,7 @@ with Atulye Krishi Vana)</h3>
             <input type="file" class="form-control img_inpp" name="sec6image" >
             
         </div>
-        <div class="mb-3 col-2">
+        <div class="mb-3 col-2 pt-4">
             
             <button type="button" class="btn btn-danger clear-btn" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="reset image"><i class="bi bi-arrow-clockwise"></i></button>
         </div>
@@ -698,7 +701,7 @@ with Atulye Krishi Vana)</h3>
           <input type="file" class="form-control img_inpp" name="sec11image" >
           
       </div>
-      <div class="mb-3 col-2">
+      <div class="mb-3 col-2 pt-4">
           
           <button type="button" class="btn btn-danger clear-btn" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="reset image"><i class="bi bi-arrow-clockwise"></i></button>
       </div>
@@ -744,7 +747,7 @@ with Atulye Krishi Vana)</h3>
           <input type="file" class="form-control img_inpp" name="sec12image" >
           
       </div>
-      <div class="mb-3 col-2">
+      <div class="mb-3 col-2 pt-4">
           
           <button type="button" class="btn btn-danger clear-btn" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="reset image"><i class="bi bi-arrow-clockwise"></i></button>
       </div>
@@ -844,7 +847,7 @@ field1.insertAdjacentHTML('beforeend',`<div class="mb-3 row">
 
             <div class="col-3">
                 
-              <textarea class="form-control" name="sec2textl[]" cols="30" rows="5"></textarea>
+              <textarea class="form-control" name="sec2pointsl[]" cols="30" rows="5"></textarea>
                 
             </div>
             
@@ -1111,12 +1114,12 @@ imageInputs.forEach((input, index) => {
 
 // datatable part
 
-var table1=$('#whatwedo_table').DataTable({
-              ajax:"{{url('/hometable/section3')}}",
+var table1=$('#sec2_table').DataTable({
+              ajax:"{{url('admin/papayatable/section2')}}",
               processing:true,
               columns:[
                 {"data":"id"},
-                {"data":"image"},
+                {"data":"title"},
                 // {"data":"description"},
                 {"data":"actions"}],
               order:[],
@@ -1588,16 +1591,14 @@ var table1=$('#whatwedo_table').DataTable({
   //mapping section tables
 
   const tableMap = {
-    "section3": table1,
+    "section2": table1,
     "section4": table2,
     "section5": table3,
     "section6": table4,
     "section7": table5,
-    "section8": table6,
-    "section9": table7,
-    "section10": table8,
-    "section12": table9,
-    "section13": table10
+    "section9": table6,
+    "section10": table7,
+    
 };
 
 
@@ -1637,7 +1638,7 @@ function reloadTable(sectionName) {
 
   //  type in loading for loading in the resource..
 
-  let fet=await fetch(`{{url('/')}}/get_resource/${type}/${id}`);
+  let fet=await fetch(`{{url('/admin')}}/get_resource_papaya/${type}/${id}`);
   
   let res=await fet.json();
 
@@ -1661,7 +1662,7 @@ function reloadTable(sectionName) {
 
     switch(type){
 
-case "section3":
+case "section2":
   content=`<form id="dynForm">
     <div class="mb-3">
       <label for="" class="form-label">Image</label>
@@ -1683,7 +1684,7 @@ case "section4":
       <input type="hidden" value="${id}" name="id">
       <button class="btn btn-success" id="update_btnmod" >Update</button>
       </form>`;
-break;
+break;d
 case "section5":
 content=`<form id="dynForm">
     <div class="mb-3">
@@ -1739,7 +1740,7 @@ content=`<form id="dynForm">
       img=true;
       imglink=`{{url('/')}}/homepage/${res.sectionData.sec7_simg}`;
 break;
-case "section8":
+case "section9":
 content=`<form id="dynForm">
     <div class="mb-3">
       <label for="" class="form-label">Image</label>
@@ -1760,7 +1761,7 @@ content=`<form id="dynForm">
       img=true;
       imglink=`{{url('/')}}/homepage/${res.sectionData.sec8_slogo}`;
 break;
-case "section9":
+case "section10":
 content=`<form id="dynForm">
     <div class="mb-3">
       <label for="" class="form-label">Image</label>
@@ -1772,75 +1773,13 @@ content=`<form id="dynForm">
       <textarea class="form-control" rows="5" name="sec9_scontent">${res.sectionData.sec9_scontent}</textarea>
       </div>
       <input type="hidden" value="${id}" name="id">
-      
+      d
       <button class="btn btn-success" id="update_btnmod" >Update</button>
       </form>`;
       img=true;
       imglink=`{{url('/')}}/homepage/${res.sectionData.sec9_simg}`;
 break;
-case "section10":
-content=`<form id="dynForm">
-  <div class="mb-3">
-      <label for="" class="form-label">Title</label>
-      <input class="form-control" type="text" name="sec10_stitle" value="${res.sectionData.sec10_stitle}">
-      </div>
-    <div class="mb-3">
-      <label for="" class="form-label">Image</label>
-      <input class="form-control filepond" type="file">
-      </div>
-    
-      <div class="mb-3">
-      <label for="" class="form-label">Content</label>
-      <textarea class="form-control" rows="5" name="sec10_scontent">${res.sectionData.sec10_scontent}</textarea>
-      </div>
-      <input type="hidden" value="${id}" name="id">
-      
-      <button class="btn btn-success"  id="update_btnmod">Update</button>
-      </form>`;
-      img=true;
-      imglink=`{{url('/')}}/homepage/${res.sectionData.sec10_simg}`;
 
-  
-break;
-case "section12":
-content=`<form id="dynForm">
-  
-    
-      <div class="mb-3">
-      <label for="" class="form-label">Content</label>
-      <textarea class="form-control" rows="5" name="sec12_scontent">${res.sectionData.sec12_scontent??''}</textarea>
-      </div>
-      <input type="hidden" value="${id}" name="id">
-      
-      <button class="btn btn-success"  id="update_btnmod" >Update</button>
-      </form>`;
-
-
-break;
-case "section13":
-content=`<form id="dynForm">
-  
-    <div class="mb-3">
-      <label for="" class="form-label">Image</label>
-      <input class="form-control filepond" type="file" name="id">
-      </div>
-    
-      <div class="mb-3">
-      <label for="" class="form-label">Content</label>
-      <textarea class="form-control" rows="5" name="sec13_scontent">${res.sectionData.sec13_scontent}</textarea>
-      </div>
-
-      <div class="mb-3">
-      <label for="" class="form-label">Link</label>
-      <input class="form-control" type="text" value="${res.sectionData.sec13_slink}" name="sec13_slink">
-      </div>
-      <input type="hidden" value="${id}" name="id">
-      
-      <button class="btn btn-success" id="update_btnmod" >Update</button>
-      </form>`;
-      img=true;
-      imglink=`{{url('/')}}/homepage/${res.sectionData.image}`;
-break;
 default:
 content=`utc`;
   break;
