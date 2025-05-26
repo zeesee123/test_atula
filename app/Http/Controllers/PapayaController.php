@@ -43,6 +43,7 @@ class PapayaController extends Controller
                    $img->move(public_path($path),$name);
     
                    $sec2js[]=['id'=>$key,'image'=>$name,'title'=>$sec2if2[$key],'points'=>$sec2if3[$key]];
+                
                 }else{
     
                     return back()->with('error','you missed a field value in Section 2 images ');
