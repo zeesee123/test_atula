@@ -1691,42 +1691,33 @@ case "section4":
       </div>
       <div class="mb-3">
       <label for="" class="form-label">Title</label>
-      <input class="form-control" type="text" value="${res.sectionData.title}" name="sec5_stitle">
+      <input class="form-control" type="text" value="${res.sectionData.title}" name="title">
       </div>
       <div class="mb-3">
       <label for="" class="form-label">Content</label>
-      <textarea class="form-control" rows="5" name="sec5_scontent">${res.sectionData.points}</textarea>
+      <textarea class="form-control" rows="5" name="points">${res.sectionData.points}</textarea>
       </div>
       <input type="hidden" value="${id}" name="id">   
       <button class="btn btn-success" id="update_btnmod" >Update</button>
       </form>`;
-break;d
+break;
 case "section5":
 content=`<form id="dynForm">
-    <div class="mb-3">
-      <label for="" class="form-label">Image</label>
-      <input class="form-control filepond" type="file" >
-      </div>
-      <div class="mb-3">
-      <label for="" class="form-label">Title</label>
-      <input class="form-control" type="text" value="${res.sectionData.sec5_stitle}" name="sec5_stitle">
-      </div>
+    
+    
       <div class="mb-3">
       <label for="" class="form-label">Content</label>
       <textarea class="form-control" rows="5" name="sec5_scontent">${res.sectionData.sec5_scontent}</textarea>
       </div>
       <input type="hidden" value="${id}" name="id">
-      <button class="btn btn-success" id="update_btnmod" >Update</button>
+      <button class="btn btn-success" id="update_btnmod">Update</button>
       </form>`;
       img=true;
       imglink=`{{url('/')}}/homepage/${res.sectionData.sec5_img}`;
 break;
 case "section6":
 content=`<form id="dynForm">
-    <div class="mb-3">
-      <label for="" class="form-label">Year</label>
-      <input class="form-control" type="text" value="${res.sectionData.sec6year}" name="sec6year">
-      </div>
+    
       <div class="mb-3">
       <label for="" class="form-label">Title</label>
       <input class="form-control" type="text" value="${res.sectionData.sec6stitle}" name="sec6stitle">
@@ -1743,15 +1734,19 @@ case "section7":
 content=`<form id="dynForm">
     <div class="mb-3">
       <label for="" class="form-label">Image</label>
-      <input class="form-control filepond" type="file">
+      <input class="form-control filepond" type="file" >
       </div>
-    
+      <div class="mb-3">
+      <label for="" class="form-label">Title</label>
+      <input class="form-control" type="text" value="${res.sectionData.title}" name="title">
+      </div>
       <div class="mb-3">
       <label for="" class="form-label">Content</label>
-      <textarea class="form-control" rows="5" name="sec7_scontent">${res.sectionData.sec7_scontent}</textarea>
+      <textarea class="form-control" rows="5" name="points">${res.sectionData.points}</textarea>
       </div>
       <input type="hidden" value="${id}" name="id">
-      <button class="btn btn-success"  id="update_btnmod">Update</button>
+      <button class="btn btn-success" id="update_btnmod">Update</button>
+      
       </form>`;
       img=true;
       imglink=`{{url('/')}}/homepage/${res.sectionData.sec7_simg}`;
@@ -1760,37 +1755,37 @@ case "section9":
 content=`<form id="dynForm">
     <div class="mb-3">
       <label for="" class="form-label">Image</label>
-      <input class="form-control filepond" type="file">
+      <input class="form-control filepond" type="file" >
       </div>
-    
+      <div class="mb-3">
+      <label for="" class="form-label">Title</label>
+      <input class="form-control" type="text" value="${res.sectionData.title}" name="title">
+      </div>
       <div class="mb-3">
       <label for="" class="form-label">Content</label>
-      <textarea class="form-control" rows="5" name="sec8_scontent">${res.sectionData.sec8_scontent}</textarea>
-      </div>
-      <div class="mb-3">
-      <label for="" class="form-label">Link</label>
-      <input class="form-control" type="text" value="${res.sectionData.sec8_slink}" name="sec8_slink">
+      <textarea class="form-control" rows="5" name="points">${res.sectionData.points}</textarea>
       </div>
       <input type="hidden" value="${id}" name="id">
-      <button class="btn btn-success"  id="update_btnmod">Update</button>
+      <button class="btn btn-success" id="update_btnmod">Update</button>
+      
       </form>`;
       img=true;
       imglink=`{{url('/')}}/homepage/${res.sectionData.sec8_slogo}`;
 break;
 case "section10":
 content=`<form id="dynForm">
-    <div class="mb-3">
-      <label for="" class="form-label">Image</label>
-      <input class="form-control filepond" type="file">
-      </div>
     
       <div class="mb-3">
+      <label for="" class="form-label">Title</label>
+      <input class="form-control" type="text" value="${res.sectionData.title}" name="title">
+      </div>
+      <div class="mb-3">
       <label for="" class="form-label">Content</label>
-      <textarea class="form-control" rows="5" name="sec9_scontent">${res.sectionData.sec9_scontent}</textarea>
+      <textarea class="form-control" rows="5" name="points">${res.sectionData.points}</textarea>
       </div>
       <input type="hidden" value="${id}" name="id">
-      d
-      <button class="btn btn-success" id="update_btnmod" >Update</button>
+      <button class="btn btn-success" id="update_btnmod">Update</button>
+      
       </form>`;
       img=true;
       imglink=`{{url('/')}}/homepage/${res.sectionData.sec9_simg}`;
