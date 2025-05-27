@@ -1670,11 +1670,11 @@ case "section2":
       </div>
       <div class="mb-3">
       <label for="" class="form-label">Title</label>
-      <input class="form-control" type="text" value="${res.sectionData.title}" name="sec5_stitle">
+      <input class="form-control" type="text" value="${res.sectionData.title}" name="title">
       </div>
       <div class="mb-3">
       <label for="" class="form-label">Content</label>
-      <textarea class="form-control" rows="5" name="sec5_scontent">${res.sectionData.points}</textarea>
+      <textarea class="form-control" rows="5" name="points">${res.sectionData.points}</textarea>
       </div>
       <input type="hidden" value="${id}" name="id">
       <button class="btn btn-success" id="update_btnmod">Update</button>
@@ -1859,7 +1859,7 @@ console.log('file is not there');
       }
       
 
-      let fetchf=await fetch(`{{url('/update_homesection')}}/${type}`,{method:'POST',headers:{'X-CSRF-TOKEN':x_token},body:data})
+      let fetchf=await fetch(`{{url('/admin/update_papayasection')}}/${type}`,{method:'POST',headers:{'X-CSRF-TOKEN':x_token},body:data})
       
 
       let resf=await fetchf.json();

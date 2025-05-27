@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 use App\Models\Papaya;
-
+use Exception;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Request;
 
 class PapayaController extends Controller
@@ -64,6 +66,8 @@ class PapayaController extends Controller
         $model->sec4title = $r->sec4title;
 
         //section 4 images
+
+    
 
         $sec4if1=$r->file('sec4imagel');
         $sec4if2=$r->input('sec4titlel');
@@ -565,4 +569,132 @@ class PapayaController extends Controller
  
         return response()->json(['status'=>'success','sectionData'=>$sectionData]);
     }
+
+public function update_resource($sectionType, Request $request)
+{
+    try {
+
+        // dd($request);
+        // Validate ID
+        $validatedRequest = $request->validate([
+            'id' => 'required|integer|min:1',
+        ]);
+
+        $id = $validatedRequest['id'];
+
+        // Validation rules for each section
+        $validationRules = [
+            'section2' => ['image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048', 'title' => 'nullable|string', 'points' => 'nullable|string'],
+            'section4' => ['sec4_text' => 'nullable|string'],
+            'section5' => ['sec5_stitle' => 'nullable|string', 'sec5_scontent' => 'nullable|string', 'sec5_img' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048'],
+            'section6' => ['sec6year' => 'nullable|string', 'sec6stitle' => 'nullable|string', 'sec6scontent' => 'nullable|string'],
+            'section7' => ['sec7_scontent' => 'nullable|string', 'sec7_simg' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048'],
+            'section8' => ['sec8_scontent' => 'nullable|string', 'sec8_slink' => 'nullable|string', 'sec8_slogo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048'],
+            'section9' => ['sec9_scontent' => 'nullable|string', 'sec9_simg' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048'],
+            'section10' => ['sec10_stitle' => 'nullable|string', 'sec10_scontent' => 'nullable|string', 'sec10_simg' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048'],
+            'section12' => ['sec12_scontent' => 'nullable|string'],
+            'section13' => ['sec13_scontent' => 'nullable|string', 'sec13_slink' => 'nullable|string', 'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048'],
+        ];
+
+        // Image fields for each section
+        $imageFields = [
+            'section2' => 'image',
+            'section5' => 'sec5_img',
+            'section7' => 'sec7_simg',
+            'section8' => 'sec8_slogo',
+            'section9' => 'sec9_simg',
+            'section10' => 'sec10_simg',
+            'section13' => 'image',
+        ];
+
+        $validatedData = $request->validate($validationRules[$sectionType] ?? []);
+
+        // Get Papaya model
+        $papaya = Papaya::first();
+
+        if (!$papaya) {
+            return response()->json(['error' => 'Papaya entry not found'], 404);
+        }
+
+        // JSON fields in DB
+        $jsonFieldMap = [
+            'section2' => 'sec2imagez',
+            'section4' => 'sec4imagez',
+            'section5' => 'sec5imagez',
+            'section6' => 'sec6imagez',
+            'section7' => 'sec7imagez',
+            'section8' => 'sec8imagez',
+            'section9' => 'sec9imagez',
+            'section10' => 'sec10imagez',
+            'section12' => 'sec12imagez',
+            'section13' => 'sec13imagez',
+        ];
+
+        $jsonField = $jsonFieldMap[$sectionType] ?? null;
+
+        if (!$jsonField) {
+            return response()->json(['error' => 'Invalid section type'], 400);
+        }
+
+        $data = $papaya->$jsonField ?? [];
+
+        // Find item by ID
+        $updated = false;
+        foreach ($data as &$item) {
+        
+            
+            if ((int) $item['id'] === (int)$id) {
+
+                // dump('item before update');
+                // dump($item);
+                // dd($item);
+                // Handle image
+                $imageField = $imageFields[$sectionType] ?? null;
+                if ($imageField && $request->hasFile('image')) {
+                    $image = $request->file('image');
+                    $imageName = $image->hashName();
+
+                    // Delete old image
+                    if (!empty($item[$imageField]) && File::exists(public_path('images/' . $item[$imageField]))) {
+                        File::delete(public_path('images/' . $item[$imageField]));
+                    }
+
+                    $image->move(public_path('images/'), $imageName);
+                    $item[$imageField] = $imageName;
+                }
+
+                // Update other fields
+                foreach ($validatedData as $key => $value) {
+                    
+                    if ($key !== 'image') {
+                        
+                        $item[$key] = $value;
+                    }
+                }
+
+                // dump('item after update');
+                // dump($item);
+
+                $updated = true;
+                break;
+            }
+        }
+
+        if (!$updated) {
+            return response()->json(['error' => 'Item not found'], 404);
+        }
+
+        // Save updated array
+        $papaya->$jsonField = $data;
+        // dump('this is the value that i updated just now');
+        // dump($papaya->$jsonField);
+        $papaya->save();
+
+        return response()->json(['message' => 'Item updated successfully', 'status' => 'success'], 200);
+
+    } catch (\Exception $e) {
+        return response()->json(['error' => $e->getMessage()], 500);
+    }
+}
+
 }

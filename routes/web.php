@@ -183,6 +183,7 @@ Route::group(['prefix'=>'admin'],function(){
         Route::post('/add_papaya',[PapayaController::class,'addpage']);
         Route::get('/papayatable/{section}',[PapayaController::class,'loadtable']);
         Route::get('/get_resource_papaya/{type}/{id}',[PapayaController::class,'get_resource']);
+        Route::post('/update_papayasection/{sectionType}',[PapayaController::class,'update_resource']);
 
         //users table
         Route::get('/users',[PageController::class,'listusers']);
