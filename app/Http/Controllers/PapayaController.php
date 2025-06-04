@@ -344,20 +344,27 @@ class PapayaController extends Controller
            
             case "section4":
 
-                $content=HomepageSection4::all();
+                $content=Papaya::first()->sec4imagez;
     
-                $count=$content->count();
+                
 
-                // dd($content);
+                if(is_string($content)){
+                    $content=json_decode($content);
+                }
+
+                                $count=count($content);
+
+                $data=[];
+    
     
             
             foreach($content as $cl){
     
               $serv_ind=[
                   'id'=>$c++,
-                  'text'=>$cl->sec4_text,
-                  'actions'=>'<button type="button" class="btn btn-success editer" data-id="'.$cl->id.'" data-type="section4" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-pencil-square mx-1"></i>
-    EDIT</button><button type="button" data-type="section4" class="btn btn-danger mx-1 eradicator" data-id="'.$cl->id.'" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-trash3-fill mx-1"></i>
+                  'title'=>$cl['title'],
+                  'actions'=>'<button type="button" class="btn btn-success editer" data-id="'.($cl['id']??'').'" data-type="section2" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-pencil-square mx-1"></i>
+    EDIT</button><button type="button" data-type="section2" class="btn btn-danger mx-1 eradicator" data-id="'.($cl['id']??'').'" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-trash3-fill mx-1"></i>
     DELETE</button>'
               ];
     
@@ -371,19 +378,27 @@ class PapayaController extends Controller
 
             case "section5":
 
-                $content=HomepageSection5::all();
+                   $content=Papaya::first()->sec5imagez;
     
-                $count=$content->count();
+                
+
+                if(is_string($content)){
+                    $content=json_decode($content);
+                }
+
+                                $count=count($content);
+
+                $data=[];
+    
     
             
             foreach($content as $cl){
     
               $serv_ind=[
                   'id'=>$c++,
-                  'image'=>'<img src="'.asset('homepage/'.$cl->sec5_img).'" style="width: 100px; height: auto; object-fit: contain;">',
-                  'title'=>$cl->sec5_stitle,
-                  'actions'=>'<button type="button" class="btn btn-success editer" data-id="'.$cl->id.'" data-type="section5" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-pencil-square mx-1"></i>
-    EDIT</button><button type="button" data-type="section5" class="btn btn-danger mx-1 eradicator" data-id="'.$cl->id.'" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-trash3-fill mx-1"></i>
+                  'title'=>$cl['title'],
+                  'actions'=>'<button type="button" class="btn btn-success editer" data-id="'.($cl['id']??'').'" data-type="section2" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-pencil-square mx-1"></i>
+    EDIT</button><button type="button" data-type="section2" class="btn btn-danger mx-1 eradicator" data-id="'.($cl['id']??'').'" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-trash3-fill mx-1"></i>
     DELETE</button>'
               ];
     
@@ -397,19 +412,27 @@ class PapayaController extends Controller
 
             case "section6":
 
-                $content=HomepageSection6::all();
+                $content=Papaya::first()->sec6imagez;
     
-                $count=$content->count();
+                
+
+                if(is_string($content)){
+                    $content=json_decode($content);
+                }
+
+                                $count=count($content);
+
+                $data=[];
+    
     
             
             foreach($content as $cl){
     
               $serv_ind=[
                   'id'=>$c++,
-                  'year'=>$cl->sec6year,
-                  'title'=>$cl->sec6stitle,
-                  'actions'=>'<button type="button" class="btn btn-success editer" data-id="'.$cl->id.'" data-type="section6" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-pencil-square mx-1"></i>
-    EDIT</button><button type="button" data-type="section6" class="btn btn-danger mx-1 eradicator" data-id="'.$cl->id.'" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-trash3-fill mx-1"></i>
+                  'title'=>$cl['title'],
+                  'actions'=>'<button type="button" class="btn btn-success editer" data-id="'.($cl['id']??'').'" data-type="section2" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-pencil-square mx-1"></i>
+    EDIT</button><button type="button" data-type="section2" class="btn btn-danger mx-1 eradicator" data-id="'.($cl['id']??'').'" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-trash3-fill mx-1"></i>
     DELETE</button>'
               ];
     
@@ -417,23 +440,31 @@ class PapayaController extends Controller
     
     
             }
-
             break;
 
             case "section7":
 
-                $content=HomepageSection7::all();
+                $content=Papaya::first()->sec7imagez;
     
-                $count=$content->count();
+                
+
+                if(is_string($content)){
+                    $content=json_decode($content);
+                }
+
+                                $count=count($content);
+
+                $data=[];
+    
     
             
             foreach($content as $cl){
     
               $serv_ind=[
                   'id'=>$c++,
-                  'image'=>'<img src="'.asset('homepage/'.$cl->sec7_simg).'" style="width: 100px; height: auto; object-fit: contain;">',
-                  'actions'=>'<button type="button" class="btn btn-success editer" data-id="'.$cl->id.'" data-type="section7" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-pencil-square mx-1"></i>
-    EDIT</button><button type="button" data-type="section7" class="btn btn-danger mx-1 eradicator" data-id="'.$cl->id.'" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-trash3-fill mx-1"></i>
+                  'title'=>$cl['title'],
+                  'actions'=>'<button type="button" class="btn btn-success editer" data-id="'.($cl['id']??'').'" data-type="section2" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-pencil-square mx-1"></i>
+    EDIT</button><button type="button" data-type="section2" class="btn btn-danger mx-1 eradicator" data-id="'.($cl['id']??'').'" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-trash3-fill mx-1"></i>
     DELETE</button>'
               ];
     
@@ -441,25 +472,31 @@ class PapayaController extends Controller
     
     
             }
-
             break;
 
             case "section9":
 
-                $content=HomepageSection8::all();
+                $content=Papaya::first()->sec9imagez;
     
-                $count=$content->count();
+                
+
+                if(is_string($content)){
+                    $content=json_decode($content);
+                }
+
+                                $count=count($content);
+
+                $data=[];
+    
     
             
             foreach($content as $cl){
     
               $serv_ind=[
                   'id'=>$c++,
-                  'logo'=>'<img src="'.asset('homepage/'.$cl->sec8_slogo).'" style="width: 100px; height: auto; object-fit: contain;">',
-                  'content'=>$cl->sec8_scontent,
-                  'link'=>$cl->sec8_slink,
-                  'actions'=>'<button type="button" class="btn btn-success editer" data-id="'.$cl->id.'" data-type="section8" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-pencil-square mx-1"></i>
-    EDIT</button><button type="button" data-type="section8" class="btn btn-danger mx-1 eradicator" data-id="'.$cl->id.'" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-trash3-fill mx-1"></i>
+                  'title'=>$cl['title'],
+                  'actions'=>'<button type="button" class="btn btn-success editer" data-id="'.($cl['id']??'').'" data-type="section2" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-pencil-square mx-1"></i>
+    EDIT</button><button type="button" data-type="section2" class="btn btn-danger mx-1 eradicator" data-id="'.($cl['id']??'').'" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-trash3-fill mx-1"></i>
     DELETE</button>'
               ];
     
@@ -472,19 +509,27 @@ class PapayaController extends Controller
 
             case "section10":
 
-                $content=HomepageSection9::all();
+                $content=Papaya::first()->sec10imagez;
     
-                $count=$content->count();
+                
+
+                if(is_string($content)){
+                    $content=json_decode($content);
+                }
+
+                                $count=count($content);
+
+                $data=[];
+    
     
             
             foreach($content as $cl){
     
               $serv_ind=[
                   'id'=>$c++,
-                  'image'=>'<img src="'.asset('homepage/'.$cl->sec9_simg).'" style="width: 100px; height: auto; object-fit: contain;">',
-                  'content'=>$cl->sec9_scontent,
-                  'actions'=>'<button type="button" class="btn btn-success editer" data-id="'.$cl->id.'" data-type="section9" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-pencil-square mx-1"></i>
-    EDIT</button><button type="button" data-type="section9" class="btn btn-danger mx-1 eradicator" data-id="'.$cl->id.'" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-trash3-fill mx-1"></i>
+                  'title'=>$cl['title'],
+                  'actions'=>'<button type="button" class="btn btn-success editer" data-id="'.($cl['id']??'').'" data-type="section2" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-pencil-square mx-1"></i>
+    EDIT</button><button type="button" data-type="section2" class="btn btn-danger mx-1 eradicator" data-id="'.($cl['id']??'').'" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-trash3-fill mx-1"></i>
     DELETE</button>'
               ];
     
@@ -492,7 +537,6 @@ class PapayaController extends Controller
     
     
             }
-
             break;
 
             
