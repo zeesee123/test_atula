@@ -13,7 +13,7 @@ class PapayaController extends Controller
 
     public function addpage(Request $r){
 
-        // dd($r);
+        //dd($r);
         $model = Papaya::first() ?? new Papaya;
 
         $model->sec1title = $r->sec1title;
@@ -162,7 +162,7 @@ class PapayaController extends Controller
 
     
         $model->sec6title = $r->sec6title;
-        $model->sec6image = $r->sec6image;
+       
 
         if ($r->hasFile('sec6image')) {
                 if (!empty($model->sec6image) && File::exists(public_path('images/'.$model->sec6image))) {
@@ -356,9 +356,25 @@ class PapayaController extends Controller
         $model->sec11text = $r->sec11text;
     
         $model->sec12title = $r->sec12title;
-        $model->sec12image = $r->sec12image;
+       
         $model->sec12text = $r->sec12text;
-    
+
+        if ($r->hasFile('sec12image')) {
+            if (!empty($model->sec12image) && File::exists(public_path('images/'.$model->sec12image))) {
+                File::delete(public_path('images/'.$model->sec12image));
+            }
+            $file = $r->file('sec12image');
+            // $videoName = time() . '_' . $video->getClientOriginalName();
+            $fileName = $file->hashName();
+            $filePath = 'images/'; // Set the upload directory
+            $file->move(public_path($filePath), $fileName);
+            $model->sec12image = $fileName; // Save path in DB
+            
+        }
+
+        
+
+
         $model->save();
     
         return back()->with('success', 'Papaya section updated successfully!');

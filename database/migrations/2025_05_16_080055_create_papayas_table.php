@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('papayas', function (Blueprint $table) {
             
+            
             $table->id();
             $table->string('sec1title')->nullable();
             $table->string('sec1text')->nullable();
@@ -30,6 +31,7 @@ return new class extends Migration
             $table->string('sec3text')->nullable();
             $table->string('sec3addtext')->nullable();//soil selection
             $table->string('sec3points')->nullable();
+            $table->string('sec3image')->nullable();
 
 
             //sowing and nursery management
