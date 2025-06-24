@@ -18,7 +18,24 @@ class PapayaController extends Controller
 
         $model->sec1title = $r->sec1title;
         $model->sec1text = $r->sec1text;
-        $model->sec1image = $r->sec1image;
+        // $model->sec1image = $r->sec1image;
+
+
+        if ($r->hasFile('sec1image')) {
+                if (!empty($model->sec1image) && File::exists(public_path('images/'.$model->sec1image))) {
+                    File::delete(public_path('images/'.$model->sec1image));
+                }
+                $file = $r->file('sec1image');
+                // $videoName = time() . '_' . $video->getClientOriginalName();
+                $fileName = $file->hashName();
+                $filePath = 'images/'; // Set the upload directory
+                $file->move(public_path($filePath), $fileName);
+                $model->sec1image = $fileName; // Save path in DB
+                
+            }
+
+            //banner image sections
+            //section 3,section 6,section 8,section 11,section 12
     
         $model->sec2title = $r->sec2title;
         $model->sec2addtext = $r->sec2addtext;
@@ -62,6 +79,20 @@ class PapayaController extends Controller
         $model->sec3text = $r->sec3text;
         $model->sec3addtext = $r->sec3addtext;
         $model->sec3points = $r->sec3points;
+
+
+        if ($r->hasFile('sec3image')) {
+                if (!empty($model->sec3image) && File::exists(public_path('images/'.$model->sec3image))) {
+                    File::delete(public_path('images/'.$model->sec3image));
+                }
+                $file = $r->file('sec3image');
+                // $videoName = time() . '_' . $video->getClientOriginalName();
+                $fileName = $file->hashName();
+                $filePath = 'images/'; // Set the upload directory
+                $file->move(public_path($filePath), $fileName);
+                $model->sec3image = $fileName; // Save path in DB
+                
+            }
     
         $model->sec4title = $r->sec4title;
 
@@ -132,6 +163,19 @@ class PapayaController extends Controller
     
         $model->sec6title = $r->sec6title;
         $model->sec6image = $r->sec6image;
+
+        if ($r->hasFile('sec6image')) {
+                if (!empty($model->sec6image) && File::exists(public_path('images/'.$model->sec6image))) {
+                    File::delete(public_path('images/'.$model->sec6image));
+                }
+                $file = $r->file('sec6image');
+                // $videoName = time() . '_' . $video->getClientOriginalName();
+                $fileName = $file->hashName();
+                $filePath = 'images/'; // Set the upload directory
+                $file->move(public_path($filePath), $fileName);
+                $model->sec6image = $fileName; // Save path in DB
+                
+            }
  
          //sec 6 images
 
@@ -203,7 +247,20 @@ class PapayaController extends Controller
 
     
         $model->sec8title = $r->sec8title;
-        $model->sec8image = $r->sec8image;
+        //$model->sec8image = $r->sec8image;
+
+        if ($r->hasFile('sec8image')) {
+                if (!empty($model->sec8image) && File::exists(public_path('images/'.$model->sec8image))) {
+                    File::delete(public_path('images/'.$model->sec8image));
+                }
+                $file = $r->file('sec8image');
+                // $videoName = time() . '_' . $video->getClientOriginalName();
+                $fileName = $file->hashName();
+                $filePath = 'images/'; // Set the upload directory
+                $file->move(public_path($filePath), $fileName);
+                $model->sec8image = $fileName; // Save path in DB
+                
+            }
     
         $model->sec9title = $r->sec9title;
 
@@ -281,7 +338,21 @@ class PapayaController extends Controller
 
     
         $model->sec11title = $r->sec11title;
-        $model->sec11image = $r->sec11image;
+        //$model->sec11image = $r->sec11image;
+
+        if ($r->hasFile('sec11image')) {
+                if (!empty($model->sec11image) && File::exists(public_path('images/'.$model->sec11image))) {
+                    File::delete(public_path('images/'.$model->sec11image));
+                }
+                $file = $r->file('sec11image');
+                // $videoName = time() . '_' . $video->getClientOriginalName();
+                $fileName = $file->hashName();
+                $filePath = 'images/'; // Set the upload directory
+                $file->move(public_path($filePath), $fileName);
+                $model->sec11image = $fileName; // Save path in DB
+                
+            }
+
         $model->sec11text = $r->sec11text;
     
         $model->sec12title = $r->sec12title;

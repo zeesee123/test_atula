@@ -558,8 +558,9 @@ with Atulye Krishi Vana)</h3>
 
       <div class="row">
         <div class="mb-3 col-6">
+            
             <label for="" class="form-label">banner image</label>
-            <input type="file" class="form-control img_inpp" name="sec6image" >
+            <input type="file" class="form-control img_inpp" name="sec8image" >
             
         </div>
         <div class="mb-3 col-2 pt-4">
