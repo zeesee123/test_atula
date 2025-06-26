@@ -1161,8 +1161,55 @@ var table1=$('#sec2_table').DataTable({
               }]
   });
 
-  var table2=$('#impacthighlight_table').DataTable({
-              ajax:"{{url('/hometable/section4')}}",
+  var table2=$('#sec4_table').DataTable({
+              ajax:"{{url('admin/papayatable/section4')}}",
+              processing:true,
+              columns:[
+                {"data":"id"},
+                {"data":"image"},
+                {"data":"title"},
+                // {"data":"description"},
+                {"data":"actions"}],
+              order:[],
+              dom:'Bfrtip',
+              buttons:[{
+                       extend:'copy',
+                       exportOptions:{modifier:{
+                        page:'current'
+                       }}
+              },{
+                extend:'csv',
+                exportOptions:{
+                  modifier:{
+                    page:'current'
+                  }
+                }
+              },{
+                extend:'excel',
+                exportOptions:{
+                  modifier:{
+                    page:'current'
+                  }
+                }
+              },{
+                extend:'pdf',
+                exportOptions:{
+                  modifier:{
+                    page:'current'
+                  }
+                }
+              },{
+                extend:'print',
+                exportOptions:{
+                  modifier:{
+                    page:'current'
+                  }
+                }
+              }]
+  });
+
+  var table3=$('#sec5_table').DataTable({
+              ajax:"{{url('admin/papayatable/section5')}}",
               processing:true,
               columns:[
                 {"data":"id"},
@@ -1207,8 +1254,56 @@ var table1=$('#sec2_table').DataTable({
               }]
   });
 
-  var table3=$('#ourbusiness_table').DataTable({
-              ajax:"{{url('/hometable/section5')}}",
+  var table4=$('#sec6_table').DataTable({
+              ajax:"{{url('admin/papayatable/section6')}}",
+              processing:true,
+              columns:[
+                {"data":"id"},
+                {"data":"image"},
+                {"data":"title"},
+                // {"data":"description"},
+                {"data":"actions"}],
+              order:[],
+              dom:'Bfrtip',
+              buttons:[{
+                       extend:'copy',
+                       exportOptions:{modifier:{
+                        page:'current'
+                       }}
+              },{
+                extend:'csv',
+                exportOptions:{
+                  modifier:{
+                    page:'current'
+                  }
+                }
+              },{
+                extend:'excel',
+                exportOptions:{
+                  modifier:{
+                    page:'current'
+                  }
+                }
+              },{
+                extend:'pdf',
+                exportOptions:{
+                  modifier:{
+                    page:'current'
+                  }
+                }
+              },{
+                extend:'print',
+                exportOptions:{
+                  modifier:{
+                    page:'current'
+                  }
+                }
+              }]
+  })
+
+
+  var table5=$('#sec7_table').DataTable({
+              ajax:"{{url('admin/papayatable/section7')}}",
               processing:true,
               columns:[
                 {"data":"id"},
@@ -1254,340 +1349,246 @@ var table1=$('#sec2_table').DataTable({
               }]
   });
 
-  var table4=$('#ourjourney_table').DataTable({
-              ajax:"{{url('/hometable/section6')}}",
-              processing:true,
-              columns:[
-                {"data":"id"},
-                {"data":"year"},
-                {"data":"title"},
-                // {"data":"description"},
-                {"data":"actions"}],
-              order:[],
-              dom:'Bfrtip',
-              buttons:[{
-                       extend:'copy',
-                       exportOptions:{modifier:{
-                        page:'current'
-                       }}
-              },{
-                extend:'csv',
-                exportOptions:{
-                  modifier:{
-                    page:'current'
-                  }
-                }
-              },{
-                extend:'excel',
-                exportOptions:{
-                  modifier:{
-                    page:'current'
-                  }
-                }
-              },{
-                extend:'pdf',
-                exportOptions:{
-                  modifier:{
-                    page:'current'
-                  }
-                }
-              },{
-                extend:'print',
-                exportOptions:{
-                  modifier:{
-                    page:'current'
-                  }
-                }
-              }]
-  })
+
+  // var table6=$('#whatwork_table').DataTable({
+  //             ajax:"{{url('/hometable/section8')}}",
+  //             processing:true,
+  //             columns:[
+  //               {"data":"id"},
+  //               {"data":"logo"},
+  //               {"data":"content"},
+  //               {"data":"link"},
+  //               // {"data":"description"},
+  //               {"data":"actions"}],
+  //             order:[],
+  //             dom:'Bfrtip',
+  //             buttons:[{
+  //                      extend:'copy',
+  //                      exportOptions:{modifier:{
+  //                       page:'current'
+  //                      }}
+  //             },{
+  //               extend:'csv',
+  //               exportOptions:{
+  //                 modifier:{
+  //                   page:'current'
+  //                 }
+  //               }
+  //             },{
+  //               extend:'excel',
+  //               exportOptions:{
+  //                 modifier:{
+  //                   page:'current'
+  //                 }
+  //               }
+  //             },{
+  //               extend:'pdf',
+  //               exportOptions:{
+  //                 modifier:{
+  //                   page:'current'
+  //                 }
+  //               }
+  //             },{
+  //               extend:'print',
+  //               exportOptions:{
+  //                 modifier:{
+  //                   page:'current'
+  //                 }
+  //               }
+  //             }]
+  // })
 
 
-  var table5=$('#purposeNvision_table').DataTable({
-              ajax:"{{url('/hometable/section7')}}",
-              processing:true,
-              columns:[
-                {"data":"id"},
-                {"data":"image"},
-                // {"data":"description"},
-                {"data":"actions"}],
-              order:[],
-              dom:'Bfrtip',
-              buttons:[{
-                       extend:'copy',
-                       exportOptions:{modifier:{
-                        page:'current'
-                       }}
-              },{
-                extend:'csv',
-                exportOptions:{
-                  modifier:{
-                    page:'current'
-                  }
-                }
-              },{
-                extend:'excel',
-                exportOptions:{
-                  modifier:{
-                    page:'current'
-                  }
-                }
-              },{
-                extend:'pdf',
-                exportOptions:{
-                  modifier:{
-                    page:'current'
-                  }
-                }
-              },{
-                extend:'print',
-                exportOptions:{
-                  modifier:{
-                    page:'current'
-                  }
-                }
-              }]
-  })
+  // var table7=$('#techimg_table').DataTable({
+  //             ajax:"{{url('/hometable/section9')}}",
+  //             processing:true,
+  //             columns:[
+  //               {"data":"id"},
+  //               {"data":"image"},
+  //               {"data":"content"},
+  //               // {"data":"description"},
+  //               {"data":"actions"}
+  //             ],
+  //             order:[],
+  //             dom:'Bfrtip',
+  //             buttons:[{
+  //                      extend:'copy',
+  //                      exportOptions:{modifier:{
+  //                       page:'current'
+  //                      }}
+  //             },{
+  //               extend:'csv',
+  //               exportOptions:{
+  //                 modifier:{
+  //                   page:'current'
+  //                 }
+  //               }
+  //             },{
+  //               extend:'excel',
+  //               exportOptions:{
+  //                 modifier:{
+  //                   page:'current'
+  //                 }
+  //               }
+  //             },{
+  //               extend:'pdf',
+  //               exportOptions:{
+  //                 modifier:{
+  //                   page:'current'
+  //                 }
+  //               }
+  //             },{
+  //               extend:'print',
+  //               exportOptions:{
+  //                 modifier:{
+  //                   page:'current'
+  //                 }
+  //               }
+  //             }]
+  // })
 
 
-  var table6=$('#whatwork_table').DataTable({
-              ajax:"{{url('/hometable/section8')}}",
-              processing:true,
-              columns:[
-                {"data":"id"},
-                {"data":"logo"},
-                {"data":"content"},
-                {"data":"link"},
-                // {"data":"description"},
-                {"data":"actions"}],
-              order:[],
-              dom:'Bfrtip',
-              buttons:[{
-                       extend:'copy',
-                       exportOptions:{modifier:{
-                        page:'current'
-                       }}
-              },{
-                extend:'csv',
-                exportOptions:{
-                  modifier:{
-                    page:'current'
-                  }
-                }
-              },{
-                extend:'excel',
-                exportOptions:{
-                  modifier:{
-                    page:'current'
-                  }
-                }
-              },{
-                extend:'pdf',
-                exportOptions:{
-                  modifier:{
-                    page:'current'
-                  }
-                }
-              },{
-                extend:'print',
-                exportOptions:{
-                  modifier:{
-                    page:'current'
-                  }
-                }
-              }]
-  })
+  // var table8=$('#pvalue_table').DataTable({
+  //             ajax:"{{url('/hometable/section10')}}",
+  //             processing:true,
+  //             columns:[
+  //               {"data":"id"},
+  //               {"data":"image"},
+  //               {"data":"title"},
+  //               // {"data":"description"},
+  //               {"data":"actions"}],
+  //             order:[],
+  //             dom:'Bfrtip',
+  //             buttons:[{
+  //                      extend:'copy',
+  //                      exportOptions:{modifier:{
+  //                       page:'current'
+  //                      }}
+  //             },{
+  //               extend:'csv',
+  //               exportOptions:{
+  //                 modifier:{
+  //                   page:'current'
+  //                 }
+  //               }
+  //             },{
+  //               extend:'excel',
+  //               exportOptions:{
+  //                 modifier:{
+  //                   page:'current'
+  //                 }
+  //               }
+  //             },{
+  //               extend:'pdf',
+  //               exportOptions:{
+  //                 modifier:{
+  //                   page:'current'
+  //                 }
+  //               }
+  //             },{
+  //               extend:'print',
+  //               exportOptions:{
+  //                 modifier:{
+  //                   page:'current'
+  //                 }
+  //               }
+  //             }]
+  // })
 
 
-  var table7=$('#techimg_table').DataTable({
-              ajax:"{{url('/hometable/section9')}}",
-              processing:true,
-              columns:[
-                {"data":"id"},
-                {"data":"image"},
-                {"data":"content"},
-                // {"data":"description"},
-                {"data":"actions"}
-              ],
-              order:[],
-              dom:'Bfrtip',
-              buttons:[{
-                       extend:'copy',
-                       exportOptions:{modifier:{
-                        page:'current'
-                       }}
-              },{
-                extend:'csv',
-                exportOptions:{
-                  modifier:{
-                    page:'current'
-                  }
-                }
-              },{
-                extend:'excel',
-                exportOptions:{
-                  modifier:{
-                    page:'current'
-                  }
-                }
-              },{
-                extend:'pdf',
-                exportOptions:{
-                  modifier:{
-                    page:'current'
-                  }
-                }
-              },{
-                extend:'print',
-                exportOptions:{
-                  modifier:{
-                    page:'current'
-                  }
-                }
-              }]
-  })
+  // var table9=$('#badge_table').DataTable({
+  //             ajax:"{{url('/hometable/section12')}}",
+  //             processing:true,
+  //             columns:[
+  //               {"data":"id"},
+  //               {"data":"content"},
+  //               // {"data":"description"},
+  //               {"data":"actions"}],
+  //             order:[],
+  //             dom:'Bfrtip',
+  //             buttons:[{
+  //                      extend:'copy',
+  //                      exportOptions:{modifier:{
+  //                       page:'current'
+  //                      }}
+  //             },{
+  //               extend:'csv',
+  //               exportOptions:{
+  //                 modifier:{
+  //                   page:'current'
+  //                 }
+  //               }
+  //             },{
+  //               extend:'excel',
+  //               exportOptions:{
+  //                 modifier:{
+  //                   page:'current'
+  //                 }
+  //               }
+  //             },{
+  //               extend:'pdf',
+  //               exportOptions:{
+  //                 modifier:{
+  //                   page:'current'
+  //                 }
+  //               }
+  //             },{
+  //               extend:'print',
+  //               exportOptions:{
+  //                 modifier:{
+  //                   page:'current'
+  //                 }
+  //               }
+  //             }]
+  // });
 
 
-  var table8=$('#pvalue_table').DataTable({
-              ajax:"{{url('/hometable/section10')}}",
-              processing:true,
-              columns:[
-                {"data":"id"},
-                {"data":"image"},
-                {"data":"title"},
-                // {"data":"description"},
-                {"data":"actions"}],
-              order:[],
-              dom:'Bfrtip',
-              buttons:[{
-                       extend:'copy',
-                       exportOptions:{modifier:{
-                        page:'current'
-                       }}
-              },{
-                extend:'csv',
-                exportOptions:{
-                  modifier:{
-                    page:'current'
-                  }
-                }
-              },{
-                extend:'excel',
-                exportOptions:{
-                  modifier:{
-                    page:'current'
-                  }
-                }
-              },{
-                extend:'pdf',
-                exportOptions:{
-                  modifier:{
-                    page:'current'
-                  }
-                }
-              },{
-                extend:'print',
-                exportOptions:{
-                  modifier:{
-                    page:'current'
-                  }
-                }
-              }]
-  })
-
-
-  var table9=$('#badge_table').DataTable({
-              ajax:"{{url('/hometable/section12')}}",
-              processing:true,
-              columns:[
-                {"data":"id"},
-                {"data":"content"},
-                // {"data":"description"},
-                {"data":"actions"}],
-              order:[],
-              dom:'Bfrtip',
-              buttons:[{
-                       extend:'copy',
-                       exportOptions:{modifier:{
-                        page:'current'
-                       }}
-              },{
-                extend:'csv',
-                exportOptions:{
-                  modifier:{
-                    page:'current'
-                  }
-                }
-              },{
-                extend:'excel',
-                exportOptions:{
-                  modifier:{
-                    page:'current'
-                  }
-                }
-              },{
-                extend:'pdf',
-                exportOptions:{
-                  modifier:{
-                    page:'current'
-                  }
-                }
-              },{
-                extend:'print',
-                exportOptions:{
-                  modifier:{
-                    page:'current'
-                  }
-                }
-              }]
-  });
-
-
-  var table10=$('#partchange_table').DataTable({
-              ajax:"{{url('/hometable/section13')}}",
-              processing:true,
-              columns:[
-                {"data":"id"},
-                {"data":"content"},
-                {"data":"link"},
-                // {"data":"description"},
-                {"data":"actions"}],
-              order:[],
-              dom:'Bfrtip',
-              buttons:[{
-                       extend:'copy',
-                       exportOptions:{modifier:{
-                        page:'current'
-                       }}
-              },{
-                extend:'csv',
-                exportOptions:{
-                  modifier:{
-                    page:'current'
-                  }
-                }
-              },{
-                extend:'excel',
-                exportOptions:{
-                  modifier:{
-                    page:'current'
-                  }
-                }
-              },{
-                extend:'pdf',
-                exportOptions:{
-                  modifier:{
-                    page:'current'
-                  }
-                }
-              },{
-                extend:'print',
-                exportOptions:{
-                  modifier:{
-                    page:'current'
-                  }
-                }
-              }]
-  })
+  // var table10=$('#partchange_table').DataTable({
+  //             ajax:"{{url('/hometable/section13')}}",
+  //             processing:true,
+  //             columns:[
+  //               {"data":"id"},
+  //               {"data":"content"},
+  //               {"data":"link"},
+  //               // {"data":"description"},
+  //               {"data":"actions"}],
+  //             order:[],
+  //             dom:'Bfrtip',
+  //             buttons:[{
+  //                      extend:'copy',
+  //                      exportOptions:{modifier:{
+  //                       page:'current'
+  //                      }}
+  //             },{
+  //               extend:'csv',
+  //               exportOptions:{
+  //                 modifier:{
+  //                   page:'current'
+  //                 }
+  //               }
+  //             },{
+  //               extend:'excel',
+  //               exportOptions:{
+  //                 modifier:{
+  //                   page:'current'
+  //                 }
+  //               }
+  //             },{
+  //               extend:'pdf',
+  //               exportOptions:{
+  //                 modifier:{
+  //                   page:'current'
+  //                 }
+  //               }
+  //             },{
+  //               extend:'print',
+  //               exportOptions:{
+  //                 modifier:{
+  //                   page:'current'
+  //                 }
+  //               }
+  //             }]
+  // })
 
   //mapping section tables
 
@@ -1751,45 +1752,6 @@ content=`<form id="dynForm">
       </form>`;
       img=true;
       imglink=`{{url('/')}}/homepage/${res.sectionData.sec7_simg}`;
-break;
-case "section9":
-content=`<form id="dynForm">
-    <div class="mb-3">
-      <label for="" class="form-label">Image</label>
-      <input class="form-control filepond" type="file" >
-      </div>
-      <div class="mb-3">
-      <label for="" class="form-label">Title</label>
-      <input class="form-control" type="text" value="${res.sectionData.title}" name="title">
-      </div>
-      <div class="mb-3">
-      <label for="" class="form-label">Content</label>
-      <textarea class="form-control" rows="5" name="points">${res.sectionData.points}</textarea>
-      </div>
-      <input type="hidden" value="${id}" name="id">
-      <button class="btn btn-success" id="update_btnmod">Update</button>
-      
-      </form>`;
-      img=true;
-      imglink=`{{url('/')}}/homepage/${res.sectionData.sec8_slogo}`;
-break;
-case "section10":
-content=`<form id="dynForm">
-    
-      <div class="mb-3">
-      <label for="" class="form-label">Title</label>
-      <input class="form-control" type="text" value="${res.sectionData.title}" name="title">
-      </div>
-      <div class="mb-3">
-      <label for="" class="form-label">Content</label>
-      <textarea class="form-control" rows="5" name="points">${res.sectionData.points}</textarea>
-      </div>
-      <input type="hidden" value="${id}" name="id">
-      <button class="btn btn-success" id="update_btnmod">Update</button>
-      
-      </form>`;
-      img=true;
-      imglink=`{{url('/')}}/homepage/${res.sectionData.sec9_simg}`;
 break;
 
 default:

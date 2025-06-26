@@ -415,6 +415,7 @@ class PapayaController extends Controller
     
               $serv_ind=[
                   'id'=>$c++,
+                  
                   'title'=>$cl['title'],
                   'actions'=>'<button type="button" class="btn btn-success editer" data-id="'.($cl['id']??'').'" data-type="section2" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-pencil-square mx-1"></i>
     EDIT</button><button type="button" data-type="section2" class="btn btn-danger mx-1 eradicator" data-id="'.($cl['id']??'').'" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-trash3-fill mx-1"></i>
@@ -439,8 +440,7 @@ class PapayaController extends Controller
                     $content=json_decode($content);
                 }
 
-                                $count=count($content);
-
+                $count=count($content);
                 $data=[];
     
     
@@ -449,6 +449,7 @@ class PapayaController extends Controller
     
               $serv_ind=[
                   'id'=>$c++,
+                  'image'=>'<img src="'.asset_env('homepage/'.$cl->whatwe_doimg).'" style="width: 100px; height: auto; object-fit: contain;">',
                   'title'=>$cl['title'],
                   'actions'=>'<button type="button" class="btn btn-success editer" data-id="'.($cl['id']??'').'" data-type="section2" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-pencil-square mx-1"></i>
     EDIT</button><button type="button" data-type="section2" class="btn btn-danger mx-1 eradicator" data-id="'.($cl['id']??'').'" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-trash3-fill mx-1"></i>
