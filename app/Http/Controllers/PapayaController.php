@@ -449,10 +449,10 @@ class PapayaController extends Controller
     
               $serv_ind=[
                   'id'=>$c++,
-                  'image'=>'<img src="'.asset_env('homepage/'.$cl->whatwe_doimg).'" style="width: 100px; height: auto; object-fit: contain;">',
+                  'image'=>'<img src="'.asset_env('images/'.$cl['image']).'" style="width: 100px; height: auto; object-fit: contain;">',
                   'title'=>$cl['title'],
-                  'actions'=>'<button type="button" class="btn btn-success editer" data-id="'.($cl['id']??'').'" data-type="section2" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-pencil-square mx-1"></i>
-    EDIT</button><button type="button" data-type="section2" class="btn btn-danger mx-1 eradicator" data-id="'.($cl['id']??'').'" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-trash3-fill mx-1"></i>
+                  'actions'=>'<button type="button" class="btn btn-success editer" data-id="'.($cl['id']??'').'" data-type="section4" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-pencil-square mx-1"></i>
+    EDIT</button><button type="button" data-type="section4" class="btn btn-danger mx-1 eradicator" data-id="'.($cl['id']??'').'" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-trash3-fill mx-1"></i>
     DELETE</button>'
               ];
     
@@ -659,7 +659,15 @@ class PapayaController extends Controller
                 break;
         
             case "section4":
-                $sectionData = HomepageSection4::find($id);
+                $items=Papaya::first()->sec4imagez;
+                if (is_array($items)) {
+                    foreach ($items as $entry) {
+                        if (isset($entry['id']) && $entry['id'] == $id) {
+                            $sectionData=$entry;
+                            break;
+                        }
+                    }
+                }
                 break;
         
             case "section5":
@@ -709,15 +717,15 @@ public function update_resource($sectionType, Request $request)
         // dd($request);
         // Validate ID
         $validatedRequest = $request->validate([
-            'id' => 'required|integer|min:1',
+            'id' => 'required|integer|min:0',
         ]);
 
-        $id = $validatedRequest['id'];
+        $id = $validatedRequest['i d'];
 
         // Validation rules for each section
         $validationRules = [
             'section2' => ['image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048', 'title' => 'nullable|string', 'points' => 'nullable|string'],
-            'section4' => ['sec4_text' => 'nullable|string'],
+            'section4' => ['image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048', 'title' => 'nullable|string', 'points' => 'nullable|string'],
             'section5' => ['sec5_stitle' => 'nullable|string', 'sec5_scontent' => 'nullable|string', 'sec5_img' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048'],
             'section6' => ['sec6year' => 'nullable|string', 'sec6stitle' => 'nullable|string', 'sec6scontent' => 'nullable|string'],
             'section7' => ['sec7_scontent' => 'nullable|string', 'sec7_simg' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048'],
@@ -731,12 +739,8 @@ public function update_resource($sectionType, Request $request)
         // Image fields for each section
         $imageFields = [
             'section2' => 'image',
-            'section5' => 'sec5_img',
-            'section7' => 'sec7_simg',
-            'section8' => 'sec8_slogo',
-            'section9' => 'sec9_simg',
-            'section10' => 'sec10_simg',
-            'section13' => 'image',
+            'section4' => 'image',
+            
         ];
 
         $validatedData = $request->validate($validationRules[$sectionType] ?? []);
@@ -755,11 +759,6 @@ public function update_resource($sectionType, Request $request)
             'section5' => 'sec5imagez',
             'section6' => 'sec6imagez',
             'section7' => 'sec7imagez',
-            'section8' => 'sec8imagez',
-            'section9' => 'sec9imagez',
-            'section10' => 'sec10imagez',
-            'section12' => 'sec12imagez',
-            'section13' => 'sec13imagez',
         ];
 
         $jsonField = $jsonFieldMap[$sectionType] ?? null;

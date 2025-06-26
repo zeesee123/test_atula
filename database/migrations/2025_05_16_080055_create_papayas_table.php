@@ -16,21 +16,21 @@ return new class extends Migration
             
             $table->id();
             $table->string('sec1title')->nullable();
-            $table->string('sec1text')->nullable();
+            $table->longText('sec1text')->nullable();
             $table->string('sec1image')->nullable();
             
             //top papaya varieties for commercial cultivation
             $table->string('sec2title')->nullable();
-            $table->string('sec2addtext')->nullable();
+            $table->longText('sec2addtext')->nullable();
 
             //varieties for papaya
             $table->json('sec2imagez')->nullable();//this will take in the image and the parameter inside of it
 
             //Ideal Soil & Climate for Papaya Farming
             $table->string('sec3title')->nullable();
-            $table->string('sec3text')->nullable();
-            $table->string('sec3addtext')->nullable();//soil selection
-            $table->string('sec3points')->nullable();
+            $table->longText('sec3text')->nullable();
+            $table->longText('sec3addtext')->nullable();//soil selection
+            $table->longText('sec3points')->nullable();
             $table->string('sec3image')->nullable();
 
 
@@ -73,20 +73,20 @@ return new class extends Migration
             //Papain Extraction – A Profitable By-Product
             $table->string('sec10title')->nullable();
             $table->string('sec10content')->nullable();
-            $table->string('sec10addtext')->nullable();//extraction process
+            $table->longText('sec10addtext')->nullable();//extraction process
 
             $table->json('sec10imagez')->nullable();//boxes with view picture link
 
             //seed technology for high germination
             $table->string('sec11title')->nullable();
             $table->string('sec11image')->nullable();
-            $table->string('sec11text')->nullable();//these are the points just below the image
+            $table->longText('sec11text')->nullable();//these are the points just below the image
 
             //why choose atulye krishi vana for papaya farming?
 
             $table->string('sec12title')->nullable();
             $table->string('sec12image')->nullable();
-            $table->string('sec12text')->nullable();
+            $table->longText('sec12text')->nullable();
 
 
             //use standard faq table with pagename;

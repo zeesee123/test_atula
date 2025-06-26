@@ -224,11 +224,6 @@ with Atulye Krishi Vana)</h3>
     </div>
 
     
-    <div class="mb-3">
-        <label for="" class="form-label">content</label>
-        <input type="text" class="form-control " name="sec3text" value="{{$section->sec3text??''}}">
-        {{-- <textarea name="" id="" cols="30" rows="10" class="form-control"></textarea> --}}
-    </div>
 
 
     <div class="mb-3">
@@ -1598,8 +1593,7 @@ var table1=$('#sec2_table').DataTable({
     "section5": table3,
     "section6": table4,
     "section7": table5,
-    "section9": table6,
-    "section10": table7,
+    
     
 };
 
@@ -1702,6 +1696,8 @@ case "section4":
       <input type="hidden" value="${id}" name="id">   
       <button class="btn btn-success" id="update_btnmod" >Update</button>
       </form>`;
+      img=true;
+      imglink=`{{asset_env('/images')}}/${res.sectionData.image}`;
 break;
 case "section5":
 content=`<form id="dynForm">
