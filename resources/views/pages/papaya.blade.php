@@ -62,6 +62,14 @@ https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-
 
     @endif
 
+     @if(session('error'))
+
+    <div style="color:red;">
+        {{session('error')}}
+    </div>
+
+    @endif
+
     @csrf
 
     <section>
@@ -363,7 +371,7 @@ with Atulye Krishi Vana)</h3>
                 <div class="mb-3 row">
                     
                     <div class="col-3">
-                      <textarea name="" id="" cols="30" rows="10" class="form-control" name="sec5textl"></textarea>
+                      <textarea id="" cols="30" rows="10" class="form-control" name="sec5textl[]"></textarea>
                         
                     </div>
                     
@@ -887,7 +895,7 @@ function addsec5_images(){
 field3.insertAdjacentHTML('beforeend',`<div class="mb-3 row">
     
      <div class="col-3">
-                      <textarea name="" id="" cols="30" rows="10" class="form-control" name="sec5textl"></textarea>
+                      <textarea  id="" cols="30" rows="10" class="form-control" name="sec5textl[]"></textarea>
                         
                     </div>
     <div class="col-3">

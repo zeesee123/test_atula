@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 
 class PapayaController extends Controller
 {
-    //
+    
 
     public function addpage(Request $r){
 
@@ -133,14 +133,17 @@ class PapayaController extends Controller
     
         $model->sec5title = $r->sec5title;
 
+
+
         //sec 5 images
 
-        $sec5if1=$r->file('sec5textl');
+
+        $sec5if1=$r->input('sec5textl');
         
 
         $sec5js=[];
 
-        if($sec5if1){
+        if (is_array($sec5if1) && count(array_filter($sec5if1))){
 
             foreach($sec5if1 as $key=>$value){
 
@@ -154,15 +157,15 @@ class PapayaController extends Controller
                 }
             }
         }
-        
 
         $existingSec5 = $model->sec5imagez ?? [];
         $combinedSec5 = array_merge($existingSec5, $sec5js);
         $model->sec5imagez=$combinedSec5;
 
-    
+
         $model->sec6title = $r->sec6title;
        
+        
 
         if ($r->hasFile('sec6image')) {
                 if (!empty($model->sec6image) && File::exists(public_path('images/'.$model->sec6image))) {
@@ -177,12 +180,13 @@ class PapayaController extends Controller
                 
             }
  
-         //sec 6 images
+        //  //sec 6 images
 
-        $sec6if1=$r->file('sec6titlel');
-        $sec6if2=$r->file('sec6pointsl');
-        
-        
+      
+
+        $sec6if1=$r->input('sec6titlel');
+        $sec6if2=$r->input('sec6pointsl');
+     
 
         $sec6js=[];
 
@@ -196,7 +200,7 @@ class PapayaController extends Controller
     
                 }else{
     
-                    return back()->with('error','you missed a field value in Section 6 images ');
+                    dd('error');
                 }
             }
         }
@@ -383,6 +387,30 @@ class PapayaController extends Controller
 
     }
 
+//     public function addpage(Request $r) {
+//   $sec5if1 = $r->input('sec5textl');
+
+// $sec5js = [];
+
+// if ($sec5if1) {
+//     foreach ($sec5if1 as $key => $value) {
+//         if (!empty($value)) {
+//             $sec5js[] = ['id' => $key, 'content' => $value];
+//         } else {
+//             return back()->with('error', 'Missing content in Section 5');
+//         }
+//     }
+// }
+
+// $model = Papaya::first() ?? new Papaya;
+// $model->sec5imagez = $sec5js;
+// $model->save();
+
+// dd('SAVED FINAL:', $model->fresh()->sec5imagez);
+
+// }
+
+
 
     public function loadtable($section){
 
@@ -484,7 +512,7 @@ class PapayaController extends Controller
     
               $serv_ind=[
                   'id'=>$c++,
-                  'title'=>$cl['title'],
+                  'text'=>$cl['content'],
                   'actions'=>'<button type="button" class="btn btn-success editer" data-id="'.($cl['id']??'').'" data-type="section2" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-pencil-square mx-1"></i>
     EDIT</button><button type="button" data-type="section2" class="btn btn-danger mx-1 eradicator" data-id="'.($cl['id']??'').'" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-trash3-fill mx-1"></i>
     DELETE</button>'
@@ -729,11 +757,11 @@ public function update_resource($sectionType, Request $request)
             'section5' => ['sec5_stitle' => 'nullable|string', 'sec5_scontent' => 'nullable|string', 'sec5_img' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048'],
             'section6' => ['sec6year' => 'nullable|string', 'sec6stitle' => 'nullable|string', 'sec6scontent' => 'nullable|string'],
             'section7' => ['sec7_scontent' => 'nullable|string', 'sec7_simg' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048'],
-            'section8' => ['sec8_scontent' => 'nullable|string', 'sec8_slink' => 'nullable|string', 'sec8_slogo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048'],
-            'section9' => ['sec9_scontent' => 'nullable|string', 'sec9_simg' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048'],
-            'section10' => ['sec10_stitle' => 'nullable|string', 'sec10_scontent' => 'nullable|string', 'sec10_simg' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048'],
-            'section12' => ['sec12_scontent' => 'nullable|string'],
-            'section13' => ['sec13_scontent' => 'nullable|string', 'sec13_slink' => 'nullable|string', 'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048'],
+            // 'section8' => ['sec8_scontent' => 'nullable|string', 'sec8_slink' => 'nullable|string', 'sec8_slogo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048'],
+            // 'section9' => ['sec9_scontent' => 'nullable|string', 'sec9_simg' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048'],
+            // 'section10' => ['sec10_stitle' => 'nullable|string', 'sec10_scontent' => 'nullable|string', 'sec10_simg' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048'],
+            // 'section12' => ['sec12_scontent' => 'nullable|string'],
+            // 'section13' => ['sec13_scontent' => 'nullable|string', 'sec13_slink' => 'nullable|string', 'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048'],
         ];
 
         // Image fields for each section

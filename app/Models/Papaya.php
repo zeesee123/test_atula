@@ -8,6 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Papaya extends Model
 {
     use HasFactory;
+    // In Papaya.php
+    protected $guarded = [];
+
 
     protected $casts=[
         'sec2imagez'=>'array',
