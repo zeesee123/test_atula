@@ -200,7 +200,7 @@ class PapayaController extends Controller
     
                 }else{
     
-                    dd('error');
+                    return back()->with('error','you missed few fields in section 6');
                 }
             }
         }
@@ -235,7 +235,7 @@ class PapayaController extends Controller
                    $path='images/';
                    $img->move(public_path($path),$name);
     
-                   $sec7js[]=['id'=>$key,'id'=>$key,'image'=>$name,'title'=>$sec7if2[$key],'points'=>$sec7if3[$key]];
+                   $sec7js[]=['id'=>$key,'image'=>$name,'title'=>$sec7if2[$key],'points'=>$sec7if3[$key]];
     
                 }else{
     

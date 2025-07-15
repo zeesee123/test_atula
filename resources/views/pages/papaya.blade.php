@@ -93,8 +93,7 @@ with Atulye Krishi Vana)</h3>
                 <label for="" class="form-label">content</label>
                  <textarea name="sec1text" id="" cols="30" rows="10" class="form-control">{{$section->sec1text??''}}</textarea>
             </div>
-
-        </div>
+          </div>
 
 
             <div class="mb-3 col-6">
@@ -901,7 +900,9 @@ field3.insertAdjacentHTML('beforeend',`<div class="mb-3 row">
     <div class="col-3">
         <button class="btn btn-primary" type="button" onclick="addsec5_images()">+</button>
         <button class="btn btn-danger" type="button" onclick="remove_input(this)">-</button>
-    </div></div>`);}
+    </div></div>`);
+  
+  }
 
 
 function addsec6_images(){
