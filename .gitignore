@@ -3,6 +3,11 @@
 /public/build
 /public/hot
 /public/storage
+
+/public/homepage/
+/public/ecoinitiative/
+/public/images/
+/public/aboutpage/
 /storage/*.key
 /vendor
 .env

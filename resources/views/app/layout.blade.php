@@ -204,8 +204,12 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.17.2/dist/sweetalert2.min.css
            
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false" >
-                  <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/package -->
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 3l8 4.5l0 9l-8 4.5l-8 -4.5l0 -9l8 -4.5" /><path d="M12 12l8 -4.5" /><path d="M12 12l0 9" /><path d="M12 12l-8 -4.5" /><path d="M16 5.25l-8 4.5" /></svg>
+                  <span class="nav-link-icon d-md-none d-lg-inline-block">
+                    <!-- Download SVG icon from https://icons.getbootstrap.com/icons/file-earmark/ -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                      <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5z"/>
+                      <path d="M13.5 4.5L10 1v3a1 1 0 0 0 1 1h2.5z"/>
+                    </svg>
                   </span>
                   <span class="nav-link-title">
                     Pages
@@ -217,13 +221,60 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.17.2/dist/sweetalert2.min.css
                       <a class="dropdown-item" href="{{url('/admin/home')}}">
                         Homepage
                       </a>
-                      
-                      <a class="dropdown-item" href="{{url('/admin/about')}}">
+                      <div class="dropend">
+                        <a class="dropdown-item dropdown-toggle" href="#sidebar-authentication" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false" >
+                          About Us
+
+                        </a>
+                        <div class="dropdown-menu">
+                          <a href="{{url('/admin/about')}}" class="dropdown-item">
+                            About AKV
+
+                            
+                          </a>
+                          <a href="{{url('/admin/about-two')}}" class="dropdown-item">
+                            About A&M Agriculture
+                          </a>
+                          <a href="href="{{url('/admin/team')}}"" class="dropdown-item">
+                            Our Team
+                          </a>
+                          
+                        </div>
+                      </div>
+                      {{-- new dropdown --}}
+                      <div class="dropend">
+                        <a class="dropdown-item dropdown-toggle" href="#sidebar-authentication" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false" >
+                          Our Business
+
+                        </a>
+                        <div class="dropdown-menu">
+                          <a href="{{url('/admin/about')}}" class="dropdown-item">
+                            Agroforestry
+
+                            
+                          </a>
+                          <a href="{{url('/admin/about-two')}}" class="dropdown-item">
+                            Agrotourism
+                          </a>
+                          <a href="href="{{url('/admin/team')}}"" class="dropdown-item">
+                            Contract Farming
+                          </a>
+                          <a href="href="{{url('/admin/team')}}"" class="dropdown-item">
+                            Training and development
+                          </a>
+                          <a href="href="{{url('/admin/team')}}"" class="dropdown-item">
+                            Nursery
+                          </a>
+                          
+                          
+                        </div>
+                      </div>
+                      {{-- <a class="dropdown-item" href="{{url('/admin/about')}}">
                         Aboutpage
                       </a>
                       <a class="dropdown-item" href="{{url('/admin/about-two')}}">
                         Aboutpage-2(A&M Agriventure)
-                      </a>
+                      </a> --}}
                       <a class="dropdown-item" href="{{url('/admin/agroforestry')}}">
                         Agroforestry
                       </a>
