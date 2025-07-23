@@ -16,6 +16,7 @@ use App\Http\Controllers\AgriventurepageController;
 use App\Http\Controllers\ContractfarmingController;
 use App\Http\Controllers\AgroforestrypageController;
 use App\Http\Controllers\EcoinitiativepageController;
+use App\Http\Controllers\BlogController;
 
 /*
 |--------------------------------------------------------------------------
@@ -185,8 +186,19 @@ Route::group(['prefix'=>'admin'],function(){
         Route::get('/get_resource_papaya/{type}/{id}',[PapayaController::class,'get_resource']);
         Route::post('/update_papayasection/{sectionType}',[PapayaController::class,'update_resource']);
 
+        //routes for adding in the blogs
+        Route::get('/add_blog',[PageController::class,'addblog']);
+        Route::get('/edit_blog/{id}',[PageController::class,'editblog']);
+
+        //blogs route
+        Route::post('/add_blog',[BlogController::class,'addblog']);
+        Route::post('/edit_blog/{id}',[BlogController::class,'editblog']);
+
         //users table
         Route::get('/users',[PageController::class,'listusers']);
+
+        
+        
     });
     
 });

@@ -201,6 +201,17 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.17.2/dist/sweetalert2.min.css
                   </span>
                 </a>
               </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="{{url('/admin/add_blog')}}" >
+                  <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/home -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-dashboard"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 13m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/><path d="M13.45 11.55l2.05 -2.05"/><path d="M6.4 20a9 9 0 1 1 11.2 0z"/></svg>
+                  </span>
+                  <span class="nav-link-title">
+                    Blogs
+                  </span>
+                </a>
+              </li>
            
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false" >
@@ -248,21 +259,26 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.17.2/dist/sweetalert2.min.css
 
                         </a>
                         <div class="dropdown-menu">
+                          <a href="{{url('/admin/business')}}" class="dropdown-item">
+                            Our Business
+
+                            
+                          </a>
                           <a href="{{url('/admin/about')}}" class="dropdown-item">
                             Agroforestry
 
                             
                           </a>
-                          <a href="{{url('/admin/about-two')}}" class="dropdown-item">
+                          <a href="{{url('/admin/agrotourism')}}" class="dropdown-item">
                             Agrotourism
                           </a>
-                          <a href="href="{{url('/admin/team')}}"" class="dropdown-item">
+                          <a href="{{url('/admin/contract-farming')}}" class="dropdown-item">
                             Contract Farming
                           </a>
-                          <a href="href="{{url('/admin/team')}}"" class="dropdown-item">
+                          <a href="{{url('/admin/training-and-dev')}}" class="dropdown-item">
                             Training and development
                           </a>
-                          <a href="href="{{url('/admin/team')}}"" class="dropdown-item">
+                          <a href="{{url('/admin/nursery')}}" class="dropdown-item">
                             Nursery
                           </a>
                           
@@ -275,14 +291,14 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.17.2/dist/sweetalert2.min.css
                       <a class="dropdown-item" href="{{url('/admin/about-two')}}">
                         Aboutpage-2(A&M Agriventure)
                       </a> --}}
-                      <a class="dropdown-item" href="{{url('/admin/agroforestry')}}">
+                      {{-- <a class="dropdown-item" href="{{url('/admin/agroforestry')}}">
                         Agroforestry
                       </a>
                       <a class="dropdown-item" href="{{url('/admin/business')}}">
                         Businesspage
-                      </a>
+                      </a> --}}
                       <a class="dropdown-item" href="{{url('/admin/eco-initiative')}}">
-                        Eco-initiative
+                        Eco-initiatives
                       </a>
                       <a class="dropdown-item" href="{{url('/admin/contract-farming')}}">
                         Contract Farming
@@ -992,9 +1008,9 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.17.2/dist/sweetalert2.min.css
     </div>
     <!-- Libs JS -->
     <script src="{{asset_env('dist/libs/apexcharts/dist/apexcharts.min.js?1692870487')}}" defer></script>
-    <script src="{{asset_env(')dist/libs/jsvectormap/dist/js/jsvectormap.min.js?1692870487')}}" defer></script>
-    <script src="{{asset_env(')dist/libs/jsvectormap/dist/maps/world.js?1692870487')}}" defer></script>
-    <script src="{{asset_env(')dist/libs/jsvectormap/dist/maps/world-merc.js?1692870487')}}" defer></script>
+    <script src="{{asset_env('dist/libs/jsvectormap/dist/js/jsvectormap.min.js?1692870487')}}" defer></script>
+    <script src="{{asset_env('dist/libs/jsvectormap/dist/maps/world.js?1692870487')}}" defer></script>
+    <script src="{{asset_env('dist/libs/jsvectormap/dist/maps/world-merc.js?1692870487')}}" defer></script>
     <!-- Tabler Core -->
     <script src="{{asset_env('dist/js/tabler.min.js?1692870487')}}" defer></script>
     <script src="{{asset_env('dist/js/demo.min.js?1692870487')}}" defer></script>

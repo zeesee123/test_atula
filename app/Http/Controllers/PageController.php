@@ -125,4 +125,9 @@ class PageController extends Controller
 
 
     }
+
+    public function addblog(){
+
+      return view('pages.blogs.add_blog');
+    }
 }
