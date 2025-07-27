@@ -7,4 +7,9 @@ use Illuminate\Http\Request;
 class BlogController extends Controller
 {
     //
+    public function addblog(Request $r){
+
+        
+
+    }
 }

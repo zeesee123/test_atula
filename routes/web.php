@@ -191,12 +191,13 @@ Route::group(['prefix'=>'admin'],function(){
         Route::get('/edit_blog/{id}',[PageController::class,'editblog']);
 
         //blogs route
-        Route::post('/add_blog',[BlogController::class,'addblog']);
+        Route::post('/blog/create',[BlogController::class,'addblog']);
         Route::post('/edit_blog/{id}',[BlogController::class,'editblog']);
 
         //users table
         Route::get('/users',[PageController::class,'listusers']);
 
+        
         
         
     });
