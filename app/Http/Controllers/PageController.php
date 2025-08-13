@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Blog;
+use App\Models\Papaya;
 use App\Models\Homepage;
 use App\Models\Aboutpage;
 use App\Models\Aboutpagetwo;
@@ -9,7 +11,6 @@ use App\Models\Businesspage;
 use Illuminate\Http\Request;
 use App\Models\Agroforestrypage;
 use App\Models\Ecoinitiativepage;
-use App\Models\Papaya;
 
 
 
@@ -129,5 +130,22 @@ class PageController extends Controller
     public function addblog(){
 
       return view('pages.blogs.add_blog');
+    }
+
+  public function editblog($id)
+{
+    // Fetch the blog by ID
+    $blog = Blog::findOrFail($id);
+
+    // dd($blog);
+
+    // Pass it to the view
+    return view('pages.blogs.edit_blogs', compact('blog'));
+}
+
+
+    public function viewblogs(){
+
+      return view('pages.blogs.view_blogs');
     }
 }

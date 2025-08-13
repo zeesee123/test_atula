@@ -202,16 +202,41 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.17.2/dist/sweetalert2.min.css
                 </a>
               </li>
 
-              <li class="nav-item">
-                <a class="nav-link" href="{{url('/admin/add_blog')}}" >
-                  <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/home -->
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-dashboard"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 13m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/><path d="M13.45 11.55l2.05 -2.05"/><path d="M6.4 20a9 9 0 1 1 11.2 0z"/></svg>
+              
+
+
+            {{-- new blog entire menu --}}
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false" >
+                  <span class="nav-link-icon d-md-none d-lg-inline-block">
+                    <!-- Download SVG icon from https://icons.getbootstrap.com/icons/file-earmark/ -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                      <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5z"/>
+                      <path d="M13.5 4.5L10 1v3a1 1 0 0 0 1 1h2.5z"/>
+                    </svg>
                   </span>
                   <span class="nav-link-title">
                     Blogs
                   </span>
                 </a>
+                <div class="dropdown-menu">
+                  <div class="dropdown-menu-columns">
+                    <div class="dropdown-menu-column">
+                      <a class="dropdown-item" href="{{url('/admin/add_blog')}}">
+                        Create Blog
+                      </a>
+                      <a class="dropdown-item" href="{{url('/admin/view_blogs')}}">
+                        View blogs
+                      </a>
+                      
+                      {{-- new dropdown --}}
+                      
+                  </div>
+                </div>
               </li>
+
+            {{-- new blog entire menu ends --}}
            
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false" >

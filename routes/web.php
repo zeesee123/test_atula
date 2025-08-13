@@ -189,10 +189,13 @@ Route::group(['prefix'=>'admin'],function(){
         //routes for adding in the blogs
         Route::get('/add_blog',[PageController::class,'addblog']);
         Route::get('/edit_blog/{id}',[PageController::class,'editblog']);
+         Route::get('/view_blogs',[PageController::class,'viewblogs']);
 
         //blogs route
         Route::post('/blog/create',[BlogController::class,'addblog']);
         Route::post('/edit_blog/{id}',[BlogController::class,'editblog']);
+        
+        Route::get('/get_blogs',[BlogController::class,'loadtable']);
 
         //users table
         Route::get('/users',[PageController::class,'listusers']);

@@ -8,6 +8,7 @@
 /public/ecoinitiative/
 /public/images/
 /public/aboutpage/
+/public/blogs/
 /storage/*.key
 /vendor
 .env
