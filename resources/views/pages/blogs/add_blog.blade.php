@@ -171,6 +171,52 @@
 @push('scripts')
 
 
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    @if(session('success'))
+        Swal.fire({
+            icon: 'success',
+            title: 'Success!',
+            text: "{{ session('success') }}",
+            confirmButtonColor: '#3085d6',
+            confirmButtonText: 'OK'
+        });
+    @endif
+
+    @if(session('error'))
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: "{{ session('error') }}",
+            confirmButtonColor: '#d33',
+            confirmButtonText: 'OK'
+        });
+    @endif
+});
+</script>
+
+
+<script>
+    let main_form=document.getElementById('main_form');
+
+    let spin_submit=document.getElementById('spin_submit');
+
+    main_form.addEventListener('submit',(e)=>{
+
+        e.preventDefault();
+
+        spin_submit.innerHTML=`<div class="spinner-border mx-2" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>`;
+        
+        console.log('submit event');
+
+        main_form.submit();
+    });
+
+</script>
+
+
 <script src="
 https://cdn.jsdelivr.net/npm/filepond@4.32.7/dist/filepond.min.js
 "></script>
