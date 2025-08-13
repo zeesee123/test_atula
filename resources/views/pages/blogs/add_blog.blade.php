@@ -16,6 +16,8 @@
 
     <form action="/admin/blog/create" enctype="multipart/form-data" method="POST"  id="main_form">
 
+      @csrf
+
     <div class="card pt-3 p-4">
 
       <div class="row">
@@ -73,7 +75,7 @@
 
         <div class="mb-3 col-6">
           <label for="" class="form-label">Date</label>
-          <input type="date" class="form-control">
+          <input type="date" class="form-control" name="date">
           
           
         </div>

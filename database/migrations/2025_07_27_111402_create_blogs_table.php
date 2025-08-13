@@ -6,24 +6,26 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('blogs', function (Blueprint $table) {
             $table->id();
-            $table->string('image')->nullable();
-            $table->string('title')->nullable();
-            $table->string('date')->nullable();
-            $table->boolean('publish')->nullable();
+            $table->string('blog_image')->nullable(); // Featured image
+            $table->string('title')->unique(); // Blog title (unique)
+            $table->date('date')->nullable(); // Publish date
+            $table->boolean('publish')->default(false); // Publish status
+            $table->longText('content'); // Blog content
+            $table->string('slug')->unique(); // SEO-friendly URL
+
+            // SEO fields
+            $table->string('meta_title')->nullable()->unique(); // SEO Title (Meta Title)
+            $table->text('meta_description')->nullable(); // Meta Description
+            $table->longText('schema_markup')->nullable(); // Structured Data (Schema Markup)
+
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('blogs');
