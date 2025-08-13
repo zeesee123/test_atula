@@ -2,6 +2,9 @@
 
 
 @push('styles')
+
+<link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet" />
+
 @endpush
 
 @section('content')
@@ -89,10 +92,9 @@
         
 
         <div class="mb-3 col-12">
-          <label for="" class="form-label">blog content</label>
-          <textarea name="content" id="blog_content" class="form-control"></textarea>
-          
-        </div>
+    <label for="blog_content" class="form-label">Blog Content</label>
+    <textarea name="content" id="blog_content" class="form-control"></textarea>
+</div>
         
       </div>
 
@@ -178,7 +180,34 @@ https://cdn.jsdelivr.net/npm/filepond@4.32.7/dist/filepond.min.js
 https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-plugin-image-preview.min.js
 "></script>
 
+
+{{-- <script src="https://cdn.ckeditor.com/4.22.1/standard/ckeditor.js"></script> --}}
+
+<script src="{{ asset('vendor/tinymce/js/tinymce/tinymce.min.js') }}"></script>
+
+
+{{-- Initialize CKEditor --}}
+{{-- <script>
+      tinymce.init({
+        selector: '#blog_content'
+      });
+    </script> --}}
 <script>
+tinymce.init({
+  selector: '#blog_content',
+  license_key: 'gpl',
+  height: 400,
+  menubar: true,
+  plugins: 'link image code lists',
+  toolbar: 'undo redo | formatselect | bold italic | alignleft aligncenter alignright | bullist numlist | link image code',
+  block_formats: 'Paragraph=p; Heading 1=h1; Heading 2=h2; Heading 3=h3; Heading 4=h4',
+  valid_elements: '*[*]',
+  valid_children: '+body[h1,h2,h3,h4]'
+});
+
+</script>
+
+<script> 
 
     FilePond.registerPlugin(FilePondPluginImagePreview);
 

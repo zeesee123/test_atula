@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\api;
 
-use App\Http\Controllers\Controller;
+use App\Models\Blog;
 use App\Models\Homepage;
+use Illuminate\Http\Request;
 use App\Models\HomepageSection3;
 use App\Models\HomepageSection4;
 use App\Models\HomepageSection5;
@@ -14,7 +15,7 @@ use App\Models\HomepageSection9;
 use App\Models\HomepageSection10;
 use App\Models\HomepageSection12;
 use App\Models\HomepageSection13;
-use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class PageController extends Controller
 {
@@ -64,6 +65,36 @@ class PageController extends Controller
         ]);
 
         // return response()->json(['data'=>$model,'section3'=>$section3]);
+    }
+
+   public function blogs()
+{
+    // Fetch all blogs
+    $blogs = Blog::all();
+
+    // Return JSON response
+    return response()->json([
+        'success' => true,
+        'data' => $blogs
+    ], 200);
+}
+
+
+public function blogBySlug($slug)
+    {
+        $blog = Blog::where('slug', $slug)->first();
+
+        if (!$blog) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Blog not found'
+            ], 404);
+        }
+
+        return response()->json([
+            'success' => true,
+            'data' => [$blog]  // return as array for consistency with blogs list
+        ]);
     }
 
     /**
