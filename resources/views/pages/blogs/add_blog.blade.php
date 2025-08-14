@@ -229,7 +229,7 @@ https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-
 
 {{-- <script src="https://cdn.ckeditor.com/4.22.1/standard/ckeditor.js"></script> --}}
 
-<script src="{{ asset('vendor/tinymce/js/tinymce/tinymce.min.js') }}"></script>
+<script src="{{ asset_env('vendor/tinymce/js/tinymce/tinymce.min.js') }}"></script>
 
 
 {{-- Initialize CKEditor --}}
