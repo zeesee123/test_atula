@@ -200,6 +200,10 @@ Route::group(['prefix'=>'admin'],function(){
         //users table
         Route::get('/users',[PageController::class,'listusers']);
 
+        //event page
+        Route::get('/eventpage',[PageController::class,'eventpage']);
+        Route::post('/eventpage',[EventpageController::class,'event']);
+
         
         
         

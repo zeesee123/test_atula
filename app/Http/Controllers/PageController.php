@@ -148,4 +148,11 @@ class PageController extends Controller
 
       return view('pages.blogs.view_blogs');
     }
+
+    public function eventpage(){
+
+      $model=Event::first()??null;
+
+      return view('pages.events',compact('model'));
+    }
 }
