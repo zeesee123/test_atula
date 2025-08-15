@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\api;
 
 use App\Models\Blog;
+use App\Models\Event;
 use App\Models\Homepage;
 use Illuminate\Http\Request;
 use App\Models\HomepageSection3;
@@ -80,6 +81,8 @@ class PageController extends Controller
 }
 
 
+
+
 public function blogBySlug($slug)
     {
         $blog = Blog::where('slug', $slug)->first();
@@ -96,6 +99,24 @@ public function blogBySlug($slug)
             'data' => [$blog]  // return as array for consistency with blogs list
         ]);
     }
+
+
+    public function eventpage(){
+
+        $event = Event::first();
+
+        return response()->json([
+            'banner' => $event->banner_image,
+            'heading' => $event ? $event->title : 'Upcoming Events',
+            'subtitle' => $event ? 'Don’t miss out!' : '',
+            'title' => $event ? $event->title : 'Events',
+            'opacity' => 'opacity-50',
+            'google_calendar_link' => $event ? $event->google_calendar_link : 'https://calendar.google.com/calendar/embed?src=info%40akv.org.in&ctz=Asia%2FKolkata'
+        ]);
+    }
+
+
+    public function gallerypage(){}
 
     /**
      * Store a newly created resource in storage.

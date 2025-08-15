@@ -12,7 +12,7 @@
 <div class="page-header d-print-none">
 
      <div class="container-xl">
-        <h3>Event page</h3>
+        <h3>GalleryPage</h3>
 
         <div class="card">
   <div class="card-body">
@@ -37,7 +37,7 @@
                     </div>
                     <div class="mb-3 col-4">
                         <img class="Thumbnail" 
-                             src="{{ optional($model)->banner_image ? asset('images/' . $model->banner_image) : asset('images/default.jpg') }}" 
+                             src="{{ old('banner_image') ? asset('images/' . old('banner_image')) : asset('images/default.jpg') }}" 
                              width="400" 
                              alt="Banner Thumbnail">
                     </div>
@@ -45,16 +45,16 @@
     
                 <div class="mb-3 col-6">
                     <label class="form-label">Banner Name</label>
-                    <input type="text" class="form-control" name="title" value="{{ old('title', optional($model)->title) }}">
+                    <input type="text" class="form-control" name="title" value="{{ old('title') }}">
                     @error('title')
                         <div class="text-danger">{{ $message }}</div>
                     @enderror
                 </div>
     
                 <div class="mb-3 col-6">
-                    <label class="form-label">Google Calendar Link</label>
-                    <input type="url" class="form-control" name="google_calendar_link" value="{{ old('google_calendar_link', optional($model)->google_calendar_link) }}">
-                    @error('google_calendar_link')
+                    <label class="form-label">Content</label>
+                    <textarea name="content" cols="30" rows="10" class="form-control">{{ old('content') }}</textarea>
+                    @error('content')
                         <div class="text-danger">{{ $message }}</div>
                     @enderror
                 </div>

@@ -9,7 +9,7 @@ class EventpageController extends Controller
 {
     //
 
-    public function event(){
+    public function event(Request $request){
         try {
             $validated = $request->validate([
                 'banner_image'        => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',

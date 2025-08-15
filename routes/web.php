@@ -4,19 +4,21 @@ use App\Models\Testpage;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\PapayaController;
 use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\AboutpageController;
+use App\Http\Controllers\EventpageController;
 use App\Http\Controllers\AgriventureController;
+use App\Http\Controllers\GallerypageController;
 use App\Http\Controllers\BusinesspageController;
 use App\Http\Controllers\TrainingpageController;
 use App\Http\Controllers\AgriventurepageController;
 use App\Http\Controllers\ContractfarmingController;
 use App\Http\Controllers\AgroforestrypageController;
 use App\Http\Controllers\EcoinitiativepageController;
-use App\Http\Controllers\BlogController;
 
 /*
 |--------------------------------------------------------------------------
@@ -204,7 +206,9 @@ Route::group(['prefix'=>'admin'],function(){
         Route::get('/eventpage',[PageController::class,'eventpage']);
         Route::post('/eventpage',[EventpageController::class,'event']);
 
-        
+        //gallery page
+        Route::get('/add_category_gallery',[PageController::class,'gallerypage']);
+        Route::post('/admin/add/gallery_category',[GallerypageController::class,'add_category']);
         
         
     });

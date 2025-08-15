@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
+use App\Models\Event;
 use App\Models\Papaya;
 use App\Models\Homepage;
 use App\Models\Aboutpage;

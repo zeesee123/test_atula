@@ -12,49 +12,40 @@
 <div class="page-header d-print-none">
 
      <div class="container-xl">
-        <h3>Event page</h3>
+        <h3>Add Image Category</h3>
 
         <div class="card">
   <div class="card-body">
-    <form action="{{ url('/admin/eventpage') }}" enctype="multipart/form-data" method="POST" id="main_form">
+    <form action="{{ url('/admin/add/gallery_category') }}" enctype="multipart/form-data" method="POST" id="main_form">
         @csrf
     
         <div class="card pt-3 p-4">
             <div class="row">
     
-                <div class="row">
-                    <div class="mb-3 col-6">
-                        <label class="form-label">Banner Image</label>
-                        <input type="file" class="form-control img_inpp" name="banner_image">
-                        @error('banner_image')
-                            <div class="text-danger">{{ $message }}</div>
-                        @enderror
-                    </div>
-                    <div class="mb-3 col-2 pt-4">
-                        <button type="button" class="btn btn-danger clear-btn" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="reset image">
-                            <i class="bi bi-arrow-clockwise"></i>
-                        </button>
-                    </div>
-                    <div class="mb-3 col-4">
-                        <img class="Thumbnail" 
-                             src="{{ optional($model)->banner_image ? asset('images/' . $model->banner_image) : asset('images/default.jpg') }}" 
-                             width="400" 
-                             alt="Banner Thumbnail">
-                    </div>
-                </div>
-    
+                {{-- Category Select --}}
                 <div class="mb-3 col-6">
-                    <label class="form-label">Banner Name</label>
-                    <input type="text" class="form-control" name="title" value="{{ old('title', optional($model)->title) }}">
-                    @error('title')
+                    <label class="form-label">Category Name</label>
+                    <select class="form-control" name="category" required>
+                        <option value="">-- Select Category --</option>
+                        @foreach($categories as $cat)
+                            <option value="{{ $cat->id }}" {{ old('category') == $cat->id ? 'selected' : '' }}>
+                                {{ $cat->name }}
+                            </option>
+                        @endforeach
+                    </select>
+                    @error('category')
                         <div class="text-danger">{{ $message }}</div>
                     @enderror
                 </div>
     
+                {{-- Images & Category Text --}}
                 <div class="mb-3 col-6">
-                    <label class="form-label">Google Calendar Link</label>
-                    <input type="url" class="form-control" name="google_calendar_link" value="{{ old('google_calendar_link', optional($model)->google_calendar_link) }}">
-                    @error('google_calendar_link')
+                    <label class="form-label">Add Images (You can add multiple)</label>
+                    <input type="file" name="images[]" class="filepond" multiple required>
+    
+                    <label class="form-label mt-3">Category Text</label>
+                    <textarea class="form-control" name="category_text" rows="5">{{ old('category_text') }}</textarea>
+                    @error('category_text')
                         <div class="text-danger">{{ $message }}</div>
                     @enderror
                 </div>
@@ -63,14 +54,12 @@
         </div>
     
         <div class="text-end p-3" style="bottom:0;position:sticky;z-index: 1030;">
-            <button class="btn btn-lg btn-primary p-3" id="spin_submit" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Save">
+            <button class="btn btn-lg btn-primary p-3" id="spin_submit">
                 <i class="bi bi-floppy2-fill mx-2"></i> Save
             </button>
         </div>
-    
     </form>
     
-   
   </div>
 </div>
 
