@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('gallerypages', function (Blueprint $table) {
             $table->id();
+            $table->string('banner_image')->nullable(); // to store image filename/path
+            $table->string('title')->nullable();
+            $table->text('content')->nullable();
             $table->timestamps();
         });
     }

@@ -116,7 +116,14 @@ public function blogBySlug($slug)
     }
 
 
-    public function gallerypage(){}
+    public function gallerypage(){
+
+        $model=Gallerypage::first();
+
+        return response()->json(['banner']);
+
+        
+    }
 
     /**
      * Store a newly created resource in storage.
