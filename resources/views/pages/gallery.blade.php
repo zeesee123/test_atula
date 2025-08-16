@@ -12,7 +12,18 @@
 <div class="page-header d-print-none">
 
      <div class="container-xl">
+
+      <div class="d-flex justify-content-between">
         <h3>GalleryPage</h3>
+        <div class="d-flex">
+
+          <div class="mx-1"><a href="{{url('/admin/add_category_gallery')}}">Add Image Category</a></div>
+          <div class="mx-1"><a href="">Add Images</a></div>
+          <div class="mx-1"><a href="">Preview</a></div>
+          
+        </div>
+      </div>
+        
 
         <div class="card">
   <div class="card-body">

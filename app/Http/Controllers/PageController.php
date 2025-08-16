@@ -166,4 +166,12 @@ class PageController extends Controller
       return view('pages.gallery',compact('model'));
 
     }
+
+
+    public function gallerypage_category(){
+
+      // $model=GalleryCategory::all();
+
+      return view('pages.gallery_categories');
+    }
 }

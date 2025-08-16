@@ -210,6 +210,7 @@ Route::group(['prefix'=>'admin'],function(){
         Route::get('/gallery',[PageController::class,'gallerypage']);
         Route::post('/add/gallerypage',[GallerypageController::class,'store']);
         Route::get('/add_category_gallery',[PageController::class,'gallerypage_category']);
+        Route::post('/add_category_gallery',[GallerypageController::class,'gallerypage_category']);
         Route::get('/view_category_gallery',[PageController::class,'gallerypage_category']);
         Route::get('/delete_category_gallery',[PageController::class,'gallerypage_category']);
         Route::get('/edit_category_gallery',[PageController::class,'gallerypage_category']);

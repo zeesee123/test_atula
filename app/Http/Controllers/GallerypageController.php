@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Gallerypage;
 use Illuminate\Http\Request;
+use App\Models\GalleryCategory;
 
 class GallerypageController extends Controller
 {
@@ -40,6 +41,23 @@ class GallerypageController extends Controller
     $gallery->save();
 
     return redirect()->back()->with('success', 'Gallery saved successfully!');
+}
+
+public function gallerypage_category(Request $request){
+
+    $request->validate([
+        'category' => 'required|string|unique:gallery_categories,category|max:255',
+        'category_text' => 'nullable|string',
+    ]);
+
+    // Create new category
+    $category = new GalleryCategory();
+    $category->category = $request->category;
+    $category->category_text = $request->category_text;
+    $category->save();
+
+    // Redirect back with success message
+    return redirect()->back()->with('success', 'Gallery category added successfully.');
 }
 
 
