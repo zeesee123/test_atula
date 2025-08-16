@@ -207,9 +207,25 @@ Route::group(['prefix'=>'admin'],function(){
         Route::post('/eventpage',[EventpageController::class,'event']);
 
         //gallery page
-        Route::get('/add_category_gallery',[PageController::class,'gallerypage']);
+        Route::get('/gallery',[PageController::class,'gallerypage']);
+        Route::get('/add/gallerypage',[PageController::class,'gallerypage']);
+        Route::get('/add_category_gallery',[PageController::class,'gallerypage_category']);
+        Route::get('/view_category_gallery',[PageController::class,'gallerypage_category']);
+        Route::get('/delete_category_gallery',[PageController::class,'gallerypage_category']);
+        Route::get('/edit_category_gallery',[PageController::class,'gallerypage_category']);
         Route::post('/admin/add/gallery_category',[GallerypageController::class,'add_category']);
+        Route::post('/admin/view_gallery_images',[GallerypageController::class,'add_galleryimages']);
+        Route::post('/admin/edit_gallery_images',[GallerypageController::class,'add_galleryimages']);
+        Route::post('/admin/delete_gallery_image',[GallerypageController::class,'add_galleryimages']);
         
+        //careers page
+        Route::get('/careers',[PageController::class,'careerpage']);
+        Route::get('/add/careers',[CareerpageController::class,'stores']);
+        Route::get('/view_jobs',[CareerpageController::class,'view_jobs']);
+        Route::get('/edit/job',[CareerpageController::class,'edit_job']);
+        Route::get('/delete/job',[CareerpageController::class,'remove_job']);
+        //Route::post('/admin/add/gallery_category',[GallerypageController::class,'add_category']);
+
         
     });
     

@@ -7,6 +7,7 @@ use App\Models\Event;
 use App\Models\Papaya;
 use App\Models\Homepage;
 use App\Models\Aboutpage;
+use App\Models\Gallerypage;
 use App\Models\Aboutpagetwo;
 use App\Models\Businesspage;
 use Illuminate\Http\Request;
@@ -155,5 +156,14 @@ class PageController extends Controller
       $model=Event::first()??null;
 
       return view('pages.events',compact('model'));
+    }
+
+
+    public function gallerypage(){
+
+      $model=Gallerypage::first()??null;
+
+      return view('pages.gallery',compact('model'));
+
     }
 }

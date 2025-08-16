@@ -41,4 +41,7 @@ class GallerypageController extends Controller
     return redirect()->back()->with('success', 'Gallery saved successfully!');
 }
 
+
+
+
 }
