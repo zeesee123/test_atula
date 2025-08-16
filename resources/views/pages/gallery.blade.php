@@ -17,58 +17,60 @@
         <div class="card">
   <div class="card-body">
     <form action="{{ url('/admin/add/gallerypage') }}" enctype="multipart/form-data" method="POST" id="main_form">
-        @csrf
-    
-        <div class="card pt-3 p-4">
-            <div class="row">
-    
-                <div class="row">
-                    <div class="mb-3 col-6">
-                        <label class="form-label">Banner Image</label>
-                        <input type="file" class="form-control img_inpp" name="banner_image">
-                        @error('banner_image')
-                            <div class="text-danger">{{ $message }}</div>
-                        @enderror
-                    </div>
-                    <div class="mb-3 col-2 pt-4">
-                        <button type="button" class="btn btn-danger clear-btn" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="reset image">
-                            <i class="bi bi-arrow-clockwise"></i>
-                        </button>
-                    </div>
-                    <div class="mb-3 col-4">
-                        <img class="Thumbnail" 
-                             src="{{ old('banner_image') ? asset('images/' . old('banner_image')) : asset('images/default.jpg') }}" 
-                             width="400" 
-                             alt="Banner Thumbnail">
-                    </div>
-                </div>
-    
-                <div class="mb-3 col-6">
-                    <label class="form-label">Banner Name</label>
-                    <input type="text" class="form-control" name="title" value="{{ old('title') }}">
-                    @error('title')
-                        <div class="text-danger">{{ $message }}</div>
-                    @enderror
-                </div>
-    
-                <div class="mb-3 col-6">
-                    <label class="form-label">Content</label>
-                    <textarea name="content" cols="30" rows="10" class="form-control">{{ old('content') }}</textarea>
-                    @error('content')
-                        <div class="text-danger">{{ $message }}</div>
-                    @enderror
-                </div>
-    
-            </div>
-        </div>
-    
-        <div class="text-end p-3" style="bottom:0;position:sticky;z-index: 1030;">
-            <button class="btn btn-lg btn-primary p-3" id="spin_submit" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Save">
-                <i class="bi bi-floppy2-fill mx-2"></i> Save
-            </button>
-        </div>
-    
-    </form>
+      @csrf
+  
+      <div class="card pt-3 p-4">
+          <div class="row">
+  
+              <div class="row">
+                  <div class="mb-3 col-6">
+                      <label class="form-label">Banner Image</label>
+                      <input type="file" class="form-control img_inpp" name="banner_image">
+                      @error('banner_image')
+                          <div class="text-danger">{{ $message }}</div>
+                      @enderror
+                  </div>
+                  <div class="mb-3 col-2 pt-4">
+                      <button type="button" class="btn btn-danger clear-btn" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="reset image">
+                          <i class="bi bi-arrow-clockwise"></i>
+                      </button>
+                  </div>
+                  <div class="mb-3 col-4">
+                      <img class="Thumbnail" 
+                           src="{{ isset($model) && $model->banner_image ? asset('images/' . $model->banner_image) : asset('images/default.jpg') }}" 
+                           width="400" 
+                           alt="Banner Thumbnail">
+                  </div>
+              </div>
+  
+              <div class="mb-3 col-6">
+                  <label class="form-label">Banner Name</label>
+                  <input type="text" class="form-control" name="title" 
+                         value="{{ isset($model) ? $model->title : 'Default Banner Name' }}">
+                  @error('title')
+                      <div class="text-danger">{{ $message }}</div>
+                  @enderror
+              </div>
+  
+              <div class="mb-3 col-6">
+                  <label class="form-label">Content</label>
+                  <textarea name="content" cols="30" rows="10" class="form-control">{{ isset($model) ? $model->content : 'Default content goes here...' }}</textarea>
+                  @error('content')
+                      <div class="text-danger">{{ $message }}</div>
+                  @enderror
+              </div>
+  
+          </div>
+      </div>
+  
+      <div class="text-end p-3" style="bottom:0;position:sticky;z-index: 1030;">
+          <button class="btn btn-lg btn-primary p-3" id="spin_submit" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Save">
+              <i class="bi bi-floppy2-fill mx-2"></i> Save
+          </button>
+      </div>
+  
+  </form>
+  
     
    
   </div>
