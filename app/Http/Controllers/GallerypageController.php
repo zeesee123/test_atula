@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Gallerypage;
 use Illuminate\Http\Request;
 
 class GallerypageController extends Controller

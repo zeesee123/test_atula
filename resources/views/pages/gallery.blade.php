@@ -16,7 +16,7 @@
 
         <div class="card">
   <div class="card-body">
-    <form action="{{ url('/admin/eventpage') }}" enctype="multipart/form-data" method="POST" id="main_form">
+    <form action="{{ url('/admin/add/gallerypage') }}" enctype="multipart/form-data" method="POST" id="main_form">
         @csrf
     
         <div class="card pt-3 p-4">
