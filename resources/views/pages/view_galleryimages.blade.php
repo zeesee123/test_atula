@@ -2,9 +2,6 @@
 
 
 @push('styles')
-
-<link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet" />
-
 @endpush
 
 @section('content')
@@ -12,83 +9,26 @@
 <div class="page-header d-print-none">
 
      <div class="container-xl">
-
-      <div class="d-flex justify-content-between">
-        <h3>GalleryPage</h3>
-        <div class="d-flex">
-
-          <div class="mx-1"><a href="{{url('/admin/add_category_gallery')}}">Add Image Category</a></div>
-          <div class="mx-1"><a href="{{url('/admin/galleryimages')}}">Add Images</a></div>
-          <div class="mx-1"><a href="">Preview</a></div>
-          
-        </div>
-      </div>
-        
+        <h3>View blogs</h3>
 
         <div class="card">
   <div class="card-body">
-    <form action="{{ url('/admin/add/gallerypage') }}" enctype="multipart/form-data" method="POST" id="main_form">
-      @csrf
-  
-      <div class="card pt-3 p-4">
-          <div class="row">
-  
-              {{-- Banner Image --}}
-              <div class="row">
-                  <div class="mb-3 col-6">
-                      <label class="form-label">Banner Image</label>
-                      <input type="file" class="form-control img_inpp filepond" name="banner_image" accept="image/*">
-                      @error('banner_image')
-                          <div class="text-danger">{{ $message }}</div>
-                      @enderror
-                  </div>
-  
-                  <div class="mb-3 col-2 pt-4">
-                      <button type="button" class="btn btn-danger clear-btn" 
-                              data-bs-toggle="tooltip" data-bs-placement="top" 
-                              title="Reset Image">
-                          <i class="bi bi-arrow-clockwise"></i>
-                      </button>
-                  </div>
-  
-                  <div class="mb-3 col-4">
-                      <img class="Thumbnail" 
-                           src="{{ isset($model) && $model->banner_image ? asset_env('images/' . $model->banner_image) : asset_env('images/default.jpg') }}" 
-                           width="400" 
-                           alt="Banner Thumbnail">
-                  </div>
-              </div>
-  
-              {{-- Title --}}
-              <div class="mb-3 col-6">
-                  <label class="form-label">Banner Name</label>
-                  <input type="text" class="form-control" name="title" 
-                         value="{{ isset($model) ? $model->title : 'Default Banner Name' }}">
-                  @error('title')
-                      <div class="text-danger">{{ $message }}</div>
-                  @enderror
-              </div>
-  
-              {{-- Content --}}
-              <div class="mb-3 col-6">
-                  <label class="form-label">Content</label>
-                  <textarea name="content" cols="30" rows="10" class="form-control">{{ isset($model) ? $model->content : 'Default content goes here...' }}</textarea>
-                  @error('content')
-                      <div class="text-danger">{{ $message }}</div>
-                  @enderror
-              </div>
-  
-          </div>
-      </div>
-  
-      <div class="text-end p-3" style="bottom:0;position:sticky;z-index:1030;">
-          <button type="submit" class="btn btn-lg btn-primary p-3" id="spin_submit" 
-                  data-bs-toggle="tooltip" data-bs-placement="top" title="Save">
-              <i class="bi bi-floppy2-fill mx-2"></i> Save
-          </button>
-      </div>
-  
-  </form>    
+
+    <table class="table" id="whatwedo_table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Blog Name</th>
+            <th scope="col">Blog Image</th>
+            
+            {{-- <th scope="col">Url</th> --}}
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+        </tbody>
+      </table>
    
   </div>
 </div>
@@ -103,52 +43,6 @@
 @push('scripts')
 
 
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-    @if(session('success'))
-        Swal.fire({
-            icon: 'success',
-            title: 'Success!',
-            text: "{{ session('success') }}",
-            confirmButtonColor: '#3085d6',
-            confirmButtonText: 'OK'
-        });
-    @endif
-
-    @if(session('error'))
-        Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: "{{ session('error') }}",
-            confirmButtonColor: '#d33',
-            confirmButtonText: 'OK'
-        });
-    @endif
-});
-</script>
-
-
-<script>
-    let main_form=document.getElementById('main_form');
-
-    let spin_submit=document.getElementById('spin_submit');
-
-    main_form.addEventListener('submit',(e)=>{
-
-        e.preventDefault();
-
-        spin_submit.innerHTML=`<div class="spinner-border mx-2" role="status">
-        <span class="visually-hidden">Loading...</span>
-      </div>`;
-        
-        console.log('submit event');
-
-        main_form.submit();
-    });
-
-</script>
-
-
 <script src="
 https://cdn.jsdelivr.net/npm/filepond@4.32.7/dist/filepond.min.js
 "></script>
@@ -158,34 +52,7 @@ https://cdn.jsdelivr.net/npm/filepond@4.32.7/dist/filepond.min.js
 https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-plugin-image-preview.min.js
 "></script>
 
-
-{{-- <script src="https://cdn.ckeditor.com/4.22.1/standard/ckeditor.js"></script> --}}
-
-<script src="{{ asset_env('vendor/tinymce/js/tinymce/tinymce.min.js') }}"></script>
-
-
-{{-- Initialize CKEditor --}}
-{{-- <script>
-      tinymce.init({
-        selector: '#blog_content'
-      });
-    </script> --}}
 <script>
-tinymce.init({
-  selector: '#blog_content',
-  license_key: 'gpl',
-  height: 400,
-  menubar: true,
-  plugins: 'link image code lists',
-  toolbar: 'undo redo | formatselect | bold italic | alignleft aligncenter alignright | bullist numlist | link image code',
-  block_formats: 'Paragraph=p; Heading 1=h1; Heading 2=h2; Heading 3=h3; Heading 4=h4',
-  valid_elements: '*[*]',
-  valid_children: '+body[h1,h2,h3,h4]'
-});
-
-</script>
-
-<script> 
 
     FilePond.registerPlugin(FilePondPluginImagePreview);
 
@@ -545,10 +412,11 @@ imageInputs.forEach((input, index) => {
 // datatable part
 
 var table1=$('#whatwedo_table').DataTable({
-              ajax:"{{url('admin/hometable/section3')}}",
+              ajax:"{{url('admin/get_blogs')}}",
               processing:true,
               columns:[
                 {"data":"id"},
+                {"data":"blog_name"},
                 {"data":"image"},
                 // {"data":"description"},
                 {"data":"actions"}],

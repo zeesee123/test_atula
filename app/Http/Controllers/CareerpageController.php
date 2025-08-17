@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Careerpage;
 use Illuminate\Http\Request;
 
 class CareerpageController extends Controller

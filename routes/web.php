@@ -11,6 +11,7 @@ use App\Http\Controllers\PapayaController;
 use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\AboutpageController;
 use App\Http\Controllers\EventpageController;
+use App\Http\Controllers\CareerpageController;
 use App\Http\Controllers\AgriventureController;
 use App\Http\Controllers\GallerypageController;
 use App\Http\Controllers\BusinesspageController;
@@ -227,11 +228,13 @@ Route::group(['prefix'=>'admin'],function(){
         Route::post('/delete_gallery_image',[GallerypageController::class,'add_galleryimages']);
         
         //careers page
-        Route::get('/careers',[PageController::class,'careerpage']);
-        Route::get('/add/careers',[CareerpageController::class,'stores']);
-        Route::get('/view_jobs',[CareerpageController::class,'view_jobs']);
-        Route::get('/edit/job',[CareerpageController::class,'edit_job']);
-        Route::get('/delete/job',[CareerpageController::class,'remove_job']);
+        Route::get('/careerpage',[PageController::class,'careerpage']);
+        Route::post('/careerpage',[CareerpageController::class,'store']);
+        Route::get('/add/careers',[PageController::class,'add_jobs']);
+        Route::post('/add/careers',[CareerpageController::class,'add_jobs']);
+        // Route::get('/view_jobs',[CareerpageController::class,'view_jobs']);
+        // Route::get('/edit/job',[CareerpageController::class,'edit_job']);
+        // Route::get('/delete/job',[CareerpageController::class,'remove_job']);
         //Route::post('/admin/add/gallery_category',[GallerypageController::class,'add_category']);
 
         

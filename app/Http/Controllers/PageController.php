@@ -7,6 +7,7 @@ use App\Models\Event;
 use App\Models\Papaya;
 use App\Models\Homepage;
 use App\Models\Aboutpage;
+use App\Models\Careerpage;
 use App\Models\Gallerypage;
 use App\Models\Aboutpagetwo;
 use App\Models\Businesspage;
@@ -182,5 +183,13 @@ class PageController extends Controller
       
 
       return view('pages.gallery_images',compact('categories'));
+    }
+
+    public function careerpage(){
+
+    $model=Careerpage::first()??null;
+      
+
+      return view('pages.careerpage',compact('model'));
     }
 }
