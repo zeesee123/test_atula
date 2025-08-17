@@ -192,4 +192,9 @@ class PageController extends Controller
 
       return view('pages.careerpage',compact('model'));
     }
+
+    public function add_jobs(){
+      return view('pages.add_job');
+    
+    }
 }

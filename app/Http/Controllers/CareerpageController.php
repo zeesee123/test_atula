@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Job;
 use App\Models\Careerpage;
 use Illuminate\Http\Request;
 
@@ -49,6 +50,45 @@ class CareerpageController extends Controller
             // Any other errors
             return redirect()->back()->with('error', 'Something went wrong: ' . $e->getMessage());
         }
+    }
+
+    public function add_job(Request $r){
+
+        try {
+            // Validate the request
+            $r->validate([
+                'profile' => 'required|string|max:255',
+                'positions' => 'nullable|string|max:50',
+                'experience' => 'nullable|string|max:50',
+                'location' => 'nullable|string',
+                'eligibility' => 'nullable|string',
+                'summary' => 'nullable|string',
+                'requirements' => 'nullable|string',
+            ]);
+    
+            // Create the job
+            Job::create([
+                'profile' => $r->input('profile'),
+                'positions' => $r->input('positions'),
+                'experience' => $r->input('experience'),
+                'location' => $r->input('location'),
+                'eligibility' => $r->input('eligibility'),
+                'summary' => $r->input('summary'),
+                'requirements' => $r->input('requirements'),
+            ]);
+    
+            // Redirect back with success
+            return redirect()->back()->with('success', 'Job added successfully!');
+    
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            // Validation errors
+            return redirect()->back()->withErrors($e->errors())->withInput();
+        } catch (\Exception $e) {
+            // Any other error
+            return redirect()->back()->with('error', 'Something went wrong: ' . $e->getMessage());
+        }
+
+
     }
 }
 

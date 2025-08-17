@@ -230,8 +230,8 @@ Route::group(['prefix'=>'admin'],function(){
         //careers page
         Route::get('/careerpage',[PageController::class,'careerpage']);
         Route::post('/careerpage',[CareerpageController::class,'store']);
-        Route::get('/add/careers',[PageController::class,'add_jobs']);
-        Route::post('/add/careers',[CareerpageController::class,'add_jobs']);
+        Route::get('/add_careers',[PageController::class,'add_jobs']);
+        Route::post('/add_careers',[CareerpageController::class,'add_job']);
         // Route::get('/view_jobs',[CareerpageController::class,'view_jobs']);
         // Route::get('/edit/job',[CareerpageController::class,'edit_job']);
         // Route::get('/delete/job',[CareerpageController::class,'remove_job']);
