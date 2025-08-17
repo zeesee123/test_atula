@@ -5,6 +5,16 @@
 
 <link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet" />
 
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+<link href="
+https://cdn.jsdelivr.net/npm/filepond@4.32.7/dist/filepond.min.css
+" rel="stylesheet"/>
+
+<link href="
+https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-plugin-image-preview.min.css
+" rel="stylesheet">
+
 @endpush
 
 @section('content')
@@ -72,6 +82,16 @@
 
 @push('scripts')
 
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+<script src="
+https://cdn.jsdelivr.net/npm/filepond@4.32.7/dist/filepond.min.js
+"></script>
+
+{{-- <script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script> --}}
+<script src="
+https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-plugin-image-preview.min.js
+"></script>
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
@@ -158,6 +178,14 @@ tinymce.init({
 <script> 
 
     FilePond.registerPlugin(FilePondPluginImagePreview);
+
+    let inputElement=document.querySelector('.filepond');
+
+    FilePond.create(inputElement, {
+        allowMultiple: false, // or true if you want multiple files
+        allowImagePreview: true,
+        instantUpload: false // THIS is important for normal form POST
+    });
 
     let x_token=document.querySelector("meta[name='csrf-token']").getAttribute('content');
 

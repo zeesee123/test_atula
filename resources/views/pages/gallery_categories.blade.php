@@ -16,7 +16,7 @@
 
         <div class="card">
   <div class="card-body">
-    <form action="{{ url('/admin/add/gallery_category') }}" enctype="multipart/form-data" method="POST" id="main_form">
+    <form action="{{ url('/admin/add_category_gallery') }}" enctype="multipart/form-data" method="POST" id="main_form">
         @csrf
     
         <div class="card pt-3 p-4">

@@ -18,7 +18,7 @@
         <div class="d-flex">
 
           <div class="mx-1"><a href="{{url('/admin/add_category_gallery')}}">Add Image Category</a></div>
-          <div class="mx-1"><a href="">Add Images</a></div>
+          <div class="mx-1"><a href="{{url('/admin/galleryimages')}}">Add Images</a></div>
           <div class="mx-1"><a href="">Preview</a></div>
           
         </div>

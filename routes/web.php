@@ -209,15 +209,21 @@ Route::group(['prefix'=>'admin'],function(){
         //gallery page
         Route::get('/gallery',[PageController::class,'gallerypage']);
         Route::post('/add/gallerypage',[GallerypageController::class,'store']);
+
+        //==gallery category
         Route::get('/add_category_gallery',[PageController::class,'gallerypage_category']);
         Route::post('/add_category_gallery',[GallerypageController::class,'gallerypage_category']);
+        
         Route::get('/view_category_gallery',[PageController::class,'gallerypage_category']);
         Route::get('/delete_category_gallery',[PageController::class,'gallerypage_category']);
         Route::get('/edit_category_gallery',[PageController::class,'gallerypage_category']);
         Route::post('/admin/add/gallery_category',[GallerypageController::class,'add_category']);
-        Route::post('/admin/view_gallery_images',[GallerypageController::class,'add_galleryimages']);
-        Route::post('/admin/edit_gallery_images',[GallerypageController::class,'add_galleryimages']);
-        Route::post('/admin/delete_gallery_image',[GallerypageController::class,'add_galleryimages']);
+        
+        //images gallery part
+        Route::get('/galleryimages',[PageController::class,'gallery_images']);
+        Route::post('/view_gallery_images',[GallerypageController::class,'add_galleryimages']);
+        Route::post('/edit_gallery_images',[GallerypageController::class,'add_galleryimages']);
+        Route::post('/delete_gallery_image',[GallerypageController::class,'add_galleryimages']);
         
         //careers page
         Route::get('/careers',[PageController::class,'careerpage']);

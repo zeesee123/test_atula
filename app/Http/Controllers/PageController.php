@@ -11,6 +11,7 @@ use App\Models\Gallerypage;
 use App\Models\Aboutpagetwo;
 use App\Models\Businesspage;
 use Illuminate\Http\Request;
+use App\Models\GalleryCategory;
 use App\Models\Agroforestrypage;
 use App\Models\Ecoinitiativepage;
 
@@ -173,5 +174,13 @@ class PageController extends Controller
       // $model=GalleryCategory::all();
 
       return view('pages.gallery_categories');
+    }
+
+    public function gallery_images(){
+
+      $categories=GalleryCategory::all();
+      
+
+      return view('pages.gallery_images',compact('categories'));
     }
 }
