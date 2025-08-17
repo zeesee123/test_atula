@@ -33,3 +33,5 @@ Route::get('/blogs',[PageController::class,'blogs']);
 Route::get('/blogs/{slug}', [PageController::class, 'blogBySlug']);
 
 Route::get('/eventpage',[PageController::class,'eventpage']);
+
+Route::get('/jobs',[PageController::class,'jobs']);

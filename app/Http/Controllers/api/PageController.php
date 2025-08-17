@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\api;
 
+use App\Models\Job;
 use App\Models\Blog;
 use App\Models\Event;
 use App\Models\Homepage;
@@ -125,6 +126,24 @@ public function blogBySlug($slug)
         
     }
 
+
+    public function jobs()
+    {
+        try {
+            $jobs = Job::orderBy('created_at', 'desc')->get(); // latest first
+    
+            return response()->json([
+                'success' => true,
+                'data' => $jobs
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Something went wrong: ' . $e->getMessage()
+            ], 500);
+        }
+    }
+    
     /**
      * Store a newly created resource in storage.
      */
