@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Gallerypage;
 use Illuminate\Http\Request;
+use App\Models\GalleryImages;
 use App\Models\GalleryCategory;
 
 class GallerypageController extends Controller
@@ -59,6 +60,42 @@ public function gallerypage_category(Request $request){
     // Redirect back with success message
     return redirect()->back()->with('success', 'Gallery category added successfully.');
 }
+
+
+public function gallery_images(Request $request)
+    {
+       
+    try {
+        // dd($request);
+        $request->validate([
+            'category' => 'required|exists:gallery_categories,id',
+            'images.*' => 'required|mimes:jpg,jpeg,png,svg,webp,gif|max:2048', // allow all image types
+        ]);
+
+        $categoryId = $request->input('category');
+
+        if ($request->hasFile('images')) {
+            foreach ($request->file('images') as $image) {
+                $imageName = $image->hashName();
+                $image->move(public_path('images'), $imageName);
+
+                GalleryImages::create([
+                    'gallery_category_id' => $categoryId,
+                    'image_name'       => $imageName,
+                ]);
+            }
+        }
+
+        return redirect()->back()->with('success', 'Images added successfully!');
+
+    } catch (\Illuminate\Validation\ValidationException $e) {
+        // If validation fails
+        return redirect()->back()->withErrors($e->errors())->withInput();
+    } catch (\Exception $e) {
+        // Any other error
+        return redirect()->back()->with('error', 'Something went wrong: ' . $e->getMessage());
+    }
+    }
 
 
 

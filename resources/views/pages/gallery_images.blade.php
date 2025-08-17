@@ -26,7 +26,7 @@ https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-
 
         <div class="card">
   <div class="card-body">
-    <form action="{{ url('/admin/add/gallery_category') }}" enctype="multipart/form-data" method="POST" id="main_form">
+    <form action="{{ url('/admin/add/gallery_images') }}" enctype="multipart/form-data" method="POST" id="main_form">
         @csrf
     
         <div class="card pt-3 p-4">
@@ -39,7 +39,7 @@ https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-
                         <option value="">-- Select Category --</option>
                         @foreach($categories as $cat)
                             <option value="{{ $cat->id }}" {{ old('category') == $cat->id ? 'selected' : '' }}>
-                                {{ $cat->name }}
+                                {{ $cat->category }}
                             </option>
                         @endforeach
                     </select>
@@ -53,11 +53,6 @@ https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-
                     <label class="form-label">Add Images (You can add multiple)</label>
                     <input type="file" name="images[]" class="filepond" multiple required>
     
-                    <label class="form-label mt-3">Category Text</label>
-                    <textarea class="form-control" name="category_text" rows="5">{{ old('category_text') }}</textarea>
-                    @error('category_text')
-                        <div class="text-danger">{{ $message }}</div>
-                    @enderror
                 </div>
     
             </div>
@@ -182,9 +177,11 @@ tinymce.init({
     let inputElement=document.querySelector('.filepond');
 
     FilePond.create(inputElement, {
-        allowMultiple: false, // or true if you want multiple files
+        allowMultiple: true, // or true if you want multiple files
         allowImagePreview: true,
-        instantUpload: false // THIS is important for normal form POST
+        instantUpload: false, // THIS is important for normal form POST
+        server:null,
+        storeAsFile: true    
     });
 
     let x_token=document.querySelector("meta[name='csrf-token']").getAttribute('content');

@@ -221,6 +221,7 @@ Route::group(['prefix'=>'admin'],function(){
         
         //images gallery part
         Route::get('/galleryimages',[PageController::class,'gallery_images']);
+        Route::post('/add/gallery_images',[GalleryPageController::class,'gallery_images']);
         Route::post('/view_gallery_images',[GallerypageController::class,'add_galleryimages']);
         Route::post('/edit_gallery_images',[GallerypageController::class,'add_galleryimages']);
         Route::post('/delete_gallery_image',[GallerypageController::class,'add_galleryimages']);
