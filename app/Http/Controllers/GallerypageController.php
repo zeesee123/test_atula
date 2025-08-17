@@ -65,36 +65,72 @@ public function gallerypage_category(Request $request){
 public function gallery_images(Request $request)
     {
        
-    try {
-        // dd($request);
-        $request->validate([
-            'category' => 'required|exists:gallery_categories,id',
-            'images.*' => 'required|mimes:jpg,jpeg,png,svg,webp,gif|max:2048', // allow all image types
-        ]);
-
-        $categoryId = $request->input('category');
-
-        if ($request->hasFile('images')) {
-            foreach ($request->file('images') as $image) {
-                $imageName = $image->hashName();
-                $image->move(public_path('images'), $imageName);
-
-                GalleryImages::create([
-                    'gallery_category_id' => $categoryId,
-                    'image_name'       => $imageName,
-                ]);
+        try {
+            $categoryId = $request->input('category_id');
+    
+            // Get the category
+            $category = GalleryCategory::findOrFail($categoryId);
+            $isVideo = strtolower($category->category) === 'video';
+    
+            // Dynamic validation
+            $rules = [
+                'category_id' => 'required|exists:gallery_categories,id',
+            ];
+    
+            if ($isVideo) {
+                $rules['video_thumbnails.*'] = 'required|mimes:jpg,jpeg,png,svg,webp,gif|max:2048';
+                $rules['video_urls.*'] = 'required|url';
+            } else {
+                $rules['images.*'] = 'required|mimes:jpg,jpeg,png,svg,webp,gif|max:2048';
             }
+    
+            $request->validate($rules);
+    
+            if ($isVideo) {
+                $thumbnails = $request->file('video_thumbnails', []);
+                $urls = $request->input('video_urls', []);
+    
+                foreach ($thumbnails as $index => $thumbnail) {
+                    $imageName = $thumbnail->hashName();
+                    $thumbnail->move(public_path('images'), $imageName);
+    
+                    GalleryImages::create([
+                        'gallery_category_id' => $categoryId,
+                        'image_name'          => $imageName,
+                        'url'                 => $urls[$index] ?? null,
+                    ]);
+                }
+            } else {
+                foreach ($request->file('images') as $image) {
+                    $imageName = $image->hashName();
+                    $image->move(public_path('images'), $imageName);
+    
+                    GalleryImages::create([
+                        'gallery_category_id' => $categoryId,
+                        'image_name'          => $imageName,
+                        'url'                 => null,
+                    ]);
+                }
+            }
+    
+            return redirect()->back()->with('success', 'Gallery items added successfully!');
+    
         }
-
-        return redirect()->back()->with('success', 'Images added successfully!');
-
-    } catch (\Illuminate\Validation\ValidationException $e) {
+     catch (\Illuminate\Validation\ValidationException $e) {
         // If validation fails
         return redirect()->back()->withErrors($e->errors())->withInput();
     } catch (\Exception $e) {
         // Any other error
         return redirect()->back()->with('error', 'Something went wrong: ' . $e->getMessage());
     }
+    }
+
+    public function add_images(Request $request){
+
+          // Validate basic form
+  
+
+    return redirect()->back()->with('success', 'Gallery items uploaded successfully!');
     }
 
 
