@@ -8,27 +8,49 @@
 
 <div class="page-header d-print-none">
 
+
+   <!-- Dynamic category tabs -->
+  
+
      <div class="container-xl">
-        <h3>View blogs</h3>
+        <h3>View Gallery Images</h3>
 
         <div class="card">
   <div class="card-body">
 
-    <table class="table" id="whatwedo_table">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Blog Name</th>
-            <th scope="col">Blog Image</th>
-            
-            {{-- <th scope="col">Url</th> --}}
-            <th scope="col">Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          
-        </tbody>
-      </table>
+    <ul class="nav nav-tabs" id="categoryTab" role="tablist">
+      @foreach($categories as $category)
+      <li class="nav-item" role="presentation">
+          <button class="nav-link {{ $loop->first ? 'active' : '' }}" 
+                  id="tab-{{ $category->id }}" 
+                  data-bs-toggle="tab" 
+                  data-bs-target="#pane-{{ $category->id }}" 
+                  type="button" role="tab">
+              {{ $category->category }}
+          </button>
+      </li>
+      @endforeach
+  </ul>
+  
+  <div class="tab-content mt-3">
+      @foreach($categories as $category)
+      <div class="tab-pane fade {{ $loop->first ? 'show active' : '' }}" 
+           id="pane-{{ $category->id }}" 
+           role="tabpanel">
+          <table class="table table-bordered datatable" id="table-{{ $category->id }}">
+              <thead>
+                  <tr>
+                      <th>#</th>
+                      <th>Image</th>
+                      <th>Actions</th>
+                  </tr>
+              </thead>
+              <tbody></tbody>
+          </table>
+      </div>
+      @endforeach
+  </div>
+   
    
   </div>
 </div>
@@ -39,6 +61,9 @@
 </div>
 
 @endsection
+
+
+
 
 @push('scripts')
 
@@ -51,6 +76,23 @@ https://cdn.jsdelivr.net/npm/filepond@4.32.7/dist/filepond.min.js
 <script src="
 https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-plugin-image-preview.min.js
 "></script>
+
+<script>
+
+@foreach($categories as $category)
+$('#table-{{ $category->id }}').DataTable({
+    ajax: "{{ url('admin/gallery_table/'.$category->id) }}",
+    processing: true,
+    columns: [
+        {data:'id'},
+        {data:'image'},
+        {data:'actions', orderable:false, searchable:false}
+    ],
+    dom: 'Bfrtip',
+    buttons: ['copy','csv','excel','pdf','print']
+});
+@endforeach
+</script>
 
 <script>
 

@@ -127,6 +127,44 @@ public function gallery_images(Request $request)
     }
     }
 
+
+    public function loadtable_galleryimages($category_id){
+
+        $images = GalleryImages::where('gallery_category_id', $category_id)->get();
+        $data = [];
+        $c = 1;
+    
+        foreach ($images as $image) {
+            $data[] = [
+                'id' => $c++,
+                'image' => '<img src="'.asset_env('images/'.$image->image_name).'" style="width: 100px; height:auto; object-fit:contain;">',
+                'actions' => '
+                    <a href="/admin/edit_galleryimage/'.$image->id.'" class="btn btn-success btn-sm mx-1">
+                        <i class="bi bi-pencil-square"></i> Edit
+                    </a>
+                    <button class="btn btn-danger btn-sm delete-btn mx-1" data-id="'.$image->id.'" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                        <i class="bi bi-trash3-fill"></i> Delete
+                    </button>'
+            ];
+        }
+    
+        return response()->json(['data' => $data]);
+    }
+
+    public function loadtable_gallerycategories(){
+
+        return view('pages.view_gallerycategories');
+    }
+
+
+    public function delete_image(){}
+
+    public function delete_category(){}
+
+    public function edit_image(){}
+
+    public function edit_category(){}
+
    
 
 

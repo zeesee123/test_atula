@@ -197,4 +197,23 @@ class PageController extends Controller
       return view('pages.add_job');
     
     }
+
+    public function view_galleryimages(){
+
+      $categories=GalleryCategory::all();
+      
+      return view('pages.view_galleryimages',compact('categories'));
+    }
+
+    public function edit_galleryimage($id){
+
+       // Fetch the image by ID
+    $image = GalleryImage::findOrFail($id);
+
+    // Fetch all categories for the dropdown in case you want to change category
+    $categories = GalleryCategory::all();
+
+    // Return edit view
+    return view('pages.edit_galleryimage', compact('image', 'categories'));
+    }
 }
