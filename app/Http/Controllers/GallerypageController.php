@@ -46,6 +46,8 @@ class GallerypageController extends Controller
 
 public function gallerypage_category(Request $request){
 
+    
+
     $request->validate([
         'category' => 'required|string|unique:gallery_categories,category|max:255',
         'category_text' => 'nullable|string',
@@ -64,7 +66,7 @@ public function gallerypage_category(Request $request){
 
 public function gallery_images(Request $request)
     {
-       
+            //  dd($request);       
         try {
             $categoryId = $request->input('category_id');
     
@@ -125,13 +127,7 @@ public function gallery_images(Request $request)
     }
     }
 
-    public function add_images(Request $request){
-
-          // Validate basic form
-  
-
-    return redirect()->back()->with('success', 'Gallery items uploaded successfully!');
-    }
+   
 
 
 

@@ -219,7 +219,7 @@ document.querySelectorAll('input[name="video_thumbnails[]"]').forEach(input => {
 
 
 <script>
-  function addVideoField() {
+ function addVideoField() {
   let wrapper = document.getElementById("video-fields");
 
   let newField = document.createElement("div");
@@ -241,9 +241,17 @@ document.querySelectorAll('input[name="video_thumbnails[]"]').forEach(input => {
 
   wrapper.appendChild(newField);
 
-  // re-init FilePond for newly added file inputs
-  FilePond.create(newField.querySelector('.filepond'));
+  // re-init FilePond for newly added file input
+  const input = newField.querySelector('.filepond');
+  FilePond.create(input, {
+      allowMultiple: false, // only 1 file per thumbnail
+      allowImagePreview: true,
+      instantUpload: false,
+      server: null,
+      storeAsFile: true   // <-- this is crucial
+  });
 }
+
 
 function removeVideoField(button) {
   button.closest('.video-item').remove();

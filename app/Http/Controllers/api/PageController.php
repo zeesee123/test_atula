@@ -7,6 +7,7 @@ use App\Models\Blog;
 use App\Models\Event;
 use App\Models\Homepage;
 use Illuminate\Http\Request;
+use App\Models\GalleryCategory;
 use App\Models\HomepageSection3;
 use App\Models\HomepageSection4;
 use App\Models\HomepageSection5;
@@ -142,6 +143,32 @@ public function blogBySlug($slug)
                 'message' => 'Something went wrong: ' . $e->getMessage()
             ], 500);
         }
+    }
+
+    public function gallery(){
+
+        // Fetch all categories with their images, ordered by ID
+        $categories = GalleryCategory::with(['images' => function ($q) {
+            $q->orderBy('id', 'asc');
+        }])->orderBy('id')->get();
+
+        // Transform data to match galleryData.json structure
+        $data = $categories->map(function ($category) {
+            return [
+                'title'       => $category->category,
+                'description' => $category->category_text ?: null,
+                'images'      => $category->images->map(function ($img) {
+                    return [
+                        'id'          => $img->id,
+                        'src'         => url('images/' . $img->image_name),
+                        'alt'         => $img->image_name,
+                        'youtubeLink' => $img->url ?: null,
+                    ];
+                }),
+            ];
+        });
+
+        return response()->json($data);
     }
     
     /**
