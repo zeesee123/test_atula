@@ -238,6 +238,12 @@ Route::group(['prefix'=>'admin'],function(){
         Route::post('/careerpage',[CareerpageController::class,'store']);
         Route::get('/add_careers',[PageController::class,'add_jobs']);
         Route::post('/add_careers',[CareerpageController::class,'add_job']);
+
+        Route::get('/view_jobs',[PageController::class,'view_jobs']);
+        Route::get('/careers/loadtable',[CareerpageController::class,'loadtable']);
+        Route::get('/careers/edit/{id}', [CareerController::class, 'edit']);      // edit page
+Route::delete('/careers/delete/{id}', [CareerController::class, 'delete']); // delete ajax
+Route::post('/careers/update/{id}', [CareerController::class, 'update']);  // update from edit
         // Route::get('/view_jobs',[CareerpageController::class,'view_jobs']);
         // Route::get('/edit/job',[CareerpageController::class,'edit_job']);
         // Route::get('/delete/job',[CareerpageController::class,'remove_job']);

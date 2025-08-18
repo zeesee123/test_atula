@@ -178,7 +178,7 @@ https://cdn.jsdelivr.net/npm/filepond@4.32.7/dist/filepond.min.js
 https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-plugin-image-preview.min.js
 "></script>
 
-<script src="{{ asset('vendor/tinymce/js/tinymce/tinymce.min.js') }}"></script>
+<script src="{{ asset_env('vendor/tinymce/js/tinymce/tinymce.min.js') }}"></script>
 
 
 {{-- Initialize CKEditor --}}

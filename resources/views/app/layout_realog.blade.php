@@ -205,12 +205,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.17.2/dist/sweetalert2.min.css
               <li class="nav-item">
                 <a class="nav-link" href="{{url('/admin/gallery')}}" >
                   <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/home -->
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-images" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                      <rect x="3" y="5" width="14" height="14" rx="2"/>
-                      <circle cx="10" cy="12" r="2"/>
-                      <path d="M21 7v10a2 2 0 0 1 -2 2h-10"/>
-                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-dashboard"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 13m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/><path d="M13.45 11.55l2.05 -2.05"/><path d="M6.4 20a9 9 0 1 1 11.2 0z"/></svg>
                   </span>
                   <span class="nav-link-title">
                     Gallery
@@ -218,40 +213,18 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.17.2/dist/sweetalert2.min.css
                 </a>
               </li>
 
-              
+              <li class="nav-item">
+                <a class="nav-link" href="{{url('/admin/careers')}}" >
+                  <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/home -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-dashboard"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 13m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/><path d="M13.45 11.55l2.05 -2.05"/><path d="M6.4 20a9 9 0 1 1 11.2 0z"/></svg>
+                  </span>
+                  <span class="nav-link-title">
+                    Careers
+                  </span>
+                </a>
+              </li>
 
-            {{-- career  --}}
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false" >
-                <span class="nav-link-icon d-md-none d-lg-inline-block">
-                  <!-- Download SVG icon from https://icons.getbootstrap.com/icons/file-earmark/ -->
-                  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user-badge" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                    <path d="M14 12a4 4 0 1 0 -4 0a4 4 0 0 0 4 0"/>
-                    <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"/>
-                    <path d="M14 4h4a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-4a2 2 0 0 1 -2 -2v-2a2 2 0 0 1 2 -2z"/>
-                  </svg>
-                </span>
-                <span class="nav-link-title">
-                  Careers
-                </span>
-              </a>
-              <div class="dropdown-menu">
-                <div class="dropdown-menu-columns">
-                  <div class="dropdown-menu-column">
-                    <a class="dropdown-item" href="{{url('/admin/add_careers')}}">
-                      Add Job
-                    </a>
-                    <a class="dropdown-item" href="{{url('/admin/view_jobs')}}">
-                      View Jobs
-                    </a>
-                    
-                    {{-- new dropdown --}}
-                    
-                </div>
-              </div>
-            </li>
-            {{-- career ends   --}}
+              
 
 
             {{-- new blog entire menu --}}
@@ -287,9 +260,151 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.17.2/dist/sweetalert2.min.css
 
             {{-- new blog entire menu ends --}}
            
-              
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false" >
+                  <span class="nav-link-icon d-md-none d-lg-inline-block">
+                    <!-- Download SVG icon from https://icons.getbootstrap.com/icons/file-earmark/ -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                      <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5z"/>
+                      <path d="M13.5 4.5L10 1v3a1 1 0 0 0 1 1h2.5z"/>
+                    </svg>
+                  </span>
+                  <span class="nav-link-title">
+                    Pages
+                  </span>
+                </a>
+                <div class="dropdown-menu">
+                  <div class="dropdown-menu-columns">
+                    <div class="dropdown-menu-column">
+                      <a class="dropdown-item" href="{{url('/admin/home')}}">
+                        Homepage
+                      </a>
+                      <div class="dropend">
+                        <a class="dropdown-item dropdown-toggle" href="#sidebar-authentication" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false" >
+                          About Us
 
-              
+                        </a>
+                        <div class="dropdown-menu">
+                          <a href="{{url('/admin/about')}}" class="dropdown-item">
+                            About AKV
+
+                            
+                          </a>
+                          <a href="{{url('/admin/about-two')}}" class="dropdown-item">
+                            About A&M Agriculture
+                          </a>
+                          <a href="href="{{url('/admin/team')}}"" class="dropdown-item">
+                            Our Team
+                          </a>
+                          
+                        </div>
+                      </div>
+                      {{-- new dropdown --}}
+                      <div class="dropend">
+                        <a class="dropdown-item dropdown-toggle" href="#sidebar-authentication" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false" >
+                          Our Business
+
+                        </a>
+                        <div class="dropdown-menu">
+                          <a href="{{url('/admin/business')}}" class="dropdown-item">
+                            Our Business
+
+                            
+                          </a>
+                          <a href="{{url('/admin/about')}}" class="dropdown-item">
+                            Agroforestry
+
+                            
+                          </a>
+                          <a href="{{url('/admin/agrotourism')}}" class="dropdown-item">
+                            Agrotourism
+                          </a>
+                          <a href="{{url('/admin/contract-farming')}}" class="dropdown-item">
+                            Contract Farming
+                          </a>
+                          <a href="{{url('/admin/training-and-dev')}}" class="dropdown-item">
+                            Training and development
+                          </a>
+                          <a href="{{url('/admin/nursery')}}" class="dropdown-item">
+                            Nursery
+                          </a>
+                          
+                          
+                        </div>
+                      </div>
+                      {{-- <a class="dropdown-item" href="{{url('/admin/about')}}">
+                        Aboutpage
+                      </a>
+                      <a class="dropdown-item" href="{{url('/admin/about-two')}}">
+                        Aboutpage-2(A&M Agriventure)
+                      </a> --}}
+                      {{-- <a class="dropdown-item" href="{{url('/admin/agroforestry')}}">
+                        Agroforestry
+                      </a>
+                      <a class="dropdown-item" href="{{url('/admin/business')}}">
+                        Businesspage
+                      </a> --}}
+                      <a class="dropdown-item" href="{{url('/admin/eco-initiative')}}">
+                        Eco-initiatives
+                      </a>
+                      <a class="dropdown-item" href="{{url('/admin/contract-farming')}}">
+                        Contract Farming
+                      </a>
+                      <a class="dropdown-item" href="{{url('/admin/training-and-dev')}}">
+                        Training Development
+                      </a>
+                     
+                      <a class="dropdown-item" href="{{url('/admin/bamboo')}}">
+                        Bamboo
+                      </a>
+                      <a class="dropdown-item" href="{{url('/admin/fruits-and-vegetables')}}">
+                        Fruits & Vegetables
+                      </a>
+                      
+                      
+                      
+                    </div>
+                  </div>
+                </div>
+              </li>
+
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false" >
+                  <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/package -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 3l8 4.5l0 9l-8 4.5l-8 -4.5l0 -9l8 -4.5" /><path d="M12 12l8 -4.5" /><path d="M12 12l0 9" /><path d="M12 12l-8 -4.5" /><path d="M16 5.25l-8 4.5" /></svg>
+                  </span>
+                  <span class="nav-link-title">
+                    General Content
+                  </span>
+                </a>
+                <div class="dropdown-menu">
+                  <div class="dropdown-menu-columns">
+                    <div class="dropdown-menu-column">
+                      <a class="dropdown-item" href="{{url('/home')}}">
+                        Team
+                      </a>
+                      {{-- <a class="dropdown-item" href="{{url('/about')}}">
+                        Testimonials
+                      </a> --}}
+                      <a class="dropdown-item" href="{{url('/about-two')}}">
+                        Contact info
+                      </a>
+                      {{-- <a class="dropdown-item" href="{{url('/agroforestry')}}">
+                        Agroforestry
+                      </a>
+                      <a class="dropdown-item" href="{{url('/business')}}">
+                        Businesspage
+                      </a>
+                      <a class="dropdown-item" href="{{url('/eco-initiative')}}">
+                        Eco-initiative
+                      </a> --}}
+                      
+                      
+                      
+                    </div>
+                  </div>
+                </div>
+              </li>
               {{-- <li class="nav-item">
                 <a class="nav-link" href="{{url('/homepage')}}" >
                   <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/home -->

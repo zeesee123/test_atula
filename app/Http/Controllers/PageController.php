@@ -219,4 +219,9 @@ class PageController extends Controller
     // Return edit view
     return view('pages.edit_galleryimage', compact('image', 'categories'));
     }
+
+    public function view_jobs(){
+
+      return view('pages.view_jobs');
+    }
 }

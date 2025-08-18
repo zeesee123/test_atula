@@ -90,5 +90,31 @@ class CareerpageController extends Controller
 
 
     }
+
+
+    public function loadtable()
+{
+    $data = [];
+    $counter = 1;
+
+    // Fetch all careers
+    $careers = Job::all(); // make sure you have a Career model
+
+    foreach ($careers as $career) {
+        $data[] = [
+            'id' => $counter++,            // serial number
+            'title' => $career->profile,     // job title
+            'actions' => '
+                <a href="'.url('/admin/careers/edit/'.$career->id).'" class="btn btn-success mx-1">
+                    <i class="bi bi-pencil-square"></i> Edit
+                </a>
+                <button type="button" class="btn btn-danger mx-1 eradicator" data-id="'.$career->id.'">
+                    <i class="bi bi-trash3-fill"></i> Delete
+                </button>'
+        ];
+    }
+
+    return response()->json(['data' => $data]);
+}
 }
 
