@@ -257,6 +257,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
+  //some test
+
   select.addEventListener('change', updateView);
   updateView();
 });
