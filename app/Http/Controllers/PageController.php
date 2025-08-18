@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Job;
 use App\Models\Blog;
 use App\Models\Event;
 use App\Models\Papaya;
@@ -223,5 +224,10 @@ class PageController extends Controller
     public function view_jobs(){
 
       return view('pages.view_jobs');
+    }
+
+    public function edit_job($id){
+      $job = Job::findOrFail($id); // fetch the job by id
+        return view('admin.careers.edit', ['model' => $job]);
     }
 }

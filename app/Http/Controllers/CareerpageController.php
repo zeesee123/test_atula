@@ -116,5 +116,52 @@ class CareerpageController extends Controller
 
     return response()->json(['data' => $data]);
 }
+
+
+public function update(Request $request,$id);
+    {
+        $request->validate([
+            'profile' => 'required|string|max:255',
+            'positions' => 'nullable|string|max:50',
+            'experience' => 'nullable|string|max:100',
+            'location' => 'nullable|string',
+            'eligibility' => 'nullable|string',
+            'summary' => 'nullable|string',
+            'requirements' => 'nullable|string',
+        ]);
+
+        $job = Job::findOrFail($id); // make sure id is sent in hidden input
+
+        $job->profile = $request->profile;
+        $job->positions = $request->positions;
+        $job->experience = $request->experience;
+        $job->location = $request->location;
+        $job->eligibility = $request->eligibility;
+        $job->summary = $request->summary;
+        $job->requirements = $request->requirements;
+
+        $job->save();
+
+        return redirect()->back()->with('success', 'Job updated successfully!');
+    }
+
+
+    public function delete($id)
+{
+    try {
+        $job = Job::findOrFail($id);  // find job or fail
+        $job->delete();               // delete it
+
+        return response()->json([
+            'message' => 'Job deleted successfully!'
+        ]);
+    } catch (\Exception $e) {
+        return response()->json([
+            'message' => 'Failed to delete job!',
+            'error' => $e->getMessage()
+        ], 500);
+    }
+}
+
 }
 

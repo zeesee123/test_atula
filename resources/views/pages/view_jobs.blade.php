@@ -4,7 +4,7 @@
 @push('styles')
 @endpush
 
-@extends('app.layout')
+
 
 @section('content')
 <div class="page-header d-print-none">
