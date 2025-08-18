@@ -201,7 +201,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.17.2/dist/sweetalert2.min.css
                   </span>
                 </a>
               </li>
-
+{{-- 
               <li class="nav-item">
                 <a class="nav-link" href="{{url('/admin/gallery')}}" >
                   <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/home -->
@@ -216,8 +216,45 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.17.2/dist/sweetalert2.min.css
                     Gallery
                   </span>
                 </a>
-              </li>
+              </li> --}}
 
+
+              {{-- gallery --}}
+
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false" >
+                  <span class="nav-link-icon d-md-none d-lg-inline-block">
+                    <!-- Download SVG icon from https://icons.getbootstrap.com/icons/file-earmark/ -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user-badge" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                      <path d="M14 12a4 4 0 1 0 -4 0a4 4 0 0 0 4 0"/>
+                      <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"/>
+                      <path d="M14 4h4a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-4a2 2 0 0 1 -2 -2v-2a2 2 0 0 1 2 -2z"/>
+                    </svg>
+                  </span>
+                  <span class="nav-link-title">
+                    Gallery
+                  </span>
+                </a>
+                <div class="dropdown-menu">
+                  <div class="dropdown-menu-columns">
+                    <div class="dropdown-menu-column">
+                      <a class="dropdown-item" href="{{url('/admin/galleryimages')}}">
+                        Add Images
+                      </a>
+                      <a class="dropdown-item" href="{{url('/admin/view_gallery_images')}}">
+                        View Images
+                      </a>
+                      {{-- <a class="dropdown-item" href="{{url('/admin/view_jobs')}}">
+                        View Jobs
+                      </a> --}}
+                      
+                      {{-- new dropdown --}}
+                      
+                  </div>
+                </div>
+              </li>
+              {{-- gallery ends --}}
               
 
             {{-- career  --}}
