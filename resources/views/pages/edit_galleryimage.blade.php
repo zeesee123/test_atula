@@ -26,43 +26,45 @@ https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-
 
         <div class="card">
   <div class="card-body">
-    <form action="{{ url('/admin/edit_galleryimage') }}" enctype="multipart/form-data" method="POST" id="main_form">
+    <form action="{{ url('/admin/edit_galleryimage/'.$image->id) }}" enctype="multipart/form-data" method="POST" id="main_form">
         @csrf
-    
+        @method('PUT') 
+
         <div class="card pt-3 p-4">
             <div class="row">
-    
+
                 {{-- Category Select --}}
                 <div class="mb-3 col-6">
                     <label class="form-label">Category Name</label>
                     <select name="category_id" id="categorySelect" class="form-select">
-                      @foreach($categories as $category)
-                          <option value="{{ $category->id }}" data-type="{{ $category->category }}">
-                              {{ $category->category }}
-                          </option>
-                      @endforeach
-                  </select>
-                    @error('category')
+                        @foreach($categories as $category)
+                            <option value="{{ $category->id }}" data-type="{{ $category->category }}"
+                                {{ $category->id == $image->gallery_category_id ? 'selected' : '' }}>
+                                {{ $category->category }}
+                            </option>
+                        @endforeach
+                    </select>
+                    @error('category_id')
                         <div class="text-danger">{{ $message }}</div>
                     @enderror
                 </div>
-    
-                {{-- Images & Category Text --}}
-                <div id="image-upload-wrapper" class="mb-3 col-6">
-                  <label class="form-label">Add Images (You can add multiple)</label>
-                  <input type="file" name="images[]" class="filepond" multiple>
-              </div>
 
-              @if($video)
-               <div class="mb-3 col-6">
-                <label class="form-label">Video URL</label>
-                  <input type="text" name="url">
-               </div>
-               @endif
-    
+                {{-- Image --}}
+                <div class="mb-3 col-6">
+                    <label class="form-label">Replace Image</label>
+                    <input type="file" name="image" id="imageInput" class="form-control">
+                    
+                </div>
+
+                {{-- Video URL placeholder --}}
+                <div class="mb-3 col-6" id="video-wrapper" style="display:none">
+                    <label class="form-label">Video URL</label>
+                    <input type="text" name="url" id="videoInput" class="form-control">
+                </div>
+
             </div>
         </div>
-    
+
         <div class="text-end p-3" style="bottom:0;position:sticky;z-index: 1030;">
             <button class="btn btn-lg btn-primary p-3" id="spin_submit">
                 <i class="bi bi-floppy2-fill mx-2"></i> Save
@@ -117,6 +119,33 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 </script>
 
+<script>
+
+const categorySelect = document.getElementById('categorySelect');
+    const videoWrapper = document.getElementById('video-wrapper');
+    const videoInput = document.getElementById('videoInput');
+
+    function toggleVideoInput() {
+        const selectedOption = categorySelect.options[categorySelect.selectedIndex];
+        const type = selectedOption.dataset.type;
+        if(type === 'video') {
+            videoWrapper.style.display = 'block';
+            @if($image->url)
+                videoInput.value = "{{ $image->url }}";
+            @endif
+        } else {
+            videoWrapper.style.display = 'none';
+            videoInput.value = '';
+        }
+    }
+
+    // Run on page load
+    toggleVideoInput();
+
+    // Run whenever category changes
+    categorySelect.addEventListener('change', toggleVideoInput);
+</script>
+
 
 <script>
     let main_form=document.getElementById('main_form');
@@ -166,27 +195,21 @@ https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-
 
 FilePond.registerPlugin(FilePondPluginImagePreview);
 
-// For image uploads (multiple allowed)
-document.querySelectorAll('input[name="images[]"]').forEach(input => {
-    FilePond.create(input, {
-        allowMultiple: true,
-        allowImagePreview: true,
-        instantUpload: false,
-        server: null,
-        storeAsFile: true
-    });
+const inputElement = document.getElementById('imageInput');
+
+// Create FilePond instance
+const pond = FilePond.create(inputElement, {
+    allowMultiple: false,
+    allowImagePreview: true,
+    instantUpload: false,
+    server: null, // since you are submitting via normal form
+    storeAsFile: true,
 });
 
-// For video thumbnail uploads (only one file per input)
-document.querySelectorAll('input[name="video_thumbnails[]"]').forEach(input => {
-    FilePond.create(input, {
-        allowMultiple: false, // ⛔ only 1 file
-        allowImagePreview: true,
-        instantUpload: false,
-        server: null,
-        storeAsFile: true
-    });
-});
+// If editing, preload existing image
+@isset($image->image_name)
+pond.addFile("{{ asset_env('images/'.$image->image_name) }}");
+@endisset
 
 </script>
 

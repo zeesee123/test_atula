@@ -12,6 +12,7 @@ use App\Models\Gallerypage;
 use App\Models\Aboutpagetwo;
 use App\Models\Businesspage;
 use Illuminate\Http\Request;
+use App\Models\GalleryImages;
 use App\Models\GalleryCategory;
 use App\Models\Agroforestrypage;
 use App\Models\Ecoinitiativepage;
@@ -208,11 +209,13 @@ class PageController extends Controller
     public function edit_galleryimage($id){
 
        // Fetch the image by ID
-    $image = GalleryImage::findOrFail($id);
+    $image = GalleryImages::findOrFail($id);
 
     // Fetch all categories for the dropdown in case you want to change category
     $categories = GalleryCategory::all();
 
+    //i will also have to check whether the category is video or not 
+//dd($image);
     // Return edit view
     return view('pages.edit_galleryimage', compact('image', 'categories'));
     }

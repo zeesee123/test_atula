@@ -17,7 +17,7 @@
         <div class="card">
   <div class="card-body">
 
-    <form action="{{ url('/admin/jobs') }}" enctype="multipart/form-data" method="POST" id="main_form">
+    <form action="{{ url('/admin/edit_job') }}" enctype="multipart/form-data" method="POST" id="main_form">
         @csrf
     
         <div class="card pt-3 p-4">
