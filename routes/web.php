@@ -229,7 +229,7 @@ Route::group(['prefix'=>'admin'],function(){
         Route::put('/update_galleryimage/{id}',[GallerypageController::class,'update_image']);
         Route::post('/view_gallery_images',[GallerypageController::class,'add_galleryimages']);
         Route::post('/edit_gallery_images',[GallerypageController::class,'add_galleryimages']);
-        Route::post('/delete_gallery_image',[GallerypageController::class,'add_galleryimages']);
+        Route::delete('/delete_galleryimage/{id}', [GallerypageController::class, 'delete_image']);
         
         //careers page
         Route::get('/careerpage',[PageController::class,'careerpage']);

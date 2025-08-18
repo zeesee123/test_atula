@@ -142,7 +142,7 @@ public function gallery_images(Request $request)
                     <a href="/admin/edit_galleryimage/'.$image->id.'" class="btn btn-success btn-sm mx-1">
                         <i class="bi bi-pencil-square"></i> Edit
                     </a>
-                    <button class="btn btn-danger btn-sm delete-btn mx-1" data-id="'.$image->id.'" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                    <button class="btn btn-danger btn-sm delete-btn mx-1" data-id="'.$image->id.'" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                         <i class="bi bi-trash3-fill"></i> Delete
                     </button>'
             ];
@@ -158,6 +158,22 @@ public function gallery_images(Request $request)
 
 
     // public function delete_image(){}
+
+    public function delete_image($id) {
+        $image = GalleryImages::findOrFail($id);
+        $categoryId = $image->gallery_category_id;
+    
+        if ($image->image_name && file_exists(public_path('images/' . $image->image_name))) {
+            unlink(public_path('images/' . $image->image_name));
+        }
+    
+        $image->delete();
+    
+        return response()->json([
+            'message' => 'Image deleted successfully!',
+            'category_id' => $categoryId
+        ]);
+    }
 
     // public function delete_category(){}
 
