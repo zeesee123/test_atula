@@ -228,6 +228,6 @@ class PageController extends Controller
 
     public function edit_job($id){
       $job = Job::findOrFail($id); // fetch the job by id
-        return view('admin.careers.edit', ['model' => $job]);
+        return view('pages.edit_job', ['model' => $job]);
     }
 }
