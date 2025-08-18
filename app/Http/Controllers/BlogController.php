@@ -139,4 +139,23 @@ public function editblog(Request $request, $id)
 
     return response()->json(['data' => $data]);
 }
+
+
+public function delete_blog($id)
+{
+    $blog = Blog::findOrFail($id);
+
+    // Delete image from server
+    if ($blog->blog_image && file_exists(public_path('blogs/'.$blog->blog_image))) {
+        unlink(public_path('blogs/'.$blog->blog_image));
+    }
+
+    $blog->delete();
+
+    return response()->json([
+        'message' => 'Blog deleted successfully!',
+        'category_id' => null // optional if not needed for blogs
+    ]);
+}
+
 }

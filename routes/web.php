@@ -200,6 +200,8 @@ Route::group(['prefix'=>'admin'],function(){
         
         Route::get('/get_blogs',[BlogController::class,'loadtable']);
 
+        Route::delete('/delete_blog/{id}', [BlogController::class, 'delete_blog']);
+
         //users table
         Route::get('/users',[PageController::class,'listusers']);
 
