@@ -37,7 +37,7 @@ https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-
                     <label class="form-label">Category Name</label>
                     <select name="category_id" id="categorySelect" class="form-select">
                       @foreach($categories as $category)
-                          <option value="{{ $category->id }}" data-type="{{ $category->category }}">
+                          <option value="{{ $category->id }}" data-type="{{ strtolower($category->category) }}">
                               {{ $category->category }}
                           </option>
                       @endforeach
