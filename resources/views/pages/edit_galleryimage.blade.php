@@ -26,7 +26,7 @@ https://cdn.jsdelivr.net/npm/filepond-plugin-image-preview@4.6.12/dist/filepond-
 
         <div class="card">
   <div class="card-body">
-    <form action="{{ url('/admin/edit_galleryimage/'.$image->id) }}" enctype="multipart/form-data" method="POST" id="main_form">
+    <form action="{{ url('/admin/update_galleryimage/'.$image->id) }}" enctype="multipart/form-data" method="POST" id="main_form">
         @csrf
         @method('PUT') 
 

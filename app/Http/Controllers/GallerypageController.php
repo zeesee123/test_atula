@@ -157,13 +157,55 @@ public function gallery_images(Request $request)
     }
 
 
-    public function delete_image(){}
+    // public function delete_image(){}
 
-    public function delete_category(){}
+    // public function delete_category(){}
 
-    public function edit_image(){}
+    public function update_image(Request $request,$id){
 
-    public function edit_category(){}
+        $image = GalleryImages::findOrFail($id);
+        $category = GalleryCategory::findOrFail($request->category_id);
+    
+        // Validation rules
+        $rules = [
+            'category_id' => 'required|exists:gallery_categories,id',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
+            'url' => strtolower($category->category) === 'video' ? 'required|url' : 'nullable|string',
+        ];
+    
+        $request->validate($rules);
+    
+        // Image must exist either already or uploaded
+        if (!$image->image_name && !$request->hasFile('image')) {
+            return back()->withErrors(['image' => 'Image is required for this gallery item.']);
+        }
+    
+        // Handle video category
+        if (strtolower($category->category) === 'video') {
+            $image->url = $request->url;
+        } else {
+            $image->url = null;
+        }
+    
+        // Handle image upload and delete old image
+        if ($request->hasFile('image')) {
+            if ($image->image_name && file_exists(public_path('images/' . $image->image_name))) {
+                unlink(public_path('images/' . $image->image_name));
+            }
+    
+            $file = $request->file('image');
+            $imageName = $file->hashName();
+            $file->move(public_path('images'), $imageName);
+            $image->image_name = $imageName;
+        }
+    
+        $image->gallery_category_id = $request->category_id;
+        $image->save();
+    
+        return redirect()->back()->with('success', 'Gallery updated successfully!');
+    }
+
+    // public function edit_category(){}
 
    
 
