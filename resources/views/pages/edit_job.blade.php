@@ -17,7 +17,7 @@
         <div class="card">
   <div class="card-body">
 
-    <form action="{{ url('/admin/edit_job') }}" enctype="multipart/form-data" method="POST" id="main_form">
+    <form action="{{ url('/admin/careers/update').'/'.$model->id }}" enctype="multipart/form-data" method="POST" id="main_form">
         @csrf
     
         <div class="card pt-3 p-4">
@@ -83,7 +83,7 @@
                 {{-- Requirements --}}
                 <div class="mb-3 col-12">
                     <label class="form-label">Requirements</label>
-                    <textarea name="requirements" class="form-control" rows="4">{{ old('requirements', isset($model) ? $model->requirements : '') }}</textarea>
+                    <textarea name="requirements" id="blog_content" class="form-control" rows="4">{{ old('requirements', isset($model) ? $model->requirements : '') }}</textarea>
                     @error('requirements')
                         <div class="text-danger">{{ $message }}</div>
                     @enderror

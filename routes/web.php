@@ -242,8 +242,8 @@ Route::group(['prefix'=>'admin'],function(){
         Route::get('/view_jobs',[PageController::class,'view_jobs']);
         Route::get('/careers/loadtable',[CareerpageController::class,'loadtable']);
         Route::get('/careers/edit/{id}', [PageController::class, 'edit_job']);      // edit page
-Route::delete('/careers/delete/{id}', [CareerController::class, 'delete']); // delete ajax
-Route::post('/careers/update/{id}', [CareerController::class, 'update']);  // update from edit
+Route::delete('/careers/delete/{id}', [CareerpageController::class, 'delete']); // delete ajax
+Route::post('/careers/update/{id}', [CareerpageController::class, 'update']);  // update from edit
         // Route::get('/view_jobs',[CareerpageController::class,'view_jobs']);
         // Route::get('/edit/job',[CareerpageController::class,'edit_job']);
         // Route::get('/delete/job',[CareerpageController::class,'remove_job']);
