@@ -72,7 +72,7 @@ public function gallery_images(Request $request)
     
             // Get the category
             $category = GalleryCategory::findOrFail($categoryId);
-            $isVideo = strtolower($category->category) === 'video';
+            $isVideo = strtolower($category->category) === 'videos';
     
             // Dynamic validation
             $rules = [
@@ -186,7 +186,7 @@ public function gallery_images(Request $request)
         $rules = [
             'category_id' => 'required|exists:gallery_categories,id',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
-            'url' => strtolower($category->category) === 'video' ? 'required|url' : 'nullable|string',
+            'url' => strtolower($category->category) === 'videos' ? 'required|url' : 'nullable|string',
         ];
     
         $request->validate($rules);
@@ -197,7 +197,7 @@ public function gallery_images(Request $request)
         }
     
         // Handle video category
-        if (strtolower($category->category) === 'video') {
+        if (strtolower($category->category) === 'videos') {
             $image->url = $request->url;
         } else {
             $image->url = null;

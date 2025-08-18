@@ -333,7 +333,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const opt = select.options[select.selectedIndex];
     const type = opt ? (opt.dataset.type || '') : '';
 
-    if (type === 'video') {
+    if (type === 'videos') {
       hide(imgWrap); show(vidWrap);
       setDisabled(imgWrap, true); setDisabled(vidWrap, false);
     } else {

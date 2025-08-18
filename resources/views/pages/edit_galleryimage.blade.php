@@ -128,7 +128,7 @@ const categorySelect = document.getElementById('categorySelect');
     function toggleVideoInput() {
         const selectedOption = categorySelect.options[categorySelect.selectedIndex];
         const type = selectedOption.dataset.type;
-        if(type === 'video') {
+        if(type === 'videos') {
             videoWrapper.style.display = 'block';
             @if($image->url)
                 videoInput.value = "{{ $image->url }}";
@@ -247,7 +247,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const opt = select.options[select.selectedIndex];
     const type = opt ? (opt.dataset.type || '') : '';
 
-    if (type === 'video') {
+    if (type === 'videos') {
       hide(imgWrap); show(vidWrap);
       setDisabled(imgWrap, true); setDisabled(vidWrap, false);
     } else {
