@@ -47,6 +47,7 @@ class BlogController extends Controller
             'meta_title'       => $validated['meta_title'] ?? null,
             'meta_description' => $validated['meta_description'] ?? null,
             'schema_markup'    => $validated['schema_markup'] ?? null,
+             'summary'=>$request->summary??null
         ]);
 
         return redirect()->back()->with('success', 'Blog created successfully!');
@@ -98,6 +99,7 @@ public function editblog(Request $request, $id)
         $blog->meta_title = $validated['meta_title'] ?? null;
         $blog->meta_description = $validated['meta_description'] ?? null;
         $blog->schema_markup = $validated['schema_markup'] ?? null;
+        $blog->summary=$request->summary;
 
         $blog->save();
 
