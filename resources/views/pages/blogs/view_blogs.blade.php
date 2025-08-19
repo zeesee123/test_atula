@@ -29,7 +29,11 @@
   </div>
 
      <div class="container-xl">
+      <div class="d-flex justify-content-between">
         <h3>View blogs</h3>
+        <a href="{{url('/admin/add_blog')}}" class="btn btn-primary "><i class="bi bi-file-earmark-plus-fill mx-1"></i>Create Blog</a>
+      </div>
+        
 
         <div class="card">
   <div class="card-body">
