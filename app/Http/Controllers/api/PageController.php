@@ -160,7 +160,7 @@ public function blogBySlug($slug)
                 'images'      => $category->images->map(function ($img) {
                     return [
                         'id'          => $img->id,
-                        'src'         => url('admin/images/' . $img->image_name),
+                        'src'         => 'admin/images/' . $img->image_name,
                         'alt'         => $img->image_name,
                         'youtubeLink' => $img->url ?: null,
                     ];
