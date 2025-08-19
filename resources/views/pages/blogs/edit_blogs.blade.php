@@ -12,7 +12,7 @@
 
       <div class="d-flex justify-content-between">
         <h3>Edit Blog</h3>
-        <div><button class="text-primary"><i class="bi bi-eye-fill mx-1"></i> Preview</button></div>
+        <div><a class="text-primary" href="https://www.akv.org.in/blogs/{{$blog->slug??''}}"><i class="bi bi-eye-fill mx-1"></i> Preview</a></div>
       </div>
         
 
