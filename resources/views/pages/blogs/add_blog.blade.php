@@ -90,6 +90,10 @@
 </div>
         </div>
         
+        <div class="mb-3 col-12">
+          <label for="summary" class="form-label">Summary</label>
+          <textarea name="summary" class="form-control"></textarea>
+      </div>
 
         <div class="mb-3 col-12">
     <label for="blog_content" class="form-label">Blog Content</label>

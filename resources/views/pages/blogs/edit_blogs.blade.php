@@ -54,8 +54,13 @@
         </div>
 
         <div class="mb-3 col-12">
+          <label for="summary" class="form-label">Summary</label>
+          <textarea name="summary" class="form-control">{{ $blog->summary??'' }}</textarea>
+      </div>
+
+        <div class="mb-3 col-12">
             <label class="form-label">Blog content</label>
-            <textarea name="content" id="blog_content" class="form-control" rows="6">{{ $blog->content }}</textarea>
+            <textarea name="content" id="blog_content" class="form-control" rows="6">{{ $blog->content??'' }}</textarea>
         </div>
 
     </div>

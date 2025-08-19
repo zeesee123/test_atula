@@ -20,6 +20,7 @@ class BlogController extends Controller
             'meta_title'       => 'nullable|string|max:255|unique:blogs,meta_title',
             'meta_description' => 'nullable|string',
             'schema_markup'    => 'nullable|string',
+            'summary'=>'nullable|string'
         ]);
 
         $imageName = null;
@@ -75,6 +76,7 @@ public function editblog(Request $request, $id)
             'meta_title'       => 'nullable|string|max:255',
             'meta_description' => 'nullable|string',
             'schema_markup'    => 'nullable|string',
+            'summary'=>'nullable|string'
         ]);
 
         if ($request->hasFile('blog_image')) {
