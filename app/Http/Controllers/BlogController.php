@@ -126,7 +126,7 @@ public function editblog(Request $request, $id)
             'blog_name' => $blog->title,
             'image'     => '<img src="'.asset_env('blogs/'.$blog->blog_image).'" style="width: 100px; height: auto; object-fit: contain;">',
             'actions'   => '
-        <a href="#" target="_blank" class="btn btn-primary mx-1">
+        <a href="https://www.akv.org.in/blogs/'.$blog->slug.'" target="_blank" class="btn btn-primary mx-1">
           <i class="bi bi-eye-fill mx-1"></i> Preview
         </a>
           <a href="/admin/edit_blog/'.$blog->id.'" target="_blank" class="btn btn-success mx-1">
