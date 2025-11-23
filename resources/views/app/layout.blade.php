@@ -290,6 +290,47 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.17.2/dist/sweetalert2.min.css
             </li>
             {{-- career ends   --}}
 
+            {{-- team block  --}}
+
+            {{-- team --}}
+<li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false">
+    <span class="nav-link-icon d-md-none d-lg-inline-block">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-users-group" width="24" height="24"
+           viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+           stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+        <path d="M10 7a4 4 0 1 0 4 0" />
+        <path d="M4 21v-2a4 4 0 0 1 4 -4h.5" />
+        <path d="M20 21v-2a4 4 0 0 0 -4 -4h-.5" />
+        <path d="M14 7h6m-3 -3v6" />
+      </svg>
+    </span>
+    <span class="nav-link-title">
+      Team
+    </span>
+  </a>
+
+  <div class="dropdown-menu">
+    <div class="dropdown-menu-columns">
+      <div class="dropdown-menu-column">
+
+        <a class="dropdown-item" href="{{ url('/admin/add_team') }}">
+          Add Team Member
+        </a>
+
+        <a class="dropdown-item" href="{{ url('/admin/view_team') }}">
+          View Team
+        </a>
+
+      </div>
+    </div>
+  </div>
+
+</li>
+
+            {{-- team block ends --}}
+
 
             {{-- new blog entire menu --}}
 

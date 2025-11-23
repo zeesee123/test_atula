@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\TeamController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\PapayaController;
 use App\Http\Controllers\HomepageController;
@@ -193,6 +194,21 @@ Route::group(['prefix'=>'admin'],function(){
         Route::get('/add_blog',[PageController::class,'addblog']);
         Route::get('/edit_blog/{id}',[PageController::class,'editblog']);
          Route::get('/view_blogs',[PageController::class,'viewblogs']);
+
+
+         // routes for Team Page (CMS)
+Route::get('/add_team', [PageController::class, 'addteam']);
+Route::get('/edit_team/{id}', [PageController::class, 'editteam']);
+Route::get('/view_team', [PageController::class, 'viewteam']);
+
+// TEAM ROUTES
+Route::post('/team/create', [TeamController::class, 'addteam']);
+Route::post('/edit_team/{id}', [TeamController::class, 'editteam']);
+
+Route::get('/get_teams', [TeamController::class, 'loadteamtable']);
+
+Route::delete('/delete_team/{id}', [TeamController::class, 'delete_team']);
+
 
         //blogs route
         Route::post('/blog/create',[BlogController::class,'addblog']);

@@ -37,3 +37,5 @@ Route::get('/eventpage',[PageController::class,'eventpage']);
 Route::get('/jobs',[PageController::class,'jobs']);
 
 Route::get('/gallery', [PageController::class, 'gallery']);
+
+Route::get('/team',[PageController::class,'team']);

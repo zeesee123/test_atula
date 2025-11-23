@@ -6,6 +6,7 @@ use App\Models\Job;
 use App\Models\Blog;
 use App\Models\Event;
 use App\Models\Homepage;
+use App\Models\TeamMember;
 use Illuminate\Http\Request;
 use App\Models\GalleryCategory;
 use App\Models\HomepageSection3;
@@ -69,6 +70,28 @@ class PageController extends Controller
 
         // return response()->json(['data'=>$model,'section3'=>$section3]);
     }
+
+
+    public function team()
+{
+    try {
+        $team = TeamMember::orderByRaw('COALESCE(sort_order, 99999) ASC')
+                          ->orderBy('id', 'asc')
+                          ->get();
+
+        return response()->json([
+            'success' => true,
+            'data' => $team
+        ]);
+
+    } catch (\Exception $e) {
+        return response()->json([
+            'success' => false,
+            'message' => 'Something went wrong: ' . $e->getMessage()
+        ], 500);
+    }
+}
+
 
    public function blogs()
 {

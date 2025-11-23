@@ -9,6 +9,7 @@ use App\Models\Papaya;
 use App\Models\Homepage;
 use App\Models\Aboutpage;
 use App\Models\Careerpage;
+use App\Models\TeamMember;
 use App\Models\Gallerypage;
 use App\Models\Aboutpagetwo;
 use App\Models\Businesspage;
@@ -154,6 +155,26 @@ class PageController extends Controller
 
       return view('pages.blogs.view_blogs');
     }
+
+    //team part
+    public function addteam()
+{
+    return view('pages.team.add_team');
+}
+
+public function editteam($id)
+{
+    // Fetch the team member by ID
+    $team = TeamMember::findOrFail($id);
+
+    // Pass to the edit view
+    return view('pages.team.edit_team', compact('team'));
+}
+
+public function viewteam()
+{
+    return view('pages.team.view_team');
+}
 
     public function eventpage(){
 
